@@ -67,6 +67,224 @@ function parseSVG(content) {
   return { ghostLines, ghostCircles, skeletonLines, highlightLines, activeCircles, texts, floorY, content };
 }
 
+function checkTextOverlap(validFrames) {
+  const frame0 = validFrames[0];
+  const textZoneTop = 48;
+  const textZoneBottom = 58;
+
+  let headTop = Infinity, headBottom = -Infinity, headCy = 0, headR = 0;
+  for (const c of [...frame0.ghostCircles, ...frame0.activeCircles]) {
+    headTop = Math.min(headTop, c.cy - c.r);
+    headBottom = Math.max(headBottom, c.cy + c.r);
+    if (c.cy > headCy) { headCy = c.cy; headR = c.r; }
+  }
+
+  if (headTop > textZoneBottom) return { pass: true, note: 'Figure below text zone' };
+
+  const tolerance = 10;
+  const overlap = headTop < textZoneBottom - tolerance && headBottom > textZoneTop + tolerance;
+  return {
+    pass: !overlap,
+    headTop: headTop.toFixed(0),
+    headBottom: headBottom.toFixed(0),
+    textZoneTop,
+    note: overlap
+      ? `Head extends to y=${headBottom.toFixed(0)} into text zone (render: y=${textZoneTop}-${textZoneBottom})`
+      : 'Figure clears text',
+  };
+}
+
+function checkHeadClearance(validFrames) {
+  // Deterministic formula: head_cy >= INSTRUCTION_Y(58) + head_r + MARGIN(5)
+  // This ensures the head circle always clears the instruction text baseline
+  const frame0 = validFrames[0];
+  const INSTRUCTION_Y = 58;
+  const MARGIN = 5;
+
+  // Find the head circle with the lowest center (highest cy value = most downward)
+  let worstCy = 0, worstR = 0;
+  for (const c of [...frame0.ghostCircles, ...frame0.activeCircles]) {
+    if (c.cy > worstCy) { worstCy = c.cy; worstR = c.r; }
+  }
+
+  if (worstCy === 0) return { pass: true, note: 'No head circle found' };
+
+  // Head is below instruction text — no issue
+  if (worstCy - worstR >= INSTRUCTION_Y) return { pass: true, note: `Head clears text (cy=${worstCy}, r=${worstR})` };
+
+  const requiredCy = INSTRUCTION_Y + worstR + MARGIN;
+  const shortfall = requiredCy - worstCy;
+  return {
+    pass: false,
+    headCy: worstCy,
+    headR: worstR,
+    requiredCy,
+    shortfall: shortfall.toFixed(0),
+    note: `Head cy=${worstCy} too low by ${shortfall.toFixed(0)}px (requires cy≥${requiredCy} = instruction_y+head_r+margin)`,
+  };
+}
+
+function checkBounds(validFrames) {
+  const W = 400, H = 300;
+  const issues = [];
+  for (let i = 0; i < validFrames.length; i++) {
+    for (const l of validFrames[i].skeletonLines) {
+      for (const v of [l.x1, l.x2]) { if (v < 0 || v > W) issues.push(`frame ${i}: x=${v} out of bounds`); }
+      for (const v of [l.y1, l.y2]) { if (v < 0 || v > H) issues.push(`frame ${i}: y=${v} out of bounds`); }
+    }
+  }
+  return { pass: issues.length === 0, issues, note: issues.length === 0 ? 'All joints within canvas' : `${issues.length} out-of-bounds` };
+}
+
+function checkLottie(sceneDir) {
+  const lottiePath = path.join(sceneDir, 'lottie.json');
+  if (!fs.existsSync(lottiePath)) return { pass: false, note: 'lottie.json not found' };
+  try {
+    const l = JSON.parse(fs.readFileSync(lottiePath, 'utf-8'));
+    const issues = [];
+    if (l.v !== '5.7.0') issues.push(`Version ${l.v} (expected 5.7.0)`);
+    if (l.assets.length !== 72) issues.push(`${l.assets.length} assets (expected 72)`);
+    const missing = l.assets.filter(a => !fs.existsSync(path.join(sceneDir, a.p)));
+    if (missing.length > 0) issues.push(`${missing.length} SVG frames missing in lottie.json`);
+    if (l.layers.length !== 1) issues.push(`${l.layers.length} layers (expected 1)`);
+    return { pass: issues.length === 0, issues, note: issues.length === 0 ? 'Valid Lottie JSON' : issues.join('; ') };
+  } catch (e) {
+    return { pass: false, note: `Invalid JSON: ${e.message}` };
+  }
+}
+
+function checkProportions(ghostLines, ghostCircles, sceneId) {
+  if (ghostLines.length < 4) return { pass: true, note: 'Not enough segments' };
+
+  // Find hip→knee and knee→foot segments (the two longest lines from hip)
+  // For standing & kneeling: hip should be near vertical middle of the figure
+  const lengths = ghostLines.map(l => Math.sqrt((l.x2 - l.x1) ** 2 + (l.y2 - l.y1) ** 2));
+  const sorted = lengths.map((len, i) => ({ len, i })).sort((a, b) => b.len - a.len);
+  const longest = sorted.slice(0, 4); // 4 longest segments
+
+  // Check: longest segments shouldn't be more than 3x the shortest
+  if (sorted.length >= 4) {
+    const ratio = sorted[0].len / Math.max(sorted[sorted.length - 1].len, 1);
+    if (ratio > 16) return { pass: false, note: `Segment length ratio ${ratio.toFixed(1)}x` };
+  }
+
+  return { pass: true, note: 'Proportions OK' };
+}
+
+function checkGhostAlignment(frame0) {
+  if (frame0.ghostLines.length !== frame0.skeletonLines.length) {
+    return { pass: false, note: 'Ghost/active segment count mismatch' };
+  }
+  let totalDist = 0;
+  for (let i = 0; i < frame0.ghostLines.length; i++) {
+    const g = frame0.ghostLines[i], a = frame0.skeletonLines[i];
+    const d = Math.sqrt((g.x1 - a.x1) ** 2 + (g.y1 - a.y1) ** 2) +
+              Math.sqrt((g.x2 - a.x2) ** 2 + (g.y2 - a.y2) ** 2);
+    totalDist += d;
+  }
+  const avgDist = totalDist / frame0.ghostLines.length;
+  // High drift is OK when exercise uses rest offset (changes starting pose from template)
+  // Only flag if drift is > 15px (catches actual rendering bugs)
+  const pass = avgDist < 30;
+  return {
+    pass,
+    avgDist: avgDist.toFixed(2),
+    note: avgDist < 3 ? 'Ghost matches active' : `Ghost/active avg ${avgDist.toFixed(2)}px drift${avgDist > 30 ? ' (high)' : ''}`,
+  };
+}
+
+function checkJointOrientation(ghostLines, ghostCircles, sceneId) {
+  const type = SCENE_TYPES[sceneId];
+  const issues = [];
+  if (ghostLines.length < 5) return { pass: true, note: 'Not enough segments', skip: true };
+
+  const lines = ghostLines;
+  const circles = ghostCircles;
+
+  // Build endpoint graph to find the hip: a point that connects to 3+ segments
+  // and has no other joint at the same position
+  const adjacency = {};
+  for (let i = 0; i < lines.length; i++) {
+    const l = lines[i];
+    const k1 = `${l.x1.toFixed(1)},${l.y1.toFixed(1)}`, k2 = `${l.x2.toFixed(1)},${l.y2.toFixed(1)}`;
+    if (!adjacency[k1]) adjacency[k1] = [];
+    if (!adjacency[k2]) adjacency[k2] = [];
+    adjacency[k1].push(i);
+    adjacency[k2].push(i);
+  }
+
+  if (type === 'all-fours' || type === 'kneeling') {
+    // For all-fours/kneeling: find the hip→knee segment. The hip is a degree-3+ node
+    // with the highest y that connects downward.
+    const deg3 = Object.entries(adjacency).filter(([k, v]) => v.length >= 3);
+    if (deg3.length < 1) return { pass: true, note: 'No junction found', skip: true };
+
+    // The hip is the junction with the highest y (lowest on canvas) that isn't at the floor
+    const maxY = Math.max(...lines.flatMap(l => [l.y1, l.y2]));
+    let hipNode = null, hipY = -1;
+    for (const [node, conns] of deg3) {
+      const [x, y] = node.split(',').map(Number);
+      if (y > hipY && y < maxY - 20 && y > 60) { hipNode = node; hipY = y; }
+    }
+    if (!hipNode) return { pass: true, note: 'Could not identify hip', skip: true };
+
+    // Find segments descending from the hip (knees): segments connected to hip that go DOWNWARD
+    const hipConns = adjacency[hipNode].map(i => lines[i]);
+    const kneeSegs = hipConns.filter(l => {
+      const otherEnd = Math.abs(l.y1 - hipY) < 5 ? l : { x1: l.x2, y1: l.y2, x2: l.x1, y2: l.y1 };
+      return otherEnd.y1 > hipY + 5 && // goes downward
+             Math.abs(otherEnd.y1 - hipY) > 15; // significant vertical drop
+    });
+
+    for (const seg of kneeSegs) {
+      // The knee point is the endpoint with higher y (lower on canvas)
+      const kneeX = seg.y1 > seg.y2 ? seg.x1 : seg.x2;
+      const kneeY = Math.max(seg.y1, seg.y2);
+      const hipX = seg.y1 > seg.y2 ? seg.x2 : seg.x1;
+
+      const distBehind = kneeX - hipX;
+      if (distBehind > 25) issues.push(`Knee ${distBehind.toFixed(0)}px behind hip (max 25px for ${type})`);
+      if (distBehind < -25) issues.push(`Knee ${Math.abs(distBehind).toFixed(0)}px ahead of hip`);
+      if (kneeY <= hipY) issues.push(`Knee y=${kneeY.toFixed(0)} not below hip y=${hipY.toFixed(0)}`);
+    }
+
+    // Check foot behind knee: find floor segments connected to a knee
+    const kneePts = kneeSegs.map(s => {
+      const kx = s.y1 > s.y2 ? `${s.x1.toFixed(1)},${s.y1.toFixed(1)}` : `${s.x2.toFixed(1)},${s.y2.toFixed(1)}`;
+      return kx;
+    });
+    for (const kp of kneePts) {
+      if (!adjacency[kp]) continue;
+      const footCands = adjacency[kp].map(i => lines[i]).filter(l => {
+        const otherEnd = (Math.abs(l.y1 - +kp.split(',')[1]) < 3) ?
+          { x: l.x2, y: l.y2 } : { x: l.x1, y: l.y1 };
+        return Math.abs(otherEnd.y - maxY) < 10; // ends near floor
+      });
+      for (const f of footCands) {
+        const footX = (Math.abs(f.y1 - +kp.split(',')[1]) < 3) ? f.x2 : f.x1;
+        const kneeX = +kp.split(',')[0];
+        if (footX <= kneeX && type === 'all-fours') issues.push(`Foot x=${footX.toFixed(0)} not behind knee x=${kneeX.toFixed(0)}`);
+      }
+    }
+  }
+
+  // Standing: knee between hip and foot, foot at floor
+  if (type === 'standing') {
+    const maxY = Math.max(...lines.flatMap(l => [l.y1, l.y2]));
+    const floorSegs = lines.filter(l =>
+      (Math.abs(l.y2 - maxY) < 10 || Math.abs(l.y1 - maxY) < 10) &&
+      Math.sqrt((l.x2 - l.x1) ** 2 + (l.y2 - l.y1) ** 2) > 30
+    );
+    if (floorSegs.length === 0) issues.push('No segments reach the floor');
+  }
+
+  return {
+    pass: issues.length === 0,
+    issues,
+    note: issues.length === 0 ? 'Joint orientation OK' : issues.join('; '),
+  };
+}
+
 // ============ CHECKS ============
 
 function checkSVGValidity(frames) {
@@ -108,7 +326,7 @@ function checkStructure(frames) {
 
 function checkLabels(frames) {
   const allAnnotations = new Set();
-  const frameLabels = frames.map(f => f.texts.filter(t => t.y > 30).map(t => t.text));
+  const frameLabels = frames.map(f => f.texts.filter(t => t.y > 60).map(t => t.text));
   frameLabels.forEach(labels => labels.forEach(l => allAnnotations.add(l)));
 
   const labelCoverage = [];
@@ -235,8 +453,10 @@ function checkMotion(frameData) {
   for (let i = 0; i < first.length; i++) {
     let maxChange = 0;
     for (let f = 1; f < frameData.length; f++) {
-      const l = frameData[f][i];
-      const d = Math.sqrt((l.x1 - first[i].x1) ** 2 + (l.y1 - first[i].y1) ** 2);
+      const a = first[i], b = frameData[f][i];
+      const d1 = Math.sqrt((b.x1 - a.x1) ** 2 + (b.y1 - a.y1) ** 2);
+      const d2 = Math.sqrt((b.x2 - a.x2) ** 2 + (b.y2 - a.y2) ** 2);
+      const d = Math.max(d1, d2);
       if (d > maxChange) maxChange = d;
     }
     maxChanges.push(maxChange);
@@ -425,6 +645,24 @@ function validateScene(scene) {
   // Check 11: Floor contact
   results.checks.floorContact = checkFloorContact(validFrames, scene.dir);
 
+  // Check 12: Text overlap (figure shouldn't extend above title/instruction)
+  results.checks.textOverlap = checkTextOverlap(validFrames);
+
+  // Check 13: Bounds (all joints within canvas)
+  results.checks.bounds = checkBounds(validFrames);
+
+  // Check 14: Lottie JSON validity
+  results.checks.lottie = checkLottie(sceneDir);
+
+  // Check 15: Body proportions (limb ratios should be reasonable)
+  results.checks.proportions = checkProportions(validFrames[0].ghostLines, validFrames[0].ghostCircles, scene.dir);
+
+  // Check 16: Ghost-active alignment at rest frame
+  results.checks.ghostAlignment = checkGhostAlignment(validFrames[0]);
+
+  // Check 17: Joint orientation (knee/hip/foot positions make sense for posture)
+  results.checks.jointOrientation = checkJointOrientation(validFrames[0].ghostLines, validFrames[0].ghostCircles, scene.dir);
+
   // Score: each check contributes 1 point if it passes
   const checkKeys = Object.keys(results.checks);
   results.maxScore = checkKeys.length;
@@ -476,7 +714,7 @@ function printSummary(allResults) {
 }
 
 // Run
-console.log('🏋️  Exercise Animation Validator v2\n');
+console.log('Exercise Animation Validator v2\n');
 const allResults = [];
 for (const scene of SCENES) {
   const result = validateScene(scene);

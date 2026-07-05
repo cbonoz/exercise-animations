@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
 <rect width="400" height="300" fill="#0f0f1a"/>
 <line x1="20" y1="190" x2="380" y2="190" stroke="#444" stroke-width="3" stroke-linecap="round"/>
-<text x="200" y="23" fill="#888" font-size="12" font-family="sans-serif" text-anchor="middle">Cat-Cow</text>
-<text x="200" y="38" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">On hands and knees, alternate arching/rounding spine</text>
+<text x="200" y="38" fill="#888" font-size="13" font-family="sans-serif" text-anchor="middle">Cat-Cow</text>
+<text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">On hands and knees, alternate arching/rounding spine</text>
 <g stroke="#555" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.25">
-  <circle cx="65" cy="42" r="11" fill="#444" stroke="none"/>
-  <line x1="65" y1="42" x2="76" y2="47"/><line x1="76" y1="47" x2="90" y2="65"/><line x1="90" y1="65" x2="130" y2="90"/><line x1="90" y1="65" x2="60" y2="189"/><line x1="130" y1="90" x2="148" y2="189"/>
+  <circle cx="175" cy="73" r="10" fill="#444" stroke="none"/>
+  <line x1="175" y1="73" x2="186" y2="76"/><line x1="186" y1="76" x2="200" y2="87"/><line x1="200" y1="87" x2="240" y2="110"/><line x1="200" y1="87" x2="170" y2="189"/><line x1="240" y1="110" x2="245" y2="145"/><line x1="245" y1="145" x2="255" y2="189"/>
 </g>
 <g stroke="#FFF" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="63.1" cy="36.9" r="11" fill="#FFF" stroke="none"/>
-  <line x1="63.1" y1="36.9" x2="74.1" y2="43.8"/><line x1="74.1" y1="43.8" x2="90" y2="68.9"/><line x1="90" y1="68.9" x2="130" y2="85.5"/><line x1="90" y1="68.9" x2="60" y2="189"/><line x1="130" y1="85.5" x2="148" y2="189"/>
-  <line x1="74.1" y1="43.8" x2="90" y2="68.9" stroke="#22C55E" stroke-width="5" opacity="0.6"/><line x1="90" y1="68.9" x2="130" y2="85.5" stroke="#22C55E" stroke-width="5" opacity="0.6"/>
+  <circle cx="173.1" cy="85.9" r="10" fill="#FFF" stroke="none"/>
+  <line x1="173.1" y1="85.9" x2="184.1" y2="85.6"/><line x1="184.1" y1="85.6" x2="200" y2="83.1"/><line x1="200" y1="83.1" x2="240" y2="114.5"/><line x1="200" y1="83.1" x2="170" y2="189"/><line x1="240" y1="114.5" x2="245" y2="145"/><line x1="245" y1="145" x2="255" y2="189"/>
+  <line x1="184.1" y1="85.6" x2="200" y2="83.1" stroke="#22C55E" stroke-width="5" opacity="0.6"/><line x1="200" y1="83.1" x2="240" y2="114.5" stroke="#22C55E" stroke-width="5" opacity="0.6"/>
 </g>
-<path d="M 178.0716371709404 41.85769912250768 Q 203.0716371709404 13.857699122507682 228.0716371709404 41.85769912250768" stroke="#FFD93D" stroke-width="2" fill="none" stroke-dasharray="4,3"/><text x="203.0716371709404" y="9.857699122507682" fill="#FFD93D" font-size="10" text-anchor="middle" font-family="sans-serif">Arch (Cow)</text><path d="M 178.0716371709404 16.857699122507682 Q 203.0716371709404 38.85769912250768 228.0716371709404 16.857699122507682" stroke="#FFD93D" stroke-width="2" fill="none" stroke-dasharray="4,3"/><text x="203.0716371709404" y="34.85769912250768" fill="#FFD93D" font-size="10" text-anchor="middle" font-family="sans-serif">Round (Cat)</text>
+<path d="M 288.0716371709404 90.8557521937308 Q 313.0716371709404 62.855752193730794 338.0716371709404 90.8557521937308" stroke="#FFD93D" stroke-width="2" fill="none" stroke-dasharray="4,3"/><text x="313.0716371709404" y="58.855752193730794" fill="#FFD93D" font-size="10" text-anchor="middle" font-family="sans-serif">Arch (Cow)</text><path d="M 288.0716371709404 65.8557521937308 Q 313.0716371709404 87.8557521937308 338.0716371709404 65.8557521937308" stroke="#FFD93D" stroke-width="2" fill="none" stroke-dasharray="4,3"/><text x="313.0716371709404" y="83.8557521937308" fill="#FFD93D" font-size="10" text-anchor="middle" font-family="sans-serif">Round (Cat)</text>
 </svg>

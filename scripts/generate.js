@@ -27,11 +27,11 @@ const POSTURES = {
   // Lying on back, head left, feet right, arms/legs up
   supine: {
     floorY: 260,
-    head: { x: 100, y: 253 }, neck: { x: 112, y: 255 }, shoulder: { x: 125, y: 257 }, hip: { x: 170, y: 260 },
-    left_elbow: { x: 108, y: 215 }, left_hand: { x: 98, y: 195 },
-    right_elbow: { x: 142, y: 215 }, right_hand: { x: 152, y: 195 },
-    left_knee: { x: 205, y: 210 }, left_foot: { x: 220, y: 258 },
-    right_knee: { x: 190, y: 210 }, right_foot: { x: 205, y: 258 },
+    head: { x: 160, y: 253 }, neck: { x: 172, y: 255 }, shoulder: { x: 185, y: 257 }, hip: { x: 230, y: 260 },
+    left_elbow: { x: 168, y: 215 }, left_hand: { x: 158, y: 195 },
+    right_elbow: { x: 202, y: 215 }, right_hand: { x: 212, y: 195 },
+    left_knee: { x: 265, y: 210 }, left_foot: { x: 280, y: 258 },
+    right_knee: { x: 250, y: 210 }, right_foot: { x: 265, y: 258 },
     lines: [
       ['head','neck'],['neck','shoulder'],['shoulder','hip'],
       ['shoulder','left_elbow'],['left_elbow','left_hand'],
@@ -43,11 +43,11 @@ const POSTURES = {
   // Lying face down, head left, feet right
   prone: {
     floorY: 260,
-    head: { x: 60, y: 253 }, neck: { x: 78, y: 255 }, shoulder: { x: 95, y: 257 }, hip: { x: 155, y: 258 },
-    left_elbow: { x: 85, y: 235 }, left_hand: { x: 75, y: 230 },
-    right_elbow: { x: 110, y: 235 }, right_hand: { x: 120, y: 230 },
-    left_knee: { x: 200, y: 258 }, left_foot: { x: 230, y: 258 },
-    right_knee: { x: 195, y: 258 }, right_foot: { x: 225, y: 258 },
+    head: { x: 120, y: 253 }, neck: { x: 138, y: 255 }, shoulder: { x: 155, y: 257 }, hip: { x: 215, y: 258 },
+    left_elbow: { x: 145, y: 235 }, left_hand: { x: 135, y: 230 },
+    right_elbow: { x: 170, y: 235 }, right_hand: { x: 180, y: 230 },
+    left_knee: { x: 260, y: 258 }, left_foot: { x: 290, y: 258 },
+    right_knee: { x: 255, y: 258 }, right_foot: { x: 285, y: 258 },
     lines: [
       ['head','neck'],['neck','shoulder'],['shoulder','hip'],
       ['shoulder','left_elbow'],['left_elbow','left_hand'],
@@ -56,28 +56,30 @@ const POSTURES = {
       ['hip','right_knee'],['right_knee','right_foot'],
     ], head_r: 12,
   },
+  // head_y for all vertical postures = INSTRUCTION_Y(58) + HEAD_R(10) + MARGIN(5) = 73
+  // Ensures head_top (cy - r) clears instruction text baseline by MARGIN(5)px
   // On hands and knees, side view
   'all-fours': {
     floorY: 190,
-    head: { x: 65, y: 42 }, neck: { x: 76, y: 47 }, shoulder: { x: 90, y: 65 }, hip: { x: 130, y: 90 },
-    left_elbow: null, left_hand: { x: 60, y: 189 },
-    right_elbow: null, right_hand: { x: 148, y: 189 },
-    left_knee: null, left_foot: null,
+    head: { x: 175, y: 73 }, neck: { x: 186, y: 76 }, shoulder: { x: 200, y: 87 }, hip: { x: 240, y: 110 },
+    left_elbow: null, left_hand: { x: 170, y: 189 },
+    right_elbow: null, right_hand: null,
+    left_knee: { x: 245, y: 145 }, left_foot: { x: 255, y: 189 },
     right_knee: null, right_foot: null,
     lines: [
       ['head','neck'],['neck','shoulder'],['shoulder','hip'],
       ['shoulder','left_hand'],
-      ['hip','right_hand'],
-    ], head_r: 11,
+      ['hip','left_knee'],['left_knee','left_foot'],
+    ], head_r: 10,
   },
   // Lying on side, head left, feet right
   'side-lying': {
     floorY: 250,
-    head: { x: 50, y: 232 }, neck: { x: 62, y: 235 }, shoulder: { x: 75, y: 238 }, hip: { x: 130, y: 245 },
-    left_elbow: { x: 100, y: 243 }, left_hand: { x: 120, y: 247 },
+    head: { x: 130, y: 232 }, neck: { x: 142, y: 235 }, shoulder: { x: 155, y: 238 }, hip: { x: 210, y: 245 },
+    left_elbow: { x: 180, y: 243 }, left_hand: { x: 200, y: 247 },
     right_elbow: null, right_hand: null,
-    left_knee: { x: 178, y: 237 }, left_foot: { x: 158, y: 245 },
-    right_knee: { x: 175, y: 228 }, right_foot: { x: 155, y: 243 },
+    left_knee: { x: 258, y: 237 }, left_foot: { x: 238, y: 245 },
+    right_knee: { x: 255, y: 228 }, right_foot: { x: 235, y: 243 },
     lines: [
       ['head','neck'],['neck','shoulder'],['shoulder','hip'],
       ['shoulder','left_elbow'],['left_elbow','left_hand'],
@@ -86,52 +88,53 @@ const POSTURES = {
     ], head_r: 12,
   },
   // Standing, side view, vertical
+  // head_y computed as: INSTRUCTION_Y(58) + HEAD_R(10) + MARGIN(5) = 73 → head_top=63 (5px below text)
   standing: {
-    floorY: 270,
-    head: { x: 60, y: 30 }, neck: { x: 60, y: 50 }, shoulder: { x: 60, y: 65 }, hip: { x: 60, y: 130 },
-    left_elbow: { x: 40, y: 80 }, left_hand: { x: 30, y: 95 },
-    right_elbow: { x: 80, y: 80 }, right_hand: { x: 90, y: 95 },
-    left_knee: { x: 60, y: 185 }, left_foot: { x: 60, y: 270 },
-    right_knee: { x: 60, y: 185 }, right_foot: { x: 60, y: 270 },
+    floorY: 225,
+    head: { x: 200, y: 73 }, neck: { x: 200, y: 81 }, shoulder: { x: 200, y: 89 }, hip: { x: 200, y: 113 },
+    left_elbow: { x: 182, y: 99 }, left_hand: { x: 174, y: 111 },
+    right_elbow: { x: 218, y: 99 }, right_hand: { x: 226, y: 111 },
+    left_knee: { x: 195, y: 170 }, left_foot: { x: 190, y: 222 },
+    right_knee: { x: 205, y: 170 }, right_foot: { x: 210, y: 222 },
     lines: [
       ['head','neck'],['neck','shoulder'],['shoulder','hip'],
       ['shoulder','left_elbow'],['left_elbow','left_hand'],
       ['shoulder','right_elbow'],['right_elbow','right_hand'],
       ['hip','left_knee'],['left_knee','left_foot'],
       ['hip','right_knee'],['right_knee','right_foot'],
-    ], head_r: 13,
+    ], head_r: 10,
   },
   // Upright on knees, side view
   kneeling: {
-    floorY: 248,
-    head: { x: 60, y: 40 }, neck: { x: 60, y: 55 }, shoulder: { x: 60, y: 70 }, hip: { x: 60, y: 120 },
-    left_elbow: { x: 40, y: 85 }, left_hand: { x: 30, y: 100 },
-    right_elbow: { x: 80, y: 85 }, right_hand: { x: 90, y: 100 },
-    left_knee: { x: 60, y: 245 }, left_foot: null,
-    right_knee: { x: 60, y: 245 }, right_foot: null,
+    floorY: 225,
+    head: { x: 200, y: 73 }, neck: { x: 200, y: 81 }, shoulder: { x: 200, y: 89 }, hip: { x: 200, y: 113 },
+    left_elbow: { x: 182, y: 99 }, left_hand: { x: 174, y: 111 },
+    right_elbow: { x: 218, y: 99 }, right_hand: { x: 226, y: 111 },
+    left_knee: { x: 195, y: 222 }, left_foot: { x: 188, y: 222 },
+    right_knee: { x: 205, y: 222 }, right_foot: { x: 212, y: 222 },
     lines: [
       ['head','neck'],['neck','shoulder'],['shoulder','hip'],
       ['shoulder','left_elbow'],['left_elbow','left_hand'],
       ['shoulder','right_elbow'],['right_elbow','right_hand'],
-      ['hip','left_knee'],
-      ['hip','right_knee'],
-    ], head_r: 12,
+      ['hip','left_knee'],['left_knee','left_foot'],
+      ['hip','right_knee'],['right_knee','right_foot'],
+    ], head_r: 10,
   },
   // Seated with legs forward, side view
   seated: {
     floorY: 250,
-    head: { x: 80, y: 60 }, neck: { x: 80, y: 80 }, shoulder: { x: 80, y: 95 }, hip: { x: 80, y: 170 },
-    left_elbow: { x: 60, y: 110 }, left_hand: { x: 50, y: 125 },
-    right_elbow: { x: 100, y: 110 }, right_hand: { x: 110, y: 125 },
-    left_knee: { x: 150, y: 175 }, left_foot: { x: 180, y: 245 },
-    right_knee: { x: 130, y: 175 }, right_foot: { x: 160, y: 245 },
+    head: { x: 155, y: 60 }, neck: { x: 155, y: 80 }, shoulder: { x: 155, y: 95 }, hip: { x: 155, y: 170 },
+    left_elbow: { x: 135, y: 105 }, left_hand: { x: 125, y: 120 },
+    right_elbow: { x: 175, y: 105 }, right_hand: { x: 185, y: 120 },
+    left_knee: { x: 225, y: 170 }, left_foot: { x: 255, y: 245 },
+    right_knee: { x: 205, y: 170 }, right_foot: { x: 235, y: 245 },
     lines: [
       ['head','neck'],['neck','shoulder'],['shoulder','hip'],
       ['shoulder','left_elbow'],['left_elbow','left_hand'],
       ['shoulder','right_elbow'],['right_elbow','right_hand'],
       ['hip','left_knee'],['left_knee','left_foot'],
       ['hip','right_knee'],['right_knee','right_foot'],
-    ], head_r: 12,
+    ], head_r: 10,
   },
 };
 
@@ -150,7 +153,6 @@ const MOTIONS = {
     move: { left_knee: { x: 84, y: 5 }, left_foot: { x: 100, y: 2 } },
     highlight: [['hip','left_knee'],['left_knee','left_foot']],
     highlightColor: '#FF6B6B',
-    annotations: [{ type: 'arrow', x1: 200, x2: 260, y: 235, color: '#FFD93D', label: 'Slide', labelY: 228 }],
   },
   'bridges': {
     posture: 'supine',
@@ -159,18 +161,13 @@ const MOTIONS = {
             left_foot: { x: -3, y: -2 }, right_foot: { x: -3, y: -2 } },
     highlight: [['neck','shoulder'],['shoulder','hip']],
     highlightColor: '#FF9500',
-    annotations: [{ type: 'arrow', x1: 118, x2: 118, y1: -42, y2: 3, color: '#FFD93D', label: 'Lift', labelY: -37 }],
   },
   'cat-cow': {
     posture: 'all-fours',
-    cat: { head: { x: 3, y: 20 }, neck: { x: 3, y: 15 }, shoulder: { x: 0, y: -6 }, hip: { x: 0, y: 7 } },
-    cow: { head: { x: -3, y: -8 }, neck: { x: -3, y: -5 }, shoulder: { x: 0, y: 6 }, hip: { x: 0, y: -7 } },
+    cow: { head: { x: -3, y: 20 }, neck: { x: -3, y: 15 }, shoulder: { x: 0, y: -6 }, hip: { x: 0, y: 7 } },
+    cat: { head: { x: 3, y: -8 }, neck: { x: 3, y: -5 }, shoulder: { x: 0, y: 6 }, hip: { x: 0, y: -7 } },
     highlight: [['neck','shoulder'],['shoulder','hip']],
     highlightColor: '#22C55E',
-    annotations: [
-      { type: 'arc', joint: 'head', dx: 140, dy: 0, yOff: 15, color: '#FFD93D', label: 'Arch (Cow)' },
-      { type: 'arc', joint: 'head', dx: 140, dy: 0, yOff: -10, color: '#FFD93D', label: 'Round (Cat)' },
-    ],
   },
   'dead-bugs': {
     posture: 'supine',
@@ -178,17 +175,12 @@ const MOTIONS = {
             left_knee: { x: 15, y: -3 }, left_foot: { x: 20, y: -3 } },
     highlight: [['shoulder','right_elbow'],['right_elbow','right_hand'],['hip','left_knee'],['left_knee','left_foot']],
     highlightColor: '#8B5CF6',
-    annotations: [
-      { type: 'text', joint: 'right_hand', dx: -30, dy: -8, color: '#8B5CF6', text: 'Extend arm' },
-      { type: 'text', joint: 'left_foot', dx: 2, dy: -8, color: '#8B5CF6', text: 'Extend leg' },
-    ],
   },
   'clamshells': {
     posture: 'side-lying',
     move: { right_knee: { x: 24, y: -24 } },
     highlight: [['hip','right_knee'],['right_knee','right_foot']],
     highlightColor: '#FFD93D',
-    annotations: [{ type: 'arc', x: 0, y1: -22, y2: -33, color: '#FFD93D', label: 'Open', labelY: -26 }],
   },
   'prone-hamstring-curl': {
     posture: 'prone',
@@ -258,25 +250,27 @@ const MOTIONS = {
   },
   'fire-hydrants': {
     posture: 'all-fours',
-    move: { hip: { x: 0, y: -5 }, right_knee: { x: 20, y: -15 }, right_foot: { x: 10, y: -10 } },
-    highlight: [['hip','right_knee'],['right_knee','right_foot']],
+    move: { hip: { x: 0, y: -5 }, left_knee: { x: 20, y: -15 }, left_foot: { x: 10, y: -10 } },
+    highlight: [['hip','left_knee'],['left_knee','left_foot']],
     highlightColor: '#FFD93D',
   },
   'glute-kickbacks': {
     posture: 'all-fours',
-    move: { hip: { x: 0, y: -3 }, right_knee: { x: 5, y: -5 }, right_foot: { x: 20, y: -15 } },
-    highlight: [['hip','right_knee'],['right_knee','right_foot']],
+    move: { hip: { x: 0, y: -3 }, left_knee: { x: 5, y: -5 }, left_foot: { x: 20, y: -15 } },
+    highlight: [['hip','left_knee'],['left_knee','left_foot']],
     highlightColor: '#FFD93D',
   },
   'bird-dogs': {
     posture: 'all-fours',
-    move: { left_hand: { x: -30, y: -20 }, right_hand: { x: 0, y: 0 },
-            shoulder: { x: -5, y: -5 }, hip: { x: 5, y: -5 } },
-    highlight: [['shoulder','left_hand'],['hip','right_hand']],
+    move: { left_hand: { x: -30, y: -20 }, left_foot: { x: 20, y: -15 },
+            left_knee: { x: 5, y: -5 }, shoulder: { x: -5, y: -5 }, hip: { x: 5, y: -5 } },
+    highlight: [['shoulder','left_hand'],['hip','left_knee'],['left_knee','left_foot']],
     highlightColor: '#22C55E',
   },
   'planks': {
     posture: 'prone',
+    rest: { left_elbow: { x: -10, y: 22 }, left_hand: { x: -25, y: 28 },
+            right_elbow: { x: -10, y: 22 }, right_hand: { x: -25, y: 28 } },
     move: { hip: { x: 0, y: -5 } },
     highlight: [['neck','shoulder'],['shoulder','hip']],
     highlightColor: '#22C55E',
@@ -354,16 +348,17 @@ const MOTIONS = {
   },
   'hip-flexor-stretch': {
     posture: 'kneeling',
-    move: { head: { x: 2, y: -3 }, neck: { x: 2, y: -3 }, shoulder: { x: 3, y: -5 },
-            left_elbow: { x: 1, y: -3 }, left_hand: { x: 1, y: -3 },
-            right_elbow: { x: 1, y: -3 }, right_hand: { x: 1, y: -3 },
-            hip: { x: 5, y: -8 }, left_knee: { x: 3, y: -5 }, right_knee: { x: 3, y: -5 } },
+    move: { head: { x: 8, y: -12 }, neck: { x: 8, y: -12 }, shoulder: { x: 10, y: -15 },
+            left_elbow: { x: 5, y: -5 }, left_hand: { x: 5, y: -5 },
+            right_elbow: { x: 5, y: -5 }, right_hand: { x: 5, y: -5 },
+            hip: { x: 15, y: -20 }, left_knee: { x: 5, y: -5 }, right_knee: { x: 5, y: -5 },
+            left_foot: { x: 5, y: -5 }, right_foot: { x: 5, y: -5 } },
     highlight: [['hip','shoulder']],
     highlightColor: '#FF9500',
   },
   'figure-4-stretch': {
     posture: 'supine',
-    move: { left_knee: { x: -15, y: 5 }, left_foot: { x: -5, y: 0 } },
+    move: { left_knee: { x: -30, y: -10 }, left_foot: { x: -20, y: -5 } },
     highlight: [['hip','left_knee'],['left_knee','left_foot']],
     highlightColor: '#FF9500',
   },
@@ -395,8 +390,9 @@ const MOTIONS = {
   },
   'childs-pose': {
     posture: 'kneeling',
-    move: { hip: { x: -10, y: 20 }, shoulder: { x: -20, y: 30 }, neck: { x: -25, y: 35 }, head: { x: -25, y: 38 },
-            left_hand: { x: -35, y: 40 }, right_hand: { x: -35, y: 40 } },
+    move: { hip: { x: 10, y: 45 }, shoulder: { x: -15, y: 60 }, neck: { x: -20, y: 68 }, head: { x: -20, y: 68 },
+            left_elbow: { x: -30, y: 65 }, left_hand: { x: -55, y: 115 },
+            right_elbow: { x: -30, y: 65 }, right_hand: { x: -55, y: 115 } },
     highlight: [['neck','shoulder'],['shoulder','hip']],
     highlightColor: '#22C55E',
   },
@@ -410,9 +406,9 @@ const MOTIONS = {
   },
   'thread-the-needle': {
     posture: 'all-fours',
-    move: { left_hand: { x: 10, y: 5 }, shoulder: { x: 5, y: 5 }, hip: { x: -3, y: 3 },
-            right_knee: { x: 5, y: -3 }, right_foot: { x: 10, y: -5 } },
-    highlight: [['shoulder','right_hand']],
+    move: { left_hand: { x: 15, y: 5 }, shoulder: { x: 5, y: 5 }, hip: { x: -3, y: 3 },
+            left_knee: { x: 5, y: -3 }, left_foot: { x: 10, y: -5 } },
+    highlight: [['shoulder','left_hand']],
     highlightColor: '#22C55E',
   },
   'seated-spinal-twist': {
@@ -465,43 +461,52 @@ const MOTIONS = {
   },
   'pendulum-swings': {
     posture: 'standing',
-    move: { hip: { x: 0, y: 10 }, shoulder: { x: 0, y: 15 }, neck: { x: 0, y: 15 }, head: { x: 0, y: 15 },
-            right_elbow: { x: 0, y: 10 }, right_hand: { x: -10, y: 15 } },
+    rest: { hip: { x: -5, y: 10 }, shoulder: { x: -5, y: 20 }, neck: { x: -5, y: 20 }, head: { x: -5, y: 15 },
+            right_elbow: { x: -5, y: 10 }, right_hand: { x: -10, y: 15 },
+            left_elbow: { x: -5, y: 10 }, left_hand: { x: -10, y: 15 } },
+    move: { right_hand: { x: 5, y: 5 }, left_hand: { x: 5, y: 5 } },
     highlight: [['shoulder','right_elbow'],['right_elbow','right_hand']],
     highlightColor: '#FF9500',
   },
   'band-pull-aparts': {
     posture: 'standing',
-    move: { left_elbow: { x: -15, y: -5 }, left_hand: { x: -25, y: -5 },
-            right_elbow: { x: 15, y: -5 }, right_hand: { x: 25, y: -5 } },
+    rest: { left_elbow: { x: 20, y: 0 }, left_hand: { x: 35, y: 0 },
+            right_elbow: { x: -20, y: 0 }, right_hand: { x: -35, y: 0 } },
+    move: { left_elbow: { x: -30, y: 0 }, left_hand: { x: -50, y: 0 },
+            right_elbow: { x: 30, y: 0 }, right_hand: { x: 50, y: 0 } },
     highlight: [['shoulder','left_elbow'],['shoulder','right_elbow']],
     highlightColor: '#FF9500',
   },
   'wall-slides': {
     posture: 'standing',
-    move: { right_elbow: { x: 5, y: -20 }, right_hand: { x: 5, y: -30 } },
-    highlight: [['shoulder','right_elbow'],['right_elbow','right_hand']],
+    rest: { left_elbow: { x: -5, y: -15 }, left_hand: { x: -10, y: -25 },
+            right_elbow: { x: -5, y: -15 }, right_hand: { x: -10, y: -25 } },
+    move: { left_elbow: { x: 0, y: -20 }, left_hand: { x: 0, y: -30 } },
+    highlight: [['shoulder','left_elbow'],['left_elbow','left_hand']],
     highlightColor: '#FF9500',
   },
   'scapular-retractions': {
     posture: 'standing',
-    move: { left_elbow: { x: -5, y: -2 }, left_hand: { x: -8, y: -3 },
-            right_elbow: { x: 5, y: -2 }, right_hand: { x: 8, y: -3 } },
+    move: { left_elbow: { x: -8, y: -2 }, left_hand: { x: -12, y: -3 },
+            right_elbow: { x: 8, y: -2 }, right_hand: { x: 12, y: -3 } },
     highlight: [['shoulder','left_elbow'],['shoulder','right_elbow']],
     highlightColor: '#FF9500',
   },
   'doorway-stretch': {
     posture: 'standing',
-    move: { left_elbow: { x: -10, y: 0 }, left_hand: { x: -15, y: 0 },
-            right_elbow: { x: 10, y: 0 }, right_hand: { x: 15, y: 0 },
-            hip: { x: 5, y: 3 } },
+    rest: { left_elbow: { x: 12, y: 0 }, left_hand: { x: 20, y: 0 },
+            right_elbow: { x: -12, y: 0 }, right_hand: { x: -20, y: 0 },
+            hip: { x: 5, y: 3 }, shoulder: { x: 5, y: 5 }, neck: { x: 3, y: 3 }, head: { x: 3, y: 3 } },
+    move: { hip: { x: 5, y: 8 }, shoulder: { x: 5, y: 12 }, neck: { x: 3, y: 8 }, head: { x: 3, y: 8 } },
     highlight: [['shoulder','left_elbow'],['shoulder','right_elbow']],
     highlightColor: '#FF9500',
   },
   'chest-opener': {
     posture: 'standing',
-    move: { left_elbow: { x: -5, y: -5 }, left_hand: { x: -8, y: -10 },
-            right_elbow: { x: 5, y: -5 }, right_hand: { x: 8, y: -10 } },
+    rest: { left_elbow: { x: -10, y: 15 }, left_hand: { x: -15, y: 25 },
+            right_elbow: { x: 10, y: 15 }, right_hand: { x: 15, y: 25 } },
+    move: { left_elbow: { x: -5, y: -10 }, left_hand: { x: -8, y: -15 },
+            right_elbow: { x: 5, y: -10 }, right_hand: { x: 8, y: -15 } },
     highlight: [['neck','shoulder'],['shoulder','hip']],
     highlightColor: '#FF9500',
   },
@@ -509,17 +514,18 @@ const MOTIONS = {
 
 // ============== RENDER ENGINE ==============
 
-function interpolateJoints(rest, motion, p, floorY) {
+function interpolateJoints(template, motion, p, floorY) {
   const result = {};
+  const restOff = motion.rest || {};
+  const move = motion.move || {};
   for (const j of JOINTS) {
-    if (!rest[j]) { result[j] = null; continue; }
-    const base = rest[j];
-    const delta = motion[j] || { x: 0, y: 0 };
-    const y = Math.min(base.y + delta.y * p, floorY - 1);
-    result[j] = {
-      x: base.x + delta.x * p,
-      y,
-    };
+    if (!template[j]) { result[j] = null; continue; }
+    const base = template[j];
+    const r = restOff[j] || { x: 0, y: 0 };
+    const d = move[j] || { x: 0, y: 0 };
+    const x = base.x + r.x + d.x * p;
+    const y = Math.min(base.y + r.y + d.y * p, floorY - 1);
+    result[j] = { x, y };
   }
   return result;
 }
@@ -528,10 +534,11 @@ function catCowInterpolate(rest, motion_cat, motion_cow, p, floorY) {
   const a = -Math.sin(p * Math.PI * 2);
   const cow = a < 0;
   const mag = Math.abs(a);
-  const motion = cow ? motion_cow : motion_cat;
-  return interpolateJoints(rest, Object.fromEntries(
-    Object.entries(motion).map(([k, v]) => [k, { x: v.x * mag, y: v.y * mag }])
-  ), 1, floorY);
+  const motionFlat = cow ? motion_cow : motion_cat;
+  const move = Object.fromEntries(
+    Object.entries(motionFlat).map(([k, v]) => [k, { x: v.x * mag, y: v.y * mag }])
+  );
+  return interpolateJoints(rest, { move }, 1, floorY);
 }
 
 function makeSvg(frame, exercise, motionData) {
@@ -597,8 +604,8 @@ function makeSvg(frame, exercise, motionData) {
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}">
 <rect width="${W}" height="${H}" fill="${S.bgColor}"/>
 <line x1="20" y1="${floorY}" x2="380" y2="${floorY}" stroke="${S.floorColor}" stroke-width="${S.floorStroke}" stroke-linecap="round"/>
-<text x="200" y="23" fill="#888" font-size="12" font-family="sans-serif" text-anchor="middle">${title}</text>
-<text x="200" y="38" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">${instruction}</text>
+<text x="200" y="38" fill="#888" font-size="13" font-family="sans-serif" text-anchor="middle">${title}</text>
+<text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">${instruction}</text>
 <g stroke="${S.ghostColor}" stroke-width="${S.ghostStroke}" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="${S.ghostOpacity}">
   <circle cx="${ghost.head.x}" cy="${ghost.head.y}" r="${hr}" fill="#444" stroke="none"/>
   ${ghostSvg}
@@ -645,10 +652,11 @@ for (const exercise of plan.exercises) {
     if (isCatCow) {
       joints = catCowInterpolate(ghost, motion.cat, motion.cow, t, floorY);
     } else {
-      joints = interpolateJoints(ghost, motion.move || {}, p, floorY);
+      joints = interpolateJoints(ghost, motion, p, floorY);
     }
 
-    const svg = makeSvg(joints, exercise, motion);
+    const mergedAnnotations = exercise.annotations || motion.annotations || [];
+    const svg = makeSvg(joints, exercise, { ...motion, annotations: mergedAnnotations });
     const frameFile = path.join(sceneDir, `frame-${String(f).padStart(3, '0')}.svg`);
     fs.writeFileSync(frameFile, svg);
   }

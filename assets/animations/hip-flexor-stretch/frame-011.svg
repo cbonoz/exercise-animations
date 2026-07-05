@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
 <rect width="400" height="300" fill="#0f0f1a"/>
-<line x1="20" y1="248" x2="380" y2="248" stroke="#444" stroke-width="3" stroke-linecap="round"/>
-<text x="200" y="23" fill="#888" font-size="12" font-family="sans-serif" text-anchor="middle">Hip Flexor Stretch</text>
-<text x="200" y="38" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">Kneeling lunge, shift weight forward, feel hip stretch, hold</text>
+<line x1="20" y1="225" x2="380" y2="225" stroke="#444" stroke-width="3" stroke-linecap="round"/>
+<text x="200" y="38" fill="#888" font-size="13" font-family="sans-serif" text-anchor="middle">Hip Flexor Stretch</text>
+<text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">Kneeling lunge, shift weight forward, feel hip stretch, hold</text>
 <g stroke="#555" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.25">
-  <circle cx="60" cy="40" r="12" fill="#444" stroke="none"/>
-  <line x1="60" y1="40" x2="60" y2="55"/><line x1="60" y1="55" x2="60" y2="70"/><line x1="60" y1="70" x2="60" y2="120"/><line x1="60" y1="70" x2="40" y2="85"/><line x1="40" y1="85" x2="30" y2="100"/><line x1="60" y1="70" x2="80" y2="85"/><line x1="80" y1="85" x2="90" y2="100"/><line x1="60" y1="120" x2="60" y2="245"/><line x1="60" y1="120" x2="60" y2="245"/>
+  <circle cx="200" cy="73" r="10" fill="#444" stroke="none"/>
+  <line x1="200" y1="73" x2="200" y2="81"/><line x1="200" y1="81" x2="200" y2="89"/><line x1="200" y1="89" x2="200" y2="113"/><line x1="200" y1="89" x2="182" y2="99"/><line x1="182" y1="99" x2="174" y2="111"/><line x1="200" y1="89" x2="218" y2="99"/><line x1="218" y1="99" x2="226" y2="111"/><line x1="200" y1="113" x2="195" y2="222"/><line x1="195" y1="222" x2="188" y2="222"/><line x1="200" y1="113" x2="205" y2="222"/><line x1="205" y1="222" x2="212" y2="222"/>
 </g>
 <g stroke="#FFF" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="60.2" cy="39.7" r="12" fill="#FFF" stroke="none"/>
-  <line x1="60.2" y1="39.7" x2="60.2" y2="54.7"/><line x1="60.2" y1="54.7" x2="60.3" y2="69.4"/><line x1="60.3" y1="69.4" x2="60.6" y2="119.1"/><line x1="60.3" y1="69.4" x2="40.1" y2="84.7"/><line x1="40.1" y1="84.7" x2="30.1" y2="99.7"/><line x1="60.3" y1="69.4" x2="80.1" y2="84.7"/><line x1="80.1" y1="84.7" x2="90.1" y2="99.7"/><line x1="60.6" y1="119.1" x2="60.3" y2="244.4"/><line x1="60.6" y1="119.1" x2="60.3" y2="244.4"/>
-  <line x1="60.6" y1="119.1" x2="60.3" y2="69.4" stroke="#FF9500" stroke-width="5" opacity="0.6"/>
+  <circle cx="200.9" cy="71.6" r="10" fill="#FFF" stroke="none"/>
+  <line x1="200.9" y1="71.6" x2="200.9" y2="79.6"/><line x1="200.9" y1="79.6" x2="201.1" y2="87.3"/><line x1="201.1" y1="87.3" x2="201.7" y2="110.7"/><line x1="201.1" y1="87.3" x2="182.6" y2="98.4"/><line x1="182.6" y1="98.4" x2="174.6" y2="110.4"/><line x1="201.1" y1="87.3" x2="218.6" y2="98.4"/><line x1="218.6" y1="98.4" x2="226.6" y2="110.4"/><line x1="201.7" y1="110.7" x2="195.6" y2="221.4"/><line x1="195.6" y1="221.4" x2="188.6" y2="221.4"/><line x1="201.7" y1="110.7" x2="205.6" y2="221.4"/><line x1="205.6" y1="221.4" x2="212.6" y2="221.4"/>
+  <line x1="201.7" y1="110.7" x2="201.1" y2="87.3" stroke="#FF9500" stroke-width="5" opacity="0.6"/>
 </g>
-
+<text x="221.7" y="100.7" fill="#FF9500" font-size="10" font-family="sans-serif">Shift</text>
 </svg>

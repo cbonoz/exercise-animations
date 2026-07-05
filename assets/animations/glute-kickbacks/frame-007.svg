@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
 <rect width="400" height="300" fill="#0f0f1a"/>
 <line x1="20" y1="190" x2="380" y2="190" stroke="#444" stroke-width="3" stroke-linecap="round"/>
-<text x="200" y="23" fill="#888" font-size="12" font-family="sans-serif" text-anchor="middle">Glute Kickbacks</text>
-<text x="200" y="38" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">On all fours, kick one leg back and up, return</text>
+<text x="200" y="38" fill="#888" font-size="13" font-family="sans-serif" text-anchor="middle">Glute Kickbacks</text>
+<text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">On all fours, kick one leg back and up, return</text>
 <g stroke="#555" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.25">
-  <circle cx="65" cy="42" r="11" fill="#444" stroke="none"/>
-  <line x1="65" y1="42" x2="76" y2="47"/><line x1="76" y1="47" x2="90" y2="65"/><line x1="90" y1="65" x2="130" y2="90"/><line x1="90" y1="65" x2="60" y2="189"/><line x1="130" y1="90" x2="148" y2="189"/>
+  <circle cx="175" cy="73" r="10" fill="#444" stroke="none"/>
+  <line x1="175" y1="73" x2="186" y2="76"/><line x1="186" y1="76" x2="200" y2="87"/><line x1="200" y1="87" x2="240" y2="110"/><line x1="200" y1="87" x2="170" y2="189"/><line x1="240" y1="110" x2="245" y2="145"/><line x1="245" y1="145" x2="255" y2="189"/>
 </g>
 <g stroke="#FFF" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="65" cy="42" r="11" fill="#FFF" stroke="none"/>
-  <line x1="65" y1="42" x2="76" y2="47"/><line x1="76" y1="47" x2="90" y2="65"/><line x1="90" y1="65" x2="130" y2="89.9"/><line x1="90" y1="65" x2="60" y2="189"/><line x1="130" y1="89.9" x2="148" y2="189"/>
-  
+  <circle cx="175" cy="73" r="10" fill="#FFF" stroke="none"/>
+  <line x1="175" y1="73" x2="186" y2="76"/><line x1="186" y1="76" x2="200" y2="87"/><line x1="200" y1="87" x2="240" y2="109.9"/><line x1="200" y1="87" x2="170" y2="189"/><line x1="240" y1="109.9" x2="245.1" y2="144.9"/><line x1="245.1" y1="144.9" x2="255.6" y2="188.6"/>
+  <line x1="240" y1="109.9" x2="245.1" y2="144.9" stroke="#FFD93D" stroke-width="5" opacity="0.6"/><line x1="245.1" y1="144.9" x2="255.6" y2="188.6" stroke="#FFD93D" stroke-width="5" opacity="0.6"/>
 </g>
-
+<line x1="270" y1="140" x2="300" y2="140" stroke="#FFD93D" stroke-width="2" stroke-dasharray="4,3"/><polygon points="300,135 310,140 300,145" fill="#FFD93D"/><text x="285" y="133" fill="#FFD93D" font-size="10" text-anchor="middle" font-family="sans-serif">Kick</text>
 </svg>

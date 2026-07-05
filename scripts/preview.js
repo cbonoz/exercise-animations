@@ -35,7 +35,6 @@ const HTML = `<!DOCTYPE html>
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
     .card { background: #1a1a2e; border-radius: 12px; overflow: hidden; cursor: pointer; transition: transform .2s, box-shadow .2s; }
     .card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(32,138,239,0.25); }
-    canvas { width: 100%; aspect-ratio: 4/3; display: block; background: #12121f; }
     .info { padding: 14px 18px; }
     .name { font-size: 15px; font-weight: 600; }
     .path { font-size: 11px; color: #666; margin-top: 3px; }
@@ -47,93 +46,91 @@ const HTML = `<!DOCTYPE html>
 </head>
 <body>
   <div class="app">
-    <h1>🏋️ BridgeRecovery</h1>
-    <div class="sub">Exercise Stick Figure Animation Previewer</div>
+    <h1>BridgeRecovery</h1>
+    <div class="sub">Exercise Stick Figure Animations — ${SCENES.length} exercises</div>
     <div class="grid" id="grid"></div>
   </div>
   <div class="fullscreen" id="fullscreen">
     <button class="fs-close" onclick="closeFS()">✕</button>
-    <canvas id="fsCanvas"></canvas>
+    <div id="fsCanvas" style="position:relative;width:800px;height:600px;background:#0f0f1a;border-radius:12px;overflow:hidden"></div>
     <div class="fs-name" id="fsName"></div>
   </div>
   <script>
     const scenes = ${JSON.stringify(SCENES)};
-    const FRAME_COUNT = 72;
+    const FULL_FRAMES = 72;
+    const GRID_FRAMES = 12; // grid uses 12 frames (every 6th), fullscreen uses all 72
     const FPS = 24;
 
-    function startPlayer(canvas, dir) {
-      const ctx = canvas.getContext('2d');
+    let fsTimer = null;
+
+    function loadFrames(container, dir, count, step, cb) {
       let f = 0;
       const imgs = [];
-      let timer = null;
 
       function loadNext(i) {
-        if (i >= FRAME_COUNT) { timer = setInterval(play, 1000 / FPS); return; }
-        const img = new Image();
+        if (i >= count) {
+          const t = setInterval(play, 1000 / FPS);
+          if (cb) cb(t);
+          return;
+        }
+        const img = document.createElement('img');
+        img.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain';
+        const frameIdx = i * step;
         img.onload = () => { imgs[i] = img; loadNext(i + 1); };
-        img.onerror = () => { imgs[i] = null; loadNext(i + 1); };
-        img.src = '/assets/animations/' + dir + '/frame-' + String(i).padStart(3, '0') + '.svg';
+        img.onerror = () => { imgs[i] = img; loadNext(i + 1); };
+        img.src = '/assets/animations/' + dir + '/frame-' + String(frameIdx).padStart(3, '0') + '.svg';
+        container.appendChild(img);
       }
 
       function play() {
-        if (imgs[f]) {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          const img = imgs[f];
-          const sx = canvas.width / 400, sy = canvas.height / 300;
-          ctx.scale(sx, sy);
-          ctx.drawImage(img, 0, 0, 400, 300);
-          ctx.setTransform(1, 0, 0, 1, 0, 0);
-        }
-        f = (f + 1) % FRAME_COUNT;
+        imgs.forEach((img, i) => { if (img) img.style.display = i === f ? '' : 'none'; });
+        f = (f + 1) % count;
       }
 
       loadNext(0);
-      return { interval: timer, stop: () => { if(timer) clearInterval(timer); } };
     }
 
     const grid = document.getElementById('grid');
-    const players = [];
 
-    // Group by group name
     const groups = {};
     scenes.forEach(s => { const g = s.group || 'Other'; if(!groups[g]) groups[g] = []; groups[g].push(s); });
 
     Object.entries(groups).forEach(([groupName, exs]) => {
       const header = document.createElement('div');
-      header.style.cssText = 'grid-column:1;-1;font-size:13px;color:#666;margin:24px 0 8px;border-bottom:1px solid #333;padding-bottom:4px';
+      header.style.cssText = 'grid-column:1 / -1;font-size:13px;color:#888;margin:24px 0 8px;border-bottom:1px solid #333;padding-bottom:4px;background:none;cursor:default';
       header.textContent = groupName;
       grid.appendChild(header);
       exs.forEach(s => {
         const card = document.createElement('div');
         card.className = 'card';
-        const cvs = document.createElement('canvas');
-        cvs.width = 400; cvs.height = 300;
-        card.appendChild(cvs);
+        const frame = document.createElement('div');
+        frame.style.cssText = 'position:relative;width:100%;aspect-ratio:400/300;background:#0f0f1a;border-radius:8px;overflow:hidden';
+        card.appendChild(frame);
         const info = document.createElement('div');
         info.className = 'info';
         info.innerHTML = '<div class="name">'+s.name+'</div><div class="path">'+s.dir+'</div>';
         card.appendChild(info);
         card.onclick = () => openFS(s.dir, s.name);
         grid.appendChild(card);
-        const p = startPlayer(cvs, s.dir);
-        if(p) players.push(p);
+        loadFrames(frame, s.dir, GRID_FRAMES, Math.floor(FULL_FRAMES / GRID_FRAMES));
       });
     });
 
     function openFS(dir, name) {
+      // Stop previous fullscreen player
+      if (fsTimer) { clearInterval(fsTimer); fsTimer = null; }
+      document.getElementById('fsCanvas').innerHTML = '';
+
       const overlay = document.getElementById('fullscreen');
       overlay.classList.add('open');
       document.getElementById('fsName').textContent = name;
-      const cvs = document.getElementById('fsCanvas');
-      cvs.width = 600; cvs.height = 450;
-      const p = startPlayer(cvs, dir);
-      overlay.dataset.interval = p ? p.interval : null;
+      loadFrames(document.getElementById('fsCanvas'), dir, FULL_FRAMES, 1, (t) => { fsTimer = t; });
     }
 
     function closeFS() {
-      const overlay = document.getElementById('fullscreen');
-      overlay.classList.remove('open');
-      if(overlay.dataset.interval) clearInterval(parseInt(overlay.dataset.interval));
+      document.getElementById('fullscreen').classList.remove('open');
+      if (fsTimer) { clearInterval(fsTimer); fsTimer = null; }
+      document.getElementById('fsCanvas').innerHTML = '';
     }
     document.addEventListener('keydown', e => { if(e.key === 'Escape') closeFS(); });
   </script>
@@ -163,6 +160,6 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`🏋️ Exercise Animation Preview running at:\n   http://localhost:${PORT}\n`);
+  console.log(`Exercise Animation Preview running at:\n   http://localhost:${PORT}\n`);
   SCENES.forEach(s => console.log(`   ${s.dir}: ${s.name}`));
 });

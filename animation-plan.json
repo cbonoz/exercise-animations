@@ -22,17 +22,19 @@
   "hints": {
     "floorY": {
       "supine": 260,
-      "all-fours": 230,
-      "side-lying": 255,
-      "standing": 270,
+      "all-fours": 190,
+      "side-lying": 250,
+      "standing": 225,
       "seated": 250,
       "prone": 260,
-      "kneeling": 248,
-      "lunge": 245
+      "kneeling": 225
     },
     "bodyGapFromFloor": 3,
-    "labelYThreshold": 50,
-    "touchingTolerance": 5
+    "labelYThreshold": 60,
+    "touchingTolerance": 5,
+    "headClearanceFormula": "INSTRUCTION_Y(58) + HEAD_R(10) + MARGIN(5) = 73",
+    "instructionTextY": 58,
+    "titleTextY": 38
   },
   "exercises": [
     {
@@ -52,7 +54,19 @@
         "left foot"
       ],
       "ghost": "starting position with both knees bent, feet on floor",
-      "active": "right leg slides forward and back; left leg stays bent; arrow follows sliding foot"
+      "active": "right leg slides forward and back; left leg stays bent; arrow follows sliding foot",
+      "motionHint": "Knee extends as foot slides forward along floor; hip and upper body stay put",
+      "annotations": [
+        {
+          "type": "arrow",
+          "x1": 200,
+          "x2": 290,
+          "y": 235,
+          "color": "#FFD93D",
+          "label": "Slide",
+          "labelY": 228
+        }
+      ]
     },
     {
       "id": "bridges",
@@ -71,7 +85,18 @@
         "shoulders"
       ],
       "ghost": "starting position lying flat, knees bent, feet on floor",
-      "active": "hips lift and lower; arrow points upward showing lift direction"
+      "active": "hips lift and lower; arrow points upward showing lift direction",
+      "motionHint": "Hips lift vertically toward ceiling; spine arches; feet stay planted",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "hip",
+          "dx": 20,
+          "dy": -35,
+          "color": "#FFD93D",
+          "text": "Lift"
+        }
+      ]
     },
     {
       "id": "cat-cow",
@@ -89,7 +114,28 @@
         "knees"
       ],
       "ghost": "neutral all-fours position, hands under shoulders, knees under hips",
-      "active": "spine smoothly oscillates between arch and round using sin curve"
+      "active": "spine smoothly oscillates between arch and round using sin curve",
+      "motionHint": "Spine smoothly oscillates between arch (cow, belly drops) and round (cat, back lifts)",
+      "annotations": [
+        {
+          "type": "arc",
+          "joint": "head",
+          "dx": 140,
+          "dy": 0,
+          "yOff": 15,
+          "color": "#FFD93D",
+          "label": "Arch (Cow)"
+        },
+        {
+          "type": "arc",
+          "joint": "head",
+          "dx": 140,
+          "dy": 0,
+          "yOff": -10,
+          "color": "#FFD93D",
+          "label": "Round (Cat)"
+        }
+      ]
     },
     {
       "id": "dead-bugs",
@@ -107,7 +153,26 @@
         "head"
       ],
       "ghost": "starting position on back, arms up toward ceiling, legs in tabletop",
-      "active": "right arm extends back toward floor, left leg extends forward toward floor, opposite limbs stay"
+      "active": "right arm extends back toward floor, left leg extends forward toward floor, opposite limbs stay",
+      "motionHint": "Right arm extends back behind head while left leg extends forward; both move toward floor",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "right_hand",
+          "dx": -30,
+          "dy": -8,
+          "color": "#8B5CF6",
+          "text": "Extend arm"
+        },
+        {
+          "type": "text",
+          "joint": "left_foot",
+          "dx": 2,
+          "dy": -8,
+          "color": "#8B5CF6",
+          "text": "Extend leg"
+        }
+      ]
     },
     {
       "id": "clamshells",
@@ -125,7 +190,19 @@
         "bottom foot"
       ],
       "ghost": "starting position on side, legs stacked and bent at ~45 degrees",
-      "active": "top knee opens upward, bottom leg stays, arc shows knee path"
+      "active": "top knee opens upward, bottom leg stays, arc shows knee path",
+      "motionHint": "Top knee rotates upward and forward like a clamshell opening; feet stay together",
+      "annotations": [
+        {
+          "type": "arc",
+          "joint": "right_knee",
+          "dx": 0,
+          "dy": 0,
+          "yOff": -22,
+          "color": "#FFD93D",
+          "label": "Open"
+        }
+      ]
     },
     {
       "id": "prone-hamstring-curl",
@@ -144,7 +221,19 @@
       ],
       "ghost": "lying face down, legs extended straight back",
       "active": "one heel curls toward glute, knee bends, then returns",
-      "description": "Lie face down with legs extended straight. Curl one heel toward the glute by bending the knee, then slowly lower it back down with control."
+      "description": "Lie face down with legs extended straight. Curl one heel toward the glute by bending the knee, then slowly lower it back down with control.",
+      "motionHint": "Knee bends, heel curls toward glute; thigh stays on floor",
+      "annotations": [
+        {
+          "type": "arrow",
+          "x1": 230,
+          "x2": 200,
+          "y": 210,
+          "color": "#FF6B6B",
+          "label": "Curl",
+          "labelY": 203
+        }
+      ]
     },
     {
       "id": "standing-hamstring-curl",
@@ -161,7 +250,19 @@
       ],
       "ghost": "standing upright, both legs straight",
       "active": "one knee bends, heel curls toward glute, then lowers",
-      "description": "Stand tall on one leg for support. Bend the opposite knee to curl the heel toward the glute, then lower with control. Keep torso upright and core engaged."
+      "description": "Stand tall on one leg for support. Bend the opposite knee to curl the heel toward the glute, then lower with control. Keep torso upright and core engaged.",
+      "motionHint": "Standing on one leg; opposite knee bends, heel curls to glute; torso stays upright",
+      "annotations": [
+        {
+          "type": "arrow",
+          "x1": 195,
+          "x2": 175,
+          "y": 170,
+          "color": "#FF6B6B",
+          "label": "Curl",
+          "labelY": 163
+        }
+      ]
     },
     {
       "id": "romanian-deadlifts",
@@ -178,7 +279,18 @@
       ],
       "ghost": "standing upright, legs straight, arms at sides",
       "active": "torso hinges forward at hips, arms hang down, slight knee bend, return",
-      "description": "Stand with feet hip-width and a slight soft knee bend. Hinge at the hips by pushing the butt back while lowering the torso and letting the arms hang toward the floor. Keep the back flat and neutral, then drive the hips forward to return to standing."
+      "description": "Stand with feet hip-width and a slight soft knee bend. Hinge at the hips by pushing the butt back while lowering the torso and letting the arms hang toward the floor. Keep the back flat and neutral, then drive the hips forward to return to standing.",
+      "motionHint": "Hip hinge: torso lowers forward with slight knee bend; arms hang straight down",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "shoulder",
+          "dx": 20,
+          "dy": 10,
+          "color": "#FF6B6B",
+          "text": "Hinge"
+        }
+      ]
     },
     {
       "id": "good-mornings",
@@ -195,7 +307,18 @@
         "both feet"
       ],
       "ghost": "standing upright, hands behind head",
-      "active": "torso hinges forward at hips until parallel to floor, return"
+      "active": "torso hinges forward at hips until parallel to floor, return",
+      "motionHint": "Hip hinge with hands behind head; torso lowers to parallel with floor; slight knee bend",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "head",
+          "dx": 25,
+          "dy": 20,
+          "color": "#FF9500",
+          "text": "Hinge"
+        }
+      ]
     },
     {
       "id": "nordic-curls",
@@ -213,7 +336,18 @@
         "ankles (held)"
       ],
       "ghost": "kneeling upright, body straight from knees to head",
-      "active": "torso slowly lowers forward/back toward floor, controlled return"
+      "active": "torso slowly lowers forward/back toward floor, controlled return",
+      "motionHint": "Torso slowly lowers forward from kneeling; body stays in straight line; controlled return",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "shoulder",
+          "dx": 30,
+          "dy": 10,
+          "color": "#FF6B6B",
+          "text": "Lower"
+        }
+      ]
     },
     {
       "id": "straight-leg-deadlifts",
@@ -230,7 +364,18 @@
         "both feet"
       ],
       "ghost": "standing upright, legs straight",
-      "active": "torso hinges forward with straight legs, hands reach toward floor, return"
+      "active": "torso hinges forward with straight legs, hands reach toward floor, return",
+      "motionHint": "Hip hinge with straight legs; hands reach toward floor; back stays flat",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "shoulder",
+          "dx": 20,
+          "dy": 15,
+          "color": "#FF6B6B",
+          "text": "Reach"
+        }
+      ]
     },
     {
       "id": "hamstring-stretch",
@@ -248,7 +393,19 @@
         "extended heel"
       ],
       "ghost": "seated with one leg straight forward, other leg bent",
-      "active": "torso folds forward over extended leg, reaching toward foot, hold"
+      "active": "torso folds forward over extended leg, reaching toward foot, hold",
+      "motionHint": "Seated fold: torso hinges forward over extended leg; hands reach toward foot",
+      "annotations": [
+        {
+          "type": "arrow",
+          "x1": 185,
+          "x2": 240,
+          "y": 140,
+          "color": "#FF6B6B",
+          "label": "Reach",
+          "labelY": 133
+        }
+      ]
     },
     {
       "id": "single-leg-bridges",
@@ -267,7 +424,18 @@
         "shoulders"
       ],
       "ghost": "on back with one knee bent/foot on floor, other leg extended up",
-      "active": "hips lift and lower while one leg stays extended upward"
+      "active": "hips lift and lower while one leg stays extended upward",
+      "motionHint": "One knee bent foot on floor @ other leg extended up; hips lift and lower",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "hip",
+          "dx": 20,
+          "dy": -30,
+          "color": "#FF9500",
+          "text": "Lift"
+        }
+      ]
     },
     {
       "id": "banded-walks",
@@ -284,7 +452,19 @@
         "both feet"
       ],
       "ghost": "standing in slight squat, feet shoulder-width",
-      "active": "one leg steps to the side, other follows, maintaining squat"
+      "active": "one leg steps to the side, other follows, maintaining squat",
+      "motionHint": "Side steps in slight squat; legs stay wide; minimal vertical motion",
+      "annotations": [
+        {
+          "type": "arrow",
+          "x1": 280,
+          "x2": 320,
+          "y": 200,
+          "color": "#FFD93D",
+          "label": "Step",
+          "labelY": 193
+        }
+      ]
     },
     {
       "id": "fire-hydrants",
@@ -302,7 +482,19 @@
         "knees"
       ],
       "ghost": "neutral all-fours position",
-      "active": "one bent knee lifts out to the side (external rotation at hip), return"
+      "active": "one bent knee lifts out to the side (external rotation at hip), return",
+      "motionHint": "On hands and knees; bent knee lifts out to side in external rotation",
+      "annotations": [
+        {
+          "type": "arc",
+          "joint": "left_knee",
+          "dx": 0,
+          "dy": 0,
+          "yOff": -20,
+          "color": "#FFD93D",
+          "label": "Rotate out"
+        }
+      ]
     },
     {
       "id": "glute-kickbacks",
@@ -320,7 +512,19 @@
         "knees"
       ],
       "ghost": "neutral all-fours position",
-      "active": "one leg extends back and up, foot flexed, return"
+      "active": "one leg extends back and up, foot flexed, return",
+      "motionHint": "On hands and knees; one leg extends straight back and up",
+      "annotations": [
+        {
+          "type": "arrow",
+          "x1": 270,
+          "x2": 300,
+          "y": 140,
+          "color": "#FFD93D",
+          "label": "Kick",
+          "labelY": 133
+        }
+      ]
     },
     {
       "id": "bird-dogs",
@@ -338,7 +542,28 @@
         "knees (starting)"
       ],
       "ghost": "neutral all-fours position",
-      "active": "one arm reaches forward, opposite leg reaches back, return to all-fours"
+      "active": "one arm reaches forward, opposite leg reaches back, return to all-fours",
+      "motionHint": "On hands and knees; one arm reaches forward @ opposite leg kicks back simultaneously",
+      "annotations": [
+        {
+          "type": "arrow",
+          "x1": 140,
+          "x2": 105,
+          "y": 130,
+          "color": "#22C55E",
+          "label": "Reach",
+          "labelY": 123
+        },
+        {
+          "type": "arrow",
+          "x1": 275,
+          "x2": 310,
+          "y": 145,
+          "color": "#22C55E",
+          "label": "Extend",
+          "labelY": 138
+        }
+      ]
     },
     {
       "id": "planks",
@@ -356,7 +581,18 @@
         "toes"
       ],
       "ghost": "forearm plank position, body in straight line",
-      "active": "minimal motion (hold position), subtle body line indicator"
+      "active": "minimal motion (hold position), subtle body line indicator",
+      "motionHint": "Forearm plank hold; body straight from head to heels; minimal motion",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "shoulder",
+          "dx": 30,
+          "dy": -10,
+          "color": "#22C55E",
+          "text": "Hold"
+        }
+      ]
     },
     {
       "id": "side-planks",
@@ -374,7 +610,18 @@
         "bottom foot"
       ],
       "ghost": "side plank position, body in straight line",
-      "active": "minimal motion (hold position), subtle body line indicator"
+      "active": "minimal motion (hold position), subtle body line indicator",
+      "motionHint": "Side body hold on forearm; body straight from head to feet; minimal motion",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "hip",
+          "dx": 30,
+          "dy": -10,
+          "color": "#22C55E",
+          "text": "Hold"
+        }
+      ]
     },
     {
       "id": "pelvic-tilts",
@@ -392,7 +639,18 @@
         "both feet"
       ],
       "ghost": "on back with knees bent, neutral pelvis",
-      "active": "pelvis tilts posteriorly (lower back flattens to floor), return"
+      "active": "pelvis tilts posteriorly (lower back flattens to floor), return",
+      "motionHint": "Supine with knees bent; pelvis tilts posteriorly flattening lower back to floor",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "hip",
+          "dx": 15,
+          "dy": -15,
+          "color": "#22C55E",
+          "text": "Tilt"
+        }
+      ]
     },
     {
       "id": "hollow-holds",
@@ -409,7 +667,18 @@
         "lower back"
       ],
       "ghost": "on back, arms and legs extended on floor",
-      "active": "arms, head, shoulders, and legs lift off floor forming U-shape, hold"
+      "active": "arms, head, shoulders, and legs lift off floor forming U-shape, hold",
+      "motionHint": "Supine; arms, head, shoulders, and legs lift off floor forming a U-shape",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "shoulder",
+          "dx": 20,
+          "dy": -15,
+          "color": "#22C55E",
+          "text": "Lift"
+        }
+      ]
     },
     {
       "id": "supermans",
@@ -427,7 +696,18 @@
         "lower abdomen"
       ],
       "ghost": "lying face down, arms and legs extended",
-      "active": "arms, chest, and legs lift off floor, hold briefly, lower"
+      "active": "arms, chest, and legs lift off floor, hold briefly, lower",
+      "motionHint": "Prone; arms, chest, and legs lift off floor simultaneously; glutes squeeze",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "shoulder",
+          "dx": 20,
+          "dy": -15,
+          "color": "#22C55E",
+          "text": "Lift"
+        }
+      ]
     },
     {
       "id": "crunches",
@@ -445,7 +725,18 @@
         "both feet"
       ],
       "ghost": "on back with knees bent, hands behind head",
-      "active": "shoulders curl up toward knees, lower back stays on floor, return"
+      "active": "shoulders curl up toward knees, lower back stays on floor, return",
+      "motionHint": "Supine with knees bent; shoulders curl up toward knees; lower back stays on floor",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "head",
+          "dx": 20,
+          "dy": -10,
+          "color": "#22C55E",
+          "text": "Curl"
+        }
+      ]
     },
     {
       "id": "quad-sets",
@@ -463,7 +754,18 @@
         "heel"
       ],
       "ghost": "on back with one leg extended straight, slight bend in knee",
-      "active": "quad muscle visibly tenses (subtle knee extension), minimal visible motion"
+      "active": "quad muscle visibly tenses (subtle knee extension), minimal visible motion",
+      "motionHint": "Supine with straight leg; quad tightens causing subtle knee extension",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "left_knee",
+          "dx": 15,
+          "dy": -10,
+          "color": "#FF6B6B",
+          "text": "Tighten"
+        }
+      ]
     },
     {
       "id": "straight-leg-raises",
@@ -482,7 +784,19 @@
         "straight heel"
       ],
       "ghost": "on back with one knee bent/foot on floor, other leg straight on floor",
-      "active": "straight leg lifts up to ~45 degrees, lowers back down under control"
+      "active": "straight leg lifts up to ~45 degrees, lowers back down under control",
+      "motionHint": "Supine with one leg bent; straight leg lifts to ~45 degrees then lowers",
+      "annotations": [
+        {
+          "type": "arrow",
+          "x1": 215,
+          "x2": 210,
+          "y": 155,
+          "color": "#FF6B6B",
+          "label": "Lift",
+          "labelY": 148
+        }
+      ]
     },
     {
       "id": "step-ups",
@@ -500,7 +814,19 @@
         "front foot (on platform)"
       ],
       "ghost": "standing facing platform, both feet on ground",
-      "active": "one foot steps up onto platform, other leg drives up, then step back down"
+      "active": "one foot steps up onto platform, other leg drives up, then step back down",
+      "motionHint": "One foot steps up onto platform; other leg drives up; controlled step down",
+      "annotations": [
+        {
+          "type": "arrow",
+          "x1": 290,
+          "x2": 285,
+          "y": 170,
+          "color": "#FF6B6B",
+          "label": "Step",
+          "labelY": 163
+        }
+      ]
     },
     {
       "id": "wall-sits",
@@ -517,7 +843,18 @@
         "both feet"
       ],
       "ghost": "standing upright against wall",
-      "active": "slide down wall into seated position (knees 90 degrees), hold briefly, return up"
+      "active": "slide down wall into seated position (knees 90 degrees), hold briefly, return up",
+      "motionHint": "Back against wall; slide down to 90 degree knee bend; hold then slide up",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "hip",
+          "dx": 25,
+          "dy": 10,
+          "color": "#FF6B6B",
+          "text": "Slide"
+        }
+      ]
     },
     {
       "id": "terminal-knee-extensions",
@@ -534,7 +871,19 @@
         "both feet"
       ],
       "ghost": "standing upright, slight knee bend",
-      "active": "one knee extends fully against resistance, returns slowly; band shown as line"
+      "active": "one knee extends fully against resistance, returns slowly; band shown as line",
+      "motionHint": "Standing; one knee extends fully against band resistance; slow return",
+      "annotations": [
+        {
+          "type": "arrow",
+          "x1": 215,
+          "x2": 230,
+          "y": 145,
+          "color": "#FF6B6B",
+          "label": "Extend",
+          "labelY": 138
+        }
+      ]
     },
     {
       "id": "hip-flexor-stretch",
@@ -552,7 +901,18 @@
         "front foot"
       ],
       "ghost": "kneeling lunge position (one knee down, other foot forward)",
-      "active": "shift hips forward into deeper stretch, hold, return"
+      "active": "shift hips forward into deeper stretch, hold, return",
+      "motionHint": "Half-kneeling lunge; hips shift forward deepening the hip stretch",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "hip",
+          "dx": 20,
+          "dy": -10,
+          "color": "#FF9500",
+          "text": "Shift"
+        }
+      ]
     },
     {
       "id": "figure-4-stretch",
@@ -570,7 +930,18 @@
         "bottom foot"
       ],
       "ghost": "on back with one knee bent/foot on floor, other ankle crossed on knee",
-      "active": "leg presses forward to deepen stretch, hold, return"
+      "active": "leg presses forward to deepen stretch, hold, return",
+      "motionHint": "Supine; ankle crosses opposite knee; leg presses forward for glute stretch",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "left_knee",
+          "dx": 15,
+          "dy": -10,
+          "color": "#FF9500",
+          "text": "Press"
+        }
+      ]
     },
     {
       "id": "hip-circles",
@@ -587,7 +958,18 @@
         "standing foot"
       ],
       "ghost": "standing on one leg, other leg slightly lifted",
-      "active": "lifted leg traces circles at the hip joint, controlled motion"
+      "active": "lifted leg traces circles at the hip joint, controlled motion",
+      "motionHint": "Standing on one leg; opposite leg traces circles at the hip joint",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "right_foot",
+          "dx": 15,
+          "dy": -10,
+          "color": "#FF9500",
+          "text": "Circle"
+        }
+      ]
     },
     {
       "id": "banded-hip-flexion",
@@ -604,7 +986,19 @@
         "both feet (starting)"
       ],
       "ghost": "standing upright, band around one ankle",
-      "active": "one knee drives up and forward against band resistance, return"
+      "active": "one knee drives up and forward against band resistance, return",
+      "motionHint": "Standing with band around ankle; knee drives up and forward against resistance",
+      "annotations": [
+        {
+          "type": "arrow",
+          "x1": 170,
+          "x2": 180,
+          "y": 105,
+          "color": "#FF9500",
+          "label": "Drive",
+          "labelY": 98
+        }
+      ]
     },
     {
       "id": "pigeon-pose",
@@ -623,7 +1017,18 @@
         "back knee"
       ],
       "ghost": "seated with front leg bent at ~90 degrees, back leg extended behind",
-      "active": "torso folds forward over front leg, deepening hip stretch, hold"
+      "active": "torso folds forward over front leg, deepening hip stretch, hold",
+      "motionHint": "Seated; one leg bent forward at 90 degrees; torso folds forward over shin",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "head",
+          "dx": 20,
+          "dy": 15,
+          "color": "#FF9500",
+          "text": "Fold"
+        }
+      ]
     },
     {
       "id": "90-90-stretch",
@@ -641,7 +1046,18 @@
         "both shins"
       ],
       "ghost": "seated with both legs at 90 degrees (one forward, one to side)",
-      "active": "torso rotates toward front leg, hold, return"
+      "active": "torso rotates toward front leg, hold, return",
+      "motionHint": "Seated with both legs at 90 degrees; torso rotates toward front leg",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "shoulder",
+          "dx": 20,
+          "dy": -10,
+          "color": "#FF9500",
+          "text": "Rotate"
+        }
+      ]
     },
     {
       "id": "childs-pose",
@@ -660,7 +1076,19 @@
         "hands"
       ],
       "ghost": "kneeling upright, arms at sides",
-      "active": "fold forward, arms extend forward on floor, hips sit back toward heels, hold"
+      "active": "fold forward, arms extend forward on floor, hips sit back toward heels, hold",
+      "motionHint": "Kneeling; hips sit back toward heels; arms reach forward on floor",
+      "annotations": [
+        {
+          "type": "arrow",
+          "x1": 170,
+          "x2": 140,
+          "y": 100,
+          "color": "#22C55E",
+          "label": "Fold",
+          "labelY": 93
+        }
+      ]
     },
     {
       "id": "worlds-greatest-stretch",
@@ -679,7 +1107,18 @@
         "back toes"
       ],
       "ghost": "deep lunge position, back knee on floor",
-      "active": "torso rotates toward front leg, one arm reaches toward ceiling, return"
+      "active": "torso rotates toward front leg, one arm reaches toward ceiling, return",
+      "motionHint": "Deep lunge; torso rotates toward front leg; arm reaches toward ceiling",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "right_hand",
+          "dx": 15,
+          "dy": -20,
+          "color": "#22C55E",
+          "text": "Rotate"
+        }
+      ]
     },
     {
       "id": "thread-the-needle",
@@ -697,7 +1136,18 @@
         "knees"
       ],
       "ghost": "neutral all-fours position",
-      "active": "one arm reaches under body to opposite side, torso rotates, return"
+      "active": "one arm reaches under body to opposite side, torso rotates, return",
+      "motionHint": "All fours; one arm reaches under body to opposite side; torso rotates",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "left_hand",
+          "dx": 15,
+          "dy": 15,
+          "color": "#22C55E",
+          "text": "Thread"
+        }
+      ]
     },
     {
       "id": "seated-spinal-twist",
@@ -714,7 +1164,18 @@
         "sit bones"
       ],
       "ghost": "seated cross-legged, hands at sides",
-      "active": "torso rotates to one side, one hand on opposite knee, hold, return"
+      "active": "torso rotates to one side, one hand on opposite knee, hold, return",
+      "motionHint": "Seated cross-legged; torso rotates to one side; hand on opposite knee",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "shoulder",
+          "dx": 20,
+          "dy": -5,
+          "color": "#22C55E",
+          "text": "Twist"
+        }
+      ]
     },
     {
       "id": "standing-side-bend",
@@ -731,7 +1192,18 @@
         "both feet"
       ],
       "ghost": "standing upright, arms at sides",
-      "active": "one arm reaches overhead, torso bends laterally to opposite side, hold, return"
+      "active": "one arm reaches overhead, torso bends laterally to opposite side, hold, return",
+      "motionHint": "Standing; one arm reaches overhead; torso bends laterally to opposite side",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "right_hand",
+          "dx": 10,
+          "dy": -15,
+          "color": "#22C55E",
+          "text": "Bend"
+        }
+      ]
     },
     {
       "id": "single-leg-stance",
@@ -748,7 +1220,18 @@
         "standing foot"
       ],
       "ghost": "standing upright on both feet",
-      "active": "lift one foot off floor, balance on other foot, slight sway for realism"
+      "active": "lift one foot off floor, balance on other foot, slight sway for realism",
+      "motionHint": "Standing on one foot with slight postural sway; other foot lifted",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "right_foot",
+          "dx": 15,
+          "dy": 10,
+          "color": "#22C55E",
+          "text": "Lift"
+        }
+      ]
     },
     {
       "id": "tandem-walk",
@@ -765,7 +1248,19 @@
         "one foot at a time"
       ],
       "ghost": "standing upright, arms at sides",
-      "active": "step forward with heel touching toes of back foot, repeat alternating"
+      "active": "step forward with heel touching toes of back foot, repeat alternating",
+      "motionHint": "Heel-to-toe walking in straight line; arms out for balance",
+      "annotations": [
+        {
+          "type": "arrow",
+          "x1": 200,
+          "x2": 250,
+          "y": 200,
+          "color": "#22C55E",
+          "label": "Step",
+          "labelY": 193
+        }
+      ]
     },
     {
       "id": "heel-to-toe-stand",
@@ -782,7 +1277,18 @@
         "both feet"
       ],
       "ghost": "standing with feet in tandem position (one in front of other)",
-      "active": "hold tandem stance, subtle sway for balance realism"
+      "active": "hold tandem stance, subtle sway for balance realism",
+      "motionHint": "Standing with one foot directly in front of the other; subtle balance sway",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "hip",
+          "dx": 30,
+          "dy": -10,
+          "color": "#22C55E",
+          "text": "Balance"
+        }
+      ]
     },
     {
       "id": "lateral-step-overs",
@@ -799,7 +1305,19 @@
         "one foot at a time"
       ],
       "ghost": "standing upright",
-      "active": "step one leg over obstacle to side, bring other leg over, repeat back"
+      "active": "step one leg over obstacle to side, bring other leg over, repeat back",
+      "motionHint": "Step one leg sideways over obstacle; bring other leg over; repeat back",
+      "annotations": [
+        {
+          "type": "arrow",
+          "x1": 250,
+          "x2": 300,
+          "y": 180,
+          "color": "#22C55E",
+          "label": "Step",
+          "labelY": 173
+        }
+      ]
     },
     {
       "id": "marching",
@@ -816,7 +1334,18 @@
         "one foot at a time (alternating)"
       ],
       "ghost": "standing upright, arms at sides",
-      "active": "alternating high knee lifts with opposite arm swing, continuous"
+      "active": "alternating high knee lifts with opposite arm swing, continuous",
+      "motionHint": "High knee march in place; opposite arm swings forward with each step",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "right_knee",
+          "dx": 15,
+          "dy": -10,
+          "color": "#22C55E",
+          "text": "March"
+        }
+      ]
     },
     {
       "id": "pendulum-swings",
@@ -833,7 +1362,18 @@
         "both feet"
       ],
       "ghost": "standing bent forward at hips, one arm hanging down",
-      "active": "arm swings in circles at shoulder, body stays bent forward"
+      "active": "arm swings in circles at shoulder, body stays bent forward",
+      "motionHint": "Bent forward at hips; one arm dangles and swings in circles at shoulder",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "right_hand",
+          "dx": 10,
+          "dy": -15,
+          "color": "#FF9500",
+          "text": "Swing"
+        }
+      ]
     },
     {
       "id": "band-pull-aparts",
@@ -850,7 +1390,19 @@
         "both feet"
       ],
       "ghost": "standing upright, arms extended forward at shoulder height, holding band",
-      "active": "arms pull band apart horizontally, squeeze shoulder blades, return"
+      "active": "arms pull band apart horizontally, squeeze shoulder blades, return",
+      "motionHint": "Upright; arms extended forward; pull band apart; squeeze shoulder blades",
+      "annotations": [
+        {
+          "type": "arrow",
+          "x1": 150,
+          "x2": 95,
+          "y": 90,
+          "color": "#FF9500",
+          "label": "Pull",
+          "labelY": 83
+        }
+      ]
     },
     {
       "id": "wall-slides",
@@ -868,7 +1420,19 @@
         "back against wall"
       ],
       "ghost": "standing against wall, arms in W position (elbows bent 90)",
-      "active": "arms slide up wall into Y position, return to W"
+      "active": "arms slide up wall into Y position, return to W",
+      "motionHint": "Back against wall; arms in W position; slide up wall to Y position and return",
+      "annotations": [
+        {
+          "type": "arrow",
+          "x1": 170,
+          "x2": 170,
+          "y": 75,
+          "color": "#FF9500",
+          "label": "Slide",
+          "labelY": 68
+        }
+      ]
     },
     {
       "id": "scapular-retractions",
@@ -885,7 +1449,18 @@
         "both feet"
       ],
       "ghost": "standing upright, arms at sides",
-      "active": "shoulder blades squeeze together (arms pull back slightly), release"
+      "active": "shoulder blades squeeze together (arms pull back slightly), release",
+      "motionHint": "Upright; squeeze shoulder blades together; arms pull back slightly",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "shoulder",
+          "dx": 30,
+          "dy": -5,
+          "color": "#FF9500",
+          "text": "Squeeze"
+        }
+      ]
     },
     {
       "id": "doorway-stretch",
@@ -902,7 +1477,18 @@
         "both feet"
       ],
       "ghost": "standing in doorway, forearms on frame at shoulder height",
-      "active": "lean forward through doorway, stretching chest, hold, return"
+      "active": "lean forward through doorway, stretching chest, hold, return",
+      "motionHint": "Arms on door frame at shoulder height; lean forward for chest stretch",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "shoulder",
+          "dx": 30,
+          "dy": -5,
+          "color": "#FF9500",
+          "text": "Lean"
+        }
+      ]
     },
     {
       "id": "chest-opener",
@@ -919,7 +1505,56 @@
         "both feet"
       ],
       "ghost": "standing upright, arms at sides",
-      "active": "hands clasp behind back, arms straighten, shoulders roll back, chest opens, hold"
+      "active": "hands clasp behind back, arms straighten, shoulders roll back, chest opens, hold",
+      "motionHint": "Hands clasped behind back; arms straighten; shoulders roll back; chest opens",
+      "annotations": [
+        {
+          "type": "text",
+          "joint": "shoulder",
+          "dx": 30,
+          "dy": -10,
+          "color": "#FF9500",
+          "text": "Open"
+        }
+      ]
     }
-  ]
+  ],
+  "generator": {
+    "engine": "scripts/generate.js",
+    "format": "motion definitions",
+    "postureTemplates": [
+      "supine",
+      "prone",
+      "all-fours",
+      "side-lying",
+      "standing",
+      "kneeling",
+      "seated"
+    ],
+    "motionFields": {
+      "posture": "Which posture template to use as the base skeleton",
+      "rest": "Joint offsets applied at rest (starting pose differs from template)",
+      "move": "Joint deltas applied during animation (0 at rest, max at mid-cycle)",
+      "highlight": "Array of joint pairs to draw in the accent color during motion",
+      "highlightColor": "CSS color for highlighted segments",
+      "annotations": "Labels, arrows, or arcs that follow animated joints"
+    },
+    "availableJoints": [
+      "head",
+      "neck",
+      "shoulder",
+      "hip",
+      "left_elbow",
+      "left_hand",
+      "right_elbow",
+      "right_hand",
+      "left_knee",
+      "left_foot",
+      "right_knee",
+      "right_foot"
+    ],
+    "jointDeltaFormat": "{ x: number, y: number } — relative pixel offset from template position",
+    "animationCycle": "p goes 0→1→0 via easeInOut over 72 frames at 24fps (3 second loop)",
+    "notes": "Add a motion definition to scripts/generate.js's MOTIONS object for each new exercise. The rest field sets the exercise-specific starting pose; the move field animates from there. Head position uses formula: INSTRUCTION_Y(58) + HEAD_R(10) + MARGIN(5) = 73, enforced by validate.js headClearance check."
+  }
 }
