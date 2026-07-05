@@ -18,9 +18,9 @@ npm run preview     # local preview at http://localhost:3001
 |:---------------:|:------:|:-------:|:---------:|:----------:|
 | <img src="assets/preview/hamstring-slide.gif" width="200" alt="Hamstring Slide"> | <img src="assets/preview/bridge.gif" width="200" alt="Bridge"> | <img src="assets/preview/cat-cow.gif" width="200" alt="Cat-Cow"> | <img src="assets/preview/dead-bugs.gif" width="200" alt="Dead Bugs"> | <img src="assets/preview/clamshells.gif" width="200" alt="Clamshells"> |
 
-| Standing Hamstring Curl | Child's Pose | Plank |
-|:-----------------------:|:------------:|:-----:|
-| <img src="assets/preview/standing-hamstring-curl.gif" width="200" alt="Standing Hamstring Curl"> | <img src="assets/preview/childs-pose.gif" width="200" alt="Child's Pose"> | <img src="assets/preview/plank.gif" width="200" alt="Plank"> |
+| Standing Hamstring Curl | Child's Pose | Plank | Figure-4 Stretch | Hip Flexor Stretch |
+|:-----------------------:|:------------:|:-----:|:-----------------:|:------------------:|
+| <img src="assets/preview/standing-hamstring-curl.gif" width="160" alt="Standing Hamstring Curl"> | <img src="assets/preview/childs-pose.gif" width="160" alt="Child's Pose"> | <img src="assets/preview/plank.gif" width="160" alt="Plank"> | <img src="assets/preview/figure-4-stretch.gif" width="160" alt="Figure-4 Stretch"> | <img src="assets/preview/hip-flexor-stretch.gif" width="160" alt="Hip Flexor Stretch"> |
 
 > Preview all 50 exercises locally: `npm run preview` → [http://localhost:3001](http://localhost:3001)
 > Grid loads 12 frames per card; fullscreen loads all 72 at 24fps. GIFs above cycle 12 frames at 12fps.
