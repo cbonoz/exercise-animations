@@ -1,0 +1,14 @@
+{
+  "name": "exercise-animations",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Exercise stick figure animations in Lottie JSON format for BridgeRecovery",
+  "scripts": {
+    "preview": "node scripts/preview.js",
+    "generate": "node scripts/generate.js"
+  },
+  "dependencies": {
+    "lottie-web": "^5.13.0"
+  },
+  "devDependencies": {}
+}
