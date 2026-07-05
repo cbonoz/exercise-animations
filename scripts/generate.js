@@ -696,15 +696,14 @@ load(0);
 
   // Generate Lottie JSON (image sequence format, portable for lottie-react-native)
   const assets = Array.from({ length: TOTAL_FRAMES }, (_, i) => ({
-    id: `frame_${i}`, w: W, h: H, u: '',
+    id: `f${i}`, w: W, h: H,
     p: `frame-${String(i).padStart(3, '0')}.svg`, e: 1,
   }));
   const lottie = {
     v: '5.7.0', fr: FR, ip: 0, op: TOTAL_FRAMES, w: W, h: H,
-    nm: exercise.name,
     assets,
     layers: [{
-      ty: 0, nm: exercise.name, ip: 0, op: TOTAL_FRAMES, st: 0, sr: 1,
+      ty: 0, ip: 0, op: TOTAL_FRAMES, st: 0, sr: 1,
       ks: {
         o: { a: 0, k: 100 },
         r: { a: 0, k: 0 },
@@ -714,7 +713,7 @@ load(0);
       },
     }],
   };
-  fs.writeFileSync(path.join(sceneDir, 'lottie.json'), JSON.stringify(lottie, null, 2));
+  fs.writeFileSync(path.join(sceneDir, 'lottie.json'), JSON.stringify(lottie));
 
   console.log(`${exercise.name.padEnd(25)} ${exercise.id}`);
 }
