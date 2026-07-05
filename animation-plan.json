@@ -198,7 +198,7 @@
           "joint": "right_knee",
           "dx": 0,
           "dy": 0,
-          "yOff": -22,
+          "yOff": 20,
           "color": "#FFD93D",
           "label": "Open"
         }

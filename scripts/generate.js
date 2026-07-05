@@ -178,7 +178,7 @@ const MOTIONS = {
   },
   'clamshells': {
     posture: 'side-lying',
-    move: { right_knee: { x: 24, y: -24 } },
+    move: { right_knee: { x: 30, y: -30 }, right_foot: { x: 8, y: -12 } },
     highlight: [['hip','right_knee'],['right_knee','right_foot']],
     highlightColor: '#FFD93D',
   },

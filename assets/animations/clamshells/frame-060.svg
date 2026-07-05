@@ -9,8 +9,8 @@
 </g>
 <g stroke="#FFF" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="130" cy="232" r="12" fill="#FFF" stroke="none"/>
-  <line x1="130" y1="232" x2="142" y2="235"/><line x1="142" y1="235" x2="155" y2="238"/><line x1="155" y1="238" x2="210" y2="245"/><line x1="155" y1="238" x2="180" y2="243"/><line x1="180" y1="243" x2="200" y2="247"/><line x1="210" y1="245" x2="258" y2="237"/><line x1="258" y1="237" x2="238" y2="245"/><line x1="210" y1="245" x2="258.6" y2="224.4"/><line x1="258.6" y1="224.4" x2="235" y2="243"/>
-  <line x1="210" y1="245" x2="258.6" y2="224.4" stroke="#FFD93D" stroke-width="5" opacity="0.6"/><line x1="258.6" y1="224.4" x2="235" y2="243" stroke="#FFD93D" stroke-width="5" opacity="0.6"/>
+  <line x1="130" y1="232" x2="142" y2="235"/><line x1="142" y1="235" x2="155" y2="238"/><line x1="155" y1="238" x2="210" y2="245"/><line x1="155" y1="238" x2="180" y2="243"/><line x1="180" y1="243" x2="200" y2="247"/><line x1="210" y1="245" x2="258" y2="237"/><line x1="258" y1="237" x2="238" y2="245"/><line x1="210" y1="245" x2="259.4" y2="223.6"/><line x1="259.4" y1="223.6" x2="236.2" y2="241.2"/>
+  <line x1="210" y1="245" x2="259.4" y2="223.6" stroke="#FFD93D" stroke-width="5" opacity="0.6"/><line x1="259.4" y1="223.6" x2="236.2" y2="241.2" stroke="#FFD93D" stroke-width="5" opacity="0.6"/>
 </g>
-<path d="M 233.55555555555554 192.44444444444446 Q 258.55555555555554 238.44444444444446 283.55555555555554 192.44444444444446" stroke="#FFD93D" stroke-width="2" fill="none" stroke-dasharray="4,3"/><text x="258.55555555555554" y="234.44444444444446" fill="#FFD93D" font-size="10" text-anchor="middle" font-family="sans-serif">Open</text>
+<path d="M 234.44444444444446 233.55555555555557 Q 259.44444444444446 195.55555555555557 284.44444444444446 233.55555555555557" stroke="#FFD93D" stroke-width="2" fill="none" stroke-dasharray="4,3"/><text x="259.44444444444446" y="191.55555555555557" fill="#FFD93D" font-size="10" text-anchor="middle" font-family="sans-serif">Open</text>
 </svg>

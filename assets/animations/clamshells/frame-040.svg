@@ -9,8 +9,8 @@
 </g>
 <g stroke="#FFF" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="130" cy="232" r="12" fill="#FFF" stroke="none"/>
-  <line x1="130" y1="232" x2="142" y2="235"/><line x1="142" y1="235" x2="155" y2="238"/><line x1="155" y1="238" x2="210" y2="245"/><line x1="155" y1="238" x2="180" y2="243"/><line x1="180" y1="243" x2="200" y2="247"/><line x1="210" y1="245" x2="258" y2="237"/><line x1="258" y1="237" x2="238" y2="245"/><line x1="210" y1="245" x2="278.9" y2="204.1"/><line x1="278.9" y1="204.1" x2="235" y2="243"/>
-  <line x1="210" y1="245" x2="278.9" y2="204.1" stroke="#FFD93D" stroke-width="5" opacity="0.6"/><line x1="278.9" y1="204.1" x2="235" y2="243" stroke="#FFD93D" stroke-width="5" opacity="0.6"/>
+  <line x1="130" y1="232" x2="142" y2="235"/><line x1="142" y1="235" x2="155" y2="238"/><line x1="155" y1="238" x2="210" y2="245"/><line x1="155" y1="238" x2="180" y2="243"/><line x1="180" y1="243" x2="200" y2="247"/><line x1="210" y1="245" x2="258" y2="237"/><line x1="258" y1="237" x2="238" y2="245"/><line x1="210" y1="245" x2="284.8" y2="198.2"/><line x1="284.8" y1="198.2" x2="243" y2="231.1"/>
+  <line x1="210" y1="245" x2="284.8" y2="198.2" stroke="#FFD93D" stroke-width="5" opacity="0.6"/><line x1="284.8" y1="198.2" x2="243" y2="231.1" stroke="#FFD93D" stroke-width="5" opacity="0.6"/>
 </g>
-<path d="M 253.86831275720164 172.13168724279836 Q 278.86831275720164 218.13168724279836 303.86831275720164 172.13168724279836" stroke="#FFD93D" stroke-width="2" fill="none" stroke-dasharray="4,3"/><text x="278.86831275720164" y="214.13168724279836" fill="#FFD93D" font-size="10" text-anchor="middle" font-family="sans-serif">Open</text>
+<path d="M 259.83539094650206 208.16460905349794 Q 284.83539094650206 170.16460905349794 309.83539094650206 208.16460905349794" stroke="#FFD93D" stroke-width="2" fill="none" stroke-dasharray="4,3"/><text x="284.83539094650206" y="166.16460905349794" fill="#FFD93D" font-size="10" text-anchor="middle" font-family="sans-serif">Open</text>
 </svg>
