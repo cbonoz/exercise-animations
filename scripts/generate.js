@@ -397,8 +397,9 @@ const MOTIONS = {
   },
   'childs-pose': {
     posture: 'all-fours',
-    move: { hip: { x: 15, y: 30 }, shoulder: { x: -10, y: 40 }, neck: { x: -15, y: 45 }, head: { x: -15, y: 45 },
-            left_hand: { x: -20, y: 10 },
+    move: { head: { x: -15, y: 115 }, neck: { x: -10, y: 100 }, shoulder: { x: -10, y: 70 },
+            hip: { x: 15, y: 65 },
+            left_hand: { x: -40, y: 5 },
             left_knee: { x: 5, y: 5 }, left_foot: { x: 5, y: 5 } },
     highlight: [['neck','shoulder'],['shoulder','hip']],
     highlightColor: '#22C55E',
