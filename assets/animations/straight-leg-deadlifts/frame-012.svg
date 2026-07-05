@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+<rect width="400" height="300" fill="#0f0f1a"/>
+<line x1="20" y1="270" x2="380" y2="270" stroke="#444" stroke-width="3" stroke-linecap="round"/>
+<text x="200" y="23" fill="#888" font-size="12" font-family="sans-serif" text-anchor="middle">Straight-Leg Deadlifts</text>
+<text x="200" y="38" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">Hip hinge with straight legs, reach toward floor, return</text>
+<g stroke="#555" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.25">
+  <circle cx="60" cy="30" r="13" fill="#444" stroke="none"/>
+  <line x1="60" y1="30" x2="60" y2="50"/><line x1="60" y1="50" x2="60" y2="65"/><line x1="60" y1="65" x2="60" y2="130"/><line x1="60" y1="65" x2="40" y2="80"/><line x1="40" y1="80" x2="30" y2="95"/><line x1="60" y1="65" x2="80" y2="80"/><line x1="80" y1="80" x2="90" y2="95"/><line x1="60" y1="130" x2="60" y2="185"/><line x1="60" y1="185" x2="60" y2="270"/><line x1="60" y1="130" x2="60" y2="185"/><line x1="60" y1="185" x2="60" y2="270"/>
+</g>
+<g stroke="#FFF" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="59.3" cy="33.7" r="13" fill="#FFF" stroke="none"/>
+  <line x1="59.3" y1="33.7" x2="59.3" y2="54.4"/><line x1="59.3" y1="54.4" x2="59.3" y2="69.4"/><line x1="59.3" y1="69.4" x2="59.3" y2="131.5"/><line x1="59.3" y1="69.4" x2="39.3" y2="87.4"/><line x1="39.3" y1="87.4" x2="29.3" y2="104.6"/><line x1="59.3" y1="69.4" x2="79.3" y2="87.4"/><line x1="79.3" y1="87.4" x2="89.3" y2="104.6"/><line x1="59.3" y1="131.5" x2="60" y2="185"/><line x1="60" y1="185" x2="60" y2="269"/><line x1="59.3" y1="131.5" x2="60" y2="185"/><line x1="60" y1="185" x2="60" y2="269"/>
+  <line x1="59.3" y1="131.5" x2="59.3" y2="69.4" stroke="#FF6B6B" stroke-width="5" opacity="0.6"/>
+</g>
+
+</svg>

@@ -1,5 +1,5 @@
 // Local exercise animation preview server
-// Run: node scripts/preview-lottie.js
+// Run: node scripts/preview.js
 // Open: http://localhost:3001
 
 const http = require('http');
@@ -8,14 +8,13 @@ const path = require('path');
 
 const PORT = 3001;
 const ROOT = path.join(__dirname, '..');
+const plan = JSON.parse(fs.readFileSync(path.join(ROOT, 'animation-plan.json'), 'utf-8'));
 
-const SCENES = [
-  { dir: 'scene-1', name: 'Hamstring Slide' },
-  { dir: 'scene-2', name: 'Bridge' },
-  { dir: 'scene-3', name: 'Cat-Cow' },
-  { dir: 'scene-4', name: 'Dead Bugs' },
-  { dir: 'scene-5', name: 'Clamshells' },
-];
+const SCENES = plan.exercises.map(e => ({
+  dir: e.id,
+  name: e.name,
+  group: e.group,
+}));
 
 const MIME = {
   '.html': 'text/html', '.json': 'application/json',
@@ -62,13 +61,14 @@ const HTML = `<!DOCTYPE html>
     const FRAME_COUNT = 72;
     const FPS = 24;
 
-    function startPlayer(canvas, dir, name) {
+    function startPlayer(canvas, dir) {
       const ctx = canvas.getContext('2d');
       let f = 0;
       const imgs = [];
+      let timer = null;
 
       function loadNext(i) {
-        if (i >= FRAME_COUNT) { play(); return; }
+        if (i >= FRAME_COUNT) { timer = setInterval(play, 1000 / FPS); return; }
         const img = new Image();
         img.onload = () => { imgs[i] = img; loadNext(i + 1); };
         img.onerror = () => { imgs[i] = null; loadNext(i + 1); };
@@ -88,25 +88,36 @@ const HTML = `<!DOCTYPE html>
       }
 
       loadNext(0);
-      return setInterval(play, 1000 / FPS);
+      return { interval: timer, stop: () => { if(timer) clearInterval(timer); } };
     }
 
     const grid = document.getElementById('grid');
-    const intervals = [];
+    const players = [];
 
-    scenes.forEach(s => {
-      const card = document.createElement('div');
-      card.className = 'card';
-      const cvs = document.createElement('canvas');
-      cvs.width = 400; cvs.height = 300;
-      card.appendChild(cvs);
-      const info = document.createElement('div');
-      info.className = 'info';
-      info.innerHTML = '<div class="name">'+s.name+'</div><div class="path">'+s.dir+'</div>';
-      card.appendChild(info);
-      card.onclick = () => openFS(s.dir, s.name);
-      grid.appendChild(card);
-      intervals.push(startPlayer(cvs, s.dir, s.name));
+    // Group by group name
+    const groups = {};
+    scenes.forEach(s => { const g = s.group || 'Other'; if(!groups[g]) groups[g] = []; groups[g].push(s); });
+
+    Object.entries(groups).forEach(([groupName, exs]) => {
+      const header = document.createElement('div');
+      header.style.cssText = 'grid-column:1;-1;font-size:13px;color:#666;margin:24px 0 8px;border-bottom:1px solid #333;padding-bottom:4px';
+      header.textContent = groupName;
+      grid.appendChild(header);
+      exs.forEach(s => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        const cvs = document.createElement('canvas');
+        cvs.width = 400; cvs.height = 300;
+        card.appendChild(cvs);
+        const info = document.createElement('div');
+        info.className = 'info';
+        info.innerHTML = '<div class="name">'+s.name+'</div><div class="path">'+s.dir+'</div>';
+        card.appendChild(info);
+        card.onclick = () => openFS(s.dir, s.name);
+        grid.appendChild(card);
+        const p = startPlayer(cvs, s.dir);
+        if(p) players.push(p);
+      });
     });
 
     function openFS(dir, name) {
@@ -115,14 +126,14 @@ const HTML = `<!DOCTYPE html>
       document.getElementById('fsName').textContent = name;
       const cvs = document.getElementById('fsCanvas');
       cvs.width = 600; cvs.height = 450;
-      const interval = startPlayer(cvs, dir, name);
-      overlay.dataset.interval = interval;
+      const p = startPlayer(cvs, dir);
+      overlay.dataset.interval = p ? p.interval : null;
     }
 
     function closeFS() {
       const overlay = document.getElementById('fullscreen');
       overlay.classList.remove('open');
-      clearInterval(parseInt(overlay.dataset.interval));
+      if(overlay.dataset.interval) clearInterval(parseInt(overlay.dataset.interval));
     }
     document.addEventListener('keydown', e => { if(e.key === 'Escape') closeFS(); });
   </script>

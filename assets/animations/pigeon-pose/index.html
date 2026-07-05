@@ -1,0 +1,22 @@
+<html><head><style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0f0f1a;display:flex;justify-content:center;align-items:center;height:100vh;font-family:sans-serif;flex-direction:column;gap:12px}
+h2{color:#FFF;font-size:18px;font-weight:600}
+h3{color:#888;font-size:13px;font-weight:400}
+canvas{width:600px;height:450px;background:#0f0f1a;border-radius:12px;margin-top:8px}
+</style></head><body>
+<h2>Pigeon Pose</h2>
+<h3>Fold forward over front leg</h3>
+<canvas id="c"></canvas>
+<script>
+const c=document.getElementById('c'),ctx=c.getContext('2d');c.width=600;c.height=450;
+const total=72;const imgs=[];let fi=0;
+function load(i){if(i>=total){setInterval(play,41.666666666666664);return}
+const img=new Image();img.onload=()=>{imgs[i]=img;load(i+1)};
+img.onerror=()=>{imgs[i]=null;load(i+1)};
+img.src='frame-'+String(i).padStart(3,'0')+'.svg'}
+function play(){ctx.clearRect(0,0,c.width,c.height);const img=imgs[fi];
+if(img){const s=c.width/400;ctx.scale(s,s);ctx.drawImage(img,0,0,400,300);ctx.setTransform(1,0,0,1,0,0)}
+fi=(fi+1)%total}
+load(0);
+</script></body></html>

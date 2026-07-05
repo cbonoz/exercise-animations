@@ -1,0 +1,925 @@
+{
+  "$schema": "https://bridgerecovery.app/schemas/exercise-animations/v1",
+  "description": "Exercise animation plan for BridgeRecovery. Each exercise gets 72 SVG frames (400x300, 24fps) via scripts/generate.js.",
+  "style": {
+    "canvas": {
+      "width": 400,
+      "height": 300
+    },
+    "fps": 24,
+    "frames": 72,
+    "bgColor": "#0f0f1a",
+    "floorColor": "#444",
+    "floorStroke": 3,
+    "ghostColor": "#555",
+    "ghostStroke": 2,
+    "ghostOpacity": 0.25,
+    "activeColor": "#FFF",
+    "activeStroke": 4,
+    "labelFont": "sans-serif",
+    "labelSize": 10
+  },
+  "hints": {
+    "floorY": {
+      "supine": 260,
+      "all-fours": 230,
+      "side-lying": 255,
+      "standing": 270,
+      "seated": 250,
+      "prone": 260,
+      "kneeling": 248,
+      "lunge": 245
+    },
+    "bodyGapFromFloor": 3,
+    "labelYThreshold": 50,
+    "touchingTolerance": 5
+  },
+  "exercises": [
+    {
+      "id": "hamstring-slide",
+      "name": "Hamstring Slide",
+      "priority": 1,
+      "group": "Hamstring",
+      "posture": "supine",
+      "axis": "horizontal (head left, feet right)",
+      "label": "Slide heel along floor",
+      "instruction": "Lie on back, slide heel along floor, return",
+      "highlightColor": "#FF6B6B",
+      "description": "Lie on back with knees bent. Slide right heel forward along floor until leg is straight, then slide back.",
+      "touchFloor": [
+        "back",
+        "both heels",
+        "left foot"
+      ],
+      "ghost": "starting position with both knees bent, feet on floor",
+      "active": "right leg slides forward and back; left leg stays bent; arrow follows sliding foot"
+    },
+    {
+      "id": "bridges",
+      "name": "Bridge",
+      "priority": 1,
+      "group": "Glute",
+      "posture": "supine",
+      "axis": "horizontal",
+      "label": "Lift hips toward ceiling",
+      "instruction": "Lie on back, lift hips up, hold, lower",
+      "highlightColor": "#FF9500",
+      "description": "Lie on back with knees bent, feet on floor. Lift hips toward ceiling, hold briefly, then lower.",
+      "touchFloor": [
+        "back",
+        "both feet",
+        "shoulders"
+      ],
+      "ghost": "starting position lying flat, knees bent, feet on floor",
+      "active": "hips lift and lower; arrow points upward showing lift direction"
+    },
+    {
+      "id": "cat-cow",
+      "name": "Cat-Cow",
+      "priority": 1,
+      "group": "Core",
+      "posture": "all-fours",
+      "axis": "diagonal (spine curves)",
+      "label": "Arch and round spine",
+      "instruction": "On hands and knees, alternate arching/rounding spine",
+      "highlightColor": "#22C55E",
+      "description": "On hands and knees. Alternate between arching back upward (cat) and letting belly sink (cow).",
+      "touchFloor": [
+        "hands",
+        "knees"
+      ],
+      "ghost": "neutral all-fours position, hands under shoulders, knees under hips",
+      "active": "spine smoothly oscillates between arch and round using sin curve"
+    },
+    {
+      "id": "dead-bugs",
+      "name": "Dead Bugs",
+      "priority": 1,
+      "group": "Core",
+      "posture": "supine",
+      "axis": "horizontal",
+      "label": "Extend opposite arm and leg",
+      "instruction": "Lie on back, extend opposite arm &amp; leg toward floor",
+      "highlightColor": "#8B5CF6",
+      "description": "Lie on back with arms toward ceiling and legs in tabletop. Extend right arm back and left leg forward toward floor, then return.",
+      "touchFloor": [
+        "back",
+        "head"
+      ],
+      "ghost": "starting position on back, arms up toward ceiling, legs in tabletop",
+      "active": "right arm extends back toward floor, left leg extends forward toward floor, opposite limbs stay"
+    },
+    {
+      "id": "clamshells",
+      "name": "Clamshells",
+      "priority": 1,
+      "group": "Glute",
+      "posture": "side-lying",
+      "axis": "horizontal",
+      "label": "Open top knee like a clamshell",
+      "instruction": "Lie on side, keep feet together, open top knee",
+      "highlightColor": "#FFD93D",
+      "description": "Lie on side with legs stacked and bent. Keep feet touching while opening top knee upward like a clamshell.",
+      "touchFloor": [
+        "side of body",
+        "bottom foot"
+      ],
+      "ghost": "starting position on side, legs stacked and bent at ~45 degrees",
+      "active": "top knee opens upward, bottom leg stays, arc shows knee path"
+    },
+    {
+      "id": "prone-hamstring-curl",
+      "name": "Prone Hamstring Curls",
+      "priority": 2,
+      "group": "Hamstring",
+      "posture": "prone",
+      "axis": "horizontal",
+      "label": "Curl heel toward glute",
+      "instruction": "Lie face down, curl heel toward glute, return",
+      "highlightColor": "#FF6B6B",
+      "touchFloor": [
+        "hips",
+        "thighs",
+        "forearms"
+      ],
+      "ghost": "lying face down, legs extended straight back",
+      "active": "one heel curls toward glute, knee bends, then returns",
+      "description": "Lie face down with legs extended straight. Curl one heel toward the glute by bending the knee, then slowly lower it back down with control."
+    },
+    {
+      "id": "standing-hamstring-curl",
+      "name": "Standing Hamstring Curls",
+      "priority": 2,
+      "group": "Hamstring",
+      "posture": "standing",
+      "axis": "vertical",
+      "label": "Curl heel toward glute",
+      "instruction": "Stand on one leg, curl opposite heel toward glute",
+      "highlightColor": "#FF6B6B",
+      "touchFloor": [
+        "standing foot"
+      ],
+      "ghost": "standing upright, both legs straight",
+      "active": "one knee bends, heel curls toward glute, then lowers",
+      "description": "Stand tall on one leg for support. Bend the opposite knee to curl the heel toward the glute, then lower with control. Keep torso upright and core engaged."
+    },
+    {
+      "id": "romanian-deadlifts",
+      "name": "Romanian Deadlifts",
+      "priority": 2,
+      "group": "Hamstring",
+      "posture": "standing",
+      "axis": "vertical",
+      "label": "Hip hinge forward",
+      "instruction": "Hip hinge forward with slight knee bend, return",
+      "highlightColor": "#FF6B6B",
+      "touchFloor": [
+        "both feet"
+      ],
+      "ghost": "standing upright, legs straight, arms at sides",
+      "active": "torso hinges forward at hips, arms hang down, slight knee bend, return",
+      "description": "Stand with feet hip-width and a slight soft knee bend. Hinge at the hips by pushing the butt back while lowering the torso and letting the arms hang toward the floor. Keep the back flat and neutral, then drive the hips forward to return to standing."
+    },
+    {
+      "id": "good-mornings",
+      "name": "Good Mornings",
+      "priority": 2,
+      "group": "Hamstring",
+      "posture": "standing",
+      "axis": "vertical",
+      "label": "Hip hinge with hands behind head",
+      "instruction": "Hands behind head, hip hinge forward until torso parallel to floor",
+      "highlightColor": "#FF9500",
+      "description": "Stand tall with feet shoulder-width. Place hands behind head, hinge at hips to lower torso toward parallel with floor while keeping back straight, then return to upright.",
+      "touchFloor": [
+        "both feet"
+      ],
+      "ghost": "standing upright, hands behind head",
+      "active": "torso hinges forward at hips until parallel to floor, return"
+    },
+    {
+      "id": "nordic-curls",
+      "name": "Nordic Curls",
+      "priority": 2,
+      "group": "Hamstring",
+      "posture": "kneeling",
+      "axis": "diagonal",
+      "label": "Slowly lower torso",
+      "instruction": "Kneeling, slowly lower torso toward floor, keeping back straight",
+      "highlightColor": "#FF6B6B",
+      "description": "Kneel with ankles secured (partner or strap). Keeping body straight from knees to head, slowly lower torso forward toward floor with control, then return to upright kneeling using hamstrings.",
+      "touchFloor": [
+        "knees",
+        "ankles (held)"
+      ],
+      "ghost": "kneeling upright, body straight from knees to head",
+      "active": "torso slowly lowers forward/back toward floor, controlled return"
+    },
+    {
+      "id": "straight-leg-deadlifts",
+      "name": "Straight-Leg Deadlifts",
+      "priority": 2,
+      "group": "Hamstring",
+      "posture": "standing",
+      "axis": "vertical",
+      "label": "Hip hinge with straight legs",
+      "instruction": "Hip hinge with straight legs, reach toward floor, return",
+      "highlightColor": "#FF6B6B",
+      "description": "Stand with feet hip-width apart, legs straight or micro-bend at knees. Hinge at hips, pushing butt back while lowering torso and reaching hands toward floor, keeping back flat. Return by driving hips forward.",
+      "touchFloor": [
+        "both feet"
+      ],
+      "ghost": "standing upright, legs straight",
+      "active": "torso hinges forward with straight legs, hands reach toward floor, return"
+    },
+    {
+      "id": "hamstring-stretch",
+      "name": "Hamstring Stretch",
+      "priority": 2,
+      "group": "Hamstring",
+      "posture": "seated",
+      "axis": "horizontal",
+      "label": "Reach toward extended foot",
+      "instruction": "Seated with one leg extended, reach toward foot, hold",
+      "highlightColor": "#FF6B6B",
+      "description": "Sit with one leg extended straight forward, other knee bent with foot on floor. Reach both hands toward the extended foot, hinging at hips to feel stretch in hamstring, hold, then release.",
+      "touchFloor": [
+        "sit bones",
+        "extended heel"
+      ],
+      "ghost": "seated with one leg straight forward, other leg bent",
+      "active": "torso folds forward over extended leg, reaching toward foot, hold"
+    },
+    {
+      "id": "single-leg-bridges",
+      "name": "Single-Leg Bridges",
+      "priority": 2,
+      "group": "Glute",
+      "posture": "supine",
+      "axis": "horizontal",
+      "label": "Lift hips with one leg extended",
+      "instruction": "Bridge with one leg extended up, lift hips, lower",
+      "highlightColor": "#FF9500",
+      "description": "Lie on back with one knee bent and foot on floor, other leg extended straight up toward ceiling. Lift hips by driving through the grounded foot, hold at top, then lower with control.",
+      "touchFloor": [
+        "back",
+        "standing foot",
+        "shoulders"
+      ],
+      "ghost": "on back with one knee bent/foot on floor, other leg extended up",
+      "active": "hips lift and lower while one leg stays extended upward"
+    },
+    {
+      "id": "banded-walks",
+      "name": "Banded Walks",
+      "priority": 2,
+      "group": "Glute",
+      "posture": "standing",
+      "axis": "vertical (facing viewer)",
+      "label": "Side step with band",
+      "instruction": "Slight squat position, step to the side, keep tension",
+      "highlightColor": "#FFD93D",
+      "description": "Place mini-band around thighs or ankles. Start in slight squat with feet shoulder-width. Step laterally to one side maintaining tension on band and squat depth, then bring trailing leg to meet it. Repeat in both directions.",
+      "touchFloor": [
+        "both feet"
+      ],
+      "ghost": "standing in slight squat, feet shoulder-width",
+      "active": "one leg steps to the side, other follows, maintaining squat"
+    },
+    {
+      "id": "fire-hydrants",
+      "name": "Fire Hydrants",
+      "priority": 2,
+      "group": "Glute",
+      "posture": "all-fours",
+      "axis": "diagonal",
+      "label": "Lift knee out to side",
+      "instruction": "On all fours, lift one bent knee out to the side, return",
+      "highlightColor": "#FFD93D",
+      "description": "Start on hands and knees in neutral position. Keeping knee bent at 90 degrees, lift one leg out to the side (external hip rotation) like a dog at a fire hydrant, then return to start without rotating pelvis.",
+      "touchFloor": [
+        "hands",
+        "knees"
+      ],
+      "ghost": "neutral all-fours position",
+      "active": "one bent knee lifts out to the side (external rotation at hip), return"
+    },
+    {
+      "id": "glute-kickbacks",
+      "name": "Glute Kickbacks",
+      "priority": 2,
+      "group": "Glute",
+      "posture": "all-fours",
+      "axis": "diagonal",
+      "label": "Kick leg back and up",
+      "instruction": "On all fours, kick one leg back and up, return",
+      "highlightColor": "#FFD93D",
+      "description": "On hands and knees, extend one leg straight back and slightly upward, squeezing glute at top, then return knee toward chest without touching down if possible.",
+      "touchFloor": [
+        "hands",
+        "knees"
+      ],
+      "ghost": "neutral all-fours position",
+      "active": "one leg extends back and up, foot flexed, return"
+    },
+    {
+      "id": "bird-dogs",
+      "name": "Bird Dogs",
+      "priority": 2,
+      "group": "Core",
+      "posture": "all-fours",
+      "axis": "diagonal",
+      "label": "Extend opposite arm and leg",
+      "instruction": "On all fours, extend opposite arm forward and leg backward, return",
+      "highlightColor": "#22C55E",
+      "description": "Start on hands and knees. Simultaneously extend one arm forward and the opposite leg backward until both are straight and parallel to floor, keeping hips level and core braced. Return and alternate sides.",
+      "touchFloor": [
+        "hands",
+        "knees (starting)"
+      ],
+      "ghost": "neutral all-fours position",
+      "active": "one arm reaches forward, opposite leg reaches back, return to all-fours"
+    },
+    {
+      "id": "planks",
+      "name": "Planks",
+      "priority": 2,
+      "group": "Core",
+      "posture": "prone",
+      "axis": "horizontal",
+      "label": "Hold forearm plank",
+      "instruction": "Forearm plank, body in straight line, hold",
+      "highlightColor": "#22C55E",
+      "description": "Forearms on floor, elbows under shoulders, toes tucked under. Body forms straight line from head to heels. Engage core, glutes, and legs to hold position without sagging or piking hips.",
+      "touchFloor": [
+        "forearms",
+        "toes"
+      ],
+      "ghost": "forearm plank position, body in straight line",
+      "active": "minimal motion (hold position), subtle body line indicator"
+    },
+    {
+      "id": "side-planks",
+      "name": "Side Planks",
+      "priority": 2,
+      "group": "Core",
+      "posture": "side-lying",
+      "axis": "horizontal",
+      "label": "Hold side plank",
+      "instruction": "Side body hold on forearm, hold",
+      "highlightColor": "#22C55E",
+      "description": "Lie on one side, propped on forearm with elbow under shoulder. Stack feet or place top foot in front for stability. Lift hips to form straight line from head to feet, hold while bracing core.",
+      "touchFloor": [
+        "bottom forearm",
+        "bottom foot"
+      ],
+      "ghost": "side plank position, body in straight line",
+      "active": "minimal motion (hold position), subtle body line indicator"
+    },
+    {
+      "id": "pelvic-tilts",
+      "name": "Pelvic Tilts",
+      "priority": 2,
+      "group": "Core",
+      "posture": "supine",
+      "axis": "horizontal",
+      "label": "Tilt pelvis posteriorly",
+      "instruction": "Lie on back, knees bent, gently tilt pelvis (flatten lower back)",
+      "highlightColor": "#22C55E",
+      "description": "Lie on back with knees bent and feet flat on floor. Gently tilt pelvis posteriorly by pressing lower back into floor (flatten lumbar curve), hold briefly, then release to neutral.",
+      "touchFloor": [
+        "back",
+        "both feet"
+      ],
+      "ghost": "on back with knees bent, neutral pelvis",
+      "active": "pelvis tilts posteriorly (lower back flattens to floor), return"
+    },
+    {
+      "id": "hollow-holds",
+      "name": "Hollow Holds",
+      "priority": 2,
+      "group": "Core",
+      "posture": "supine",
+      "axis": "horizontal",
+      "label": "Lift arms and legs, hold U-shape",
+      "instruction": "Lie on back, lift arms, head, shoulders, and legs off floor, hold",
+      "highlightColor": "#22C55E",
+      "description": "Lie on back with arms extended overhead or by sides. Simultaneously lift head, shoulders, arms, and legs off the floor so lower back presses into floor, forming a slight U or banana shape. Hold while breathing steadily.",
+      "touchFloor": [
+        "lower back"
+      ],
+      "ghost": "on back, arms and legs extended on floor",
+      "active": "arms, head, shoulders, and legs lift off floor forming U-shape, hold"
+    },
+    {
+      "id": "supermans",
+      "name": "Supermans",
+      "priority": 2,
+      "group": "Core",
+      "posture": "prone",
+      "axis": "horizontal",
+      "label": "Lift arms and legs",
+      "instruction": "Lie face down, lift arms, chest, and legs off floor simultaneously",
+      "highlightColor": "#22C55E",
+      "description": "Lie face down with arms extended forward or by sides and legs straight. Simultaneously lift chest, arms, and legs off the floor as high as comfortable while squeezing glutes and upper back, hold briefly, then lower with control.",
+      "touchFloor": [
+        "hips",
+        "lower abdomen"
+      ],
+      "ghost": "lying face down, arms and legs extended",
+      "active": "arms, chest, and legs lift off floor, hold briefly, lower"
+    },
+    {
+      "id": "crunches",
+      "name": "Crunches",
+      "priority": 2,
+      "group": "Core",
+      "posture": "supine",
+      "axis": "horizontal",
+      "label": "Curl shoulders toward knees",
+      "instruction": "Lie on back, knees bent, curl shoulders up toward knees",
+      "highlightColor": "#22C55E",
+      "description": "Lie on back with knees bent, feet flat. Hands behind head or crossed on chest. Curl shoulders and upper back off floor toward knees by contracting abs, lower back stays pressed into floor. Lower with control.",
+      "touchFloor": [
+        "back",
+        "both feet"
+      ],
+      "ghost": "on back with knees bent, hands behind head",
+      "active": "shoulders curl up toward knees, lower back stays on floor, return"
+    },
+    {
+      "id": "quad-sets",
+      "name": "Quad Sets",
+      "priority": 3,
+      "group": "Quad",
+      "posture": "supine",
+      "axis": "horizontal",
+      "label": "Tighten quadriceps",
+      "instruction": "Lie on back, leg straight, tighten quad muscle, hold, release",
+      "highlightColor": "#FF6B6B",
+      "description": "Lie on back with one leg straight and other knee bent or straight. Tighten the quadriceps muscle of the straight leg by pushing knee down into floor (or imagining it), hold 5-10 seconds, then release. Minimal visible movement but muscle contraction visible.",
+      "touchFloor": [
+        "back",
+        "heel"
+      ],
+      "ghost": "on back with one leg extended straight, slight bend in knee",
+      "active": "quad muscle visibly tenses (subtle knee extension), minimal visible motion"
+    },
+    {
+      "id": "straight-leg-raises",
+      "name": "Straight Leg Raises",
+      "priority": 3,
+      "group": "Quad",
+      "posture": "supine",
+      "axis": "horizontal",
+      "label": "Lift straight leg up and down",
+      "instruction": "Lie on back, one leg straight, lift up to 45 degrees, lower",
+      "highlightColor": "#FF6B6B",
+      "description": "Lie on back with one knee bent and foot flat on floor for stability. Other leg straight with foot flexed. Lift straight leg up to about 45 degrees or until thigh is level with bent knee, then lower slowly with control.",
+      "touchFloor": [
+        "back",
+        "bent foot",
+        "straight heel"
+      ],
+      "ghost": "on back with one knee bent/foot on floor, other leg straight on floor",
+      "active": "straight leg lifts up to ~45 degrees, lowers back down under control"
+    },
+    {
+      "id": "step-ups",
+      "name": "Step-Ups",
+      "priority": 3,
+      "group": "Quad",
+      "posture": "standing",
+      "axis": "vertical",
+      "label": "Step up onto platform",
+      "instruction": "Step one foot onto platform, drive up, step down, repeat",
+      "highlightColor": "#FF6B6B",
+      "description": "Stand facing a sturdy platform or step (6-12 inches). Step one foot fully onto the platform, drive through heel to stand tall on platform, then step the trailing foot up. Reverse: step down leading with same foot or alternate.",
+      "touchFloor": [
+        "back foot (on ground)",
+        "front foot (on platform)"
+      ],
+      "ghost": "standing facing platform, both feet on ground",
+      "active": "one foot steps up onto platform, other leg drives up, then step back down"
+    },
+    {
+      "id": "wall-sits",
+      "name": "Wall Sits",
+      "priority": 3,
+      "group": "Quad",
+      "posture": "standing",
+      "axis": "vertical (against wall)",
+      "label": "Slide down wall to 90 degrees",
+      "instruction": "Lean back against wall, slide down until knees at 90 degrees, hold",
+      "highlightColor": "#FF6B6B",
+      "description": "Stand with back against wall, feet shoulder-width about 2 feet from wall. Slide down wall by bending knees until thighs are parallel to floor (knees ~90 degrees). Hold position, then slide back up.",
+      "touchFloor": [
+        "both feet"
+      ],
+      "ghost": "standing upright against wall",
+      "active": "slide down wall into seated position (knees 90 degrees), hold briefly, return up"
+    },
+    {
+      "id": "terminal-knee-extensions",
+      "name": "Terminal Knee Extensions",
+      "priority": 3,
+      "group": "Quad",
+      "posture": "standing",
+      "axis": "vertical (side view)",
+      "label": "Extend knee against band",
+      "instruction": "Stand with band around ankle, extend knee, return slowly",
+      "highlightColor": "#FF6B6B",
+      "description": "Stand facing away from anchor point with band looped around back of one ankle. Start with slight knee bend. Extend the knee fully against band resistance, squeezing quad at top, then return slowly to start position.",
+      "touchFloor": [
+        "both feet"
+      ],
+      "ghost": "standing upright, slight knee bend",
+      "active": "one knee extends fully against resistance, returns slowly; band shown as line"
+    },
+    {
+      "id": "hip-flexor-stretch",
+      "name": "Hip Flexor Stretch",
+      "priority": 3,
+      "group": "Hip",
+      "posture": "kneeling",
+      "axis": "vertical",
+      "label": "Lunge forward, stretch hip",
+      "instruction": "Kneeling lunge, shift weight forward, feel hip stretch, hold",
+      "highlightColor": "#FF9500",
+      "description": "Start in half-kneeling position (one knee down, other foot forward). Keeping torso upright, shift hips forward until stretch is felt in front of back hip/thigh. Hold, then return or deepen gently.",
+      "touchFloor": [
+        "back knee",
+        "front foot"
+      ],
+      "ghost": "kneeling lunge position (one knee down, other foot forward)",
+      "active": "shift hips forward into deeper stretch, hold, return"
+    },
+    {
+      "id": "figure-4-stretch",
+      "name": "Figure-4 Stretch",
+      "priority": 3,
+      "group": "Hip",
+      "posture": "supine",
+      "axis": "horizontal",
+      "label": "Ankle over knee, press leg",
+      "instruction": "Lie on back, cross one ankle over opposite knee, press leg forward",
+      "highlightColor": "#FF9500",
+      "description": "Lie on back. Cross one ankle over the opposite knee (figure-4). Gently press the crossed knee away from body or pull thigh toward chest to deepen stretch in outer hip/glute. Hold, then switch sides.",
+      "touchFloor": [
+        "back",
+        "bottom foot"
+      ],
+      "ghost": "on back with one knee bent/foot on floor, other ankle crossed on knee",
+      "active": "leg presses forward to deepen stretch, hold, return"
+    },
+    {
+      "id": "hip-circles",
+      "name": "Hip Circles",
+      "priority": 3,
+      "group": "Hip",
+      "posture": "standing",
+      "axis": "vertical",
+      "label": "Circle leg at hip",
+      "instruction": "Stand on one leg, circle the other leg at the hip",
+      "highlightColor": "#FF9500",
+      "description": "Stand on one leg (hold support if needed). Lift other leg slightly off floor and trace controlled circles at the hip joint in both directions. Keep pelvis stable and core engaged.",
+      "touchFloor": [
+        "standing foot"
+      ],
+      "ghost": "standing on one leg, other leg slightly lifted",
+      "active": "lifted leg traces circles at the hip joint, controlled motion"
+    },
+    {
+      "id": "banded-hip-flexion",
+      "name": "Banded Hip Flexion",
+      "priority": 3,
+      "group": "Hip",
+      "posture": "standing",
+      "axis": "vertical (side view)",
+      "label": "Drive knee up against band",
+      "instruction": "Stand with band around ankle, drive knee upward, return",
+      "highlightColor": "#FF9500",
+      "description": "Stand sideways to band anchor with band around one ankle. Start with slight hip extension. Drive the banded knee up and forward against resistance in a marching motion, then return with control.",
+      "touchFloor": [
+        "both feet (starting)"
+      ],
+      "ghost": "standing upright, band around one ankle",
+      "active": "one knee drives up and forward against band resistance, return"
+    },
+    {
+      "id": "pigeon-pose",
+      "name": "Pigeon Pose",
+      "priority": 3,
+      "group": "Hip",
+      "posture": "seated",
+      "axis": "horizontal",
+      "label": "Fold forward over front leg",
+      "instruction": "Seated with one leg bent in front, other extended back, fold forward",
+      "highlightColor": "#FF9500",
+      "description": "From seated or all-fours transition, bring one leg forward into bent position (~90 degrees at knee), extend other leg straight back. Square hips, then fold torso forward over front shin, reaching arms out. Hold deep hip stretch.",
+      "touchFloor": [
+        "sit bones",
+        "front shin",
+        "back knee"
+      ],
+      "ghost": "seated with front leg bent at ~90 degrees, back leg extended behind",
+      "active": "torso folds forward over front leg, deepening hip stretch, hold"
+    },
+    {
+      "id": "90-90-stretch",
+      "name": "90-90 Stretch",
+      "priority": 3,
+      "group": "Hip",
+      "posture": "seated",
+      "axis": "horizontal",
+      "label": "Both legs at 90 degrees",
+      "instruction": "Seated with both legs bent 90 degrees, rotate torso, hold",
+      "highlightColor": "#FF9500",
+      "description": "Sit with both legs bent at 90 degrees (one leg forward, one to the side like a pinwheel or 90-90 position). Keep front shin parallel to body or adjust for comfort. Rotate torso toward front leg, hold stretch, then return and switch orientation.",
+      "touchFloor": [
+        "sit bones",
+        "both shins"
+      ],
+      "ghost": "seated with both legs at 90 degrees (one forward, one to side)",
+      "active": "torso rotates toward front leg, hold, return"
+    },
+    {
+      "id": "childs-pose",
+      "name": "Child's Pose",
+      "priority": 3,
+      "group": "Mobility",
+      "posture": "kneeling",
+      "axis": "horizontal",
+      "label": "Reach arms forward, sit back",
+      "instruction": "Kneeling, sit back on heels, reach arms forward on floor, hold",
+      "highlightColor": "#22C55E",
+      "description": "Kneel on floor, big toes touching, knees wide or together. Sit hips back toward heels. Extend arms forward on floor, forehead can rest on mat. Breathe deeply into back and sides. Hold for relaxation and gentle stretch.",
+      "touchFloor": [
+        "knees",
+        "forehead",
+        "hands"
+      ],
+      "ghost": "kneeling upright, arms at sides",
+      "active": "fold forward, arms extend forward on floor, hips sit back toward heels, hold"
+    },
+    {
+      "id": "worlds-greatest-stretch",
+      "name": "World's Greatest Stretch",
+      "priority": 3,
+      "group": "Mobility",
+      "posture": "lunge",
+      "axis": "diagonal",
+      "label": "Lunge with thoracic rotation",
+      "instruction": "Lunge forward, rotate torso toward front leg, reach arm up",
+      "highlightColor": "#22C55E",
+      "description": "From standing, step one foot forward into deep lunge (back knee may touch floor). Place hand inside front foot. Rotate torso toward front leg, reaching opposite arm up toward ceiling and looking up. Return hand to floor, step back or repeat.",
+      "touchFloor": [
+        "back knee",
+        "front foot",
+        "back toes"
+      ],
+      "ghost": "deep lunge position, back knee on floor",
+      "active": "torso rotates toward front leg, one arm reaches toward ceiling, return"
+    },
+    {
+      "id": "thread-the-needle",
+      "name": "Thread the Needle",
+      "priority": 3,
+      "group": "Mobility",
+      "posture": "all-fours",
+      "axis": "diagonal",
+      "label": "Thread arm under body",
+      "instruction": "On all fours, reach one arm under body to opposite side, rotate",
+      "highlightColor": "#22C55E",
+      "description": "Start on hands and knees. Slide one arm under the opposite arm and through to the other side, allowing torso and head to rotate and shoulder to lower toward floor. Feel stretch in upper back/shoulder. Return and switch sides.",
+      "touchFloor": [
+        "hands",
+        "knees"
+      ],
+      "ghost": "neutral all-fours position",
+      "active": "one arm reaches under body to opposite side, torso rotates, return"
+    },
+    {
+      "id": "seated-spinal-twist",
+      "name": "Seated Spinal Twist",
+      "priority": 3,
+      "group": "Mobility",
+      "posture": "seated",
+      "axis": "vertical (seated)",
+      "label": "Twist torso to one side",
+      "instruction": "Seated with legs crossed, twist torso to one side, hold, repeat",
+      "highlightColor": "#22C55E",
+      "description": "Sit cross-legged or with one leg bent. Place one hand on opposite knee or thigh. Inhale to lengthen spine, exhale to twist torso toward the bent knee side. Use hand for gentle assist. Hold, breathe, then return slowly and switch.",
+      "touchFloor": [
+        "sit bones"
+      ],
+      "ghost": "seated cross-legged, hands at sides",
+      "active": "torso rotates to one side, one hand on opposite knee, hold, return"
+    },
+    {
+      "id": "standing-side-bend",
+      "name": "Standing Side Bend",
+      "priority": 3,
+      "group": "Mobility",
+      "posture": "standing",
+      "axis": "vertical",
+      "label": "Bend torso to the side",
+      "instruction": "Stand with feet shoulder-width, reach one arm overhead, bend to side, hold",
+      "highlightColor": "#22C55E",
+      "description": "Stand tall with feet shoulder-width apart. Reach one arm overhead, palm facing in. Gently bend torso laterally to the opposite side, keeping hips stable and both feet grounded. Feel stretch along side body. Hold, return to center, switch sides.",
+      "touchFloor": [
+        "both feet"
+      ],
+      "ghost": "standing upright, arms at sides",
+      "active": "one arm reaches overhead, torso bends laterally to opposite side, hold, return"
+    },
+    {
+      "id": "single-leg-stance",
+      "name": "Single-Leg Stance",
+      "priority": 4,
+      "group": "Balance",
+      "posture": "standing",
+      "axis": "vertical",
+      "label": "Stand on one foot",
+      "instruction": "Stand on one foot, hold balance, switch sides",
+      "highlightColor": "#22C55E",
+      "description": "Stand tall with feet together. Shift weight to one foot, lift opposite foot off floor (knee bent or straight). Hold balance for time or with eyes closed for challenge. Arms can be at sides or crossed. Subtle postural sway is normal.",
+      "touchFloor": [
+        "standing foot"
+      ],
+      "ghost": "standing upright on both feet",
+      "active": "lift one foot off floor, balance on other foot, slight sway for realism"
+    },
+    {
+      "id": "tandem-walk",
+      "name": "Tandem Walk",
+      "priority": 4,
+      "group": "Balance",
+      "posture": "standing",
+      "axis": "vertical (walking side view)",
+      "label": "Walk heel to toe",
+      "instruction": "Walk in straight line, placing heel directly in front of toes",
+      "highlightColor": "#22C55E",
+      "description": "Stand at start of imaginary line. Walk forward placing heel of front foot directly touching toes of back foot with each step, like walking a tightrope. Arms at sides or out for balance. Focus on smooth, controlled steps.",
+      "touchFloor": [
+        "one foot at a time"
+      ],
+      "ghost": "standing upright, arms at sides",
+      "active": "step forward with heel touching toes of back foot, repeat alternating"
+    },
+    {
+      "id": "heel-to-toe-stand",
+      "name": "Heel-to-Toe Stand",
+      "priority": 4,
+      "group": "Balance",
+      "posture": "standing",
+      "axis": "vertical",
+      "label": "Stand with feet in tandem",
+      "instruction": "Stand with one foot directly in front of the other, hold",
+      "highlightColor": "#22C55E",
+      "description": "Stand with one foot directly in front of the other so heel of front foot touches toes of back foot. Distribute weight evenly or slightly more on back foot. Hold balance, arms at sides or crossed. Switch foot order.",
+      "touchFloor": [
+        "both feet"
+      ],
+      "ghost": "standing with feet in tandem position (one in front of other)",
+      "active": "hold tandem stance, subtle sway for balance realism"
+    },
+    {
+      "id": "lateral-step-overs",
+      "name": "Lateral Step-Overs",
+      "priority": 4,
+      "group": "Balance",
+      "posture": "standing",
+      "axis": "vertical",
+      "label": "Step sideways over obstacle",
+      "instruction": "Step sideways over low obstacle, alternate directions",
+      "highlightColor": "#22C55E",
+      "description": "Stand sideways to a low obstacle (cone, line, or imaginary). Step one leg laterally over the obstacle, then bring trailing leg over to meet it. Repeat back in opposite direction or continue laterally.",
+      "touchFloor": [
+        "one foot at a time"
+      ],
+      "ghost": "standing upright",
+      "active": "step one leg over obstacle to side, bring other leg over, repeat back"
+    },
+    {
+      "id": "marching",
+      "name": "Marching",
+      "priority": 4,
+      "group": "Balance",
+      "posture": "standing",
+      "axis": "vertical",
+      "label": "High knee march in place",
+      "instruction": "March in place, lifting knees to hip height, pump arms",
+      "highlightColor": "#22C55E",
+      "description": "Stand tall. March in place by lifting knees alternately toward hip height (or comfortable height). Opposite arm swings forward with each knee lift. Maintain upright posture and core engagement. Can be done slow or with pace.",
+      "touchFloor": [
+        "one foot at a time (alternating)"
+      ],
+      "ghost": "standing upright, arms at sides",
+      "active": "alternating high knee lifts with opposite arm swing, continuous"
+    },
+    {
+      "id": "pendulum-swings",
+      "name": "Pendulum Swings",
+      "priority": 4,
+      "group": "Shoulder",
+      "posture": "standing",
+      "axis": "diagonal (bent over)",
+      "label": "Swing arm in circles",
+      "instruction": "Bend forward, let arm hang, swing in circles, switch directions",
+      "highlightColor": "#FF9500",
+      "description": "Stand with feet shoulder-width, hinge forward at hips with flat back (like starting a Romanian deadlift). Let one arm hang relaxed. Swing arm in large circles from shoulder, clockwise then counterclockwise. Switch arms.",
+      "touchFloor": [
+        "both feet"
+      ],
+      "ghost": "standing bent forward at hips, one arm hanging down",
+      "active": "arm swings in circles at shoulder, body stays bent forward"
+    },
+    {
+      "id": "band-pull-aparts",
+      "name": "Band Pull-Aparts",
+      "priority": 4,
+      "group": "Shoulder",
+      "posture": "standing",
+      "axis": "vertical",
+      "label": "Pull band apart horizontally",
+      "instruction": "Hold band in front at shoulder height, pull apart, return",
+      "highlightColor": "#FF9500",
+      "description": "Stand tall holding resistance band or mini-band in both hands at shoulder height, arms extended forward, slight tension. Pull band apart by squeezing shoulder blades together and moving arms out to sides, then return to start with control.",
+      "touchFloor": [
+        "both feet"
+      ],
+      "ghost": "standing upright, arms extended forward at shoulder height, holding band",
+      "active": "arms pull band apart horizontally, squeeze shoulder blades, return"
+    },
+    {
+      "id": "wall-slides",
+      "name": "Wall Slides",
+      "priority": 4,
+      "group": "Shoulder",
+      "posture": "standing",
+      "axis": "vertical (against wall)",
+      "label": "Slide arms up wall",
+      "instruction": "Stand against wall, arms at 90 degrees, slide up, return",
+      "highlightColor": "#FF9500",
+      "description": "Stand with back flat against wall, feet 6-12 inches away. Arms in 'W' or goalpost position (elbows bent ~90 degrees, upper arms against wall). Slide arms up wall into 'Y' position (arms straight overhead), then slide back down to W.",
+      "touchFloor": [
+        "both feet",
+        "back against wall"
+      ],
+      "ghost": "standing against wall, arms in W position (elbows bent 90)",
+      "active": "arms slide up wall into Y position, return to W"
+    },
+    {
+      "id": "scapular-retractions",
+      "name": "Scapular Retractions",
+      "priority": 4,
+      "group": "Shoulder",
+      "posture": "standing",
+      "axis": "vertical",
+      "label": "Squeeze shoulder blades",
+      "instruction": "Stand with arms at sides, squeeze shoulder blades together, release",
+      "highlightColor": "#FF9500",
+      "description": "Stand tall with arms relaxed at sides or slight bend. Squeeze shoulder blades together (retraction) as if pinching a pencil between them, hold 2-5 seconds, then release. Can add slight external rotation of arms for more activation.",
+      "touchFloor": [
+        "both feet"
+      ],
+      "ghost": "standing upright, arms at sides",
+      "active": "shoulder blades squeeze together (arms pull back slightly), release"
+    },
+    {
+      "id": "doorway-stretch",
+      "name": "Doorway Stretch",
+      "priority": 4,
+      "group": "Shoulder",
+      "posture": "standing",
+      "axis": "vertical",
+      "label": "Stretch chest in doorway",
+      "instruction": "Stand in doorway, arms on door frame, lean forward, hold",
+      "highlightColor": "#FF9500",
+      "description": "Stand in a doorway. Place forearms on door frame at about shoulder height, elbows bent ~90 degrees. Lean chest forward through the doorway until stretch is felt across chest and front of shoulders. Hold, then step back to release.",
+      "touchFloor": [
+        "both feet"
+      ],
+      "ghost": "standing in doorway, forearms on frame at shoulder height",
+      "active": "lean forward through doorway, stretching chest, hold, return"
+    },
+    {
+      "id": "chest-opener",
+      "name": "Chest Opener",
+      "priority": 4,
+      "group": "Shoulder",
+      "posture": "standing",
+      "axis": "vertical",
+      "label": "Clasp hands behind back, open chest",
+      "instruction": "Stand with hands clasped behind back, straighten arms, open chest, hold",
+      "highlightColor": "#FF9500",
+      "description": "Stand tall with feet shoulder-width. Clasp hands behind back, interlace fingers or hold wrist. Straighten arms and gently lift hands away from body while rolling shoulders back and opening chest forward. Hold stretch, then release.",
+      "touchFloor": [
+        "both feet"
+      ],
+      "ghost": "standing upright, arms at sides",
+      "active": "hands clasp behind back, arms straighten, shoulders roll back, chest opens, hold"
+    }
+  ]
+}

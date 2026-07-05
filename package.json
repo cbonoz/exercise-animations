@@ -5,7 +5,9 @@
   "description": "Exercise stick figure animations in Lottie JSON format for BridgeRecovery",
   "scripts": {
     "preview": "node scripts/preview.js",
-    "generate": "node scripts/generate.js"
+    "start": "yarn preview",
+    "generate": "node scripts/generate.js",
+    "validate": "node scripts/validate.js"
   },
   "dependencies": {
     "lottie-web": "^5.13.0"
