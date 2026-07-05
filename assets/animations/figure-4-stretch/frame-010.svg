@@ -9,8 +9,8 @@
 </g>
 <g stroke="#FFF" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="160" cy="253" r="12" fill="#FFF" stroke="none"/>
-  <line x1="160" y1="253" x2="172" y2="255"/><line x1="172" y1="255" x2="185" y2="257"/><line x1="185" y1="257" x2="230" y2="259"/><line x1="185" y1="257" x2="168" y2="215"/><line x1="168" y1="215" x2="158" y2="195"/><line x1="185" y1="257" x2="202" y2="215"/><line x1="202" y1="215" x2="212" y2="195"/><line x1="230" y1="259" x2="262.4" y2="209.1"/><line x1="262.4" y1="209.1" x2="278.3" y2="257.6"/><line x1="230" y1="259" x2="250" y2="210"/><line x1="250" y1="210" x2="265" y2="258"/>
-  <line x1="230" y1="259" x2="262.4" y2="209.1" stroke="#FF9500" stroke-width="5" opacity="0.6"/><line x1="262.4" y1="209.1" x2="278.3" y2="257.6" stroke="#FF9500" stroke-width="5" opacity="0.6"/>
+  <line x1="160" y1="253" x2="172" y2="255"/><line x1="172" y1="255" x2="185" y2="257"/><line x1="185" y1="257" x2="230" y2="259"/><line x1="185" y1="257" x2="168" y2="215"/><line x1="168" y1="215" x2="158" y2="195"/><line x1="185" y1="257" x2="202" y2="215"/><line x1="202" y1="215" x2="212" y2="195"/><line x1="230" y1="259" x2="261.1" y2="208.7"/><line x1="261.1" y1="208.7" x2="277.4" y2="254.3"/><line x1="230" y1="259" x2="250" y2="210"/><line x1="250" y1="210" x2="265" y2="258"/>
+  <line x1="230" y1="259" x2="261.1" y2="208.7" stroke="#FF9500" stroke-width="5" opacity="0.6"/><line x1="261.1" y1="208.7" x2="277.4" y2="254.3" stroke="#FF9500" stroke-width="5" opacity="0.6"/>
 </g>
-<text x="277.4" y="199.1" fill="#FF9500" font-size="10" font-family="sans-serif">Press</text>
+<text x="276.1" y="198.7" fill="#FF9500" font-size="10" font-family="sans-serif">Press</text>
 </svg>

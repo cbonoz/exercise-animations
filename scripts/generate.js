@@ -365,7 +365,7 @@ const MOTIONS = {
   },
   'figure-4-stretch': {
     posture: 'supine',
-    move: { left_knee: { x: -30, y: -10 }, left_foot: { x: -20, y: -5 } },
+    move: { left_knee: { x: -45, y: -15 }, left_foot: { x: -30, y: -43 } },
     highlight: [['hip','left_knee'],['left_knee','left_foot']],
     highlightColor: '#FF9500',
   },
