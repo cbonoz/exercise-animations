@@ -890,19 +890,19 @@
       "name": "Hip Flexor Stretch",
       "priority": 3,
       "group": "Hip",
-      "posture": "kneeling",
+      "posture": "standing",
       "axis": "vertical",
       "label": "Lunge forward, stretch hip",
-      "instruction": "Kneeling lunge, shift weight forward, feel hip stretch, hold",
+      "instruction": "Lunge forward, shift hips forward, feel hip stretch, hold",
       "highlightColor": "#FF9500",
-      "description": "Start in half-kneeling position (one knee down, other foot forward). Keeping torso upright, shift hips forward until stretch is felt in front of back hip/thigh. Hold, then return or deepen gently.",
+      "description": "From standing, step one foot forward into a lunge position (back knee bends toward floor). Keeping torso upright, shift hips forward until stretch is felt in front of the back hip/thigh. Hold, then return.",
       "touchFloor": [
-        "back knee",
-        "front foot"
+        "both feet",
+        "back knee"
       ],
-      "ghost": "kneeling lunge position (one knee down, other foot forward)",
+      "ghost": "lunge position with front foot forward and back knee bent",
       "active": "shift hips forward into deeper stretch, hold, return",
-      "motionHint": "Half-kneeling lunge; hips shift forward deepening the hip stretch",
+      "motionHint": "Lunge with torso upright; hips shift forward deepening the hip stretch",
       "annotations": [
         {
           "type": "text",
