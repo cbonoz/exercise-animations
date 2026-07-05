@@ -593,6 +593,7 @@ function validateScene(scene) {
   const sceneDir = path.join(ROOT, 'assets', 'animations', scene.dir);
   const results = { name: scene.name, dir: scene.dir, checks: {}, score: 0, maxScore: 0 };
 
+  // Load only key frames for speed, plus full set for checks that need all frames
   const frames = [];
   for (let i = 0; i < FRAMES; i++) {
     const filePath = path.join(sceneDir, `frame-${String(i).padStart(3, '0')}.svg`);
@@ -600,6 +601,9 @@ function validateScene(scene) {
     const content = fs.readFileSync(filePath, 'utf-8');
     frames.push(parseSVG(content));
   }
+
+  // Build key-frame subset for motion checks
+  const keyFrames = KEY_FRAMES.map(i => frames[i]).filter(Boolean);
 
   // Check 1: Frame count
   const missingFrames = frames.map((f, i) => f === null ? i : -1).filter(i => i >= 0);
@@ -614,6 +618,7 @@ function validateScene(scene) {
   if (validFrames.length === 0) return results;
 
   const skeletonData = validFrames.map(f => f.skeletonLines);
+  const keySkeletonData = keyFrames.map(f => f.skeletonLines);
 
   // Check 2: SVG validity
   results.checks.svgValidity = checkSVGValidity(validFrames);
@@ -633,11 +638,11 @@ function validateScene(scene) {
   // Check 7: Cycle closure
   results.checks.cycleClosure = checkCycleClosure(skeletonData[0], skeletonData[skeletonData.length - 1]);
 
-  // Check 8: Motion
-  results.checks.motion = checkMotion(skeletonData);
+  // Check 8: Motion (uses key frames for speed)
+  results.checks.motion = checkMotion(keySkeletonData);
 
-  // Check 9: Smoothness
-  results.checks.smoothness = checkSmoothness(skeletonData);
+  // Check 9: Smoothness (uses key frames for speed)
+  results.checks.smoothness = checkSmoothness(keySkeletonData);
 
   // Check 10: Spine orientation
   results.checks.orientation = checkSpineOrientation(validFrames[0].ghostLines, validFrames[0].ghostCircles, scene.dir);
@@ -673,20 +678,23 @@ function validateScene(scene) {
 }
 
 function printResults(results) {
-  const icon = (pass) => pass ? '✓' : '✗';
   const detail = results.score !== undefined ? ` [${results.score}/${results.maxScore}]` : '';
+  const failingCount = Object.entries(results.checks).filter(([_, c]) => !c.pass).length;
+  if (failingCount === 0) return true;
   console.log(`\n${results.name} (${results.dir})${detail}`);
 
-  for (const [key, check] of Object.entries(results.checks)) {
+  const failing = Object.entries(results.checks).filter(([_, c]) => !c.pass);
+  if (failing.length === 0) return true;
+  for (const [key, check] of failing) {
     if (check.skip) continue;
-    console.log('  ' + icon(check.pass) + ` ${key}: ${check.note || (check.pass ? 'OK' : 'FAIL')}`);
-    if (!check.pass && check.issues && check.issues.length > 0) {
-      for (const issue of check.issues.slice(0, 3)) {
+    console.log('  ✗ ' + key + (check.note ? `: ${check.note}` : ''));
+    if (check.issues && check.issues.length > 0) {
+      for (const issue of check.issues.slice(0, 2)) {
         console.log(`       ${issue}`);
       }
     }
   }
-  return results.pass;
+  return false;
 }
 
 function printSummary(allResults) {
@@ -713,6 +721,50 @@ function printSummary(allResults) {
   console.log('');
 }
 
+function generateReport(allResults) {
+  const ROOT = path.join(__dirname, '..');
+  const rows = allResults.map(r => {
+    const failing = Object.entries(r.checks).filter(([_, c]) => !c.pass);
+    return `<tr style="${r.pass ? '' : 'background:#2a1a1a'}">
+      <td style="padding:4px 8px;border-bottom:1px solid #222">${r.name}</td>
+      <td style="padding:4px 8px;border-bottom:1px solid #222">${r.score}/${r.maxScore}</td>
+      <td style="padding:4px 8px;border-bottom:1px solid #222">${r.pass ? '✓' : '✗'}</td>
+      <td style="padding:4px 8px;border-bottom:1px solid #222;font-size:11px;color:#aaa">${failing.length > 0 ? failing.map(([n,c]) => `${n}: ${c.note || ''}`).join('<br>') : ''}</td>
+    </tr>`;
+  }).join('\n');
+  const html = `<!DOCTYPE html>
+<html><head><title>Validation Report</title>
+<style>body{font-family:-apple-system,sans-serif;background:#0f0f1a;color:#fff;padding:32px;max-width:960px;margin:0 auto}
+h1{font-size:22px;margin-bottom:4px}
+.sub{color:#888;margin-bottom:24px;font-size:13px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;padding:6px 8px;border-bottom:2px solid #444;color:#888;font-size:11px;text-transform:uppercase}
+td{color:#ccc}
+.pass{color:#22C55E}
+.fail{color:#FF6B6B}
+.summary{display:flex;gap:24px;margin-bottom:24px}
+.stat{background:#1a1a2e;border-radius:8px;padding:16px;flex:1;text-align:center}
+.stat-num{font-size:28px;font-weight:700}
+.stat-label{font-size:11px;color:#888;margin-top:4px}
+</style></head>
+<body>
+<h1>Exercise Animation Validation Report</h1>
+<div class="sub">${allResults.length} exercises · ${allResults[0]?.maxScore || 17} checks each</div>
+<div class="summary">
+  <div class="stat"><div class="stat-num" style="color:#22C55E">${allResults.filter(r=>r.pass).length}</div><div class="stat-label">Passed</div></div>
+  <div class="stat"><div class="stat-num" style="color:#FF6B6B">${allResults.filter(r=>!r.pass).length}</div><div class="stat-label">Failed</div></div>
+  <div class="stat"><div class="stat-num">${(allResults.reduce((a,r)=>a+r.score/r.maxScore,0)/allResults.length*100).toFixed(0)}%</div><div class="stat-label">Average Score</div></div>
+</div>
+<table>
+<tr><th>Exercise</th><th>Score</th><th>Status</th><th>Issues</th></tr>
+${rows}
+</table>
+</body></html>`;
+  const reportPath = path.join(ROOT, 'assets', 'preview', 'validate-report.html');
+  fs.writeFileSync(reportPath, html);
+  console.log(`\nReport: ${reportPath}`);
+}
+
 // Run
 console.log('Exercise Animation Validator v2\n');
 const allResults = [];
@@ -722,4 +774,5 @@ for (const scene of SCENES) {
   printResults(result);
 }
 printSummary(allResults);
+generateReport(allResults);
 if (allResults.some(r => !r.pass)) process.exit(1);

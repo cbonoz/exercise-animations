@@ -9,7 +9,7 @@
 </g>
 <g stroke="#FFF" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="155.1" cy="60" r="10" fill="#FFF" stroke="none"/>
-  <line x1="155.1" y1="60" x2="155.1" y2="80"/><line x1="155.1" y1="80" x2="155" y2="95"/><line x1="155" y1="95" x2="155" y2="170"/><line x1="155" y1="95" x2="135.1" y2="105"/><line x1="135.1" y1="105" x2="125.1" y2="120"/><line x1="155" y1="95" x2="175.1" y2="105"/><line x1="175.1" y1="105" x2="185.1" y2="120"/><line x1="155" y1="170" x2="225" y2="170"/><line x1="225" y1="170" x2="255" y2="245"/><line x1="155" y1="170" x2="205" y2="170"/><line x1="205" y1="170" x2="235" y2="245"/>
+  <line x1="155.1" y1="60" x2="155.1" y2="80"/><line x1="155.1" y1="80" x2="155.1" y2="95"/><line x1="155.1" y1="95" x2="155" y2="170"/><line x1="155.1" y1="95" x2="135.1" y2="105"/><line x1="135.1" y1="105" x2="125.2" y2="120"/><line x1="155.1" y1="95" x2="175.1" y2="105"/><line x1="175.1" y1="105" x2="185.2" y2="120"/><line x1="155" y1="170" x2="225" y2="170"/><line x1="225" y1="170" x2="255" y2="245"/><line x1="155" y1="170" x2="205" y2="170"/><line x1="205" y1="170" x2="235" y2="245"/>
   <line x1="155" y1="170" x2="225" y2="170" stroke="#FF6B6B" stroke-width="5" opacity="0.6"/><line x1="225" y1="170" x2="255" y2="245" stroke="#FF6B6B" stroke-width="5" opacity="0.6"/>
 </g>
 <line x1="185" y1="140" x2="240" y2="140" stroke="#FF6B6B" stroke-width="2" stroke-dasharray="4,3"/><polygon points="240,135 250,140 240,145" fill="#FF6B6B"/><text x="212.5" y="133" fill="#FF6B6B" font-size="10" text-anchor="middle" font-family="sans-serif">Reach</text>
