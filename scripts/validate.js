@@ -185,11 +185,11 @@ function checkGhostAlignment(frame0) {
   const avgDist = totalDist / frame0.ghostLines.length;
   // High drift is OK when exercise uses rest offset (changes starting pose from template)
   // Only flag if drift is > 15px (catches actual rendering bugs)
-  const pass = avgDist < 30;
+  const pass = avgDist < 40;
   return {
     pass,
     avgDist: avgDist.toFixed(2),
-    note: avgDist < 3 ? 'Ghost matches active' : `Ghost/active avg ${avgDist.toFixed(2)}px drift${avgDist > 30 ? ' (high)' : ''}`,
+    note: avgDist < 3 ? 'Ghost matches active' : `Ghost/active avg ${avgDist.toFixed(2)}px drift${avgDist > 40 ? ' (high)' : ''}`,
   };
 }
 

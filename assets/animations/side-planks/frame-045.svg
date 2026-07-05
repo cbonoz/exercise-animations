@@ -8,9 +8,9 @@
   <line x1="130" y1="232" x2="142" y2="235"/><line x1="142" y1="235" x2="155" y2="238"/><line x1="155" y1="238" x2="210" y2="245"/><line x1="155" y1="238" x2="180" y2="243"/><line x1="180" y1="243" x2="200" y2="247"/><line x1="210" y1="245" x2="258" y2="237"/><line x1="258" y1="237" x2="238" y2="245"/><line x1="210" y1="245" x2="255" y2="228"/><line x1="255" y1="228" x2="235" y2="243"/>
 </g>
 <g stroke="#FFF" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="130" cy="232" r="12" fill="#FFF" stroke="none"/>
-  <line x1="130" y1="232" x2="142" y2="235"/><line x1="142" y1="235" x2="155" y2="238"/><line x1="155" y1="238" x2="210" y2="241.3"/><line x1="155" y1="238" x2="180" y2="243"/><line x1="180" y1="243" x2="200" y2="247"/><line x1="210" y1="241.3" x2="258" y2="237"/><line x1="258" y1="237" x2="238" y2="245"/><line x1="210" y1="241.3" x2="255" y2="228"/><line x1="255" y1="228" x2="235" y2="243"/>
-  <line x1="142" y1="235" x2="155" y2="238" stroke="#22C55E" stroke-width="5" opacity="0.6"/><line x1="155" y1="238" x2="210" y2="241.3" stroke="#22C55E" stroke-width="5" opacity="0.6"/>
+  <circle cx="130" cy="222" r="12" fill="#FFF" stroke="none"/>
+  <line x1="130" y1="222" x2="142" y2="220"/><line x1="142" y1="220" x2="155" y2="218"/><line x1="155" y1="218" x2="210" y2="226.3"/><line x1="155" y1="218" x2="165" y2="249"/><line x1="165" y1="249" x2="180" y2="249"/><line x1="210" y1="226.3" x2="258" y2="237"/><line x1="258" y1="237" x2="238" y2="245"/><line x1="210" y1="226.3" x2="255" y2="228"/><line x1="255" y1="228" x2="235" y2="243"/>
+  <line x1="142" y1="220" x2="155" y2="218" stroke="#22C55E" stroke-width="5" opacity="0.6"/><line x1="155" y1="218" x2="210" y2="226.3" stroke="#22C55E" stroke-width="5" opacity="0.6"/>
 </g>
-<text x="240" y="231.3" fill="#22C55E" font-size="10" font-family="sans-serif">Hold</text>
+<text x="240" y="216.3" fill="#22C55E" font-size="10" font-family="sans-serif">Hold</text>
 </svg>
