@@ -8,7 +8,8 @@ All 50 exercises across 8 muscle groups are data-driven: each exercise is define
 
 ```bash
 npm run generate    # render all 50 exercises (72 frames each)
-npm run validate    # run 17 quality checks
+npm run validate    # run 19 quality checks (key-frame sampled, ~14x faster)
+npm run validate    # also generates HTML report at assets/preview/validate-report.html
 npm run preview     # local preview at http://localhost:3001
 ```
 
@@ -29,23 +30,22 @@ npm run preview     # local preview at http://localhost:3001
 
 ```
 animation-plan.json       ← exercise catalog + generator docs + all 50 definitions
-assets/animations/
-  hamstring-slide/        ← one directory per exercise
-  bridges/
-  cat-cow/
-  dead-bugs/
-  clamshells/
-  ...
+assets/
+  animations/              ← 50 exercise directories, each with 72 SVGs + lottie.json
+  preview/                 ← animated GIFs + HTML validation report
+    hamstring-slide.gif
+    bridge.gif
+    ...
 
 scripts/
   generate.js             ← data-driven renderer (reads JSON, posture templates, motion defs)
   preview.js              ← local preview server with 12-frame grid + 72-frame fullscreen
-  validate.js             ← 17 quality checks
+  validate.js             ← 19 quality checks (key-frame sampled, HTML report output)
 ```
 
 Each exercise directory contains:
 - `frame-000.svg` through `frame-071.svg` — individual frames at 400×300
-- `lottie.json` — Lottie image-sequence animation for lottie-react-native
+- `lottie.json` — minified Lottie image-sequence (4.2KB avg, 57% smaller than pretty-print)
 - `index.html` — standalone browser viewer
 
 ## Architecture
@@ -100,7 +100,7 @@ The head center y for all vertical postures is computed from the instruction tex
 npm run validate
 ```
 
-17 quality checks across all 50 exercises:
+Runs 19 quality checks across all 50 exercises. Motion/smoothness checks use **key-frame sampling** (frames 0, 18, 36, 54, 71) for speed. An **HTML report** is generated at `assets/preview/validate-report.html`.
 
 | Check | What it catches |
 |-------|----------------|
@@ -111,8 +111,8 @@ npm run validate
 | `connectivity` | Disconnected skeleton joints |
 | `limbLengths` | Static segments that unnaturally stretch/shrink |
 | `cycleClosure` | Frame 71 loops back to frame 0 |
-| `motion` | Near-static animations (checks both segment endpoints) |
-| `smoothness` | Sudden frame-to-frame jumps |
+| `motion` | Near-static animations (checks both endpoints, key-frame sampled) |
+| `smoothness` | Sudden frame-to-frame jumps (key-frame sampled) |
 | `orientation` | Spine angle matches exercise posture |
 | `floorContact` | Appendages under floor or body floating (posture-specific tolerance) |
 | `textOverlap` | Head circle enters instruction text render zone |
@@ -126,17 +126,14 @@ npm run validate
 ### Interpreting Results
 
 ```
-Exercise Name (exercise-id) [16/17]
-  ✓ frameCount: OK
-  ✓ svgValidity: OK
-  ✗ floorContact: Body 25px above floor (tolerance 5px)
-       Body 25px above floor (tolerance 5px)
+Pigeon Pose (pigeon-pose) [19/19]
+  ✗ textOverlap: Head extends into text zone
 ```
 
-- Each check shows `✓` (pass) or `✗` (fail)
-- Score is `[passCount/totalChecks]`
-- Failing checks show the issue and optional detail lines
-- A score of `[15/17]` still generates usable frames — the validator helps catch regressions
+- Validator **only shows failures** by default (passing checks are hidden for cleaner output)
+- Score is `[passCount/19]` — all pass = no output
+- HTML report at `assets/preview/validate-report.html` shows all results visually
+- A score of `[18/19]` still generates usable frames — the validator flags regressions
 
 ## Preview Tips
 
