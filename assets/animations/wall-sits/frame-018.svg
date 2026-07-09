@@ -12,5 +12,5 @@
   <line x1="202.8" y1="80.5" x2="202.8" y2="90.4"/><line x1="202.8" y1="90.4" x2="204.7" y2="103.1"/><line x1="204.7" y1="103.1" x2="209.4" y2="136.4"/><line x1="204.7" y1="103.1" x2="182" y2="99"/><line x1="182" y1="99" x2="174" y2="111"/><line x1="204.7" y1="103.1" x2="218" y2="99"/><line x1="218" y1="99" x2="226" y2="111"/><line x1="209.4" y1="136.4" x2="204.4" y2="179.4"/><line x1="204.4" y1="179.4" x2="204.1" y2="222"/><line x1="209.4" y1="136.4" x2="214.4" y2="179.4"/><line x1="214.4" y1="179.4" x2="224.1" y2="222"/>
   <line x1="209.4" y1="136.4" x2="204.4" y2="179.4" stroke="#FF6B6B" stroke-width="5" opacity="0.6"/><line x1="209.4" y1="136.4" x2="214.4" y2="179.4" stroke="#FF6B6B" stroke-width="5" opacity="0.6"/>
 </g>
-<text x="234.4" y="146.4" fill="#FF6B6B" font-size="10" font-family="sans-serif">Slide</text>
+<text x="234.4" y="146.4" fill="#FF6B6B" font-size="10" font-family="sans-serif">Slide down</text>
 </svg>

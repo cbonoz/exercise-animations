@@ -8,9 +8,9 @@
   <line x1="200" y1="73" x2="200" y2="81"/><line x1="200" y1="81" x2="200" y2="89"/><line x1="200" y1="89" x2="200" y2="113"/><line x1="200" y1="89" x2="182" y2="99"/><line x1="182" y1="99" x2="174" y2="111"/><line x1="200" y1="89" x2="218" y2="99"/><line x1="218" y1="99" x2="226" y2="111"/><line x1="200" y1="113" x2="195" y2="170"/><line x1="195" y1="170" x2="190" y2="222"/><line x1="200" y1="113" x2="205" y2="170"/><line x1="205" y1="170" x2="210" y2="222"/>
 </g>
 <g stroke="#FFF" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="201.5" cy="77" r="10" fill="#FFF" stroke="none"/>
-  <line x1="201.5" y1="77" x2="201.5" y2="86"/><line x1="201.5" y1="86" x2="202.5" y2="96.5"/><line x1="202.5" y1="96.5" x2="205" y2="125.5"/><line x1="202.5" y1="96.5" x2="182" y2="99"/><line x1="182" y1="99" x2="174" y2="111"/><line x1="202.5" y1="96.5" x2="218" y2="99"/><line x1="218" y1="99" x2="226" y2="111"/><line x1="205" y1="125.5" x2="200" y2="175"/><line x1="200" y1="175" x2="197.5" y2="222"/><line x1="205" y1="125.5" x2="210" y2="175"/><line x1="210" y1="175" x2="217.5" y2="222"/>
-  <line x1="205" y1="125.5" x2="200" y2="175" stroke="#FF6B6B" stroke-width="5" opacity="0.6"/><line x1="205" y1="125.5" x2="210" y2="175" stroke="#FF6B6B" stroke-width="5" opacity="0.6"/>
+  <circle cx="201.5" cy="77.9" r="10" fill="#FFF" stroke="none"/>
+  <line x1="201.5" y1="77.9" x2="201.5" y2="86.9"/><line x1="201.5" y1="86.9" x2="202.5" y2="97.4"/><line x1="202.5" y1="97.4" x2="205" y2="126.4"/><line x1="202.5" y1="97.4" x2="182" y2="99.9"/><line x1="182" y1="99.9" x2="174" y2="111.9"/><line x1="202.5" y1="97.4" x2="218" y2="99.9"/><line x1="218" y1="99.9" x2="226" y2="111.9"/><line x1="205" y1="126.4" x2="200" y2="175.9"/><line x1="200" y1="175.9" x2="197.5" y2="222.9"/><line x1="205" y1="126.4" x2="210" y2="175.9"/><line x1="210" y1="175.9" x2="217.5" y2="222.9"/>
+  <line x1="205" y1="126.4" x2="200" y2="175.9" stroke="#FF6B6B" stroke-width="5" opacity="0.6"/><line x1="205" y1="126.4" x2="210" y2="175.9" stroke="#FF6B6B" stroke-width="5" opacity="0.6"/>
 </g>
-<text x="230" y="135.5" fill="#FF6B6B" font-size="10" font-family="sans-serif">Slide</text>
+<text x="230" y="136.4" fill="#FF6B6B" font-size="10" font-family="sans-serif">Slide down</text>
 </svg>

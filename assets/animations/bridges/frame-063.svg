@@ -12,5 +12,5 @@
   <line x1="160" y1="252.8" x2="172" y2="254.5"/><line x1="172" y1="254.5" x2="185" y2="255.8"/><line x1="185" y1="255.8" x2="230" y2="256.6"/><line x1="185" y1="255.8" x2="168" y2="215"/><line x1="168" y1="215" x2="158" y2="195"/><line x1="185" y1="255.8" x2="202" y2="215"/><line x1="202" y1="215" x2="212" y2="195"/><line x1="230" y1="256.6" x2="264.5" y2="208.8"/><line x1="264.5" y1="208.8" x2="279.8" y2="257.9"/><line x1="230" y1="256.6" x2="249.5" y2="208.8"/><line x1="249.5" y1="208.8" x2="264.8" y2="257.9"/>
   <line x1="172" y1="254.5" x2="185" y2="255.8" stroke="#FF9500" stroke-width="5" opacity="0.6"/><line x1="185" y1="255.8" x2="230" y2="256.6" stroke="#FF9500" stroke-width="5" opacity="0.6"/>
 </g>
-<text x="250" y="221.6" fill="#FFD93D" font-size="10" font-family="sans-serif">Lift</text>
+<text x="250" y="221.6" fill="#FFD93D" font-size="10" font-family="sans-serif">Lift hips</text>
 </svg>
