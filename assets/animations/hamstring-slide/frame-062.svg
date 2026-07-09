@@ -2,7 +2,7 @@
 <rect width="400" height="300" fill="#0f0f1a"/>
 <line x1="20" y1="260" x2="380" y2="260" stroke="#444" stroke-width="3" stroke-linecap="round"/>
 <text x="200" y="38" fill="#888" font-size="13" font-family="sans-serif" text-anchor="middle">Hamstring Slide</text>
-<text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">Lie on back, slide heel along floor, return</text>
+<text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">Lie on back, knees bent; slowly slide one heel forward to straighten knee, then return with control.</text>
 <g stroke="#555" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.25">
   <circle cx="160" cy="253" r="12" fill="#444" stroke="none"/>
   <line x1="160" y1="253" x2="172" y2="255"/><line x1="172" y1="255" x2="185" y2="257"/><line x1="185" y1="257" x2="230" y2="260"/><line x1="185" y1="257" x2="168" y2="215"/><line x1="168" y1="215" x2="158" y2="195"/><line x1="185" y1="257" x2="202" y2="215"/><line x1="202" y1="215" x2="212" y2="195"/><line x1="230" y1="260" x2="265" y2="210"/><line x1="265" y1="210" x2="280" y2="258"/><line x1="230" y1="260" x2="250" y2="210"/><line x1="250" y1="210" x2="265" y2="258"/>
@@ -12,5 +12,5 @@
   <line x1="160" y1="253" x2="172" y2="255"/><line x1="172" y1="255" x2="185" y2="257"/><line x1="185" y1="257" x2="230" y2="259"/><line x1="185" y1="257" x2="168" y2="215"/><line x1="168" y1="215" x2="158" y2="195"/><line x1="185" y1="257" x2="202" y2="215"/><line x1="202" y1="215" x2="212" y2="195"/><line x1="230" y1="259" x2="272.2" y2="210.4"/><line x1="272.2" y1="210.4" x2="288.6" y2="258.2"/><line x1="230" y1="259" x2="250" y2="210"/><line x1="250" y1="210" x2="265" y2="258"/>
   <line x1="230" y1="259" x2="272.2" y2="210.4" stroke="#FF6B6B" stroke-width="5" opacity="0.6"/><line x1="272.2" y1="210.4" x2="288.6" y2="258.2" stroke="#FF6B6B" stroke-width="5" opacity="0.6"/>
 </g>
-<line x1="200" y1="235" x2="290" y2="235" stroke="#FFD93D" stroke-width="2" stroke-dasharray="4,3"/><polygon points="290,230 300,235 290,240" fill="#FFD93D"/><text x="245" y="228" fill="#FFD93D" font-size="10" text-anchor="middle" font-family="sans-serif">Slide</text>
+<line x1="288.5733882030178" y1="253.17146776406037" x2="378.5733882030178" y2="253.17146776406037" stroke="#FFD93D" stroke-width="2" stroke-dasharray="4,3"/><polygon points="378.5733882030178,248.17146776406037 388.5733882030178,253.17146776406037 378.5733882030178,258.17146776406037" fill="#FFD93D"/><text x="333.5733882030178" y="228" fill="#FFD93D" font-size="10" text-anchor="middle" font-family="sans-serif">Slide</text>
 </svg>

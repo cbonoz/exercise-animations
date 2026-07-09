@@ -2,15 +2,15 @@
 <rect width="400" height="300" fill="#0f0f1a"/>
 <line x1="20" y1="260" x2="380" y2="260" stroke="#444" stroke-width="3" stroke-linecap="round"/>
 <text x="200" y="38" fill="#888" font-size="13" font-family="sans-serif" text-anchor="middle">Supermans</text>
-<text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">Lie face down, lift arms, chest, and legs off floor simultaneously</text>
+<text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">Lie face down, lift arms, chest, and legs off floor simultaneously.</text>
 <g stroke="#555" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.25">
   <circle cx="120" cy="253" r="12" fill="#444" stroke="none"/>
   <line x1="120" y1="253" x2="138" y2="255"/><line x1="138" y1="255" x2="155" y2="257"/><line x1="155" y1="257" x2="215" y2="258"/><line x1="155" y1="257" x2="145" y2="235"/><line x1="145" y1="235" x2="135" y2="230"/><line x1="155" y1="257" x2="170" y2="235"/><line x1="170" y1="235" x2="180" y2="230"/><line x1="215" y1="258" x2="260" y2="258"/><line x1="260" y1="258" x2="290" y2="258"/><line x1="215" y1="258" x2="255" y2="258"/><line x1="255" y1="258" x2="285" y2="258"/>
 </g>
 <g stroke="#FFF" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="120" cy="252.1" r="12" fill="#FFF" stroke="none"/>
-  <line x1="120" y1="252.1" x2="138" y2="254.3"/><line x1="138" y1="254.3" x2="155" y2="256.5"/><line x1="155" y1="256.5" x2="215" y2="258"/><line x1="155" y1="256.5" x2="144.7" y2="234.1"/><line x1="144.7" y1="234.1" x2="134.6" y2="228.7"/><line x1="155" y1="256.5" x2="170.3" y2="234.1"/><line x1="170.3" y1="234.1" x2="180.4" y2="228.7"/><line x1="215" y1="258" x2="260" y2="258"/><line x1="260" y1="258" x2="290.3" y2="257.1"/><line x1="215" y1="258" x2="255" y2="258"/><line x1="255" y1="258" x2="284.7" y2="257.1"/>
-  <line x1="138" y1="254.3" x2="155" y2="256.5" stroke="#22C55E" stroke-width="5" opacity="0.6"/><line x1="155" y1="256.5" x2="215" y2="258" stroke="#22C55E" stroke-width="5" opacity="0.6"/>
+  <circle cx="120" cy="250.1" r="12" fill="#FFF" stroke="none"/>
+  <line x1="120" y1="250.1" x2="138" y2="252.7"/><line x1="138" y1="252.7" x2="155" y2="255.3"/><line x1="155" y1="255.3" x2="215" y2="258"/><line x1="155" y1="255.3" x2="144.1" y2="232.1"/><line x1="144.1" y1="232.1" x2="133.6" y2="225.7"/><line x1="155" y1="255.3" x2="170.9" y2="232.1"/><line x1="170.9" y1="232.1" x2="181.4" y2="225.7"/><line x1="215" y1="258" x2="260" y2="258"/><line x1="260" y1="258" x2="290.9" y2="255.1"/><line x1="215" y1="258" x2="255" y2="258"/><line x1="255" y1="258" x2="284.1" y2="255.1"/>
+  <line x1="138" y1="252.7" x2="155" y2="255.3" stroke="#22C55E" stroke-width="5" opacity="0.6"/><line x1="155" y1="255.3" x2="215" y2="258" stroke="#22C55E" stroke-width="5" opacity="0.6"/>
 </g>
-<text x="175" y="241.5" fill="#22C55E" font-size="10" font-family="sans-serif">Lift</text>
+<text x="175" y="240.3" fill="#22C55E" font-size="10" font-family="sans-serif">Lift</text>
 </svg>

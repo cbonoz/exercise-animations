@@ -2,7 +2,7 @@
 <rect width="400" height="300" fill="#0f0f1a"/>
 <line x1="20" y1="225" x2="380" y2="225" stroke="#444" stroke-width="3" stroke-linecap="round"/>
 <text x="200" y="38" fill="#888" font-size="13" font-family="sans-serif" text-anchor="middle">Banded Hip Flexion</text>
-<text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">Stand with band around ankle, drive knee upward, return</text>
+<text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">Stand with band around ankle, drive knee upward, return.</text>
 <g stroke="#555" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.25">
   <circle cx="200" cy="73" r="10" fill="#444" stroke="none"/>
   <line x1="200" y1="73" x2="200" y2="81"/><line x1="200" y1="81" x2="200" y2="89"/><line x1="200" y1="89" x2="200" y2="113"/><line x1="200" y1="89" x2="182" y2="99"/><line x1="182" y1="99" x2="174" y2="111"/><line x1="200" y1="89" x2="218" y2="99"/><line x1="218" y1="99" x2="226" y2="111"/><line x1="200" y1="113" x2="195" y2="170"/><line x1="195" y1="170" x2="190" y2="222"/><line x1="200" y1="113" x2="205" y2="170"/><line x1="205" y1="170" x2="210" y2="222"/>
@@ -12,5 +12,5 @@
   <line x1="200" y1="73" x2="200" y2="81"/><line x1="200" y1="81" x2="200" y2="89"/><line x1="200" y1="89" x2="200" y2="113"/><line x1="200" y1="89" x2="182" y2="99"/><line x1="182" y1="99" x2="174" y2="111"/><line x1="200" y1="89" x2="218" y2="99"/><line x1="218" y1="99" x2="226" y2="111"/><line x1="200" y1="113" x2="195" y2="170"/><line x1="195" y1="170" x2="190" y2="222"/><line x1="200" y1="113" x2="209.4" y2="143.4"/><line x1="209.4" y1="143.4" x2="214.4" y2="186.6"/>
   <line x1="200" y1="113" x2="209.4" y2="143.4" stroke="#FF9500" stroke-width="5" opacity="0.6"/><line x1="209.4" y1="143.4" x2="214.4" y2="186.6" stroke="#FF9500" stroke-width="5" opacity="0.6"/>
 </g>
-<line x1="170" y1="105" x2="180" y2="105" stroke="#FF9500" stroke-width="2" stroke-dasharray="4,3"/><polygon points="180,100 190,105 180,110" fill="#FF9500"/><text x="175" y="98" fill="#FF9500" font-size="10" text-anchor="middle" font-family="sans-serif">Drive</text>
+<line x1="209.42944101508917" y1="138.42335390946502" x2="219.42944101508917" y2="138.42335390946502" stroke="#FF9500" stroke-width="2" stroke-dasharray="4,3"/><polygon points="219.42944101508917,133.42335390946502 229.42944101508917,138.42335390946502 219.42944101508917,143.42335390946502" fill="#FF9500"/><text x="214.42944101508917" y="98" fill="#FF9500" font-size="10" text-anchor="middle" font-family="sans-serif">Drive</text>
 </svg>

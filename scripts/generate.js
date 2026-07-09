@@ -18,6 +18,30 @@ function easeInOut(t) {
   return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 }
 
+function easeOut(t) {
+  return 1 - Math.pow(1 - t, 3);
+}
+
+function easeIn(t) {
+  return t * t * t;
+}
+
+function heldEase(t, holdRatio) {
+  const rise = (1 - holdRatio) / 2;
+  if (t < rise) return easeInOut(t / rise);
+  if (t < rise + holdRatio) return 1;
+  return 1 - easeInOut((t - rise - holdRatio) / rise);
+}
+
+function getEasedProgress(f, totalFrames, easing, holdFrames) {
+  const t = f / totalFrames;
+  const phase = t % 1;
+  if (easing === 'oscillate') return Math.sin(phase * Math.PI * 2);
+  if (holdFrames > 0) return heldEase(phase, holdFrames / totalFrames);
+  const p = phase < 0.5 ? easeInOut(phase * 2) : easeInOut((1 - phase) * 2);
+  return p;
+}
+
 // ============== POSTURE TEMPLATES ==============
 // Each posture defines a stick figure skeleton in the rest position
 // Joints: head, neck, shoulder, hip, L/R elbow, L/R hand, L/R knee, L/R foot
@@ -120,14 +144,14 @@ const POSTURES = {
       ['hip','right_knee'],['right_knee','right_foot'],
     ], head_r: 10,
   },
-  // Seated with legs forward, side view
+  // Seated with legs forward, side view — hip ON floor
   seated: {
     floorY: 250,
-    head: { x: 155, y: 60 }, neck: { x: 155, y: 80 }, shoulder: { x: 155, y: 95 }, hip: { x: 155, y: 170 },
-    left_elbow: { x: 135, y: 105 }, left_hand: { x: 125, y: 120 },
-    right_elbow: { x: 175, y: 105 }, right_hand: { x: 185, y: 120 },
-    left_knee: { x: 225, y: 170 }, left_foot: { x: 255, y: 245 },
-    right_knee: { x: 205, y: 170 }, right_foot: { x: 235, y: 245 },
+    head: { x: 155, y: 138 }, neck: { x: 155, y: 158 }, shoulder: { x: 155, y: 173 }, hip: { x: 155, y: 248 },
+    left_elbow: { x: 135, y: 183 }, left_hand: { x: 125, y: 198 },
+    right_elbow: { x: 175, y: 183 }, right_hand: { x: 185, y: 198 },
+    left_knee: { x: 225, y: 235 }, left_foot: { x: 255, y: 248 },
+    right_knee: { x: 205, y: 235 }, right_foot: { x: 235, y: 248 },
     lines: [
       ['head','neck'],['neck','shoulder'],['shoulder','hip'],
       ['shoulder','left_elbow'],['left_elbow','left_hand'],
@@ -204,9 +228,7 @@ const MOTIONS = {
   },
   'good-mornings': {
     posture: 'standing',
-    move: { hip: { x: -5, y: 10 }, shoulder: { x: -5, y: 20 }, neck: { x: -5, y: 20 }, head: { x: -5, y: 15 },
-            left_elbow: { x: 10, y: 5 }, left_hand: { x: 15, y: 0 },
-            right_elbow: { x: 10, y: 5 }, right_hand: { x: 15, y: 0 } },
+    move: { hip: { x: -5, y: 10 }, shoulder: { x: -5, y: 20 }, neck: { x: -5, y: 20 }, head: { x: -5, y: 15 } },
     highlight: [['hip','shoulder']],
     highlightColor: '#FF9500',
   },
@@ -243,7 +265,6 @@ const MOTIONS = {
   },
   'banded-walks': {
     posture: 'standing',
-    rest: { hip: { x: 0, y: 12 }, left_knee: { x: 5, y: 10 }, right_knee: { x: -5, y: 10 } },
     move: { right_knee: { x: 15, y: -5 }, right_foot: { x: 25, y: 0 },
             hip: { x: 3, y: 0 }, shoulder: { x: 2, y: 0 } },
     highlight: [['hip','left_knee'],['hip','right_knee']],
@@ -270,20 +291,13 @@ const MOTIONS = {
   },
   'planks': {
     posture: 'prone',
-    rest: { head: { x: 0, y: -20 }, neck: { x: 0, y: -25 }, shoulder: { x: 0, y: -30 },
-            hip: { x: 0, y: -15 },
-            left_elbow: { x: -10, y: 22 }, left_hand: { x: -25, y: 28 },
-            right_elbow: { x: -10, y: 22 }, right_hand: { x: -25, y: 28 } },
-    move: { hip: { x: 0, y: -5 } },
+    move: {},
     highlight: [['neck','shoulder'],['shoulder','hip']],
     highlightColor: '#22C55E',
   },
   'side-planks': {
     posture: 'side-lying',
-    rest: { head: { x: 0, y: -10 }, neck: { x: 0, y: -15 }, shoulder: { x: 0, y: -20 },
-            hip: { x: 0, y: -15 },
-            left_elbow: { x: -15, y: 15 }, left_hand: { x: -20, y: 18 } },
-    move: { hip: { x: 0, y: -4 } },
+    move: {},
     highlight: [['neck','shoulder'],['shoulder','hip']],
     highlightColor: '#22C55E',
   },
@@ -355,12 +369,7 @@ const MOTIONS = {
   },
   'hip-flexor-stretch': {
     posture: 'standing',
-    rest: { left_foot: { x: -50, y: 0 }, left_knee: { x: -35, y: 20 },
-            right_foot: { x: 30, y: 0 }, right_knee: { x: 20, y: 20 },
-            hip: { x: -15, y: 10 }, shoulder: { x: -5, y: 5 }, neck: { x: -5, y: 3 }, head: { x: -5, y: 3 },
-            left_elbow: { x: -10, y: 5 }, left_hand: { x: -15, y: 5 },
-            right_elbow: { x: 10, y: 5 }, right_hand: { x: 15, y: 5 } },
-    move: { hip: { x: 15, y: 5 }, shoulder: { x: 10, y: 3 }, neck: { x: 5, y: 2 }, head: { x: 5, y: 2 } },
+    move: { hip: { x: 25, y: 5 }, shoulder: { x: 18, y: 3 }, neck: { x: 10, y: 2 }, head: { x: 8, y: 2 } },
     highlight: [['hip','shoulder']],
     highlightColor: '#FF9500',
   },
@@ -384,10 +393,6 @@ const MOTIONS = {
   },
   'pigeon-pose': {
     posture: 'seated',
-    rest: { right_knee: { x: 30, y: 0 }, right_foot: { x: 10, y: 20 },
-            left_knee: { x: -20, y: 5 }, left_foot: { x: -40, y: 20 },
-            left_elbow: { x: 10, y: 5 }, left_hand: { x: 15, y: 10 },
-            right_elbow: { x: -10, y: 5 }, right_hand: { x: -15, y: 10 } },
     move: { hip: { x: 15, y: 8 }, shoulder: { x: 25, y: 12 }, neck: { x: 28, y: 12 }, head: { x: 28, y: 12 },
             left_hand: { x: 15, y: 8 }, right_hand: { x: 15, y: 8 } },
     highlight: [['hip','right_knee'],['right_knee','right_foot']],
@@ -395,15 +400,16 @@ const MOTIONS = {
   },
   '90-90-stretch': {
     posture: 'seated',
-    move: { shoulder: { x: 10, y: 0 }, neck: { x: 15, y: 0 }, head: { x: 15, y: 0 } },
+    move: { shoulder: { x: 25, y: -5 }, neck: { x: 30, y: -8 }, head: { x: 30, y: -8 },
+            right_elbow: { x: -15, y: 0 }, right_hand: { x: -20, y: 5 } },
     highlight: [['neck','shoulder'],['shoulder','hip']],
     highlightColor: '#FF9500',
   },
   'childs-pose': {
     posture: 'all-fours',
-    move: { head: { x: -15, y: 115 }, neck: { x: -10, y: 100 }, shoulder: { x: -10, y: 70 },
-            hip: { x: 15, y: 65 },
-            left_hand: { x: -40, y: 5 },
+    move: { head: { x: -25, y: 115 }, neck: { x: -20, y: 100 }, shoulder: { x: -15, y: 75 },
+            hip: { x: 22, y: 70 },
+            left_hand: { x: -65, y: 5 },
             left_knee: { x: 5, y: 5 }, left_foot: { x: 5, y: 5 } },
     highlight: [['neck','shoulder'],['shoulder','hip']],
     highlightColor: '#22C55E',
@@ -418,8 +424,9 @@ const MOTIONS = {
   },
   'thread-the-needle': {
     posture: 'all-fours',
-    move: { left_hand: { x: 15, y: 5 }, shoulder: { x: 5, y: 5 }, hip: { x: -3, y: 3 },
-            left_knee: { x: 5, y: -3 }, left_foot: { x: 10, y: -5 } },
+    move: { left_hand: { x: 35, y: 5 }, shoulder: { x: 5, y: 15 }, hip: { x: -8, y: 5 },
+            neck: { x: -8, y: 10 }, head: { x: -10, y: 10 },
+            left_knee: { x: 5, y: -5 }, left_foot: { x: 10, y: -5 } },
     highlight: [['shoulder','left_hand']],
     highlightColor: '#22C55E',
   },
@@ -473,17 +480,12 @@ const MOTIONS = {
   },
   'pendulum-swings': {
     posture: 'standing',
-    rest: { hip: { x: -5, y: 10 }, shoulder: { x: -5, y: 20 }, neck: { x: -5, y: 20 }, head: { x: -5, y: 15 },
-            right_elbow: { x: -5, y: 10 }, right_hand: { x: -10, y: 15 },
-            left_elbow: { x: -5, y: 10 }, left_hand: { x: -10, y: 15 } },
-    move: { right_hand: { x: 5, y: 5 }, left_hand: { x: 5, y: 5 } },
+    move: {},
     highlight: [['shoulder','right_elbow'],['right_elbow','right_hand']],
     highlightColor: '#FF9500',
   },
   'band-pull-aparts': {
     posture: 'standing',
-    rest: { left_elbow: { x: 20, y: 0 }, left_hand: { x: 35, y: 0 },
-            right_elbow: { x: -20, y: 0 }, right_hand: { x: -35, y: 0 } },
     move: { left_elbow: { x: -30, y: 0 }, left_hand: { x: -50, y: 0 },
             right_elbow: { x: 30, y: 0 }, right_hand: { x: 50, y: 0 } },
     highlight: [['shoulder','left_elbow'],['shoulder','right_elbow']],
@@ -491,8 +493,6 @@ const MOTIONS = {
   },
   'wall-slides': {
     posture: 'standing',
-    rest: { left_elbow: { x: -5, y: -15 }, left_hand: { x: -10, y: -25 },
-            right_elbow: { x: -5, y: -15 }, right_hand: { x: -10, y: -25 } },
     move: { left_elbow: { x: 0, y: -20 }, left_hand: { x: 0, y: -30 },
             right_elbow: { x: 0, y: -20 }, right_hand: { x: 0, y: -30 } },
     highlight: [['shoulder','left_elbow'],['left_elbow','left_hand']],
@@ -507,17 +507,12 @@ const MOTIONS = {
   },
   'doorway-stretch': {
     posture: 'standing',
-    rest: { left_elbow: { x: -10, y: -15 }, left_hand: { x: -15, y: -20 },
-            right_elbow: { x: 10, y: -15 }, right_hand: { x: 15, y: -20 },
-            hip: { x: 3, y: 3 }, shoulder: { x: 5, y: 5 }, neck: { x: 5, y: 3 }, head: { x: 5, y: 3 } },
-    move: { hip: { x: 8, y: 8 }, shoulder: { x: 18, y: 12 }, neck: { x: 15, y: 8 }, head: { x: 12, y: 8 } },
+    move: { hip: { x: 15, y: 12 }, shoulder: { x: 28, y: 20 }, neck: { x: 24, y: 16 }, head: { x: 20, y: 14 } },
     highlight: [['shoulder','left_elbow'],['shoulder','right_elbow']],
     highlightColor: '#FF9500',
   },
   'chest-opener': {
     posture: 'standing',
-    rest: { left_elbow: { x: -10, y: 15 }, left_hand: { x: -15, y: 25 },
-            right_elbow: { x: 10, y: 15 }, right_hand: { x: 15, y: 25 } },
     move: { left_elbow: { x: -5, y: -10 }, left_hand: { x: -8, y: -15 },
             right_elbow: { x: 5, y: -10 }, right_hand: { x: 8, y: -15 } },
     highlight: [['neck','shoulder'],['shoulder','hip']],
@@ -527,31 +522,74 @@ const MOTIONS = {
 
 // ============== RENDER ENGINE ==============
 
-function interpolateJoints(template, motion, p, floorY) {
+function interpolateJoints(template, motion, exercise, p, floorY) {
   const result = {};
   const restOff = motion.rest || {};
+  const exerciseRest = exercise.rest || {};
   const move = motion.move || {};
+  const rotation = motion.rotation || exercise.rotation || null;
   for (const j of JOINTS) {
     if (!template[j]) { result[j] = null; continue; }
     const base = template[j];
-    const r = restOff[j] || { x: 0, y: 0 };
-    const d = move[j] || { x: 0, y: 0 };
-    const x = base.x + r.x + d.x * p;
-    const y = Math.min(base.y + r.y + d.y * p, floorY - 1);
+    const r = exerciseRest[j] || restOff[j] || { x: 0, y: 0 };
+    const jMove = move[j] || { x: 0, y: 0 };
+    let dx = jMove.x * p;
+    let dy = jMove.y * p;
+    if (rotation && rotation.joint === j) {
+      const angle = rotation.angle * Math.sin(p * Math.PI * 2);
+      const rad = angle * Math.PI / 180;
+      dx = rotation.radius * (Math.cos(rad) - 1);
+      dy = rotation.radius * Math.sin(rad);
+    }
+    const x = base.x + r.x + dx;
+    const y = Math.min(base.y + r.y + dy, floorY - 1);
     result[j] = { x, y };
   }
   return result;
 }
 
-function catCowInterpolate(rest, motion_cat, motion_cow, p, floorY) {
+function mirrorJoints(joints) {
+  const swap = { left_elbow: 'right_elbow', left_hand: 'right_hand',
+                 right_elbow: 'left_elbow', right_hand: 'left_hand',
+                 left_knee: 'right_knee', left_foot: 'right_foot',
+                 right_knee: 'left_knee', right_foot: 'left_foot' };
+  const result = {};
+  for (const [j, pos] of Object.entries(joints)) {
+    const mj = swap[j] || j;
+    result[mj] = pos ? { x: 400 - pos.x, y: pos.y } : null;
+  }
+  return result;
+}
+
+function mirrorMove(move) {
+  const swap = { left_elbow: 'right_elbow', left_hand: 'right_hand',
+                 right_elbow: 'left_elbow', right_hand: 'left_hand',
+                 left_knee: 'right_knee', left_foot: 'right_foot',
+                 right_knee: 'left_knee', right_foot: 'left_foot' };
+  const result = {};
+  for (const [j, delta] of Object.entries(move)) {
+    result[swap[j] || j] = delta;
+  }
+  return result;
+}
+
+function mirrorHighlights(highlights) {
+  const swap = { left_elbow: 'right_elbow', left_hand: 'right_hand',
+                 right_elbow: 'left_elbow', right_hand: 'left_hand',
+                 left_knee: 'right_knee', left_foot: 'right_foot',
+                 right_knee: 'left_knee', right_foot: 'left_foot' };
+  return highlights.map(([a, b]) => [swap[a] || a, swap[b] || b]);
+}
+
+function catCowInterpolate(template, motion, exercise, p, floorY) {
   const a = -Math.sin(p * Math.PI * 2);
   const cow = a < 0;
   const mag = Math.abs(a);
-  const motionFlat = cow ? motion_cow : motion_cat;
+  const motionFlat = cow ? motion.cow : motion.cat;
   const move = Object.fromEntries(
     Object.entries(motionFlat).map(([k, v]) => [k, { x: v.x * mag, y: v.y * mag }])
   );
-  return interpolateJoints(rest, { move }, 1, floorY);
+  return interpolateJoints(template, { move }, exercise, 1, floorY);
 }
 
 function makeSvg(frame, exercise, motionData) {
@@ -589,10 +627,26 @@ function makeSvg(frame, exercise, motionData) {
   let annoSvg = '';
   for (const a of annotations) {
     if (a.type === 'arrow') {
-      const x1 = a.x1, x2 = a.x2, y = a.y;
-      annoSvg += `<line x1="${x1}" y1="${y}" x2="${x2}" y2="${y}" stroke="${a.color}" stroke-width="2" stroke-dasharray="4,3"/>`;
-      annoSvg += `<polygon points="${x2},${y-5} ${x2+10},${y} ${x2},${y+5}" fill="${a.color}"/>`;
-      if (a.label) annoSvg += `<text x="${(x1+x2)/2}" y="${a.labelY}" fill="${a.color}" font-size="10" text-anchor="middle" font-family="sans-serif">${a.label}</text>`;
+      let x1 = a.x1, x2 = a.x2, y = a.y, labelY = a.labelY || a.y - 7;
+      if (a.joint) {
+        const refJ = joints[a.joint] || ghost[a.joint];
+        if (refJ) {
+          x1 = refJ.x + (a.dx || 0);
+          y = refJ.y + (a.dy || 0);
+          x2 = x1 + (a.len || 60) * (a.dir || 1);
+          labelY = a.labelY || y - 7;
+        }
+      }
+      const arrowDir = x2 >= x1 ? 1 : -1;
+      // Clamp arrow head to canvas
+      const clampedX2 = Math.max(10, Math.min(390, x2));
+      const clampedX1 = Math.max(10, Math.min(390, x1));
+      annoSvg += `<line x1="${clampedX1}" y1="${y}" x2="${clampedX2}" y2="${y}" stroke="${a.color}" stroke-width="2" stroke-dasharray="4,3"/>`;
+      annoSvg += `<polygon points="${clampedX2},${y-5 * arrowDir} ${clampedX2+10 * arrowDir},${y} ${clampedX2},${y+5 * arrowDir}" fill="${a.color}"/>`;
+      if (a.label) {
+        const labelX = Math.max(20, Math.min(380, (clampedX1+clampedX2)/2));
+        annoSvg += `<text x="${labelX}" y="${labelY}" fill="${a.color}" font-size="10" text-anchor="middle" font-family="sans-serif">${a.label}</text>`;
+      }
     } else if (a.type === 'arc') {
       const refJ = joints[a.joint] || ghost[a.joint] || { x: 205, y: 55 };
       const cx = refJ.x + (a.dx || 0);
@@ -656,20 +710,38 @@ for (const exercise of plan.exercises) {
   const floorY = motion.floorY || ghost.floorY;
   const isCatCow = exercise.id === 'cat-cow';
 
+  const holdFrames = motion.holdFrames || exercise.holdFrames || 0;
+  const easing = motion.easing || exercise.easing || 'easeInOut';
+
+  const isAlternating = exercise.alternating || motion.alternating;
+  const halfFrame = TOTAL_FRAMES / 2;
+
   for (let f = 0; f < TOTAL_FRAMES; f++) {
     const t = f / TOTAL_FRAMES;
-    const phase = t % 1;
-    const p = phase < 0.5 ? easeInOut(phase * 2) : easeInOut((1 - phase) * 2);
+    const p = getEasedProgress(f, TOTAL_FRAMES, easing, holdFrames);
 
     let joints;
+    let activeMotion = motion;
+    const isAltHalf = isAlternating && f >= halfFrame;
+
     if (isCatCow) {
-      joints = catCowInterpolate(ghost, motion.cat, motion.cow, t, floorY);
+      if (isAltHalf) {
+        const mirroredMotion = { cow: mirrorMove(motion.cow || {}), cat: mirrorMove(motion.cat || {}) };
+        joints = catCowInterpolate(ghost, mirroredMotion, exercise, t, floorY);
+        activeMotion = { ...motion, highlight: mirrorHighlights(motion.highlight || []) };
+      } else {
+        joints = catCowInterpolate(ghost, motion, exercise, t, floorY);
+      }
+    } else if (isAltHalf) {
+      const mirroredMove = mirrorMove(motion.move || {});
+      activeMotion = { ...motion, move: mirroredMove, highlight: mirrorHighlights(motion.highlight || []) };
+      joints = interpolateJoints(ghost, activeMotion, exercise, p, floorY);
     } else {
-      joints = interpolateJoints(ghost, motion, p, floorY);
+      joints = interpolateJoints(ghost, motion, exercise, p, floorY);
     }
 
     const mergedAnnotations = exercise.annotations || motion.annotations || [];
-    const svg = makeSvg(joints, exercise, { ...motion, annotations: mergedAnnotations });
+    const svg = makeSvg(joints, exercise, { ...activeMotion, annotations: mergedAnnotations });
     const frameFile = path.join(sceneDir, `frame-${String(f).padStart(3, '0')}.svg`);
     fs.writeFileSync(frameFile, svg);
   }

@@ -2,14 +2,14 @@
 <rect width="400" height="300" fill="#0f0f1a"/>
 <line x1="20" y1="260" x2="380" y2="260" stroke="#444" stroke-width="3" stroke-linecap="round"/>
 <text x="200" y="38" fill="#888" font-size="13" font-family="sans-serif" text-anchor="middle">Supermans</text>
-<text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">Lie face down, lift arms, chest, and legs off floor simultaneously</text>
+<text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">Lie face down, lift arms, chest, and legs off floor simultaneously.</text>
 <g stroke="#555" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.25">
   <circle cx="120" cy="253" r="12" fill="#444" stroke="none"/>
   <line x1="120" y1="253" x2="138" y2="255"/><line x1="138" y1="255" x2="155" y2="257"/><line x1="155" y1="257" x2="215" y2="258"/><line x1="155" y1="257" x2="145" y2="235"/><line x1="145" y1="235" x2="135" y2="230"/><line x1="155" y1="257" x2="170" y2="235"/><line x1="170" y1="235" x2="180" y2="230"/><line x1="215" y1="258" x2="260" y2="258"/><line x1="260" y1="258" x2="290" y2="258"/><line x1="215" y1="258" x2="255" y2="258"/><line x1="255" y1="258" x2="285" y2="258"/>
 </g>
 <g stroke="#FFF" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="120" cy="243.1" r="12" fill="#FFF" stroke="none"/>
-  <line x1="120" y1="243.1" x2="138" y2="247"/><line x1="138" y1="247" x2="155" y2="251"/><line x1="155" y1="251" x2="215" y2="258"/><line x1="155" y1="251" x2="142" y2="225.1"/><line x1="142" y1="225.1" x2="130" y2="215.1"/><line x1="155" y1="251" x2="173" y2="225.1"/><line x1="173" y1="225.1" x2="185" y2="215.1"/><line x1="215" y1="258" x2="260" y2="258"/><line x1="260" y1="258" x2="293" y2="248.1"/><line x1="215" y1="258" x2="255" y2="258"/><line x1="255" y1="258" x2="282" y2="248.1"/>
+  <circle cx="120" cy="243" r="12" fill="#FFF" stroke="none"/>
+  <line x1="120" y1="243" x2="138" y2="247"/><line x1="138" y1="247" x2="155" y2="251"/><line x1="155" y1="251" x2="215" y2="258"/><line x1="155" y1="251" x2="142" y2="225"/><line x1="142" y1="225" x2="130" y2="215"/><line x1="155" y1="251" x2="173" y2="225"/><line x1="173" y1="225" x2="185" y2="215"/><line x1="215" y1="258" x2="260" y2="258"/><line x1="260" y1="258" x2="293" y2="248"/><line x1="215" y1="258" x2="255" y2="258"/><line x1="255" y1="258" x2="282" y2="248"/>
   <line x1="138" y1="247" x2="155" y2="251" stroke="#22C55E" stroke-width="5" opacity="0.6"/><line x1="155" y1="251" x2="215" y2="258" stroke="#22C55E" stroke-width="5" opacity="0.6"/>
 </g>
 <text x="175" y="236" fill="#22C55E" font-size="10" font-family="sans-serif">Lift</text>

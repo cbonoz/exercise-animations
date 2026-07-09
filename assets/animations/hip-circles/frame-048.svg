@@ -2,15 +2,15 @@
 <rect width="400" height="300" fill="#0f0f1a"/>
 <line x1="20" y1="225" x2="380" y2="225" stroke="#444" stroke-width="3" stroke-linecap="round"/>
 <text x="200" y="38" fill="#888" font-size="13" font-family="sans-serif" text-anchor="middle">Hip Circles</text>
-<text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">Stand on one leg, circle the other leg at the hip</text>
+<text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">Stand on one leg, circle the other leg at the hip.</text>
 <g stroke="#555" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.25">
   <circle cx="200" cy="73" r="10" fill="#444" stroke="none"/>
   <line x1="200" y1="73" x2="200" y2="81"/><line x1="200" y1="81" x2="200" y2="89"/><line x1="200" y1="89" x2="200" y2="113"/><line x1="200" y1="89" x2="182" y2="99"/><line x1="182" y1="99" x2="174" y2="111"/><line x1="200" y1="89" x2="218" y2="99"/><line x1="218" y1="99" x2="226" y2="111"/><line x1="200" y1="113" x2="195" y2="170"/><line x1="195" y1="170" x2="190" y2="222"/><line x1="200" y1="113" x2="205" y2="170"/><line x1="205" y1="170" x2="210" y2="222"/>
 </g>
 <g stroke="#FFF" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="200" cy="73" r="10" fill="#FFF" stroke="none"/>
-  <line x1="200" y1="73" x2="200" y2="81"/><line x1="200" y1="81" x2="200" y2="89"/><line x1="200" y1="89" x2="200" y2="113"/><line x1="200" y1="89" x2="182" y2="99"/><line x1="182" y1="99" x2="174" y2="111"/><line x1="200" y1="89" x2="218" y2="99"/><line x1="218" y1="99" x2="226" y2="111"/><line x1="200" y1="113" x2="195" y2="170"/><line x1="195" y1="170" x2="190" y2="222"/><line x1="200" y1="113" x2="217.8" y2="165.7"/><line x1="217.8" y1="165.7" x2="227" y2="217.7"/>
-  <line x1="200" y1="113" x2="217.8" y2="165.7" stroke="#FF9500" stroke-width="5" opacity="0.6"/><line x1="217.8" y1="165.7" x2="227" y2="217.7" stroke="#FF9500" stroke-width="5" opacity="0.6"/>
+  <line x1="200" y1="73" x2="200" y2="81"/><line x1="200" y1="81" x2="200" y2="89"/><line x1="200" y1="89" x2="200" y2="113"/><line x1="200" y1="89" x2="182" y2="99"/><line x1="182" y1="99" x2="174" y2="111"/><line x1="200" y1="89" x2="218" y2="99"/><line x1="218" y1="99" x2="226" y2="111"/><line x1="200" y1="113" x2="195" y2="170"/><line x1="195" y1="170" x2="190" y2="222"/><line x1="200" y1="113" x2="217.8" y2="165.7"/><line x1="217.8" y1="165.7" x2="205.2" y2="207.3"/>
+  <line x1="200" y1="113" x2="217.8" y2="165.7" stroke="#FF9500" stroke-width="5" opacity="0.6"/><line x1="217.8" y1="165.7" x2="205.2" y2="207.3" stroke="#FF9500" stroke-width="5" opacity="0.6"/>
 </g>
-<text x="242" y="207.7" fill="#FF9500" font-size="10" font-family="sans-serif">Circle</text>
+<text x="220.2" y="197.3" fill="#FF9500" font-size="10" font-family="sans-serif">Circle</text>
 </svg>

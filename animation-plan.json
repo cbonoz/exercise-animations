@@ -1,6 +1,6 @@
 {
-  "$schema": "https://bridgerecovery.app/schemas/exercise-animations/v1",
-  "description": "Exercise animation plan for BridgeRecovery. Each exercise gets 72 SVG frames (400x300, 24fps) via scripts/generate.js.",
+  "$schema": "https://bridgerecovery.app/schemas/exercise-animations/v2",
+  "description": "Improved Exercise Animation Plan for BridgeRecovery (v2). Each exercise gets 72 SVG frames (400x300, 24fps) via scripts/generate.js. Enhancements: Added equipment, difficulty, breathing cues, formCues (key coaching points for animation overlays or voice), commonErrors (to inform ideal vs. compensated motion), suggestedProtocol. Polished all text for clarity, safety, and PT best practices. Fixed posture hints and minor inconsistencies. Prioritizes controlled, pain-free movement with emphasis on core stability and proper alignment.",
   "style": {
     "canvas": {
       "width": 400,
@@ -27,7 +27,8 @@
       "standing": 225,
       "seated": 250,
       "prone": 260,
-      "kneeling": 225
+      "kneeling": 225,
+      "lunge": 230
     },
     "bodyGapFromFloor": 3,
     "labelYThreshold": 60,
@@ -45,9 +46,9 @@
       "posture": "supine",
       "axis": "horizontal (head left, feet right)",
       "label": "Slide heel along floor",
-      "instruction": "Lie on back, slide heel along floor, return",
+      "instruction": "Lie on back, knees bent; slowly slide one heel forward to straighten knee, then return with control.",
       "highlightColor": "#FF6B6B",
-      "description": "Lie on back with knees bent. Slide right heel forward along floor until leg is straight, then slide back.",
+      "description": "Lie on your back with both knees bent and feet flat on the floor (or one leg extended if preferred for stability). Slowly slide one heel forward along the floor, straightening the knee as far as comfortable while keeping the lower back pressed gently into the floor. Then slide the heel back to the starting bent position with control. This promotes gentle knee mobility and hamstring lengthening.",
       "touchFloor": [
         "back",
         "both heels",
@@ -55,18 +56,36 @@
       ],
       "ghost": "starting position with both knees bent, feet on floor",
       "active": "right leg slides forward and back; left leg stays bent; arrow follows sliding foot",
-      "motionHint": "Knee extends as foot slides forward along floor; hip and upper body stay put",
+      "motionHint": "One knee extends smoothly as heel slides forward along floor; opposite leg stays bent and stable; pelvis and lower back remain neutral and pressed down; no hip lift",
       "annotations": [
         {
           "type": "arrow",
-          "x1": 200,
-          "x2": 290,
-          "y": 235,
+          "joint": "left_foot",
+          "dx": 0,
+          "dy": -5,
+          "len": 90,
+          "dir": 1,
           "color": "#FFD93D",
           "label": "Slide",
           "labelY": 228
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Inhale to prepare; exhale slowly as you slide the heel forward and straighten. Inhale as you return the heel.",
+      "formCues": [
+        "Keep lower back gently pressed into the floor throughout",
+        "Move slowly with full control; no momentum",
+        "Straighten knee only to comfortable range (slight stretch behind thigh/knee)",
+        "Opposite foot stays planted; avoid pelvic tilt or rotation"
+      ],
+      "commonErrors": [
+        "Lifting lower back or arching as leg straightens",
+        "Using momentum or jerking the leg",
+        "Rotating pelvis or lifting opposite hip",
+        "Over-straightening into pain or hyperextension"
+      ],
+      "suggestedProtocol": "2-3 sets of 10-15 controlled reps per leg (or 60s total time)"
     },
     {
       "id": "bridges",
@@ -76,9 +95,9 @@
       "posture": "supine",
       "axis": "horizontal",
       "label": "Lift hips toward ceiling",
-      "instruction": "Lie on back, lift hips up, hold, lower",
+      "instruction": "Lie on back, knees bent feet flat; lift hips by driving through heels, squeeze glutes at top, lower with control.",
       "highlightColor": "#FF9500",
-      "description": "Lie on back with knees bent, feet on floor. Lift hips toward ceiling, hold briefly, then lower.",
+      "description": "Lie on your back with knees bent and feet flat on the floor, hip-width apart. Arms can rest at sides or across chest. Drive through the heels to lift the hips toward the ceiling, squeezing the glutes at the top while keeping the core engaged and ribs down. Form a straight line from shoulders to knees at the top. Hold briefly, then lower with control, articulating through the spine if desired.",
       "touchFloor": [
         "back",
         "both feet",
@@ -86,7 +105,7 @@
       ],
       "ghost": "starting position lying flat, knees bent, feet on floor",
       "active": "hips lift and lower; arrow points upward showing lift direction",
-      "motionHint": "Hips lift vertically toward ceiling; spine arches; feet stay planted",
+      "motionHint": "Hips rise vertically by extending at the hip joints; glutes and hamstrings drive the lift; spine maintains neutral or slight extension; shoulders and feet stay planted; subtle posterior pelvic tilt at top",
       "annotations": [
         {
           "type": "text",
@@ -96,7 +115,23 @@
           "color": "#FFD93D",
           "text": "Lift"
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Inhale to prepare and set core; exhale as you drive hips up and squeeze glutes. Inhale as you lower with control.",
+      "formCues": [
+        "Drive through heels, not toes",
+        "Squeeze glutes firmly at the top without overarching lower back",
+        "Keep ribs down and core braced (avoid flaring ribcage)",
+        "Knees stay hip-width; do not let them cave in or splay out"
+      ],
+      "commonErrors": [
+        "Over-arching lower back or rib flaring at top",
+        "Pushing through toes instead of heels",
+        "Knees collapsing inward",
+        "Holding breath or rushing the lowering phase"
+      ],
+      "suggestedProtocol": "2-3 sets of 10-15 reps (or 30-45s holds at top for isometric variation)"
     },
     {
       "id": "cat-cow",
@@ -106,16 +141,16 @@
       "posture": "all-fours",
       "axis": "diagonal (spine curves)",
       "label": "Arch and round spine",
-      "instruction": "On hands and knees, alternate arching/rounding spine",
+      "instruction": "On hands and knees, inhale to arch/drop belly (Cow), exhale to round spine (Cat); move with breath.",
       "highlightColor": "#22C55E",
-      "description": "On hands and knees. Alternate between arching back upward (cat) and letting belly sink (cow).",
+      "description": "Start on hands and knees in a neutral tabletop position (wrists under shoulders, knees under hips, spine neutral). Inhale as you drop your belly toward the floor, lift your chest and tailbone (Cow pose - spinal extension). Exhale as you round your spine upward toward the ceiling, tuck your chin and tailbone (Cat pose - spinal flexion). Move smoothly between the two, using your breath to guide the motion. Keep shoulders relaxed and away from ears.",
       "touchFloor": [
         "hands",
         "knees"
       ],
       "ghost": "neutral all-fours position, hands under shoulders, knees under hips",
       "active": "spine smoothly oscillates between arch and round using sin curve",
-      "motionHint": "Spine smoothly oscillates between arch (cow, belly drops) and round (cat, back lifts)",
+      "motionHint": "Spine smoothly oscillates using sinusoidal curve between extension (Cow: belly drops, tailbone lifts) and flexion (Cat: back rounds, chin tucks); pelvis and head follow the curve naturally; limbs stay stable",
       "annotations": [
         {
           "type": "arc",
@@ -135,7 +170,23 @@
           "color": "#FFD93D",
           "label": "Round (Cat)"
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Inhale deeply as you move into Cow (belly drops, chest opens); exhale fully as you move into Cat (spine rounds). Let breath lead the pace.",
+      "formCues": [
+        "Initiate movement from the pelvis and spine, not just head/neck",
+        "Keep shoulders broad and away from ears",
+        "Move within comfortable range; no forcing",
+        "Sync breath fully with spinal movement"
+      ],
+      "commonErrors": [
+        "Only moving head/neck instead of whole spine",
+        "Collapsing shoulders or sinking into wrists",
+        "Holding breath or moving too quickly",
+        "Over-rounding or over-extending into pain"
+      ],
+      "suggestedProtocol": "1-2 minutes continuous flow (8-12 slow cycles), or 5-10 reps each direction"
     },
     {
       "id": "dead-bugs",
@@ -145,16 +196,17 @@
       "posture": "supine",
       "axis": "horizontal",
       "label": "Extend opposite arm and leg",
-      "instruction": "Lie on back, extend opposite arm &amp; leg toward floor",
+      "instruction": "Lie on back, arms up, legs in tabletop; slowly extend opposite arm and leg toward floor while keeping lower back pressed down, return and alternate.",
       "highlightColor": "#8B5CF6",
-      "description": "Lie on back with arms toward ceiling and legs in tabletop. Extend right arm back and left leg forward toward floor, then return.",
+      "description": "Lie on your back with arms extended toward the ceiling and knees bent at 90 degrees (tabletop position), shins parallel to floor. Press your lower back firmly into the floor. Slowly extend one arm overhead toward the floor behind you while simultaneously extending the opposite leg forward toward the floor, keeping the lower back pressed down. Return to start with control, then alternate sides. Move slowly to challenge core stability.",
       "touchFloor": [
         "back",
         "head"
       ],
       "ghost": "starting position on back, arms up toward ceiling, legs in tabletop",
       "active": "right arm extends back toward floor, left leg extends forward toward floor, opposite limbs stay",
-      "motionHint": "Right arm extends back behind head while left leg extends forward; both move toward floor",
+      "motionHint": "Opposite arm reaches back overhead while opposite leg extends forward and down; torso and pelvis stay stable with lower back glued to floor; the non-moving limbs hold position; subtle reach without lumbar extension or rotation",
+      "alternating": true,
       "annotations": [
         {
           "type": "text",
@@ -172,7 +224,23 @@
           "color": "#8B5CF6",
           "text": "Extend leg"
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Exhale as you extend the arm and leg; inhale to return them to start. Keep breathing continuous to support core.",
+      "formCues": [
+        "Lower back must stay pressed into floor the entire time (core anti-extension)",
+        "Move slowly and with control; think 'reach long' not 'slam down'",
+        "Shoulders stay relaxed; avoid shrugging",
+        "Opposite limbs move in sync; maintain 90-degree knee on return if needed"
+      ],
+      "commonErrors": [
+        "Arching lower back as limbs extend (losing core engagement)",
+        "Moving too fast or using momentum",
+        "Twisting pelvis or shoulders",
+        "Neck straining or holding breath"
+      ],
+      "suggestedProtocol": "2-3 sets of 8-12 reps per side (slow tempo)"
     },
     {
       "id": "clamshells",
@@ -182,16 +250,16 @@
       "posture": "side-lying",
       "axis": "horizontal",
       "label": "Open top knee like a clamshell",
-      "instruction": "Lie on side, keep feet together, open top knee",
+      "instruction": "Lie on side, knees bent stacked; keep feet together and pelvis stable, lift top knee up (external hip rotation), lower with control.",
       "highlightColor": "#FFD93D",
-      "description": "Lie on side with legs stacked and bent. Keep feet touching while opening top knee upward like a clamshell.",
+      "description": "Lie on your side with legs stacked and knees bent at approximately 45-60 degrees. Rest your head on your bottom arm or a pillow. Keep your feet together and pelvis stable (do not let top hip roll backward). Slowly lift the top knee upward like opening a clamshell, rotating at the hip while keeping feet touching. Squeeze the glute at the top, then lower with control. Do not twist the spine or pelvis.",
       "touchFloor": [
         "side of body",
         "bottom foot"
       ],
       "ghost": "starting position on side, legs stacked and bent at ~45 degrees",
       "active": "top knee opens upward, bottom leg stays, arc shows knee path",
-      "motionHint": "Top knee rotates upward and forward like a clamshell opening; feet stay together",
+      "motionHint": "Top knee lifts and rotates outward/upward in an arc via hip external rotation; bottom leg and pelvis stay fixed and stable; feet remain in contact; subtle glute medius activation visible in side glute",
       "annotations": [
         {
           "type": "arc",
@@ -202,7 +270,23 @@
           "color": "#FFD93D",
           "label": "Open"
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Exhale as you lift the top knee; inhale as you lower. Breathe steadily to maintain pelvic stability.",
+      "formCues": [
+        "Keep bottom hip and pelvis completely still (no rolling back)",
+        "Feet stay together or touching throughout",
+        "Lift knee only as high as you can without twisting torso",
+        "Squeeze side glute (glute medius) at top of movement"
+      ],
+      "commonErrors": [
+        "Rolling top hip backward or twisting spine",
+        "Lifting foot/leg instead of rotating at hip",
+        "Using momentum or jerking the knee up",
+        "Sinking into bottom shoulder or losing head support"
+      ],
+      "suggestedProtocol": "2-3 sets of 12-20 reps per side (or 30-45s isometric holds at top)"
     },
     {
       "id": "prone-hamstring-curl",
@@ -212,7 +296,7 @@
       "posture": "prone",
       "axis": "horizontal",
       "label": "Curl heel toward glute",
-      "instruction": "Lie face down, curl heel toward glute, return",
+      "instruction": "Lie face down, curl heel toward glute, return.",
       "highlightColor": "#FF6B6B",
       "touchFloor": [
         "hips",
@@ -226,14 +310,33 @@
       "annotations": [
         {
           "type": "arrow",
-          "x1": 230,
-          "x2": 200,
-          "y": 210,
+          "joint": "left_foot",
+          "dx": 0,
+          "dy": 5,
+          "len": -30,
+          "dir": -1,
           "color": "#FF6B6B",
           "label": "Curl",
           "labelY": 203
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
+      "formCues": [
+        "Hinge primarily at the hips",
+        "Maintain flat/neutral back",
+        "Slight micro-bend in knees if needed",
+        "Feel stretch or work in hamstrings, not lower back pain",
+        "Keep neck neutral; avoid craning head up excessively"
+      ],
+      "commonErrors": [
+        "Rounding the back excessively",
+        "Bending knees too much (if straight-leg intended)",
+        "Feeling stretch/pull in lower back instead of hamstrings",
+        "Jerking or bouncing"
+      ],
+      "suggestedProtocol": "2-3 sets of 8-15 reps (controlled tempo, 2-3s eccentric)"
     },
     {
       "id": "standing-hamstring-curl",
@@ -243,7 +346,7 @@
       "posture": "standing",
       "axis": "vertical",
       "label": "Curl heel toward glute",
-      "instruction": "Stand on one leg, curl opposite heel toward glute",
+      "instruction": "Stand on one leg, curl opposite heel toward glute.",
       "highlightColor": "#FF6B6B",
       "touchFloor": [
         "standing foot"
@@ -255,14 +358,33 @@
       "annotations": [
         {
           "type": "arrow",
-          "x1": 195,
-          "x2": 175,
-          "y": 170,
+          "joint": "right_foot",
+          "dx": 0,
+          "dy": 5,
+          "len": -20,
+          "dir": -1,
           "color": "#FF6B6B",
           "label": "Curl",
           "labelY": 163
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
+      "formCues": [
+        "Hinge primarily at the hips",
+        "Maintain flat/neutral back",
+        "Slight micro-bend in knees if needed",
+        "Feel stretch or work in hamstrings, not lower back pain",
+        "Soft knees, weight balanced, core lightly braced"
+      ],
+      "commonErrors": [
+        "Rounding the back excessively",
+        "Bending knees too much (if straight-leg intended)",
+        "Feeling stretch/pull in lower back instead of hamstrings",
+        "Jerking or bouncing"
+      ],
+      "suggestedProtocol": "2-3 sets of 8-12 reps per side (or 30-60s total time)"
     },
     {
       "id": "romanian-deadlifts",
@@ -272,7 +394,7 @@
       "posture": "standing",
       "axis": "vertical",
       "label": "Hip hinge forward",
-      "instruction": "Hip hinge forward with slight knee bend, return",
+      "instruction": "Hip hinge forward with slight knee bend, return.",
       "highlightColor": "#FF6B6B",
       "touchFloor": [
         "both feet"
@@ -290,7 +412,24 @@
           "color": "#FF6B6B",
           "text": "Hinge"
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "intermediate",
+      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
+      "formCues": [
+        "Hinge primarily at the hips",
+        "Maintain flat/neutral back",
+        "Slight micro-bend in knees if needed",
+        "Feel stretch or work in hamstrings, not lower back pain",
+        "Soft knees, weight balanced, core lightly braced"
+      ],
+      "commonErrors": [
+        "Rounding the back excessively",
+        "Bending knees too much (if straight-leg intended)",
+        "Feeling stretch/pull in lower back instead of hamstrings",
+        "Jerking or bouncing"
+      ],
+      "suggestedProtocol": "2-3 sets of 8-15 reps (controlled tempo, 2-3s eccentric)"
     },
     {
       "id": "good-mornings",
@@ -300,7 +439,7 @@
       "posture": "standing",
       "axis": "vertical",
       "label": "Hip hinge with hands behind head",
-      "instruction": "Hands behind head, hip hinge forward until torso parallel to floor",
+      "instruction": "Hands behind head, hip hinge forward until torso parallel to floor.",
       "highlightColor": "#FF9500",
       "description": "Stand tall with feet shoulder-width. Place hands behind head, hinge at hips to lower torso toward parallel with floor while keeping back straight, then return to upright.",
       "touchFloor": [
@@ -309,6 +448,7 @@
       "ghost": "standing upright, hands behind head",
       "active": "torso hinges forward at hips until parallel to floor, return",
       "motionHint": "Hip hinge with hands behind head; torso lowers to parallel with floor; slight knee bend",
+      "rest": { "left_elbow": { "x": 13, "y": -21 }, "left_hand": { "x": 26, "y": -46 }, "right_elbow": { "x": -13, "y": -21 }, "right_hand": { "x": -26, "y": -46 } },
       "annotations": [
         {
           "type": "text",
@@ -318,7 +458,24 @@
           "color": "#FF9500",
           "text": "Hinge"
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "intermediate",
+      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
+      "formCues": [
+        "Hinge primarily at the hips",
+        "Maintain flat/neutral back",
+        "Slight micro-bend in knees if needed",
+        "Feel stretch or work in hamstrings, not lower back pain",
+        "Soft knees, weight balanced, core lightly braced"
+      ],
+      "commonErrors": [
+        "Rounding the back excessively",
+        "Bending knees too much (if straight-leg intended)",
+        "Feeling stretch/pull in lower back instead of hamstrings",
+        "Jerking or bouncing"
+      ],
+      "suggestedProtocol": "2-3 sets of 8-15 reps (controlled tempo, 2-3s eccentric)"
     },
     {
       "id": "nordic-curls",
@@ -328,16 +485,16 @@
       "posture": "kneeling",
       "axis": "diagonal",
       "label": "Slowly lower torso",
-      "instruction": "Kneeling, slowly lower torso toward floor, keeping back straight",
+      "instruction": "Kneeling with ankles anchored, body straight; slowly lower torso forward with control using hamstrings, then return (use hands to assist if needed).",
       "highlightColor": "#FF6B6B",
-      "description": "Kneel with ankles secured (partner or strap). Keeping body straight from knees to head, slowly lower torso forward toward floor with control, then return to upright kneeling using hamstrings.",
+      "description": "Kneel on a padded surface with ankles secured (partner holding, strap, or band anchored low). Body straight from knees to head, core braced, hands at sides or crossed on chest. Slowly lower your torso forward toward the floor by extending at the knees (eccentric hamstring control), keeping body rigid like a plank. Use hamstrings to control the descent as long as possible. At bottom, push back up or use hands to assist return to upright kneeling. Advanced move - start with assisted variations.",
       "touchFloor": [
         "knees",
         "ankles (held)"
       ],
       "ghost": "kneeling upright, body straight from knees to head",
       "active": "torso slowly lowers forward/back toward floor, controlled return",
-      "motionHint": "Torso slowly lowers forward from kneeling; body stays in straight line; controlled return",
+      "motionHint": "Torso lowers forward in a straight rigid line from knees to head as knees extend; hamstrings lengthen eccentrically under tension; core and glutes stay braced; return by driving hips forward or assisted push-up",
       "annotations": [
         {
           "type": "text",
@@ -347,7 +504,23 @@
           "color": "#FF6B6B",
           "text": "Lower"
         }
-      ]
+      ],
+      "equipment": "partner, strap, or anchor for ankles (or band for assisted)",
+      "difficulty": "intermediate",
+      "breathing": "Inhale as you prepare and brace; exhale slowly and controlled during the lowering phase. Inhale to assist return if needed.",
+      "formCues": [
+        "Body stays perfectly straight (no hip hinge or arching)",
+        "Control the lowering phase as long/slow as possible (eccentric focus)",
+        "Core and glutes braced throughout; protect lower back",
+        "Only go as low as you can control with good form"
+      ],
+      "commonErrors": [
+        "Hips bending or arching back during descent",
+        "Dropping quickly without control (high injury risk)",
+        "Using arms/shoulders excessively to push up",
+        "Rounding upper back or dropping head"
+      ],
+      "suggestedProtocol": "2-3 sets of 3-8 controlled reps (focus on slow eccentric; use band or partner assistance for most people)"
     },
     {
       "id": "straight-leg-deadlifts",
@@ -357,7 +530,7 @@
       "posture": "standing",
       "axis": "vertical",
       "label": "Hip hinge with straight legs",
-      "instruction": "Hip hinge with straight legs, reach toward floor, return",
+      "instruction": "Hip hinge with straight legs, reach toward floor, return.",
       "highlightColor": "#FF6B6B",
       "description": "Stand with feet hip-width apart, legs straight or micro-bend at knees. Hinge at hips, pushing butt back while lowering torso and reaching hands toward floor, keeping back flat. Return by driving hips forward.",
       "touchFloor": [
@@ -375,7 +548,24 @@
           "color": "#FF6B6B",
           "text": "Reach"
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "intermediate",
+      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
+      "formCues": [
+        "Hinge primarily at the hips",
+        "Maintain flat/neutral back",
+        "Slight micro-bend in knees if needed",
+        "Feel stretch or work in hamstrings, not lower back pain",
+        "Soft knees, weight balanced, core lightly braced"
+      ],
+      "commonErrors": [
+        "Rounding the back excessively",
+        "Bending knees too much (if straight-leg intended)",
+        "Feeling stretch/pull in lower back instead of hamstrings",
+        "Jerking or bouncing"
+      ],
+      "suggestedProtocol": "2-3 sets of 8-15 reps (controlled tempo, 2-3s eccentric)"
     },
     {
       "id": "hamstring-stretch",
@@ -385,7 +575,7 @@
       "posture": "seated",
       "axis": "horizontal",
       "label": "Reach toward extended foot",
-      "instruction": "Seated with one leg extended, reach toward foot, hold",
+      "instruction": "Seated with one leg extended, reach toward foot, hold.",
       "highlightColor": "#FF6B6B",
       "description": "Sit with one leg extended straight forward, other knee bent with foot on floor. Reach both hands toward the extended foot, hinging at hips to feel stretch in hamstring, hold, then release.",
       "touchFloor": [
@@ -398,14 +588,32 @@
       "annotations": [
         {
           "type": "arrow",
-          "x1": 185,
-          "x2": 240,
-          "y": 140,
+          "joint": "left_hand",
+          "dx": 0,
+          "dy": 0,
+          "len": 55,
+          "dir": 1,
           "color": "#FF6B6B",
           "label": "Reach",
           "labelY": 133
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Inhale to lengthen spine or prepare; exhale to deepen the stretch or fold. Never force or bounce.",
+      "formCues": [
+        "Hinge primarily at the hips",
+        "Maintain flat/neutral back",
+        "Slight micro-bend in knees if needed",
+        "Feel stretch or work in hamstrings, not lower back pain"
+      ],
+      "commonErrors": [
+        "Rounding the back excessively",
+        "Bending knees too much (if straight-leg intended)",
+        "Feeling stretch/pull in lower back instead of hamstrings",
+        "Jerking or bouncing"
+      ],
+      "suggestedProtocol": "2-4 sets of 20-60 second holds (or as tolerated pain-free)"
     },
     {
       "id": "single-leg-bridges",
@@ -415,7 +623,7 @@
       "posture": "supine",
       "axis": "horizontal",
       "label": "Lift hips with one leg extended",
-      "instruction": "Bridge with one leg extended up, lift hips, lower",
+      "instruction": "Bridge with one leg extended up, lift hips, lower.",
       "highlightColor": "#FF9500",
       "description": "Lie on back with one knee bent and foot on floor, other leg extended straight up toward ceiling. Lift hips by driving through the grounded foot, hold at top, then lower with control.",
       "touchFloor": [
@@ -435,7 +643,24 @@
           "color": "#FF9500",
           "text": "Lift"
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner to intermediate",
+      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
+      "formCues": [
+        "Squeeze glutes at the top or peak of movement",
+        "Keep core braced for stability",
+        "Avoid overarching lower back",
+        "Move with control on both phases",
+        "Press lower back gently into floor where cued (avoid excessive arch)"
+      ],
+      "commonErrors": [
+        "Arching or sagging lower back",
+        "Holding breath",
+        "Using momentum or swinging",
+        "Uneven weight distribution or twisting"
+      ],
+      "suggestedProtocol": "2-3 sets of 8-15 reps (controlled tempo, 2-3s eccentric)"
     },
     {
       "id": "banded-walks",
@@ -445,7 +670,7 @@
       "posture": "standing",
       "axis": "vertical (facing viewer)",
       "label": "Side step with band",
-      "instruction": "Slight squat position, step to the side, keep tension",
+      "instruction": "Slight squat position, step to the side, keep tension.",
       "highlightColor": "#FFD93D",
       "description": "Place mini-band around thighs or ankles. Start in slight squat with feet shoulder-width. Step laterally to one side maintaining tension on band and squat depth, then bring trailing leg to meet it. Repeat in both directions.",
       "touchFloor": [
@@ -454,17 +679,50 @@
       "ghost": "standing in slight squat, feet shoulder-width",
       "active": "one leg steps to the side, other follows, maintaining squat",
       "motionHint": "Side steps in slight squat; legs stay wide; minimal vertical motion",
+      "rest": {
+        "hip": {
+          "x": 0,
+          "y": 12
+        },
+        "left_knee": {
+          "x": 5,
+          "y": 10
+        },
+        "right_knee": {
+          "x": -5,
+          "y": 10
+        }
+      },
       "annotations": [
         {
           "type": "arrow",
-          "x1": 280,
-          "x2": 320,
-          "y": 200,
+          "joint": "right_foot",
+          "dx": 0,
+          "dy": 5,
+          "len": 40,
+          "dir": 1,
           "color": "#FFD93D",
           "label": "Step",
           "labelY": 193
         }
-      ]
+      ],
+      "equipment": "mini-band or resistance band",
+      "difficulty": "beginner to intermediate",
+      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
+      "formCues": [
+        "Squeeze glutes at the top or peak of movement",
+        "Keep core braced for stability",
+        "Avoid overarching lower back",
+        "Move with control on both phases",
+        "Soft knees, weight balanced, core lightly braced"
+      ],
+      "commonErrors": [
+        "Arching or sagging lower back",
+        "Holding breath",
+        "Using momentum or swinging",
+        "Uneven weight distribution or twisting"
+      ],
+      "suggestedProtocol": "2-3 sets of 8-15 reps (controlled tempo, 2-3s eccentric)"
     },
     {
       "id": "fire-hydrants",
@@ -474,7 +732,7 @@
       "posture": "all-fours",
       "axis": "diagonal",
       "label": "Lift knee out to side",
-      "instruction": "On all fours, lift one bent knee out to the side, return",
+      "instruction": "On all fours, lift one bent knee out to the side, return.",
       "highlightColor": "#FFD93D",
       "description": "Start on hands and knees in neutral position. Keeping knee bent at 90 degrees, lift one leg out to the side (external hip rotation) like a dog at a fire hydrant, then return to start without rotating pelvis.",
       "touchFloor": [
@@ -494,7 +752,24 @@
           "color": "#FFD93D",
           "label": "Rotate out"
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner to intermediate",
+      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
+      "formCues": [
+        "Squeeze glutes at the top or peak of movement",
+        "Keep core braced for stability",
+        "Avoid overarching lower back",
+        "Move with control on both phases",
+        "Hands under shoulders, knees under hips; neutral spine start"
+      ],
+      "commonErrors": [
+        "Arching or sagging lower back",
+        "Holding breath",
+        "Using momentum or swinging",
+        "Uneven weight distribution or twisting"
+      ],
+      "suggestedProtocol": "2-3 sets of 8-12 reps per side (or 30-60s total time)"
     },
     {
       "id": "glute-kickbacks",
@@ -504,7 +779,7 @@
       "posture": "all-fours",
       "axis": "diagonal",
       "label": "Kick leg back and up",
-      "instruction": "On all fours, kick one leg back and up, return",
+      "instruction": "On all fours, kick one leg back and up, return.",
       "highlightColor": "#FFD93D",
       "description": "On hands and knees, extend one leg straight back and slightly upward, squeezing glute at top, then return knee toward chest without touching down if possible.",
       "touchFloor": [
@@ -517,14 +792,33 @@
       "annotations": [
         {
           "type": "arrow",
-          "x1": 270,
-          "x2": 300,
-          "y": 140,
+          "joint": "left_foot",
+          "dx": 0,
+          "dy": 5,
+          "len": 30,
+          "dir": 1,
           "color": "#FFD93D",
           "label": "Kick",
           "labelY": 133
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner to intermediate",
+      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
+      "formCues": [
+        "Squeeze glutes at the top or peak of movement",
+        "Keep core braced for stability",
+        "Avoid overarching lower back",
+        "Move with control on both phases",
+        "Hands under shoulders, knees under hips; neutral spine start"
+      ],
+      "commonErrors": [
+        "Arching or sagging lower back",
+        "Holding breath",
+        "Using momentum or swinging",
+        "Uneven weight distribution or twisting"
+      ],
+      "suggestedProtocol": "2-3 sets of 8-12 reps per side (or 30-60s total time)"
     },
     {
       "id": "bird-dogs",
@@ -534,36 +828,56 @@
       "posture": "all-fours",
       "axis": "diagonal",
       "label": "Extend opposite arm and leg",
-      "instruction": "On all fours, extend opposite arm forward and leg backward, return",
+      "instruction": "On all fours, simultaneously extend opposite arm forward and leg back, keep hips level and core braced, return and alternate.",
       "highlightColor": "#22C55E",
-      "description": "Start on hands and knees. Simultaneously extend one arm forward and the opposite leg backward until both are straight and parallel to floor, keeping hips level and core braced. Return and alternate sides.",
+      "description": "Start on hands and knees, neutral spine, wrists under shoulders, knees under hips. Simultaneously extend one arm straight forward (thumb up) and the opposite leg straight back (toes pointed or flexed), reaching long. Keep hips level and square, core braced so lower back stays neutral (no sagging or twisting). Hold briefly at full extension, then return with control and alternate sides. Imagine balancing a glass of water on your low back.",
       "touchFloor": [
         "hands",
         "knees (starting)"
       ],
       "ghost": "neutral all-fours position",
       "active": "one arm reaches forward, opposite leg reaches back, return to all-fours",
-      "motionHint": "On hands and knees; one arm reaches forward @ opposite leg kicks back simultaneously",
+      "motionHint": "One arm reaches forward while opposite leg extends back in a controlled reach; torso and pelvis remain stable and level; spine stays neutral; the moving limbs create a long line parallel to floor at peak",
       "annotations": [
         {
           "type": "arrow",
-          "x1": 140,
-          "x2": 105,
-          "y": 130,
+          "joint": "left_hand",
+          "dx": 0,
+          "dy": 5,
+          "len": -35,
+          "dir": -1,
           "color": "#22C55E",
           "label": "Reach",
           "labelY": 123
         },
         {
           "type": "arrow",
-          "x1": 275,
-          "x2": 310,
-          "y": 145,
+          "joint": "left_foot",
+          "dx": 0,
+          "dy": 5,
+          "len": 35,
+          "dir": 1,
           "color": "#22C55E",
           "label": "Extend",
           "labelY": 138
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner to intermediate",
+      "breathing": "Exhale as you extend arm and leg; inhale to return. Steady breathing supports core stability.",
+      "formCues": [
+        "Hips stay square and level (no rotation or dropping one side)",
+        "Core braced to prevent lower back sag or arch",
+        "Reach long through fingertips and toes; think opposition",
+        "Move slowly; hold 1-2s at full extension for stability challenge"
+      ],
+      "commonErrors": [
+        "Rotating or dropping one hip as leg extends",
+        "Arching or sagging lower back",
+        "Moving too fast or losing balance control",
+        "Looking down or craning neck instead of neutral gaze"
+      ],
+      "suggestedProtocol": "2-3 sets of 8-12 reps per side (slow and controlled)"
     },
     {
       "id": "planks",
@@ -573,16 +887,51 @@
       "posture": "prone",
       "axis": "horizontal",
       "label": "Hold forearm plank",
-      "instruction": "Forearm plank, body in straight line, hold",
+      "instruction": "Forearm plank position, body straight head to heels; hold with core, glutes, and quads engaged.",
       "highlightColor": "#22C55E",
-      "description": "Forearms on floor, elbows under shoulders, toes tucked under. Body forms straight line from head to heels. Engage core, glutes, and legs to hold position without sagging or piking hips.",
+      "description": "Start in forearm plank: elbows under shoulders, forearms on floor (or palms if high plank), toes tucked under. Body forms a straight line from head to heels. Engage core, glutes, and quads to hold without sagging hips or piking upward. Shoulders are broad, neck neutral (gaze slightly forward or down). Hold while breathing steadily. Modify on knees if needed for form.",
       "touchFloor": [
         "forearms",
         "toes"
       ],
       "ghost": "forearm plank position, body in straight line",
       "active": "minimal motion (hold position), subtle body line indicator",
-      "motionHint": "Forearm plank hold; body straight from head to heels; minimal motion",
+      "motionHint": "Minimal visible motion during hold; subtle micro-adjustments for balance and breathing; body line remains rigid and straight; gentle engagement ripple through core and glutes",
+      "rest": {
+        "head": {
+          "x": 0,
+          "y": -20
+        },
+        "neck": {
+          "x": 0,
+          "y": -25
+        },
+        "shoulder": {
+          "x": 0,
+          "y": -30
+        },
+        "hip": {
+          "x": 0,
+          "y": -15
+        },
+        "left_elbow": {
+          "x": -10,
+          "y": 22
+        },
+        "left_hand": {
+          "x": -25,
+          "y": 28
+        },
+        "right_elbow": {
+          "x": -10,
+          "y": 22
+        },
+        "right_hand": {
+          "x": -25,
+          "y": 28
+        }
+      },
+      "holdFrames": 64,
       "annotations": [
         {
           "type": "text",
@@ -592,7 +941,23 @@
           "color": "#22C55E",
           "text": "Hold"
         }
-      ]
+      ],
+      "equipment": "none (mat optional)",
+      "difficulty": "beginner",
+      "breathing": "Breathe deeply and evenly throughout the hold. Inhale through nose, exhale through mouth. Do not hold your breath.",
+      "formCues": [
+        "Straight line from head through shoulders, hips, to heels (no sagging or piking)",
+        "Core braced as if preparing for a punch; glutes and quads active",
+        "Shoulders stacked over elbows; broad across collarbones",
+        "Neck neutral; avoid looking up or letting head drop"
+      ],
+      "commonErrors": [
+        "Hips sagging toward floor or piking high",
+        "Shoulders shrugging or collapsing into upper back",
+        "Holding breath or over-gripping fists",
+        "Looking up and craning neck or letting head hang"
+      ],
+      "suggestedProtocol": "3-4 sets of 20-60+ second holds (build time gradually with perfect form)"
     },
     {
       "id": "side-planks",
@@ -602,7 +967,7 @@
       "posture": "side-lying",
       "axis": "horizontal",
       "label": "Hold side plank",
-      "instruction": "Side body hold on forearm, hold",
+      "instruction": "Side body hold on forearm, hold.",
       "highlightColor": "#22C55E",
       "description": "Lie on one side, propped on forearm with elbow under shoulder. Stack feet or place top foot in front for stability. Lift hips to form straight line from head to feet, hold while bracing core.",
       "touchFloor": [
@@ -612,6 +977,33 @@
       "ghost": "side plank position, body in straight line",
       "active": "minimal motion (hold position), subtle body line indicator",
       "motionHint": "Side body hold on forearm; body straight from head to feet; minimal motion",
+      "rest": {
+        "head": {
+          "x": 0,
+          "y": -10
+        },
+        "neck": {
+          "x": 0,
+          "y": -15
+        },
+        "shoulder": {
+          "x": 0,
+          "y": -20
+        },
+        "hip": {
+          "x": 0,
+          "y": -15
+        },
+        "left_elbow": {
+          "x": -15,
+          "y": 15
+        },
+        "left_hand": {
+          "x": -20,
+          "y": 18
+        }
+      },
+      "holdFrames": 64,
       "annotations": [
         {
           "type": "text",
@@ -621,7 +1013,24 @@
           "color": "#22C55E",
           "text": "Hold"
         }
-      ]
+      ],
+      "equipment": "none (mat optional)",
+      "difficulty": "beginner",
+      "breathing": "Breathe deeply and evenly throughout the hold. Avoid holding your breath.",
+      "formCues": [
+        "Maintain neutral spine or slight natural curve",
+        "Engage deep core (draw navel toward spine gently)",
+        "Breathe steadily, avoid breath-holding",
+        "Control the movement; no momentum",
+        "Stack hips and shoulders; avoid rolling forward/back"
+      ],
+      "commonErrors": [
+        "Arching or sagging lower back",
+        "Holding breath",
+        "Using momentum or swinging",
+        "Uneven weight distribution or twisting"
+      ],
+      "suggestedProtocol": "2-4 sets of 20-60 second holds (or as tolerated pain-free)"
     },
     {
       "id": "pelvic-tilts",
@@ -631,7 +1040,7 @@
       "posture": "supine",
       "axis": "horizontal",
       "label": "Tilt pelvis posteriorly",
-      "instruction": "Lie on back, knees bent, gently tilt pelvis (flatten lower back)",
+      "instruction": "Lie on back, knees bent, gently tilt pelvis (flatten lower back).",
       "highlightColor": "#22C55E",
       "description": "Lie on back with knees bent and feet flat on floor. Gently tilt pelvis posteriorly by pressing lower back into floor (flatten lumbar curve), hold briefly, then release to neutral.",
       "touchFloor": [
@@ -650,7 +1059,24 @@
           "color": "#22C55E",
           "text": "Tilt"
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Exhale as you tilt pelvis posteriorly (flatten back); inhale to release to neutral.",
+      "formCues": [
+        "Maintain neutral spine or slight natural curve",
+        "Engage deep core (draw navel toward spine gently)",
+        "Breathe steadily, avoid breath-holding",
+        "Control the movement; no momentum",
+        "Press lower back gently into floor where cued (avoid excessive arch)"
+      ],
+      "commonErrors": [
+        "Arching or sagging lower back",
+        "Holding breath",
+        "Using momentum or swinging",
+        "Uneven weight distribution or twisting"
+      ],
+      "suggestedProtocol": "2-3 sets of 8-15 reps (controlled tempo, 2-3s eccentric)"
     },
     {
       "id": "hollow-holds",
@@ -660,7 +1086,7 @@
       "posture": "supine",
       "axis": "horizontal",
       "label": "Lift arms and legs, hold U-shape",
-      "instruction": "Lie on back, lift arms, head, shoulders, and legs off floor, hold",
+      "instruction": "Lie on back, lift arms, head, shoulders, and legs off floor, hold.",
       "highlightColor": "#22C55E",
       "description": "Lie on back with arms extended overhead or by sides. Simultaneously lift head, shoulders, arms, and legs off the floor so lower back presses into floor, forming a slight U or banana shape. Hold while breathing steadily.",
       "touchFloor": [
@@ -669,6 +1095,7 @@
       "ghost": "on back, arms and legs extended on floor",
       "active": "arms, head, shoulders, and legs lift off floor forming U-shape, hold",
       "motionHint": "Supine; arms, head, shoulders, and legs lift off floor forming a U-shape",
+      "holdFrames": 24,
       "annotations": [
         {
           "type": "text",
@@ -678,7 +1105,24 @@
           "color": "#22C55E",
           "text": "Lift"
         }
-      ]
+      ],
+      "equipment": "none (mat optional)",
+      "difficulty": "beginner",
+      "breathing": "Breathe deeply and evenly throughout the hold. Avoid holding your breath.",
+      "formCues": [
+        "Maintain neutral spine or slight natural curve",
+        "Engage deep core (draw navel toward spine gently)",
+        "Breathe steadily, avoid breath-holding",
+        "Control the movement; no momentum",
+        "Press lower back gently into floor where cued (avoid excessive arch)"
+      ],
+      "commonErrors": [
+        "Arching or sagging lower back",
+        "Holding breath",
+        "Using momentum or swinging",
+        "Uneven weight distribution or twisting"
+      ],
+      "suggestedProtocol": "2-4 sets of 20-60 second holds (or as tolerated pain-free)"
     },
     {
       "id": "supermans",
@@ -688,7 +1132,7 @@
       "posture": "prone",
       "axis": "horizontal",
       "label": "Lift arms and legs",
-      "instruction": "Lie face down, lift arms, chest, and legs off floor simultaneously",
+      "instruction": "Lie face down, lift arms, chest, and legs off floor simultaneously.",
       "highlightColor": "#22C55E",
       "description": "Lie face down with arms extended forward or by sides and legs straight. Simultaneously lift chest, arms, and legs off the floor as high as comfortable while squeezing glutes and upper back, hold briefly, then lower with control.",
       "touchFloor": [
@@ -698,6 +1142,7 @@
       "ghost": "lying face down, arms and legs extended",
       "active": "arms, chest, and legs lift off floor, hold briefly, lower",
       "motionHint": "Prone; arms, chest, and legs lift off floor simultaneously; glutes squeeze",
+      "holdFrames": 24,
       "annotations": [
         {
           "type": "text",
@@ -707,7 +1152,24 @@
           "color": "#22C55E",
           "text": "Lift"
         }
-      ]
+      ],
+      "equipment": "none (mat optional)",
+      "difficulty": "beginner",
+      "breathing": "Breathe deeply and evenly throughout the hold. Avoid holding your breath.",
+      "formCues": [
+        "Maintain neutral spine or slight natural curve",
+        "Engage deep core (draw navel toward spine gently)",
+        "Breathe steadily, avoid breath-holding",
+        "Control the movement; no momentum",
+        "Keep neck neutral; avoid craning head up excessively"
+      ],
+      "commonErrors": [
+        "Arching or sagging lower back",
+        "Holding breath",
+        "Using momentum or swinging",
+        "Uneven weight distribution or twisting"
+      ],
+      "suggestedProtocol": "2-4 sets of 20-60 second holds (or as tolerated pain-free)"
     },
     {
       "id": "crunches",
@@ -717,7 +1179,7 @@
       "posture": "supine",
       "axis": "horizontal",
       "label": "Curl shoulders toward knees",
-      "instruction": "Lie on back, knees bent, curl shoulders up toward knees",
+      "instruction": "Lie on back, knees bent, curl shoulders up toward knees.",
       "highlightColor": "#22C55E",
       "description": "Lie on back with knees bent, feet flat. Hands behind head or crossed on chest. Curl shoulders and upper back off floor toward knees by contracting abs, lower back stays pressed into floor. Lower with control.",
       "touchFloor": [
@@ -736,7 +1198,24 @@
           "color": "#22C55E",
           "text": "Curl"
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
+      "formCues": [
+        "Maintain neutral spine or slight natural curve",
+        "Engage deep core (draw navel toward spine gently)",
+        "Breathe steadily, avoid breath-holding",
+        "Control the movement; no momentum",
+        "Press lower back gently into floor where cued (avoid excessive arch)"
+      ],
+      "commonErrors": [
+        "Arching or sagging lower back",
+        "Holding breath",
+        "Using momentum or swinging",
+        "Uneven weight distribution or twisting"
+      ],
+      "suggestedProtocol": "2-3 sets of 8-15 reps (controlled tempo, 2-3s eccentric)"
     },
     {
       "id": "quad-sets",
@@ -746,7 +1225,7 @@
       "posture": "supine",
       "axis": "horizontal",
       "label": "Tighten quadriceps",
-      "instruction": "Lie on back, leg straight, tighten quad muscle, hold, release",
+      "instruction": "Lie on back, leg straight, tighten quad muscle, hold, release.",
       "highlightColor": "#FF6B6B",
       "description": "Lie on back with one leg straight and other knee bent or straight. Tighten the quadriceps muscle of the straight leg by pushing knee down into floor (or imagining it), hold 5-10 seconds, then release. Minimal visible movement but muscle contraction visible.",
       "touchFloor": [
@@ -765,7 +1244,24 @@
           "color": "#FF6B6B",
           "text": "Tighten"
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Breathe deeply and evenly throughout the hold. Avoid holding your breath.",
+      "formCues": [
+        "Keep torso upright and core engaged",
+        "Knees track over toes (no valgus collapse)",
+        "Drive through heel or full foot",
+        "Control the lowering phase",
+        "Press lower back gently into floor where cued (avoid excessive arch)"
+      ],
+      "commonErrors": [
+        "Knees caving inward (valgus)",
+        "Leaning torso too far forward/back",
+        "Locking knees at top",
+        "Lifting heel off ground/platform"
+      ],
+      "suggestedProtocol": "2-4 sets of 20-60 second holds (or as tolerated pain-free)"
     },
     {
       "id": "straight-leg-raises",
@@ -775,7 +1271,7 @@
       "posture": "supine",
       "axis": "horizontal",
       "label": "Lift straight leg up and down",
-      "instruction": "Lie on back, one leg straight, lift up to 45 degrees, lower",
+      "instruction": "Lie on back, one leg straight, lift up to 45 degrees, lower.",
       "highlightColor": "#FF6B6B",
       "description": "Lie on back with one knee bent and foot flat on floor for stability. Other leg straight with foot flexed. Lift straight leg up to about 45 degrees or until thigh is level with bent knee, then lower slowly with control.",
       "touchFloor": [
@@ -789,14 +1285,33 @@
       "annotations": [
         {
           "type": "arrow",
-          "x1": 215,
-          "x2": 210,
-          "y": 155,
+          "joint": "left_foot",
+          "dx": 0,
+          "dy": 5,
+          "len": -20,
+          "dir": -1,
           "color": "#FF6B6B",
           "label": "Lift",
           "labelY": 148
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
+      "formCues": [
+        "Keep torso upright and core engaged",
+        "Knees track over toes (no valgus collapse)",
+        "Drive through heel or full foot",
+        "Control the lowering phase",
+        "Press lower back gently into floor where cued (avoid excessive arch)"
+      ],
+      "commonErrors": [
+        "Knees caving inward (valgus)",
+        "Leaning torso too far forward/back",
+        "Locking knees at top",
+        "Lifting heel off ground/platform"
+      ],
+      "suggestedProtocol": "2-3 sets of 8-15 reps (controlled tempo, 2-3s eccentric)"
     },
     {
       "id": "step-ups",
@@ -806,7 +1321,7 @@
       "posture": "standing",
       "axis": "vertical",
       "label": "Step up onto platform",
-      "instruction": "Step one foot onto platform, drive up, step down, repeat",
+      "instruction": "Step one foot onto platform, drive up, step down, repeat.",
       "highlightColor": "#FF6B6B",
       "description": "Stand facing a sturdy platform or step (6-12 inches). Step one foot fully onto the platform, drive through heel to stand tall on platform, then step the trailing foot up. Reverse: step down leading with same foot or alternate.",
       "touchFloor": [
@@ -819,14 +1334,33 @@
       "annotations": [
         {
           "type": "arrow",
-          "x1": 290,
-          "x2": 285,
-          "y": 170,
+          "joint": "right_foot",
+          "dx": 0,
+          "dy": 5,
+          "len": -15,
+          "dir": -1,
           "color": "#FF6B6B",
           "label": "Step",
           "labelY": 163
         }
-      ]
+      ],
+      "equipment": "stable step or platform (6-12 inches)",
+      "difficulty": "beginner",
+      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
+      "formCues": [
+        "Keep torso upright and core engaged",
+        "Knees track over toes (no valgus collapse)",
+        "Drive through heel or full foot",
+        "Control the lowering phase",
+        "Soft knees, weight balanced, core lightly braced"
+      ],
+      "commonErrors": [
+        "Knees caving inward (valgus)",
+        "Leaning torso too far forward/back",
+        "Locking knees at top",
+        "Lifting heel off ground/platform"
+      ],
+      "suggestedProtocol": "2-3 sets of 8-15 reps (controlled tempo, 2-3s eccentric)"
     },
     {
       "id": "wall-sits",
@@ -836,7 +1370,7 @@
       "posture": "standing",
       "axis": "vertical (against wall)",
       "label": "Slide down wall to 90 degrees",
-      "instruction": "Lean back against wall, slide down until knees at 90 degrees, hold",
+      "instruction": "Lean back against wall, slide down until knees at 90 degrees, hold.",
       "highlightColor": "#FF6B6B",
       "description": "Stand with back against wall, feet shoulder-width about 2 feet from wall. Slide down wall by bending knees until thighs are parallel to floor (knees ~90 degrees). Hold position, then slide back up.",
       "touchFloor": [
@@ -845,6 +1379,7 @@
       "ghost": "standing upright against wall",
       "active": "slide down wall into seated position (knees 90 degrees), hold briefly, return up",
       "motionHint": "Back against wall; slide down to 90 degree knee bend; hold then slide up",
+      "holdFrames": 24,
       "annotations": [
         {
           "type": "text",
@@ -854,7 +1389,24 @@
           "color": "#FF6B6B",
           "text": "Slide"
         }
-      ]
+      ],
+      "equipment": "wall",
+      "difficulty": "beginner",
+      "breathing": "Breathe deeply and evenly throughout the hold. Avoid holding your breath.",
+      "formCues": [
+        "Keep torso upright and core engaged",
+        "Knees track over toes (no valgus collapse)",
+        "Drive through heel or full foot",
+        "Control the lowering phase",
+        "Soft knees, weight balanced, core lightly braced"
+      ],
+      "commonErrors": [
+        "Knees caving inward (valgus)",
+        "Leaning torso too far forward/back",
+        "Locking knees at top",
+        "Lifting heel off ground/platform"
+      ],
+      "suggestedProtocol": "2-4 sets of 20-60 second holds (or as tolerated pain-free)"
     },
     {
       "id": "terminal-knee-extensions",
@@ -864,7 +1416,7 @@
       "posture": "standing",
       "axis": "vertical (side view)",
       "label": "Extend knee against band",
-      "instruction": "Stand with band around ankle, extend knee, return slowly",
+      "instruction": "Stand with band around ankle, extend knee, return slowly.",
       "highlightColor": "#FF6B6B",
       "description": "Stand facing away from anchor point with band looped around back of one ankle. Start with slight knee bend. Extend the knee fully against band resistance, squeezing quad at top, then return slowly to start position.",
       "touchFloor": [
@@ -876,14 +1428,33 @@
       "annotations": [
         {
           "type": "arrow",
-          "x1": 215,
-          "x2": 230,
-          "y": 145,
+          "joint": "right_foot",
+          "dx": 0,
+          "dy": 5,
+          "len": 15,
+          "dir": 1,
           "color": "#FF6B6B",
           "label": "Extend",
           "labelY": 138
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
+      "formCues": [
+        "Keep torso upright and core engaged",
+        "Knees track over toes (no valgus collapse)",
+        "Drive through heel or full foot",
+        "Control the lowering phase",
+        "Soft knees, weight balanced, core lightly braced"
+      ],
+      "commonErrors": [
+        "Knees caving inward (valgus)",
+        "Leaning torso too far forward/back",
+        "Locking knees at top",
+        "Lifting heel off ground/platform"
+      ],
+      "suggestedProtocol": "2-3 sets of 8-15 reps (controlled tempo, 2-3s eccentric)"
     },
     {
       "id": "hip-flexor-stretch",
@@ -893,7 +1464,7 @@
       "posture": "standing",
       "axis": "vertical",
       "label": "Lunge forward, stretch hip",
-      "instruction": "Lunge forward, shift hips forward, feel hip stretch, hold",
+      "instruction": "Lunge forward, shift hips forward, feel hip stretch, hold.",
       "highlightColor": "#FF9500",
       "description": "From standing, step one foot forward into a lunge position (back knee bends toward floor). Keeping torso upright, shift hips forward until stretch is felt in front of the back hip/thigh. Hold, then return.",
       "touchFloor": [
@@ -903,6 +1474,57 @@
       "ghost": "lunge position with front foot forward and back knee bent",
       "active": "shift hips forward into deeper stretch, hold, return",
       "motionHint": "Lunge with torso upright; hips shift forward deepening the hip stretch",
+      "rest": {
+        "left_foot": {
+          "x": -50,
+          "y": 0
+        },
+        "left_knee": {
+          "x": -45,
+          "y": 53
+        },
+        "right_foot": {
+          "x": 30,
+          "y": 0
+        },
+        "right_knee": {
+          "x": 35,
+          "y": -5
+        },
+        "hip": {
+          "x": -25,
+          "y": 5
+        },
+        "shoulder": {
+          "x": -20,
+          "y": 6
+        },
+        "neck": {
+          "x": -20,
+          "y": 5
+        },
+        "head": {
+          "x": -20,
+          "y": 5
+        },
+        "left_elbow": {
+          "x": -5,
+          "y": 8
+        },
+        "left_hand": {
+          "x": -5,
+          "y": 8
+        },
+        "right_elbow": {
+          "x": 5,
+          "y": 8
+        },
+        "right_hand": {
+          "x": 5,
+          "y": 8
+        }
+      },
+      "holdFrames": 24,
       "annotations": [
         {
           "type": "text",
@@ -912,7 +1534,24 @@
           "color": "#FF9500",
           "text": "Shift"
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Breathe deeply and evenly throughout the hold. Avoid holding your breath.",
+      "formCues": [
+        "Keep hips square and level where applicable",
+        "Move within pain-free range",
+        "Engage core for stability",
+        "Breathe into the stretch",
+        "Soft knees, weight balanced, core lightly braced"
+      ],
+      "commonErrors": [
+        "Bouncing at end range",
+        "Forcing beyond comfortable stretch",
+        "Twisting or losing alignment of hips/shoulders",
+        "Holding breath"
+      ],
+      "suggestedProtocol": "2-4 sets of 20-60 second holds (or as tolerated pain-free)"
     },
     {
       "id": "figure-4-stretch",
@@ -922,7 +1561,7 @@
       "posture": "supine",
       "axis": "horizontal",
       "label": "Ankle over knee, press leg",
-      "instruction": "Lie on back, cross one ankle over opposite knee, press leg forward",
+      "instruction": "Lie on back, cross one ankle over opposite knee, press leg forward.",
       "highlightColor": "#FF9500",
       "description": "Lie on back. Cross one ankle over the opposite knee (figure-4). Gently press the crossed knee away from body or pull thigh toward chest to deepen stretch in outer hip/glute. Hold, then switch sides.",
       "touchFloor": [
@@ -941,7 +1580,24 @@
           "color": "#FF9500",
           "text": "Press"
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Inhale to lengthen spine or prepare; exhale to deepen the stretch or fold. Never force or bounce.",
+      "formCues": [
+        "Keep hips square and level where applicable",
+        "Move within pain-free range",
+        "Engage core for stability",
+        "Breathe into the stretch",
+        "Press lower back gently into floor where cued (avoid excessive arch)"
+      ],
+      "commonErrors": [
+        "Bouncing at end range",
+        "Forcing beyond comfortable stretch",
+        "Twisting or losing alignment of hips/shoulders",
+        "Holding breath"
+      ],
+      "suggestedProtocol": "2-3 sets of 8-15 reps (controlled tempo, 2-3s eccentric)"
     },
     {
       "id": "hip-circles",
@@ -951,7 +1607,7 @@
       "posture": "standing",
       "axis": "vertical",
       "label": "Circle leg at hip",
-      "instruction": "Stand on one leg, circle the other leg at the hip",
+      "instruction": "Stand on one leg, circle the other leg at the hip.",
       "highlightColor": "#FF9500",
       "description": "Stand on one leg (hold support if needed). Lift other leg slightly off floor and trace controlled circles at the hip joint in both directions. Keep pelvis stable and core engaged.",
       "touchFloor": [
@@ -960,6 +1616,12 @@
       "ghost": "standing on one leg, other leg slightly lifted",
       "active": "lifted leg traces circles at the hip joint, controlled motion",
       "motionHint": "Standing on one leg; opposite leg traces circles at the hip joint",
+      "rotation": {
+        "joint": "right_foot",
+        "angle": 45,
+        "radius": 25,
+        "phase": 0
+      },
       "annotations": [
         {
           "type": "text",
@@ -969,7 +1631,24 @@
           "color": "#FF9500",
           "text": "Circle"
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
+      "formCues": [
+        "Keep hips square and level where applicable",
+        "Move within pain-free range",
+        "Engage core for stability",
+        "Breathe into the stretch",
+        "Soft knees, weight balanced, core lightly braced"
+      ],
+      "commonErrors": [
+        "Bouncing at end range",
+        "Forcing beyond comfortable stretch",
+        "Twisting or losing alignment of hips/shoulders",
+        "Holding breath"
+      ],
+      "suggestedProtocol": "2-3 sets of 8-12 reps per side (or 30-60s total time)"
     },
     {
       "id": "banded-hip-flexion",
@@ -979,7 +1658,7 @@
       "posture": "standing",
       "axis": "vertical (side view)",
       "label": "Drive knee up against band",
-      "instruction": "Stand with band around ankle, drive knee upward, return",
+      "instruction": "Stand with band around ankle, drive knee upward, return.",
       "highlightColor": "#FF9500",
       "description": "Stand sideways to band anchor with band around one ankle. Start with slight hip extension. Drive the banded knee up and forward against resistance in a marching motion, then return with control.",
       "touchFloor": [
@@ -991,14 +1670,33 @@
       "annotations": [
         {
           "type": "arrow",
-          "x1": 170,
-          "x2": 180,
-          "y": 105,
+          "joint": "right_knee",
+          "dx": 0,
+          "dy": -5,
+          "len": 10,
+          "dir": 1,
           "color": "#FF9500",
           "label": "Drive",
           "labelY": 98
         }
-      ]
+      ],
+      "equipment": "mini-band or resistance band",
+      "difficulty": "beginner",
+      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
+      "formCues": [
+        "Keep hips square and level where applicable",
+        "Move within pain-free range",
+        "Engage core for stability",
+        "Breathe into the stretch",
+        "Soft knees, weight balanced, core lightly braced"
+      ],
+      "commonErrors": [
+        "Bouncing at end range",
+        "Forcing beyond comfortable stretch",
+        "Twisting or losing alignment of hips/shoulders",
+        "Holding breath"
+      ],
+      "suggestedProtocol": "2-3 sets of 8-15 reps (controlled tempo, 2-3s eccentric)"
     },
     {
       "id": "pigeon-pose",
@@ -1008,7 +1706,7 @@
       "posture": "seated",
       "axis": "horizontal",
       "label": "Fold forward over front leg",
-      "instruction": "Seated with one leg bent in front, other extended back, fold forward",
+      "instruction": "Seated with one leg bent in front, other extended back, fold forward.",
       "highlightColor": "#FF9500",
       "description": "From seated or all-fours transition, bring one leg forward into bent position (~90 degrees at knee), extend other leg straight back. Square hips, then fold torso forward over front shin, reaching arms out. Hold deep hip stretch.",
       "touchFloor": [
@@ -1019,6 +1717,41 @@
       "ghost": "seated with front leg bent at ~90 degrees, back leg extended behind",
       "active": "torso folds forward over front leg, deepening hip stretch, hold",
       "motionHint": "Seated; one leg bent forward at 90 degrees; torso folds forward over shin",
+      "rest": {
+        "right_knee": {
+          "x": 30,
+          "y": 0
+        },
+        "right_foot": {
+          "x": 10,
+          "y": 20
+        },
+        "left_knee": {
+          "x": -20,
+          "y": 5
+        },
+        "left_foot": {
+          "x": -40,
+          "y": 20
+        },
+        "left_elbow": {
+          "x": 10,
+          "y": 5
+        },
+        "left_hand": {
+          "x": 15,
+          "y": 10
+        },
+        "right_elbow": {
+          "x": -10,
+          "y": 5
+        },
+        "right_hand": {
+          "x": -15,
+          "y": 10
+        }
+      },
+      "holdFrames": 36,
       "annotations": [
         {
           "type": "text",
@@ -1028,7 +1761,23 @@
           "color": "#FF9500",
           "text": "Fold"
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Breathe deeply and evenly throughout the hold. Avoid holding your breath.",
+      "formCues": [
+        "Keep hips square and level where applicable",
+        "Move within pain-free range",
+        "Engage core for stability",
+        "Breathe into the stretch"
+      ],
+      "commonErrors": [
+        "Bouncing at end range",
+        "Forcing beyond comfortable stretch",
+        "Twisting or losing alignment of hips/shoulders",
+        "Holding breath"
+      ],
+      "suggestedProtocol": "2-4 sets of 20-60 second holds (or as tolerated pain-free)"
     },
     {
       "id": "90-90-stretch",
@@ -1038,7 +1787,7 @@
       "posture": "seated",
       "axis": "horizontal",
       "label": "Both legs at 90 degrees",
-      "instruction": "Seated with both legs bent 90 degrees, rotate torso, hold",
+      "instruction": "Seated with both legs bent 90 degrees, rotate torso, hold.",
       "highlightColor": "#FF9500",
       "description": "Sit with both legs bent at 90 degrees (one leg forward, one to the side like a pinwheel or 90-90 position). Keep front shin parallel to body or adjust for comfort. Rotate torso toward front leg, hold stretch, then return and switch orientation.",
       "touchFloor": [
@@ -1057,7 +1806,23 @@
           "color": "#FF9500",
           "text": "Rotate"
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Inhale to lengthen spine or prepare; exhale to deepen the stretch or fold. Never force or bounce.",
+      "formCues": [
+        "Keep hips square and level where applicable",
+        "Move within pain-free range",
+        "Engage core for stability",
+        "Breathe into the stretch"
+      ],
+      "commonErrors": [
+        "Bouncing at end range",
+        "Forcing beyond comfortable stretch",
+        "Twisting or losing alignment of hips/shoulders",
+        "Holding breath"
+      ],
+      "suggestedProtocol": "2-4 sets of 20-60 second holds (or as tolerated pain-free)"
     },
     {
       "id": "childs-pose",
@@ -1067,7 +1832,7 @@
       "posture": "all-fours",
       "axis": "horizontal",
       "label": "Reach arms forward, sit back",
-      "instruction": "From hands and knees, sit back on heels, reach arms forward on floor, hold",
+      "instruction": "From hands and knees, sit back on heels, reach arms forward on floor, hold.",
       "highlightColor": "#22C55E",
       "description": "Start on hands and knees (all fours). Sit hips back toward heels. Extend arms forward on floor, forehead can rest on mat. Breathe deeply into back and sides. Hold for relaxation and gentle stretch.",
       "touchFloor": [
@@ -1081,14 +1846,28 @@
       "annotations": [
         {
           "type": "arrow",
-          "x1": 170,
-          "x2": 140,
-          "y": 100,
+          "joint": "left_hand",
+          "dx": 0,
+          "dy": 0,
+          "len": -30,
+          "dir": -1,
           "color": "#22C55E",
           "label": "Fold",
           "labelY": 93
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
+      "formCues": [
+        "Move slowly and with control",
+        "Breathe deeply into the stretch",
+        "Keep shoulders relaxed",
+        "Never force or bounce at end range",
+        "Hands under shoulders, knees under hips; neutral spine start"
+      ],
+      "commonErrors": [],
+      "suggestedProtocol": "2-4 sets of 20-60 second holds (or as tolerated pain-free)"
     },
     {
       "id": "worlds-greatest-stretch",
@@ -1098,9 +1877,9 @@
       "posture": "lunge",
       "axis": "diagonal",
       "label": "Lunge with thoracic rotation",
-      "instruction": "Lunge forward, rotate torso toward front leg, reach arm up",
+      "instruction": "Step into deep lunge, place hand inside front foot, rotate torso toward front leg and reach opposite arm up, hold stretch, return.",
       "highlightColor": "#22C55E",
-      "description": "From standing, step one foot forward into deep lunge (back knee may touch floor). Place hand inside front foot. Rotate torso toward front leg, reaching opposite arm up toward ceiling and looking up. Return hand to floor, step back or repeat.",
+      "description": "From standing or after a lunge step, step one foot forward into a deep lunge (back knee may lightly touch floor). Place the hand on the same side as the front leg inside the front foot. Rotate your torso toward the front leg, reaching the opposite arm up toward the ceiling and following with your gaze (thoracic rotation + hip flexor stretch). Feel the stretch in the front hip and across the mid/upper back. Return hand to floor, step back or repeat. Dynamic mobility drill.",
       "touchFloor": [
         "back knee",
         "front foot",
@@ -1108,7 +1887,7 @@
       ],
       "ghost": "deep lunge position, back knee on floor",
       "active": "torso rotates toward front leg, one arm reaches toward ceiling, return",
-      "motionHint": "Deep lunge; torso rotates toward front leg; arm reaches toward ceiling",
+      "motionHint": "Deep lunge position with back knee down or hovering; torso rotates toward front thigh while one arm reaches high; hips stay low and square; dynamic stretch through hip flexors, adductors, and thoracic spine",
       "annotations": [
         {
           "type": "text",
@@ -1118,7 +1897,23 @@
           "color": "#22C55E",
           "text": "Rotate"
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "intermediate",
+      "breathing": "Inhale to set the lunge and reach; exhale to deepen the rotation and stretch. Breathe into the tight areas.",
+      "formCues": [
+        "Front knee tracks over ankle; don't let it cave in",
+        "Hips stay square and low in the lunge",
+        "Rotate from mid/upper back (thoracic), not just shoulders",
+        "Reach arm high while keeping front hand planted for support"
+      ],
+      "commonErrors": [
+        "Losing lunge depth or letting front knee collapse",
+        "Rotating only shoulders instead of thoracic spine",
+        "Hips twisting or rising out of lunge",
+        "Forcing the twist or reaching into shoulder pain"
+      ],
+      "suggestedProtocol": "1-2 sets of 5-8 reps per side (hold 3-5 breaths at end range)"
     },
     {
       "id": "thread-the-needle",
@@ -1128,7 +1923,7 @@
       "posture": "all-fours",
       "axis": "diagonal",
       "label": "Thread arm under body",
-      "instruction": "On all fours, reach one arm under body to opposite side, rotate",
+      "instruction": "On all fours, reach one arm under body to opposite side, rotate.",
       "highlightColor": "#22C55E",
       "description": "Start on hands and knees. Slide one arm under the opposite arm and through to the other side, allowing torso and head to rotate and shoulder to lower toward floor. Feel stretch in upper back/shoulder. Return and switch sides.",
       "touchFloor": [
@@ -1147,7 +1942,19 @@
           "color": "#22C55E",
           "text": "Thread"
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
+      "formCues": [
+        "Move slowly and with control",
+        "Breathe deeply into the stretch",
+        "Keep shoulders relaxed",
+        "Never force or bounce at end range",
+        "Hands under shoulders, knees under hips; neutral spine start"
+      ],
+      "commonErrors": [],
+      "suggestedProtocol": "2-3 sets of 8-15 reps (controlled tempo, 2-3s eccentric)"
     },
     {
       "id": "seated-spinal-twist",
@@ -1157,7 +1964,7 @@
       "posture": "seated",
       "axis": "vertical (seated)",
       "label": "Twist torso to one side",
-      "instruction": "Seated with legs crossed, twist torso to one side, hold, repeat",
+      "instruction": "Seated with legs crossed, twist torso to one side, hold, repeat.",
       "highlightColor": "#22C55E",
       "description": "Sit cross-legged or with one leg bent. Place one hand on opposite knee or thigh. Inhale to lengthen spine, exhale to twist torso toward the bent knee side. Use hand for gentle assist. Hold, breathe, then return slowly and switch.",
       "touchFloor": [
@@ -1175,7 +1982,18 @@
           "color": "#22C55E",
           "text": "Twist"
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
+      "formCues": [
+        "Move slowly and with control",
+        "Breathe deeply into the stretch",
+        "Keep shoulders relaxed",
+        "Never force or bounce at end range"
+      ],
+      "commonErrors": [],
+      "suggestedProtocol": "2-4 sets of 20-60 second holds (or as tolerated pain-free)"
     },
     {
       "id": "standing-side-bend",
@@ -1185,7 +2003,7 @@
       "posture": "standing",
       "axis": "vertical",
       "label": "Bend torso to the side",
-      "instruction": "Stand with feet shoulder-width, reach one arm overhead, bend to side, hold",
+      "instruction": "Stand with feet shoulder-width, reach one arm overhead, bend to side, hold.",
       "highlightColor": "#22C55E",
       "description": "Stand tall with feet shoulder-width apart. Reach one arm overhead, palm facing in. Gently bend torso laterally to the opposite side, keeping hips stable and both feet grounded. Feel stretch along side body. Hold, return to center, switch sides.",
       "touchFloor": [
@@ -1203,7 +2021,19 @@
           "color": "#22C55E",
           "text": "Bend"
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
+      "formCues": [
+        "Move slowly and with control",
+        "Breathe deeply into the stretch",
+        "Keep shoulders relaxed",
+        "Never force or bounce at end range",
+        "Soft knees, weight balanced, core lightly braced"
+      ],
+      "commonErrors": [],
+      "suggestedProtocol": "2-4 sets of 20-60 second holds (or as tolerated pain-free)"
     },
     {
       "id": "single-leg-stance",
@@ -1213,7 +2043,7 @@
       "posture": "standing",
       "axis": "vertical",
       "label": "Stand on one foot",
-      "instruction": "Stand on one foot, hold balance, switch sides",
+      "instruction": "Stand on one foot, hold balance, switch sides.",
       "highlightColor": "#22C55E",
       "description": "Stand tall with feet together. Shift weight to one foot, lift opposite foot off floor (knee bent or straight). Hold balance for time or with eyes closed for challenge. Arms can be at sides or crossed. Subtle postural sway is normal.",
       "touchFloor": [
@@ -1222,6 +2052,7 @@
       "ghost": "standing upright on both feet",
       "active": "lift one foot off floor, balance on other foot, slight sway for realism",
       "motionHint": "Standing on one foot with slight postural sway; other foot lifted",
+      "holdFrames": 56,
       "annotations": [
         {
           "type": "text",
@@ -1231,7 +2062,24 @@
           "color": "#22C55E",
           "text": "Lift"
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Breathe deeply and evenly throughout the hold. Avoid holding your breath.",
+      "formCues": [
+        "Engage core and glutes for stability",
+        "Fix gaze on a stationary point",
+        "Allow subtle postural sway (normal)",
+        "Start near support if needed",
+        "Soft knees, weight balanced, core lightly braced"
+      ],
+      "commonErrors": [
+        "Looking down at feet",
+        "Hunching shoulders or tensing",
+        "Losing core engagement",
+        "Stepping out of line or rushing"
+      ],
+      "suggestedProtocol": "2-4 sets of 20-60 second holds (or as tolerated pain-free)"
     },
     {
       "id": "tandem-walk",
@@ -1241,7 +2089,7 @@
       "posture": "standing",
       "axis": "vertical (walking side view)",
       "label": "Walk heel to toe",
-      "instruction": "Walk in straight line, placing heel directly in front of toes",
+      "instruction": "Walk in straight line, placing heel directly in front of toes.",
       "highlightColor": "#22C55E",
       "description": "Stand at start of imaginary line. Walk forward placing heel of front foot directly touching toes of back foot with each step, like walking a tightrope. Arms at sides or out for balance. Focus on smooth, controlled steps.",
       "touchFloor": [
@@ -1250,17 +2098,37 @@
       "ghost": "standing upright, arms at sides",
       "active": "step forward with heel touching toes of back foot, repeat alternating",
       "motionHint": "Heel-to-toe walking in straight line; arms out for balance",
+      "alternating": true,
       "annotations": [
         {
           "type": "arrow",
-          "x1": 200,
-          "x2": 250,
-          "y": 200,
+          "joint": "left_foot",
+          "dx": 0,
+          "dy": 5,
+          "len": 50,
+          "dir": 1,
           "color": "#22C55E",
           "label": "Step",
           "labelY": 193
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
+      "formCues": [
+        "Engage core and glutes for stability",
+        "Fix gaze on a stationary point",
+        "Allow subtle postural sway (normal)",
+        "Start near support if needed",
+        "Soft knees, weight balanced, core lightly braced"
+      ],
+      "commonErrors": [
+        "Looking down at feet",
+        "Hunching shoulders or tensing",
+        "Losing core engagement",
+        "Stepping out of line or rushing"
+      ],
+      "suggestedProtocol": "2-3 sets of 8-12 reps per side (or 30-60s total time)"
     },
     {
       "id": "heel-to-toe-stand",
@@ -1270,7 +2138,7 @@
       "posture": "standing",
       "axis": "vertical",
       "label": "Stand with feet in tandem",
-      "instruction": "Stand with one foot directly in front of the other, hold",
+      "instruction": "Stand with one foot directly in front of the other, hold.",
       "highlightColor": "#22C55E",
       "description": "Stand with one foot directly in front of the other so heel of front foot touches toes of back foot. Distribute weight evenly or slightly more on back foot. Hold balance, arms at sides or crossed. Switch foot order.",
       "touchFloor": [
@@ -1279,6 +2147,7 @@
       "ghost": "standing with feet in tandem position (one in front of other)",
       "active": "hold tandem stance, subtle sway for balance realism",
       "motionHint": "Standing with one foot directly in front of the other; subtle balance sway",
+      "holdFrames": 56,
       "annotations": [
         {
           "type": "text",
@@ -1288,7 +2157,24 @@
           "color": "#22C55E",
           "text": "Balance"
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Breathe deeply and evenly throughout the hold. Avoid holding your breath.",
+      "formCues": [
+        "Engage core and glutes for stability",
+        "Fix gaze on a stationary point",
+        "Allow subtle postural sway (normal)",
+        "Start near support if needed",
+        "Soft knees, weight balanced, core lightly braced"
+      ],
+      "commonErrors": [
+        "Looking down at feet",
+        "Hunching shoulders or tensing",
+        "Losing core engagement",
+        "Stepping out of line or rushing"
+      ],
+      "suggestedProtocol": "2-4 sets of 20-60 second holds (or as tolerated pain-free)"
     },
     {
       "id": "lateral-step-overs",
@@ -1298,7 +2184,7 @@
       "posture": "standing",
       "axis": "vertical",
       "label": "Step sideways over obstacle",
-      "instruction": "Step sideways over low obstacle, alternate directions",
+      "instruction": "Step sideways over low obstacle, alternate directions.",
       "highlightColor": "#22C55E",
       "description": "Stand sideways to a low obstacle (cone, line, or imaginary). Step one leg laterally over the obstacle, then bring trailing leg over to meet it. Repeat back in opposite direction or continue laterally.",
       "touchFloor": [
@@ -1310,14 +2196,33 @@
       "annotations": [
         {
           "type": "arrow",
-          "x1": 250,
-          "x2": 300,
-          "y": 180,
+          "joint": "right_foot",
+          "dx": 0,
+          "dy": 5,
+          "len": 50,
+          "dir": 1,
           "color": "#22C55E",
           "label": "Step",
           "labelY": 173
         }
-      ]
+      ],
+      "equipment": "stable step or platform (6-12 inches)",
+      "difficulty": "beginner",
+      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
+      "formCues": [
+        "Engage core and glutes for stability",
+        "Fix gaze on a stationary point",
+        "Allow subtle postural sway (normal)",
+        "Start near support if needed",
+        "Soft knees, weight balanced, core lightly braced"
+      ],
+      "commonErrors": [
+        "Looking down at feet",
+        "Hunching shoulders or tensing",
+        "Losing core engagement",
+        "Stepping out of line or rushing"
+      ],
+      "suggestedProtocol": "2-3 sets of 8-12 reps per side (or 30-60s total time)"
     },
     {
       "id": "marching",
@@ -1327,7 +2232,7 @@
       "posture": "standing",
       "axis": "vertical",
       "label": "High knee march in place",
-      "instruction": "March in place, lifting knees to hip height, pump arms",
+      "instruction": "March in place, lifting knees to hip height, pump arms.",
       "highlightColor": "#22C55E",
       "description": "Stand tall. March in place by lifting knees alternately toward hip height (or comfortable height). Opposite arm swings forward with each knee lift. Maintain upright posture and core engagement. Can be done slow or with pace.",
       "touchFloor": [
@@ -1336,6 +2241,7 @@
       "ghost": "standing upright, arms at sides",
       "active": "alternating high knee lifts with opposite arm swing, continuous",
       "motionHint": "High knee march in place; opposite arm swings forward with each step",
+      "alternating": true,
       "annotations": [
         {
           "type": "text",
@@ -1345,7 +2251,24 @@
           "color": "#22C55E",
           "text": "March"
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
+      "formCues": [
+        "Engage core and glutes for stability",
+        "Fix gaze on a stationary point",
+        "Allow subtle postural sway (normal)",
+        "Start near support if needed",
+        "Soft knees, weight balanced, core lightly braced"
+      ],
+      "commonErrors": [
+        "Looking down at feet",
+        "Hunching shoulders or tensing",
+        "Losing core engagement",
+        "Stepping out of line or rushing"
+      ],
+      "suggestedProtocol": "2-3 sets of 8-12 reps per side (or 30-60s total time)"
     },
     {
       "id": "pendulum-swings",
@@ -1355,7 +2278,7 @@
       "posture": "standing",
       "axis": "diagonal (bent over)",
       "label": "Swing arm in circles",
-      "instruction": "Bend forward, let arm hang, swing in circles, switch directions",
+      "instruction": "Bend forward, let arm hang, swing in circles, switch directions.",
       "highlightColor": "#FF9500",
       "description": "Stand with feet shoulder-width, hinge forward at hips with flat back (like starting a Romanian deadlift). Let one arm hang relaxed. Swing arm in large circles from shoulder, clockwise then counterclockwise. Switch arms.",
       "touchFloor": [
@@ -1364,6 +2287,46 @@
       "ghost": "standing bent forward at hips, one arm hanging down",
       "active": "arm swings in circles at shoulder, body stays bent forward",
       "motionHint": "Bent forward at hips; one arm dangles and swings in circles at shoulder",
+      "rest": {
+        "hip": {
+          "x": -5,
+          "y": 10
+        },
+        "shoulder": {
+          "x": -5,
+          "y": 20
+        },
+        "neck": {
+          "x": -5,
+          "y": 20
+        },
+        "head": {
+          "x": -5,
+          "y": 15
+        },
+        "right_elbow": {
+          "x": -5,
+          "y": 10
+        },
+        "right_hand": {
+          "x": -10,
+          "y": 15
+        },
+        "left_elbow": {
+          "x": -5,
+          "y": 10
+        },
+        "left_hand": {
+          "x": -10,
+          "y": 15
+        }
+      },
+      "rotation": {
+        "joint": "right_hand",
+        "angle": 60,
+        "radius": 35,
+        "phase": 0
+      },
       "annotations": [
         {
           "type": "text",
@@ -1373,7 +2336,24 @@
           "color": "#FF9500",
           "text": "Swing"
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
+      "formCues": [
+        "Keep shoulders down and away from ears",
+        "Squeeze shoulder blades or maintain scapular control",
+        "Move within comfortable range",
+        "Avoid shrugging or compensatory trunk lean",
+        "Soft knees, weight balanced, core lightly braced"
+      ],
+      "commonErrors": [
+        "Shrugging shoulders toward ears",
+        "Arching lower back to compensate",
+        "Rotating trunk instead of moving at shoulder",
+        "Pain in front of shoulder (impingement sign)"
+      ],
+      "suggestedProtocol": "2-3 sets of 8-15 reps (controlled tempo, 2-3s eccentric)"
     },
     {
       "id": "band-pull-aparts",
@@ -1383,7 +2363,7 @@
       "posture": "standing",
       "axis": "vertical",
       "label": "Pull band apart horizontally",
-      "instruction": "Hold band in front at shoulder height, pull apart, return",
+      "instruction": "Hold band in front at shoulder height, pull apart, return.",
       "highlightColor": "#FF9500",
       "description": "Stand tall holding resistance band or mini-band in both hands at shoulder height, arms extended forward, slight tension. Pull band apart by squeezing shoulder blades together and moving arms out to sides, then return to start with control.",
       "touchFloor": [
@@ -1392,17 +2372,54 @@
       "ghost": "standing upright, arms extended forward at shoulder height, holding band",
       "active": "arms pull band apart horizontally, squeeze shoulder blades, return",
       "motionHint": "Upright; arms extended forward; pull band apart; squeeze shoulder blades",
+      "rest": {
+        "left_elbow": {
+          "x": 20,
+          "y": 0
+        },
+        "left_hand": {
+          "x": 35,
+          "y": 0
+        },
+        "right_elbow": {
+          "x": -20,
+          "y": 0
+        },
+        "right_hand": {
+          "x": -35,
+          "y": 0
+        }
+      },
       "annotations": [
         {
           "type": "arrow",
-          "x1": 150,
-          "x2": 95,
-          "y": 90,
+          "joint": "left_hand",
+          "dx": 0,
+          "dy": 0,
+          "len": -55,
+          "dir": -1,
           "color": "#FF9500",
           "label": "Pull",
           "labelY": 83
         }
-      ]
+      ],
+      "equipment": "mini-band or resistance band",
+      "difficulty": "beginner",
+      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
+      "formCues": [
+        "Keep shoulders down and away from ears",
+        "Squeeze shoulder blades or maintain scapular control",
+        "Move within comfortable range",
+        "Avoid shrugging or compensatory trunk lean",
+        "Soft knees, weight balanced, core lightly braced"
+      ],
+      "commonErrors": [
+        "Shrugging shoulders toward ears",
+        "Arching lower back to compensate",
+        "Rotating trunk instead of moving at shoulder",
+        "Pain in front of shoulder (impingement sign)"
+      ],
+      "suggestedProtocol": "2-4 sets of 20-60 second holds (or as tolerated pain-free)"
     },
     {
       "id": "wall-slides",
@@ -1412,7 +2429,7 @@
       "posture": "standing",
       "axis": "vertical (against wall)",
       "label": "Slide arms up wall",
-      "instruction": "Stand against wall, arms at 90 degrees, slide up, return",
+      "instruction": "Stand against wall, arms at 90 degrees, slide up, return.",
       "highlightColor": "#FF9500",
       "description": "Stand with back flat against wall, feet 6-12 inches away. Arms in 'W' or goalpost position (elbows bent ~90 degrees, upper arms against wall). Slide arms up wall into 'Y' position (arms straight overhead), then slide back down to W.",
       "touchFloor": [
@@ -1422,17 +2439,54 @@
       "ghost": "standing against wall, arms in W position (elbows bent 90)",
       "active": "arms slide up wall into Y position, return to W",
       "motionHint": "Back against wall; arms in W position; slide up wall to Y position and return",
+      "rest": {
+        "left_elbow": {
+          "x": -5,
+          "y": -15
+        },
+        "left_hand": {
+          "x": -10,
+          "y": -25
+        },
+        "right_elbow": {
+          "x": -5,
+          "y": -15
+        },
+        "right_hand": {
+          "x": -10,
+          "y": -25
+        }
+      },
       "annotations": [
         {
           "type": "arrow",
-          "x1": 170,
-          "x2": 170,
-          "y": 75,
+          "joint": "left_hand",
+          "dx": 0,
+          "dy": -5,
+          "len": 0,
+          "dir": 1,
           "color": "#FF9500",
           "label": "Slide",
           "labelY": 68
         }
-      ]
+      ],
+      "equipment": "wall",
+      "difficulty": "beginner",
+      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
+      "formCues": [
+        "Keep shoulders down and away from ears",
+        "Squeeze shoulder blades or maintain scapular control",
+        "Move within comfortable range",
+        "Avoid shrugging or compensatory trunk lean",
+        "Soft knees, weight balanced, core lightly braced"
+      ],
+      "commonErrors": [
+        "Shrugging shoulders toward ears",
+        "Arching lower back to compensate",
+        "Rotating trunk instead of moving at shoulder",
+        "Pain in front of shoulder (impingement sign)"
+      ],
+      "suggestedProtocol": "2-3 sets of 8-15 reps (controlled tempo, 2-3s eccentric)"
     },
     {
       "id": "scapular-retractions",
@@ -1442,7 +2496,7 @@
       "posture": "standing",
       "axis": "vertical",
       "label": "Squeeze shoulder blades",
-      "instruction": "Stand with arms at sides, squeeze shoulder blades together, release",
+      "instruction": "Stand with arms at sides, squeeze shoulder blades together, release.",
       "highlightColor": "#FF9500",
       "description": "Stand tall with arms relaxed at sides or slight bend. Squeeze shoulder blades together (retraction) as if pinching a pencil between them, hold 2-5 seconds, then release. Can add slight external rotation of arms for more activation.",
       "touchFloor": [
@@ -1460,7 +2514,24 @@
           "color": "#FF9500",
           "text": "Squeeze"
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
+      "formCues": [
+        "Keep shoulders down and away from ears",
+        "Squeeze shoulder blades or maintain scapular control",
+        "Move within comfortable range",
+        "Avoid shrugging or compensatory trunk lean",
+        "Soft knees, weight balanced, core lightly braced"
+      ],
+      "commonErrors": [
+        "Shrugging shoulders toward ears",
+        "Arching lower back to compensate",
+        "Rotating trunk instead of moving at shoulder",
+        "Pain in front of shoulder (impingement sign)"
+      ],
+      "suggestedProtocol": "2-3 sets of 8-15 reps (controlled tempo, 2-3s eccentric)"
     },
     {
       "id": "doorway-stretch",
@@ -1470,7 +2541,7 @@
       "posture": "standing",
       "axis": "vertical",
       "label": "Stretch chest in doorway",
-      "instruction": "Stand in doorway, arms on door frame, lean forward, hold",
+      "instruction": "Stand in doorway, arms on door frame, lean forward, hold.",
       "highlightColor": "#FF9500",
       "description": "Stand in a doorway. Place forearms on door frame at about shoulder height, elbows bent ~90 degrees. Lean chest forward through the doorway until stretch is felt across chest and front of shoulders. Hold, then step back to release.",
       "touchFloor": [
@@ -1479,6 +2550,41 @@
       "ghost": "standing in doorway, forearms on frame at shoulder height",
       "active": "lean forward through doorway, stretching chest, hold, return",
       "motionHint": "Arms on door frame at shoulder height; lean forward for chest stretch",
+      "rest": {
+        "left_elbow": {
+          "x": -10,
+          "y": -15
+        },
+        "left_hand": {
+          "x": -15,
+          "y": -20
+        },
+        "right_elbow": {
+          "x": 10,
+          "y": -15
+        },
+        "right_hand": {
+          "x": 15,
+          "y": -20
+        },
+        "hip": {
+          "x": 3,
+          "y": 3
+        },
+        "shoulder": {
+          "x": 5,
+          "y": 5
+        },
+        "neck": {
+          "x": 5,
+          "y": 3
+        },
+        "head": {
+          "x": 5,
+          "y": 3
+        }
+      },
+      "holdFrames": 36,
       "annotations": [
         {
           "type": "text",
@@ -1488,7 +2594,24 @@
           "color": "#FF9500",
           "text": "Lean"
         }
-      ]
+      ],
+      "equipment": "doorway",
+      "difficulty": "beginner",
+      "breathing": "Breathe deeply and evenly throughout the hold. Avoid holding your breath.",
+      "formCues": [
+        "Keep shoulders down and away from ears",
+        "Squeeze shoulder blades or maintain scapular control",
+        "Move within comfortable range",
+        "Avoid shrugging or compensatory trunk lean",
+        "Soft knees, weight balanced, core lightly braced"
+      ],
+      "commonErrors": [
+        "Bouncing at end range",
+        "Forcing beyond comfortable stretch",
+        "Twisting or losing alignment of hips/shoulders",
+        "Holding breath"
+      ],
+      "suggestedProtocol": "2-4 sets of 20-60 second holds (or as tolerated pain-free)"
     },
     {
       "id": "chest-opener",
@@ -1498,7 +2621,7 @@
       "posture": "standing",
       "axis": "vertical",
       "label": "Clasp hands behind back, open chest",
-      "instruction": "Stand with hands clasped behind back, straighten arms, open chest, hold",
+      "instruction": "Stand with hands clasped behind back, straighten arms, open chest, hold.",
       "highlightColor": "#FF9500",
       "description": "Stand tall with feet shoulder-width. Clasp hands behind back, interlace fingers or hold wrist. Straighten arms and gently lift hands away from body while rolling shoulders back and opening chest forward. Hold stretch, then release.",
       "touchFloor": [
@@ -1507,6 +2630,25 @@
       "ghost": "standing upright, arms at sides",
       "active": "hands clasp behind back, arms straighten, shoulders roll back, chest opens, hold",
       "motionHint": "Hands clasped behind back; arms straighten; shoulders roll back; chest opens",
+      "rest": {
+        "left_elbow": {
+          "x": -10,
+          "y": 15
+        },
+        "left_hand": {
+          "x": -15,
+          "y": 25
+        },
+        "right_elbow": {
+          "x": 10,
+          "y": 15
+        },
+        "right_hand": {
+          "x": 15,
+          "y": 25
+        }
+      },
+      "holdFrames": 36,
       "annotations": [
         {
           "type": "text",
@@ -1516,7 +2658,24 @@
           "color": "#FF9500",
           "text": "Open"
         }
-      ]
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Breathe deeply and evenly throughout the hold. Avoid holding your breath.",
+      "formCues": [
+        "Keep shoulders down and away from ears",
+        "Squeeze shoulder blades or maintain scapular control",
+        "Move within comfortable range",
+        "Avoid shrugging or compensatory trunk lean",
+        "Soft knees, weight balanced, core lightly braced"
+      ],
+      "commonErrors": [
+        "Shrugging shoulders toward ears",
+        "Arching lower back to compensate",
+        "Rotating trunk instead of moving at shoulder",
+        "Pain in front of shoulder (impingement sign)"
+      ],
+      "suggestedProtocol": "2-4 sets of 20-60 second holds (or as tolerated pain-free)"
     }
   ],
   "generator": {
@@ -1555,6 +2714,6 @@
     ],
     "jointDeltaFormat": "{ x: number, y: number } — relative pixel offset from template position",
     "animationCycle": "p goes 0→1→0 via easeInOut over 72 frames at 24fps (3 second loop)",
-    "notes": "Add a motion definition to scripts/generate.js's MOTIONS object for each new exercise. The rest field sets the exercise-specific starting pose; the move field animates from there. Head position uses formula: INSTRUCTION_Y(58) + HEAD_R(10) + MARGIN(5) = 73, enforced by validate.js headClearance check."
+    "notes": "Add a motion definition to scripts/generate.js's MOTIONS object for each new exercise. The rest field sets the exercise-specific starting pose; the move field animates from there. Head position uses formula: INSTRUCTION_Y(58) + HEAD_R(10) + MARGIN(5) = 73, enforced by validate.js headClearance check. v2 Improvements: New optional fields per exercise - equipment (string), difficulty (beginner|intermediate|advanced), breathing (string cue), formCues (array of short strings for key alignment/muscle activation), commonErrors (array for what to avoid, useful for contrast animation or user feedback), suggestedProtocol (e.g. '2-3 sets of 8-12 reps/side or hold 20-60s'). These enable richer UI, audio guidance, and smarter animation scripting. Posture 'lunge' added to hints. All descriptions emphasize neutral spine, controlled tempo, and breathing sync where appropriate."
   }
 }

@@ -2,7 +2,7 @@
 <rect width="400" height="300" fill="#0f0f1a"/>
 <line x1="20" y1="225" x2="380" y2="225" stroke="#444" stroke-width="3" stroke-linecap="round"/>
 <text x="200" y="38" fill="#888" font-size="13" font-family="sans-serif" text-anchor="middle">Banded Walks</text>
-<text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">Slight squat position, step to the side, keep tension</text>
+<text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">Slight squat position, step to the side, keep tension.</text>
 <g stroke="#555" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.25">
   <circle cx="200" cy="73" r="10" fill="#444" stroke="none"/>
   <line x1="200" y1="73" x2="200" y2="81"/><line x1="200" y1="81" x2="200" y2="89"/><line x1="200" y1="89" x2="200" y2="113"/><line x1="200" y1="89" x2="182" y2="99"/><line x1="182" y1="99" x2="174" y2="111"/><line x1="200" y1="89" x2="218" y2="99"/><line x1="218" y1="99" x2="226" y2="111"/><line x1="200" y1="113" x2="195" y2="170"/><line x1="195" y1="170" x2="190" y2="222"/><line x1="200" y1="113" x2="205" y2="170"/><line x1="205" y1="170" x2="210" y2="222"/>
@@ -12,5 +12,5 @@
   <line x1="200" y1="73" x2="200" y2="81"/><line x1="200" y1="81" x2="201.9" y2="89"/><line x1="201.9" y1="89" x2="202.9" y2="125"/><line x1="201.9" y1="89" x2="182" y2="99"/><line x1="182" y1="99" x2="174" y2="111"/><line x1="201.9" y1="89" x2="218" y2="99"/><line x1="218" y1="99" x2="226" y2="111"/><line x1="202.9" y1="125" x2="200" y2="180"/><line x1="200" y1="180" x2="190" y2="222"/><line x1="202.9" y1="125" x2="214.3" y2="175.2"/><line x1="214.3" y1="175.2" x2="233.9" y2="222"/>
   <line x1="202.9" y1="125" x2="200" y2="180" stroke="#FFD93D" stroke-width="5" opacity="0.6"/><line x1="202.9" y1="125" x2="214.3" y2="175.2" stroke="#FFD93D" stroke-width="5" opacity="0.6"/>
 </g>
-<line x1="280" y1="200" x2="320" y2="200" stroke="#FFD93D" stroke-width="2" stroke-dasharray="4,3"/><polygon points="320,195 330,200 320,205" fill="#FFD93D"/><text x="300" y="193" fill="#FFD93D" font-size="10" text-anchor="middle" font-family="sans-serif">Step</text>
+<line x1="233.9026063100137" y1="227" x2="273.9026063100137" y2="227" stroke="#FFD93D" stroke-width="2" stroke-dasharray="4,3"/><polygon points="273.9026063100137,222 283.9026063100137,227 273.9026063100137,232" fill="#FFD93D"/><text x="253.9026063100137" y="193" fill="#FFD93D" font-size="10" text-anchor="middle" font-family="sans-serif">Step</text>
 </svg>

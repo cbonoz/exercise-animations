@@ -2,15 +2,15 @@
 <rect width="400" height="300" fill="#0f0f1a"/>
 <line x1="20" y1="225" x2="380" y2="225" stroke="#444" stroke-width="3" stroke-linecap="round"/>
 <text x="200" y="38" fill="#888" font-size="13" font-family="sans-serif" text-anchor="middle">Wall Sits</text>
-<text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">Lean back against wall, slide down until knees at 90 degrees, hold</text>
+<text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">Lean back against wall, slide down until knees at 90 degrees, hold.</text>
 <g stroke="#555" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.25">
   <circle cx="200" cy="73" r="10" fill="#444" stroke="none"/>
   <line x1="200" y1="73" x2="200" y2="81"/><line x1="200" y1="81" x2="200" y2="89"/><line x1="200" y1="89" x2="200" y2="113"/><line x1="200" y1="89" x2="182" y2="99"/><line x1="182" y1="99" x2="174" y2="111"/><line x1="200" y1="89" x2="218" y2="99"/><line x1="218" y1="99" x2="226" y2="111"/><line x1="200" y1="113" x2="195" y2="170"/><line x1="195" y1="170" x2="190" y2="222"/><line x1="200" y1="113" x2="205" y2="170"/><line x1="205" y1="170" x2="210" y2="222"/>
 </g>
 <g stroke="#FFF" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="201.5" cy="77" r="10" fill="#FFF" stroke="none"/>
-  <line x1="201.5" y1="77" x2="201.5" y2="86"/><line x1="201.5" y1="86" x2="202.5" y2="96.5"/><line x1="202.5" y1="96.5" x2="205" y2="125.5"/><line x1="202.5" y1="96.5" x2="182" y2="99"/><line x1="182" y1="99" x2="174" y2="111"/><line x1="202.5" y1="96.5" x2="218" y2="99"/><line x1="218" y1="99" x2="226" y2="111"/><line x1="205" y1="125.5" x2="200" y2="175"/><line x1="200" y1="175" x2="197.5" y2="222"/><line x1="205" y1="125.5" x2="210" y2="175"/><line x1="210" y1="175" x2="217.5" y2="222"/>
-  <line x1="205" y1="125.5" x2="200" y2="175" stroke="#FF6B6B" stroke-width="5" opacity="0.6"/><line x1="205" y1="125.5" x2="210" y2="175" stroke="#FF6B6B" stroke-width="5" opacity="0.6"/>
+  <circle cx="202.8" cy="80.5" r="10" fill="#FFF" stroke="none"/>
+  <line x1="202.8" y1="80.5" x2="202.8" y2="90.4"/><line x1="202.8" y1="90.4" x2="204.7" y2="103.1"/><line x1="204.7" y1="103.1" x2="209.4" y2="136.4"/><line x1="204.7" y1="103.1" x2="182" y2="99"/><line x1="182" y1="99" x2="174" y2="111"/><line x1="204.7" y1="103.1" x2="218" y2="99"/><line x1="218" y1="99" x2="226" y2="111"/><line x1="209.4" y1="136.4" x2="204.4" y2="179.4"/><line x1="204.4" y1="179.4" x2="204.1" y2="222"/><line x1="209.4" y1="136.4" x2="214.4" y2="179.4"/><line x1="214.4" y1="179.4" x2="224.1" y2="222"/>
+  <line x1="209.4" y1="136.4" x2="204.4" y2="179.4" stroke="#FF6B6B" stroke-width="5" opacity="0.6"/><line x1="209.4" y1="136.4" x2="214.4" y2="179.4" stroke="#FF6B6B" stroke-width="5" opacity="0.6"/>
 </g>
-<text x="230" y="135.5" fill="#FF6B6B" font-size="10" font-family="sans-serif">Slide</text>
+<text x="234.4" y="146.4" fill="#FF6B6B" font-size="10" font-family="sans-serif">Slide</text>
 </svg>
