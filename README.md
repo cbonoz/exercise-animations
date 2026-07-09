@@ -2,13 +2,13 @@
 
 Stick figure exercise animations in SVG frame sequences + Lottie JSON for [BridgeRecovery](https://github.com/cbonoz/bridge-recovery).
 
-All 50 exercises across 8 muscle groups are data-driven: each exercise is defined in [`animation-plan.json`](animation-plan.json) with posture, joint motion deltas, action annotations, and display metadata. The generator interpolates joint positions using easeInOut over 72 frames (3s at 24fps).
+All 46 exercises across 8 muscle groups are data-driven: each exercise is defined in [`animation-plan.json`](animation-plan.json) with posture, joint motion deltas, action annotations, equipment, difficulty, breathing cues, form cues, and common errors. The generator interpolates joint positions over 72 frames (3s at 24fps).
 
 ## Quick Start
 
 ```bash
-npm run generate    # render all 50 exercises (72 frames each)
-npm run validate    # run 19 quality checks (key-frame sampled, ~14x faster)
+npm run generate    # render all 46 exercises (72 frames each)
+npm run validate    # run 24 quality checks (key-frame sampled, ~14x faster)
 npm run validate    # also generates HTML report at assets/preview/validate-report.html
 npm run preview     # local preview at http://localhost:3001
 ```
