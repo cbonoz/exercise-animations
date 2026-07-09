@@ -121,7 +121,8 @@
           "dy": 0,
           "yOff": 15,
           "color": "#FFD93D",
-          "label": "Arch (Cow)"
+          "label": "Arch (Cow)",
+          "visibleWhen": "cow"
         },
         {
           "type": "arc",
@@ -130,7 +131,8 @@
           "dy": 0,
           "yOff": -10,
           "color": "#FFD93D",
-          "label": "Round (Cat)"
+          "label": "Round (Cat)",
+          "visibleWhen": "cat"
         }
       ],
       "equipment": "none",
@@ -1252,6 +1254,7 @@
           "dy": 5,
           "len": -20,
           "dir": -1,
+          "vertical": true,
           "color": "#FF6B6B",
           "label": "Lift",
           "labelY": 148
@@ -1259,24 +1262,6 @@
       ],
       "equipment": "none",
       "difficulty": "beginner",
-      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
-      "formCues": [
-        "Keep torso upright and core engaged",
-        "Knees track over toes (no valgus collapse)",
-        "Drive through heel or full foot",
-        "Control the lowering phase",
-        "Press lower back gently into floor where cued (avoid excessive arch)"
-      ],
-      "commonErrors": [
-        "Knees caving inward (valgus)",
-        "Leaning torso too far forward/back",
-        "Locking knees at top",
-        "Lifting heel off ground/platform"
-      ],
-      "suggestedProtocol": "2-3 sets of 8-15 reps (controlled tempo, 2-3s eccentric)"
-    },
-    {
-      "id": "step-ups",
       "name": "Step-Ups",
       "priority": 3,
       "group": "Quad",
@@ -1301,6 +1286,7 @@
           "dy": 5,
           "len": -15,
           "dir": -1,
+          "vertical": true,
           "color": "#FF6B6B",
           "label": "Step up",
           "labelY": 163
@@ -1562,9 +1548,8 @@
       "motionHint": "Standing on one leg; opposite leg traces circles at the hip joint",
       "rotation": {
         "joint": "right_foot",
-        "angle": 45,
         "radius": 25,
-        "phase": 0
+        "mode": "continuous"
       },
       "annotations": [
         {

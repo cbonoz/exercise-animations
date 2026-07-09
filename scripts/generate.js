@@ -522,7 +522,7 @@ const MOTIONS = {
 
 // ============== RENDER ENGINE ==============
 
-function interpolateJoints(template, motion, exercise, p, floorY) {
+function interpolateJoints(template, motion, exercise, p, floorY, rawT) {
   const result = {};
   const restOff = motion.rest || {};
   const exerciseRest = exercise.rest || {};
@@ -536,10 +536,16 @@ function interpolateJoints(template, motion, exercise, p, floorY) {
     let dx = jMove.x * p;
     let dy = jMove.y * p;
     if (rotation && rotation.joint === j) {
-      const angle = rotation.angle * Math.sin(p * Math.PI * 2);
-      const rad = angle * Math.PI / 180;
-      dx = rotation.radius * (Math.cos(rad) - 1);
-      dy = rotation.radius * Math.sin(rad);
+      if (rotation.mode === 'continuous') {
+        const angleRad = (rawT !== undefined ? rawT : p) * Math.PI * 2;
+        dx = rotation.radius * (Math.cos(angleRad) - 1);
+        dy = rotation.radius * Math.sin(angleRad);
+      } else {
+        const angle = rotation.angle * Math.sin(p * Math.PI * 2);
+        const rad = angle * Math.PI / 180;
+        dx = rotation.radius * (Math.cos(rad) - 1);
+        dy = rotation.radius * Math.sin(rad);
+      }
     }
     const x = base.x + r.x + dx;
     const y = Math.min(base.y + r.y + dy, floorY - 1);
@@ -613,6 +619,7 @@ function makeSvg(frame, exercise, motionData) {
   const hr = POSTURES[pk].head_r || 12;
   const accent = motionData.highlightColor || '#FFF';
   const annotations = motionData.annotations || [];
+  const catCowPhase = motionData._catCowPhase || null;
 
   // Build ghost (rest position — applies rest offsets so ghost matches starting pose)
   const ghost = computeRestGhost(POSTURES[pk], motionData, exercise);
@@ -639,26 +646,47 @@ function makeSvg(frame, exercise, motionData) {
   // Build annotations
   let annoSvg = '';
   for (const a of annotations) {
+    // Phase visibility: skip annotation if it specifies a phase and we're not in it
+    if (a.visibleWhen && a.visibleWhen !== catCowPhase) continue;
+    if (a.visibleWhen && !catCowPhase) continue;
+
     if (a.type === 'arrow') {
-      let x1 = a.x1, x2 = a.x2, y = a.y, labelY = a.labelY || a.y - 7;
+      let ax, ay, labelY;
       if (a.joint) {
         const refJ = joints[a.joint] || ghost[a.joint];
-        if (refJ) {
-          x1 = refJ.x + (a.dx || 0);
-          y = refJ.y + (a.dy || 0);
-          x2 = x1 + (a.len || 60) * (a.dir || 1);
-          labelY = a.labelY || y - 7;
-        }
+        if (!refJ) continue;
+        ax = refJ.x + (a.dx || 0);
+        ay = refJ.y + (a.dy || 0);
+        labelY = a.labelY || ay - 7;
+      } else {
+        ax = a.x1;
+        ay = a.y;
+        labelY = a.labelY || ay - 7;
       }
-      const arrowDir = x2 >= x1 ? 1 : -1;
-      // Clamp arrow head to canvas
-      const clampedX2 = Math.max(10, Math.min(390, x2));
-      const clampedX1 = Math.max(10, Math.min(390, x1));
-      annoSvg += `<line x1="${clampedX1}" y1="${y}" x2="${clampedX2}" y2="${y}" stroke="${a.color}" stroke-width="2" stroke-dasharray="4,3"/>`;
-      annoSvg += `<polygon points="${clampedX2},${y-5 * arrowDir} ${clampedX2+10 * arrowDir},${y} ${clampedX2},${y+5 * arrowDir}" fill="${a.color}"/>`;
-      if (a.label) {
-        const labelX = Math.max(20, Math.min(380, (clampedX1+clampedX2)/2));
-        annoSvg += `<text x="${labelX}" y="${labelY}" fill="${a.color}" font-size="10" text-anchor="middle" font-family="sans-serif">${a.label}</text>`;
+      const len = a.len || 60;
+      const dir = a.dir || 1;
+      if (a.vertical) {
+        const ay2 = ay + len * dir;
+        const arrowDir = ay2 >= ay ? 1 : -1;
+        const clampedAy2 = Math.max(10, Math.min(290, ay2));
+        const clampedAy1 = Math.max(10, Math.min(290, ay));
+        annoSvg += `<line x1="${ax}" y1="${clampedAy1}" x2="${ax}" y2="${clampedAy2}" stroke="${a.color}" stroke-width="2" stroke-dasharray="4,3"/>`;
+        annoSvg += `<polygon points="${ax-5 * arrowDir},${clampedAy2} ${ax},${clampedAy2+10 * arrowDir} ${ax+5 * arrowDir},${clampedAy2}" fill="${a.color}"/>`;
+        if (a.label) {
+          const labelYpos = Math.max(15, Math.min(285, (clampedAy1 + clampedAy2) / 2));
+          annoSvg += `<text x="${ax + 14}" y="${labelYpos}" fill="${a.color}" font-size="10" text-anchor="middle" font-family="sans-serif">${a.label}</text>`;
+        }
+      } else {
+        const ax2 = ax + len * dir;
+        const arrowDir = ax2 >= ax ? 1 : -1;
+        const clampedAx2 = Math.max(10, Math.min(390, ax2));
+        const clampedAx1 = Math.max(10, Math.min(390, ax));
+        annoSvg += `<line x1="${clampedAx1}" y1="${ay}" x2="${clampedAx2}" y2="${ay}" stroke="${a.color}" stroke-width="2" stroke-dasharray="4,3"/>`;
+        annoSvg += `<polygon points="${clampedAx2},${ay-5 * arrowDir} ${clampedAx2+10 * arrowDir},${ay} ${clampedAx2},${ay+5 * arrowDir}" fill="${a.color}"/>`;
+        if (a.label) {
+          const labelX = Math.max(20, Math.min(380, (clampedAx1 + clampedAx2) / 2));
+          annoSvg += `<text x="${labelX}" y="${labelY}" fill="${a.color}" font-size="10" text-anchor="middle" font-family="sans-serif">${a.label}</text>`;
+        }
       }
     } else if (a.type === 'arc') {
       const refJ = joints[a.joint] || ghost[a.joint] || { x: 205, y: 55 };
@@ -748,13 +776,30 @@ for (const exercise of plan.exercises) {
     } else if (isAltHalf) {
       const mirroredMove = mirrorMove(motion.move || {});
       activeMotion = { ...motion, move: mirroredMove, highlight: mirrorHighlights(motion.highlight || []) };
-      joints = interpolateJoints(ghost, activeMotion, exercise, p, floorY);
+      joints = interpolateJoints(ghost, activeMotion, exercise, p, floorY, t);
     } else {
-      joints = interpolateJoints(ghost, motion, exercise, p, floorY);
+      joints = interpolateJoints(ghost, motion, exercise, p, floorY, t);
+    }
+
+    // Breathing animation: subtle whole-body oscillation for hold exercises
+    if (holdFrames > 0) {
+      const breathAmp = 1;
+      const breathT = f / TOTAL_FRAMES * Math.PI * 4;
+      const breathOffset = Math.sin(breathT) * breathAmp;
+      for (const j of JOINTS) {
+        if (joints[j]) joints[j].y += breathOffset;
+      }
+    }
+
+    // Determine phase for cat-cow (used by visibleWhen on annotations)
+    let catCowPhase = null;
+    if (isCatCow) {
+      const a = -Math.sin(t * Math.PI * 2);
+      catCowPhase = a < 0 ? 'cow' : 'cat';
     }
 
     const mergedAnnotations = exercise.annotations || motion.annotations || [];
-    const svg = makeSvg(joints, exercise, { ...activeMotion, annotations: mergedAnnotations });
+    const svg = makeSvg(joints, exercise, { ...activeMotion, annotations: mergedAnnotations, _catCowPhase: catCowPhase });
     const frameFile = path.join(sceneDir, `frame-${String(f).padStart(3, '0')}.svg`);
     fs.writeFileSync(frameFile, svg);
   }

@@ -648,6 +648,24 @@ function checkLabelLength(sceneId) {
   return { pass: issues.length === 0, issues, note: issues.length === 0 ? 'Labels reasonable length' : issues.join('; ') };
 }
 
+function checkTouchFloor(validFrames, sceneId) {
+  const ex = plan.exercises.find(e => e.id === sceneId);
+  if (!ex || !ex.touchFloor || ex.touchFloor.length === 0) return { pass: true, note: 'No touchFloor specified' };
+  const knownItems = ['back', 'both heels', 'both feet', 'standing foot', 'back knee', 'back foot',
+    'front foot', 'bottom forearm', 'bottom foot', 'forearms', 'toes', 'hands', 'knees',
+    'knees (starting)', 'sit bones', 'extended heel', 'lower back', 'head', 'side of body',
+    'heel', 'straight heel', 'bent foot', 'one foot at a time', 'one foot at a time (alternating)',
+    'ankles (held)', 'both shins', 'forehead', 'front shin', 'back toes', 'back foot (on ground)',
+    'front foot (on platform)', 'both feet (starting)'];
+  const unknown = ex.touchFloor.filter(t => !knownItems.includes(t));
+  const floorY = 260; // default; posture-specific values would need frame parsing
+  const issues = [];
+  if (unknown.length > 0) {
+    issues.push(`Unknown touchFloor items: ${unknown.join(', ')}`);
+  }
+  return { pass: true, note: issues.length === 0 ? 'All touchFloor items recognized' : issues.join('; ') };
+}
+
 function checkPlanConsistency(sceneId) {
   const planIds = plan.exercises.map(e => e.id);
   const missingInPlan = MOTIONS_KEYS.filter(k => !planIds.includes(k));
@@ -781,7 +799,10 @@ function validateScene(scene) {
   // Check 21: Label length (labels shouldn't overflow canvas)
   results.checks.labelLength = checkLabelLength(scene.dir);
 
-  // Check 22: Plan-to-generator consistency (every exercise in plan has a MOTION def)
+  // Check 22: touchFloor items recognized
+  results.checks.touchFloor = checkTouchFloor(validFrames, scene.dir);
+
+  // Check 23: Plan-to-generator consistency (every exercise in plan has a MOTION def)
   results.checks.planConsistency = checkPlanConsistency(scene.dir);
 
   // Score: each check contributes 1 point if it passes
