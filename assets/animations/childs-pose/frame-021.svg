@@ -12,5 +12,5 @@
   <line x1="157.2" y1="154.7" x2="171.8" y2="147.1"/><line x1="171.8" y1="147.1" x2="189.3" y2="140.3"/><line x1="189.3" y1="140.3" x2="255.6" y2="159.7"/><line x1="189.3" y1="140.3" x2="123.8" y2="189"/><line x1="255.6" y1="159.7" x2="248.6" y2="148.6"/><line x1="248.6" y1="148.6" x2="258.6" y2="189"/>
   <line x1="171.8" y1="147.1" x2="189.3" y2="140.3" stroke="#22C55E" stroke-width="5" opacity="0.6"/><line x1="189.3" y1="140.3" x2="255.6" y2="159.7" stroke="#22C55E" stroke-width="5" opacity="0.6"/>
 </g>
-<line x1="123.80787037037037" y1="189" x2="153.80787037037038" y2="189" stroke="#22C55E" stroke-width="2" stroke-dasharray="4,3"/><polygon points="153.80787037037038,184 163.80787037037038,189 153.80787037037038,194" fill="#22C55E"/><text x="138.80787037037038" y="93" fill="#22C55E" font-size="10" text-anchor="middle" font-family="sans-serif">Fold</text>
+<line x1="123.80787037037037" y1="189" x2="153.80787037037038" y2="189" stroke="#22C55E" stroke-width="2" stroke-dasharray="4,3"/><polygon points="153.80787037037038,184 163.80787037037038,189 153.80787037037038,194" fill="#22C55E"/><text x="138.80787037037038" y="93" fill="#22C55E" font-size="10" text-anchor="middle" font-family="sans-serif">Fold forward</text>
 </svg>

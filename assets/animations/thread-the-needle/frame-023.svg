@@ -12,5 +12,5 @@
   <line x1="166.9" y1="81.1" x2="179.5" y2="84.1"/><line x1="179.5" y1="84.1" x2="204.1" y2="99.2"/><line x1="204.1" y1="99.2" x2="233.5" y2="114.1"/><line x1="204.1" y1="99.2" x2="198.4" y2="189"/><line x1="233.5" y1="114.1" x2="249.1" y2="140.9"/><line x1="249.1" y1="140.9" x2="263.1" y2="184.9"/>
   <line x1="204.1" y1="99.2" x2="198.4" y2="189" stroke="#22C55E" stroke-width="5" opacity="0.6"/>
 </g>
-<text x="213.4" y="204" fill="#22C55E" font-size="10" font-family="sans-serif">Thread</text>
+<text x="213.4" y="204" fill="#22C55E" font-size="10" font-family="sans-serif">Thread arm</text>
 </svg>

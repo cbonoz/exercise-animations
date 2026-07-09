@@ -12,5 +12,5 @@
   <line x1="120" y1="252.6" x2="138" y2="254.6"/><line x1="138" y1="254.6" x2="155" y2="256.6"/><line x1="155" y1="256.6" x2="215" y2="257.7"/><line x1="155" y1="256.6" x2="145" y2="234.6"/><line x1="145" y1="234.6" x2="135" y2="229.6"/><line x1="155" y1="256.6" x2="170" y2="234.6"/><line x1="170" y1="234.6" x2="180" y2="229.6"/><line x1="215" y1="257.7" x2="260" y2="257.7"/><line x1="260" y1="257.7" x2="290" y2="257.6"/><line x1="215" y1="257.7" x2="255" y2="257.7"/><line x1="255" y1="257.7" x2="285" y2="257.6"/>
   <line x1="138" y1="254.6" x2="155" y2="256.6" stroke="#22C55E" stroke-width="5" opacity="0.6"/><line x1="155" y1="256.6" x2="215" y2="257.7" stroke="#22C55E" stroke-width="5" opacity="0.6"/>
 </g>
-<text x="175" y="241.6" fill="#22C55E" font-size="10" font-family="sans-serif">Lift</text>
+<text x="175" y="241.6" fill="#22C55E" font-size="10" font-family="sans-serif">Lift up</text>
 </svg>

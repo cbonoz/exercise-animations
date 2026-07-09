@@ -12,5 +12,5 @@
   <line x1="200" y1="73" x2="200" y2="81"/><line x1="200" y1="81" x2="200" y2="89"/><line x1="200" y1="89" x2="200" y2="113"/><line x1="200" y1="89" x2="178" y2="98"/><line x1="178" y1="98" x2="168" y2="109.5"/><line x1="200" y1="89" x2="222" y2="98"/><line x1="222" y1="98" x2="232" y2="109.5"/><line x1="200" y1="113" x2="195" y2="170"/><line x1="195" y1="170" x2="190" y2="222"/><line x1="200" y1="113" x2="205" y2="170"/><line x1="205" y1="170" x2="210" y2="222"/>
   <line x1="200" y1="89" x2="178" y2="98" stroke="#FF9500" stroke-width="5" opacity="0.6"/><line x1="200" y1="89" x2="222" y2="98" stroke="#FF9500" stroke-width="5" opacity="0.6"/>
 </g>
-<text x="230" y="84" fill="#FF9500" font-size="10" font-family="sans-serif">Squeeze</text>
+<text x="230" y="84" fill="#FF9500" font-size="10" font-family="sans-serif">Squeeze back</text>
 </svg>

@@ -12,5 +12,5 @@
   <line x1="200" y1="73" x2="202.8" y2="88.5"/><line x1="202.8" y1="88.5" x2="204.7" y2="98.4"/><line x1="204.7" y1="98.4" x2="204.7" y2="117.7"/><line x1="204.7" y1="98.4" x2="182" y2="99"/><line x1="182" y1="99" x2="174" y2="111"/><line x1="204.7" y1="98.4" x2="227.4" y2="70.9"/><line x1="227.4" y1="70.9" x2="240.1" y2="68.8"/><line x1="204.7" y1="117.7" x2="195" y2="170"/><line x1="195" y1="170" x2="190" y2="222"/><line x1="204.7" y1="117.7" x2="223.8" y2="179.4"/><line x1="223.8" y1="179.4" x2="238.1" y2="224"/>
   <line x1="204.7" y1="117.7" x2="223.8" y2="179.4" stroke="#22C55E" stroke-width="5" opacity="0.6"/><line x1="223.8" y1="179.4" x2="238.1" y2="224" stroke="#22C55E" stroke-width="5" opacity="0.6"/>
 </g>
-<text x="255.1" y="48.8" fill="#22C55E" font-size="10" font-family="sans-serif">Rotate</text>
+<text x="255.1" y="48.8" fill="#22C55E" font-size="10" font-family="sans-serif">Rotate up</text>
 </svg>

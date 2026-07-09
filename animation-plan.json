@@ -40,63 +40,6 @@
   "exercises": [
     {
       "id": "hamstring-slide",
-      "name": "Hamstring Slide",
-      "priority": 1,
-      "group": "Hamstring",
-      "posture": "supine",
-      "axis": "horizontal (head left, feet right)",
-      "label": "Slide heel along floor",
-      "instruction": "Lie on back, knees bent; slowly slide one heel forward to straighten knee, then return with control.",
-      "highlightColor": "#FF6B6B",
-      "description": "Lie on your back with both knees bent and feet flat on the floor (or one leg extended if preferred for stability). Slowly slide one heel forward along the floor, straightening the knee as far as comfortable while keeping the lower back pressed gently into the floor. Then slide the heel back to the starting bent position with control. This promotes gentle knee mobility and hamstring lengthening.",
-      "touchFloor": [
-        "back",
-        "both heels",
-        "left foot"
-      ],
-      "ghost": "starting position with both knees bent, feet on floor",
-      "active": "right leg slides forward and back; left leg stays bent; arrow follows sliding foot",
-      "motionHint": "One knee extends smoothly as heel slides forward along floor; opposite leg stays bent and stable; pelvis and lower back remain neutral and pressed down; no hip lift",
-      "annotations": [
-        {
-          "type": "arrow",
-          "joint": "left_foot",
-          "dx": 0,
-          "dy": -5,
-          "len": 90,
-          "dir": 1,
-          "color": "#FFD93D",
-          "label": "Slide heel",
-          "labelY": 228
-        }
-      ],
-      "name": "Bridge",
-      "priority": 1,
-      "group": "Glute",
-      "posture": "supine",
-      "axis": "horizontal",
-      "label": "Lift hips toward ceiling",
-      "instruction": "Lie on back, knees bent feet flat; lift hips by driving through heels, squeeze glutes at top, lower with control.",
-      "highlightColor": "#FF9500",
-      "description": "Lie on your back with knees bent and feet flat on the floor, hip-width apart. Arms can rest at sides or across chest. Drive through the heels to lift the hips toward the ceiling, squeezing the glutes at the top while keeping the core engaged and ribs down. Form a straight line from shoulders to knees at the top. Hold briefly, then lower with control, articulating through the spine if desired.",
-      "touchFloor": [
-        "back",
-        "both feet",
-        "shoulders"
-      ],
-      "ghost": "starting position lying flat, knees bent, feet on floor",
-      "active": "hips lift and lower; arrow points upward showing lift direction",
-      "motionHint": "Hips rise vertically by extending at the hip joints; glutes and hamstrings drive the lift; spine maintains neutral or slight extension; shoulders and feet stay planted; subtle posterior pelvic tilt at top",
-      "annotations": [
-        {
-          "type": "text",
-          "joint": "hip",
-          "dx": 20,
-          "dy": -35,
-          "color": "#FFD93D",
-          "text": "Lift hips"
-        }
-      ],
       "name": "Cat-Cow",
       "priority": 1,
       "group": "Core",
@@ -374,7 +317,7 @@
           "dx": 20,
           "dy": 10,
           "color": "#FF6B6B",
-          "text": "Hinge"
+          "text": "Hinge hips"
         }
       ],
       "equipment": "none",
@@ -412,7 +355,24 @@
       "ghost": "standing upright, hands behind head",
       "active": "torso hinges forward at hips until parallel to floor, return",
       "motionHint": "Hip hinge with hands behind head; torso lowers to parallel with floor; slight knee bend",
-      "rest": { "left_elbow": { "x": 13, "y": -21 }, "left_hand": { "x": 26, "y": -46 }, "right_elbow": { "x": -13, "y": -21 }, "right_hand": { "x": -26, "y": -46 } },
+      "rest": {
+        "left_elbow": {
+          "x": 13,
+          "y": -21
+        },
+        "left_hand": {
+          "x": 26,
+          "y": -46
+        },
+        "right_elbow": {
+          "x": -13,
+          "y": -21
+        },
+        "right_hand": {
+          "x": -26,
+          "y": -46
+        }
+      },
       "annotations": [
         {
           "type": "text",
@@ -903,7 +863,7 @@
           "dx": 30,
           "dy": -10,
           "color": "#22C55E",
-          "text": "Hold"
+          "text": "Hold plank"
         }
       ],
       "equipment": "none (mat optional)",
@@ -975,7 +935,7 @@
           "dx": 30,
           "dy": -10,
           "color": "#22C55E",
-          "text": "Hold"
+          "text": "Hold plank"
         }
       ],
       "equipment": "none (mat optional)",
@@ -1067,7 +1027,7 @@
           "dx": 20,
           "dy": -15,
           "color": "#22C55E",
-          "text": "Lift"
+          "text": "Lift up"
         }
       ],
       "equipment": "none (mat optional)",
@@ -1114,7 +1074,7 @@
           "dx": 20,
           "dy": -15,
           "color": "#22C55E",
-          "text": "Lift"
+          "text": "Lift up"
         }
       ],
       "equipment": "none (mat optional)",
@@ -1229,71 +1189,6 @@
     },
     {
       "id": "straight-leg-raises",
-      "name": "Straight Leg Raises",
-      "priority": 3,
-      "group": "Quad",
-      "posture": "supine",
-      "axis": "horizontal",
-      "label": "Lift straight leg up and down",
-      "instruction": "Lie on back, one leg straight, lift up to 45 degrees, lower.",
-      "highlightColor": "#FF6B6B",
-      "description": "Lie on back with one knee bent and foot flat on floor for stability. Other leg straight with foot flexed. Lift straight leg up to about 45 degrees or until thigh is level with bent knee, then lower slowly with control.",
-      "touchFloor": [
-        "back",
-        "bent foot",
-        "straight heel"
-      ],
-      "ghost": "on back with one knee bent/foot on floor, other leg straight on floor",
-      "active": "straight leg lifts up to ~45 degrees, lowers back down under control",
-      "motionHint": "Supine with one leg bent; straight leg lifts to ~45 degrees then lowers",
-      "annotations": [
-        {
-          "type": "arrow",
-          "joint": "left_foot",
-          "dx": 0,
-          "dy": 5,
-          "len": -20,
-          "dir": -1,
-          "vertical": true,
-          "color": "#FF6B6B",
-          "label": "Lift",
-          "labelY": 148
-        }
-      ],
-      "equipment": "none",
-      "difficulty": "beginner",
-      "name": "Step-Ups",
-      "priority": 3,
-      "group": "Quad",
-      "posture": "standing",
-      "axis": "vertical",
-      "label": "Step up onto platform",
-      "instruction": "Step one foot onto platform, drive up, step down, repeat.",
-      "highlightColor": "#FF6B6B",
-      "description": "Stand facing a sturdy platform or step (6-12 inches). Step one foot fully onto the platform, drive through heel to stand tall on platform, then step the trailing foot up. Reverse: step down leading with same foot or alternate.",
-      "touchFloor": [
-        "back foot (on ground)",
-        "front foot (on platform)"
-      ],
-      "ghost": "standing facing platform, both feet on ground",
-      "active": "one foot steps up onto platform, other leg drives up, then step back down",
-      "motionHint": "One foot steps up onto platform; other leg drives up; controlled step down",
-      "annotations": [
-        {
-          "type": "arrow",
-          "joint": "right_foot",
-          "dx": 0,
-          "dy": 5,
-          "len": -15,
-          "dir": -1,
-          "vertical": true,
-          "color": "#FF6B6B",
-          "label": "Step up",
-          "labelY": 163
-        }
-      ],
-      "equipment": "none",
-      "difficulty": "beginner",
       "name": "Wall Sits",
       "priority": 3,
       "group": "Quad",
@@ -1309,7 +1204,6 @@
       "ghost": "standing upright against wall",
       "active": "slide down wall into seated position (knees 90 degrees), hold briefly, return up",
       "motionHint": "Back against wall; slide down to 90 degree knee bend; hold then slide up",
-      "holdFrames": 24,
       "annotations": [
         {
           "type": "text",
@@ -1322,6 +1216,7 @@
       ],
       "equipment": "none",
       "difficulty": "beginner",
+      "holdFrames": 24,
       "breathing": "Breathe deeply and evenly throughout the hold. Avoid holding your breath.",
       "formCues": [
         "Keep torso upright and core engaged",
@@ -1364,7 +1259,7 @@
           "len": 15,
           "dir": 1,
           "color": "#FF6B6B",
-          "label": "Extend",
+          "label": "Extend leg",
           "labelY": 138
         }
       ],
@@ -1462,7 +1357,7 @@
           "dx": 20,
           "dy": -10,
           "color": "#FF9500",
-          "text": "Shift"
+          "text": "Shift hips"
         }
       ],
       "equipment": "none",
@@ -1508,7 +1403,7 @@
           "dx": 15,
           "dy": -10,
           "color": "#FF9500",
-          "text": "Press"
+          "text": "Press leg"
         }
       ],
       "equipment": "none",
@@ -1558,7 +1453,7 @@
           "dx": 15,
           "dy": -10,
           "color": "#FF9500",
-          "text": "Circle"
+          "text": "Circle leg"
         }
       ],
       "equipment": "none",
@@ -1605,7 +1500,7 @@
           "len": 10,
           "dir": 1,
           "color": "#FF9500",
-          "label": "Drive",
+          "label": "Drive up",
           "labelY": 98
         }
       ],
@@ -1688,7 +1583,7 @@
           "dx": 20,
           "dy": 15,
           "color": "#FF9500",
-          "text": "Fold"
+          "text": "Fold forward"
         }
       ],
       "equipment": "none",
@@ -1733,7 +1628,7 @@
           "dx": 20,
           "dy": -10,
           "color": "#FF9500",
-          "text": "Rotate"
+          "text": "Rotate torso"
         }
       ],
       "equipment": "none",
@@ -1781,7 +1676,7 @@
           "len": -30,
           "dir": -1,
           "color": "#22C55E",
-          "label": "Fold",
+          "label": "Fold forward",
           "labelY": 93
         }
       ],
@@ -1824,7 +1719,7 @@
           "dx": 15,
           "dy": -20,
           "color": "#22C55E",
-          "text": "Rotate"
+          "text": "Rotate up"
         }
       ],
       "equipment": "none",
@@ -1869,7 +1764,7 @@
           "dx": 15,
           "dy": 15,
           "color": "#22C55E",
-          "text": "Thread"
+          "text": "Thread arm"
         }
       ],
       "equipment": "none",
@@ -1909,7 +1804,7 @@
           "dx": 20,
           "dy": -5,
           "color": "#22C55E",
-          "text": "Twist"
+          "text": "Twist torso"
         }
       ],
       "equipment": "none",
@@ -1948,7 +1843,7 @@
           "dx": 10,
           "dy": -15,
           "color": "#22C55E",
-          "text": "Bend"
+          "text": "Bend side"
         }
       ],
       "equipment": "none",
@@ -1989,7 +1884,7 @@
           "dx": 15,
           "dy": 10,
           "color": "#22C55E",
-          "text": "Lift"
+          "text": "Lift foot"
         }
       ],
       "equipment": "none",
@@ -2037,7 +1932,7 @@
           "len": 50,
           "dir": 1,
           "color": "#22C55E",
-          "label": "Step",
+          "label": "Step fwd",
           "labelY": 193
         }
       ],
@@ -2084,7 +1979,7 @@
           "dx": 30,
           "dy": -10,
           "color": "#22C55E",
-          "text": "Balance"
+          "text": "Hold bal"
         }
       ],
       "equipment": "none",
@@ -2131,7 +2026,7 @@
           "len": 50,
           "dir": 1,
           "color": "#22C55E",
-          "label": "Step",
+          "label": "Step over",
           "labelY": 173
         }
       ],
@@ -2178,7 +2073,7 @@
           "dx": 15,
           "dy": -10,
           "color": "#22C55E",
-          "text": "March"
+          "text": "March high"
         }
       ],
       "equipment": "none",
@@ -2263,7 +2158,7 @@
           "dx": 10,
           "dy": -15,
           "color": "#FF9500",
-          "text": "Swing"
+          "text": "Swing arm"
         }
       ],
       "equipment": "none",
@@ -2328,7 +2223,7 @@
           "len": -55,
           "dir": -1,
           "color": "#FF9500",
-          "label": "Pull",
+          "label": "Pull apart",
           "labelY": 83
         }
       ],
@@ -2438,7 +2333,7 @@
           "dx": 30,
           "dy": -5,
           "color": "#FF9500",
-          "text": "Squeeze"
+          "text": "Squeeze back"
         }
       ],
       "equipment": "none",
@@ -2518,7 +2413,7 @@
           "dx": 30,
           "dy": -5,
           "color": "#FF9500",
-          "text": "Lean"
+          "text": "Lean fwd"
         }
       ],
       "equipment": "doorway",
@@ -2582,7 +2477,7 @@
           "dx": 30,
           "dy": -10,
           "color": "#FF9500",
-          "text": "Open"
+          "text": "Open chest"
         }
       ],
       "equipment": "none",

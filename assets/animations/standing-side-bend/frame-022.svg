@@ -12,5 +12,5 @@
   <line x1="206.1" y1="80.6" x2="206.1" y2="87.1"/><line x1="206.1" y1="87.1" x2="203.8" y2="92.8"/><line x1="203.8" y1="92.8" x2="200" y2="113"/><line x1="203.8" y1="92.8" x2="182" y2="99"/><line x1="182" y1="99" x2="174" y2="111"/><line x1="203.8" y1="92.8" x2="225.6" y2="91.4"/><line x1="225.6" y1="91.4" x2="237.5" y2="99.5"/><line x1="200" y1="113" x2="195" y2="170"/><line x1="195" y1="170" x2="190" y2="222"/><line x1="200" y1="113" x2="205" y2="170"/><line x1="205" y1="170" x2="210" y2="222"/>
   <line x1="206.1" y1="87.1" x2="203.8" y2="92.8" stroke="#22C55E" stroke-width="5" opacity="0.6"/><line x1="203.8" y1="92.8" x2="200" y2="113" stroke="#22C55E" stroke-width="5" opacity="0.6"/>
 </g>
-<text x="247.5" y="84.5" fill="#22C55E" font-size="10" font-family="sans-serif">Bend</text>
+<text x="247.5" y="84.5" fill="#22C55E" font-size="10" font-family="sans-serif">Bend side</text>
 </svg>

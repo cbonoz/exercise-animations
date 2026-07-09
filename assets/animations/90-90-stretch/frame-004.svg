@@ -12,5 +12,5 @@
   <line x1="155.2" y1="138" x2="155.2" y2="158"/><line x1="155.2" y1="158" x2="155.1" y2="173"/><line x1="155.1" y1="173" x2="155" y2="248"/><line x1="155.1" y1="173" x2="135" y2="183"/><line x1="135" y1="183" x2="125" y2="198"/><line x1="155.1" y1="173" x2="174.9" y2="183"/><line x1="174.9" y1="183" x2="184.9" y2="198"/><line x1="155" y1="248" x2="225" y2="235"/><line x1="225" y1="235" x2="255" y2="248"/><line x1="155" y1="248" x2="205" y2="235"/><line x1="205" y1="235" x2="235" y2="248"/>
   <line x1="155.2" y1="158" x2="155.1" y2="173" stroke="#FF9500" stroke-width="5" opacity="0.6"/><line x1="155.1" y1="173" x2="155" y2="248" stroke="#FF9500" stroke-width="5" opacity="0.6"/>
 </g>
-<text x="175.1" y="163" fill="#FF9500" font-size="10" font-family="sans-serif">Rotate</text>
+<text x="175.1" y="163" fill="#FF9500" font-size="10" font-family="sans-serif">Rotate torso</text>
 </svg>

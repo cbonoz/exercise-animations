@@ -12,5 +12,5 @@
   <line x1="212" y1="79.9" x2="213.4" y2="88.6"/><line x1="213.4" y1="88.6" x2="214.8" y2="100"/><line x1="214.8" y1="100" x2="208.3" y2="119.2"/><line x1="214.8" y1="100" x2="172" y2="83"/><line x1="172" y1="83" x2="159" y2="90"/><line x1="214.8" y1="100" x2="228" y2="83"/><line x1="228" y1="83" x2="241" y2="90"/><line x1="208.3" y1="119.2" x2="195" y2="169"/><line x1="195" y1="169" x2="190" y2="221"/><line x1="208.3" y1="119.2" x2="205" y2="169"/><line x1="205" y1="169" x2="210" y2="221"/>
   <line x1="214.8" y1="100" x2="172" y2="83" stroke="#FF9500" stroke-width="5" opacity="0.6"/><line x1="214.8" y1="100" x2="228" y2="83" stroke="#FF9500" stroke-width="5" opacity="0.6"/>
 </g>
-<text x="244.8" y="95" fill="#FF9500" font-size="10" font-family="sans-serif">Lean</text>
+<text x="244.8" y="95" fill="#FF9500" font-size="10" font-family="sans-serif">Lean fwd</text>
 </svg>

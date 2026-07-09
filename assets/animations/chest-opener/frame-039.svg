@@ -12,5 +12,5 @@
   <line x1="200" y1="73.5" x2="200" y2="81.5"/><line x1="200" y1="81.5" x2="200" y2="89.5"/><line x1="200" y1="89.5" x2="200" y2="113.5"/><line x1="200" y1="89.5" x2="167" y2="104.5"/><line x1="167" y1="104.5" x2="151" y2="121.5"/><line x1="200" y1="89.5" x2="233" y2="104.5"/><line x1="233" y1="104.5" x2="249" y2="121.5"/><line x1="200" y1="113.5" x2="195" y2="170.5"/><line x1="195" y1="170.5" x2="190" y2="222.5"/><line x1="200" y1="113.5" x2="205" y2="170.5"/><line x1="205" y1="170.5" x2="210" y2="222.5"/>
   <line x1="200" y1="81.5" x2="200" y2="89.5" stroke="#FF9500" stroke-width="5" opacity="0.6"/><line x1="200" y1="89.5" x2="200" y2="113.5" stroke="#FF9500" stroke-width="5" opacity="0.6"/>
 </g>
-<text x="230" y="79.5" fill="#FF9500" font-size="10" font-family="sans-serif">Open</text>
+<text x="230" y="79.5" fill="#FF9500" font-size="10" font-family="sans-serif">Open chest</text>
 </svg>

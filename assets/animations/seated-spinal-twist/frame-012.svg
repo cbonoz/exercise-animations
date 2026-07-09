@@ -12,5 +12,5 @@
   <line x1="157.2" y1="136.8" x2="157.2" y2="156.8"/><line x1="157.2" y1="156.8" x2="156.5" y2="172.3"/><line x1="156.5" y1="172.3" x2="155" y2="248"/><line x1="156.5" y1="172.3" x2="135" y2="183"/><line x1="135" y1="183" x2="125" y2="198"/><line x1="156.5" y1="172.3" x2="173.5" y2="183"/><line x1="173.5" y1="183" x2="182.8" y2="198.7"/><line x1="155" y1="248" x2="225" y2="235"/><line x1="225" y1="235" x2="255" y2="248"/><line x1="155" y1="248" x2="205" y2="235"/><line x1="205" y1="235" x2="235" y2="248"/>
   <line x1="157.2" y1="156.8" x2="156.5" y2="172.3" stroke="#22C55E" stroke-width="5" opacity="0.6"/><line x1="156.5" y1="172.3" x2="155" y2="248" stroke="#22C55E" stroke-width="5" opacity="0.6"/>
 </g>
-<text x="176.5" y="167.3" fill="#22C55E" font-size="10" font-family="sans-serif">Twist</text>
+<text x="176.5" y="167.3" fill="#22C55E" font-size="10" font-family="sans-serif">Twist torso</text>
 </svg>

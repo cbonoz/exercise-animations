@@ -12,5 +12,5 @@
   <line x1="200" y1="72.7" x2="200" y2="80.7"/><line x1="200" y1="80.7" x2="200" y2="87.7"/><line x1="200" y1="87.7" x2="200" y2="110.7"/><line x1="200" y1="87.7" x2="182" y2="98.7"/><line x1="182" y1="98.7" x2="174" y2="110.7"/><line x1="200" y1="87.7" x2="218" y2="98.7"/><line x1="218" y1="98.7" x2="226" y2="110.7"/><line x1="200" y1="110.7" x2="195" y2="169.7"/><line x1="195" y1="169.7" x2="205" y2="221.7"/><line x1="200" y1="110.7" x2="205" y2="169.7"/><line x1="205" y1="169.7" x2="195" y2="221.7"/>
   <line x1="200" y1="110.7" x2="195" y2="169.7" stroke="#22C55E" stroke-width="5" opacity="0.6"/><line x1="200" y1="110.7" x2="205" y2="169.7" stroke="#22C55E" stroke-width="5" opacity="0.6"/>
 </g>
-<text x="230" y="100.7" fill="#22C55E" font-size="10" font-family="sans-serif">Balance</text>
+<text x="230" y="100.7" fill="#22C55E" font-size="10" font-family="sans-serif">Hold bal</text>
 </svg>

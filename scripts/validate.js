@@ -648,6 +648,19 @@ function checkLabelLength(sceneId) {
   return { pass: issues.length === 0, issues, note: issues.length === 0 ? 'Labels reasonable length' : issues.join('; ') };
 }
 
+function checkSingleWordLabels(sceneId) {
+  const ex = plan.exercises.find(e => e.id === sceneId);
+  if (!ex || !ex.annotations) return { pass: true, note: 'No annotations' };
+  const issues = [];
+  for (const a of ex.annotations) {
+    const val = a.text || a.label || '';
+    if (val.split(' ').length === 1 && val.length > 0) {
+      issues.push(`"${val}" is a single word — use 2-3 words (e.g. "Lift hips", not "Lift")`);
+    }
+  }
+  return { pass: issues.length === 0, issues, note: issues.length === 0 ? 'All labels 2+ words' : issues.join('; ') };
+}
+
 function checkTouchFloor(validFrames, sceneId) {
   const ex = plan.exercises.find(e => e.id === sceneId);
   if (!ex || !ex.touchFloor || ex.touchFloor.length === 0) return { pass: true, note: 'No touchFloor specified' };
@@ -799,7 +812,10 @@ function validateScene(scene) {
   // Check 21: Label length (labels shouldn't overflow canvas)
   results.checks.labelLength = checkLabelLength(scene.dir);
 
-  // Check 22: touchFloor items recognized
+  // Check 22: Single-word labels (all annotations should be 2+ words)
+  results.checks.singleWordLabels = checkSingleWordLabels(scene.dir);
+
+  // Check 23: touchFloor items recognized
   results.checks.touchFloor = checkTouchFloor(validFrames, scene.dir);
 
   // Check 23: Plan-to-generator consistency (every exercise in plan has a MOTION def)

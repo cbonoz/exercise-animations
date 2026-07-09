@@ -12,5 +12,5 @@
   <line x1="200" y1="73" x2="200" y2="81"/><line x1="200" y1="81" x2="200" y2="89"/><line x1="200" y1="89" x2="200" y2="113"/><line x1="200" y1="89" x2="186.8" y2="94.2"/><line x1="186.8" y1="94.2" x2="183.6" y2="106.2"/><line x1="200" y1="89" x2="218" y2="99"/><line x1="218" y1="99" x2="226" y2="111"/><line x1="200" y1="113" x2="195" y2="170"/><line x1="195" y1="170" x2="190" y2="222"/><line x1="200" y1="113" x2="209.8" y2="136.5"/><line x1="209.8" y1="136.5" x2="214.8" y2="179"/>
   <line x1="200" y1="113" x2="209.8" y2="136.5" stroke="#22C55E" stroke-width="5" opacity="0.6"/><line x1="209.8" y1="136.5" x2="214.8" y2="179" stroke="#22C55E" stroke-width="5" opacity="0.6"/>
 </g>
-<text x="224.8" y="126.5" fill="#22C55E" font-size="10" font-family="sans-serif">March</text>
+<text x="224.8" y="126.5" fill="#22C55E" font-size="10" font-family="sans-serif">March high</text>
 </svg>

@@ -12,5 +12,5 @@
   <line x1="120" y1="233.5" x2="138" y2="230.5"/><line x1="138" y1="230.5" x2="155" y2="227.5"/><line x1="155" y1="227.5" x2="215" y2="243.5"/><line x1="155" y1="227.5" x2="135" y2="257.5"/><line x1="135" y1="257.5" x2="110" y2="258.5"/><line x1="155" y1="227.5" x2="160" y2="257.5"/><line x1="160" y1="257.5" x2="155" y2="258.5"/><line x1="215" y1="243.5" x2="260" y2="258.5"/><line x1="260" y1="258.5" x2="290" y2="258.5"/><line x1="215" y1="243.5" x2="255" y2="258.5"/><line x1="255" y1="258.5" x2="285" y2="258.5"/>
   <line x1="138" y1="230.5" x2="155" y2="227.5" stroke="#22C55E" stroke-width="5" opacity="0.6"/><line x1="155" y1="227.5" x2="215" y2="243.5" stroke="#22C55E" stroke-width="5" opacity="0.6"/>
 </g>
-<text x="185" y="217.5" fill="#22C55E" font-size="10" font-family="sans-serif">Hold</text>
+<text x="185" y="217.5" fill="#22C55E" font-size="10" font-family="sans-serif">Hold plank</text>
 </svg>

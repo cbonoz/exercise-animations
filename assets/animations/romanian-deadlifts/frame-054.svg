@@ -12,5 +12,5 @@
   <line x1="197.5" y1="83" x2="197.5" y2="91"/><line x1="197.5" y1="91" x2="197.5" y2="99"/><line x1="197.5" y1="99" x2="197.5" y2="118"/><line x1="197.5" y1="99" x2="179.5" y2="114"/><line x1="179.5" y1="114" x2="171.5" y2="131"/><line x1="197.5" y1="99" x2="215.5" y2="114"/><line x1="215.5" y1="114" x2="223.5" y2="131"/><line x1="197.5" y1="118" x2="195" y2="170"/><line x1="195" y1="170" x2="190" y2="222"/><line x1="197.5" y1="118" x2="205" y2="170"/><line x1="205" y1="170" x2="210" y2="222"/>
   <line x1="197.5" y1="118" x2="197.5" y2="99" stroke="#FF6B6B" stroke-width="5" opacity="0.6"/>
 </g>
-<text x="217.5" y="109" fill="#FF6B6B" font-size="10" font-family="sans-serif">Hinge</text>
+<text x="217.5" y="109" fill="#FF6B6B" font-size="10" font-family="sans-serif">Hinge hips</text>
 </svg>

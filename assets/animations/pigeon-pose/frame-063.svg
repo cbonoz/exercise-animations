@@ -12,5 +12,5 @@
   <line x1="169" y1="143" x2="169" y2="163"/><line x1="169" y1="163" x2="167.5" y2="178"/><line x1="167.5" y1="178" x2="162.5" y2="248"/><line x1="167.5" y1="178" x2="145" y2="187"/><line x1="145" y1="187" x2="147.5" y2="211"/><line x1="167.5" y1="178" x2="165" y2="187"/><line x1="165" y1="187" x2="177.5" y2="211"/><line x1="162.5" y1="248" x2="205" y2="239"/><line x1="205" y1="239" x2="215" y2="248"/><line x1="162.5" y1="248" x2="235" y2="234"/><line x1="235" y1="234" x2="245" y2="248"/>
   <line x1="162.5" y1="248" x2="235" y2="234" stroke="#FF9500" stroke-width="5" opacity="0.6"/><line x1="235" y1="234" x2="245" y2="248" stroke="#FF9500" stroke-width="5" opacity="0.6"/>
 </g>
-<text x="189" y="158" fill="#FF9500" font-size="10" font-family="sans-serif">Fold</text>
+<text x="189" y="158" fill="#FF9500" font-size="10" font-family="sans-serif">Fold forward</text>
 </svg>
