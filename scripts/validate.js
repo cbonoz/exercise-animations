@@ -606,6 +606,48 @@ function checkAnnotationBounds(validFrames) {
   return { pass: issues.length === 0, issues, note: issues.length === 0 ? 'All annotation text in bounds' : `${issues.length} text(s) out of bounds` };
 }
 
+function checkArrowIntegrity(sceneId) {
+  const ex = plan.exercises.find(e => e.id === sceneId);
+  if (!ex || !ex.annotations) return { pass: true, note: 'No annotations' };
+  const issues = [];
+  for (const a of ex.annotations) {
+    if (a.type === 'arrow' && a.len === 0) {
+      issues.push(`Arrow "${a.label || 'unlabeled'}" has len=0 (invisible)`);
+    }
+  }
+  return { pass: issues.length === 0, issues, note: issues.length === 0 ? 'All arrows valid' : issues.join('; ') };
+}
+
+function checkAnnotationOverlap(sceneId) {
+  const ex = plan.exercises.find(e => e.id === sceneId);
+  if (!ex || !ex.annotations) return { pass: true, note: 'No annotations' };
+  const issues = [];
+  const TEXT_ZONE_Y = 58;
+  for (const a of ex.annotations) {
+    if (a.type === 'text' && a.dy !== undefined) {
+      const annoY = (a.dy || 0);
+      if (Math.abs(annoY - TEXT_ZONE_Y) < 20) {
+        issues.push(`Text "${a.text}" near title/instruction zone (y≈${TEXT_ZONE_Y})`);
+      }
+    }
+  }
+  return { pass: true, note: issues.length === 0 ? 'Annotations clear of text zone' : issues.join('; ') };
+}
+
+function checkLabelLength(sceneId) {
+  const ex = plan.exercises.find(e => e.id === sceneId);
+  if (!ex || !ex.annotations) return { pass: true, note: 'No annotations' };
+  const issues = [];
+  for (const a of ex.annotations) {
+    const label = a.label || a.text || '';
+    // At font-size 10, ~5-6px per char. Canvas is 400px wide. Flag labels > 20 chars.
+    if (label.length > 20) {
+      issues.push(`Long label "${label}" (${label.length} chars, ~${label.length * 6}px at font-size 10)`);
+    }
+  }
+  return { pass: issues.length === 0, issues, note: issues.length === 0 ? 'Labels reasonable length' : issues.join('; ') };
+}
+
 function checkPlanConsistency(sceneId) {
   const planIds = plan.exercises.map(e => e.id);
   const missingInPlan = MOTIONS_KEYS.filter(k => !planIds.includes(k));
@@ -730,7 +772,16 @@ function validateScene(scene) {
   // Check 18: Annotation bounds (all annotation text within canvas)
   results.checks.annotationBounds = checkAnnotationBounds(validFrames);
 
-  // Check 19: Plan-to-generator consistency (every exercise in plan has a MOTION def)
+  // Check 19: Arrow integrity (no len=0 arrows)
+  results.checks.arrowIntegrity = checkArrowIntegrity(scene.dir);
+
+  // Check 20: Annotation overlap with text zone
+  results.checks.annotationOverlap = checkAnnotationOverlap(scene.dir);
+
+  // Check 21: Label length (labels shouldn't overflow canvas)
+  results.checks.labelLength = checkLabelLength(scene.dir);
+
+  // Check 22: Plan-to-generator consistency (every exercise in plan has a MOTION def)
   results.checks.planConsistency = checkPlanConsistency(scene.dir);
 
   // Score: each check contributes 1 point if it passes

@@ -12,5 +12,5 @@
   <line x1="175" y1="73" x2="186" y2="76"/><line x1="186" y1="76" x2="200" y2="87"/><line x1="200" y1="87" x2="240" y2="110"/><line x1="200" y1="87" x2="170" y2="189"/><line x1="240" y1="110" x2="245" y2="145"/><line x1="245" y1="145" x2="255" y2="189"/>
   <line x1="240" y1="110" x2="245" y2="145" stroke="#FFD93D" stroke-width="5" opacity="0.6"/><line x1="245" y1="145" x2="255" y2="189" stroke="#FFD93D" stroke-width="5" opacity="0.6"/>
 </g>
-<line x1="255.0017146776406" y1="193.99871399176953" x2="285.0017146776406" y2="193.99871399176953" stroke="#FFD93D" stroke-width="2" stroke-dasharray="4,3"/><polygon points="285.0017146776406,188.99871399176953 295.0017146776406,193.99871399176953 285.0017146776406,198.99871399176953" fill="#FFD93D"/><text x="270.0017146776406" y="133" fill="#FFD93D" font-size="10" text-anchor="middle" font-family="sans-serif">Kick</text>
+<line x1="255.0017146776406" y1="193.99871399176953" x2="285.0017146776406" y2="193.99871399176953" stroke="#FFD93D" stroke-width="2" stroke-dasharray="4,3"/><polygon points="285.0017146776406,188.99871399176953 295.0017146776406,193.99871399176953 285.0017146776406,198.99871399176953" fill="#FFD93D"/><text x="270.0017146776406" y="133" fill="#FFD93D" font-size="10" text-anchor="middle" font-family="sans-serif">Kick back</text>
 </svg>

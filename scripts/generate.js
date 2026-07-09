@@ -592,6 +592,19 @@ function catCowInterpolate(template, motion, exercise, p, floorY) {
   return interpolateJoints(template, { move }, exercise, 1, floorY);
 }
 
+function computeRestGhost(template, motion, exercise) {
+  const result = {};
+  const restOff = motion.rest || {};
+  const exerciseRest = exercise.rest || {};
+  for (const j of JOINTS) {
+    if (!template[j]) { result[j] = null; continue; }
+    const base = template[j];
+    const r = exerciseRest[j] || restOff[j] || { x: 0, y: 0 };
+    result[j] = { x: base.x + r.x, y: base.y + r.y };
+  }
+  return result;
+}
+
 function makeSvg(frame, exercise, motionData) {
   const pk = motionData.posture;
   const floorY = motionData.floorY || POSTURES[pk].floorY;
@@ -601,8 +614,8 @@ function makeSvg(frame, exercise, motionData) {
   const accent = motionData.highlightColor || '#FFF';
   const annotations = motionData.annotations || [];
 
-  // Build ghost (rest position)
-  const ghost = POSTURES[pk];
+  // Build ghost (rest position — applies rest offsets so ghost matches starting pose)
+  const ghost = computeRestGhost(POSTURES[pk], motionData, exercise);
   let ghostSvg = '';
   for (const [a, b] of lines) {
     if (!ghost[a] || !ghost[b]) continue;

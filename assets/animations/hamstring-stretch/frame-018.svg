@@ -12,5 +12,5 @@
   <line x1="175" y1="144" x2="175" y2="164"/><line x1="175" y1="164" x2="172.5" y2="178"/><line x1="172.5" y1="178" x2="162.5" y2="249"/><line x1="172.5" y1="178" x2="160" y2="190.5"/><line x1="160" y1="190.5" x2="160" y2="208"/><line x1="172.5" y1="178" x2="200" y2="190.5"/><line x1="200" y1="190.5" x2="220" y2="208"/><line x1="162.5" y1="249" x2="225" y2="235"/><line x1="225" y1="235" x2="255" y2="248"/><line x1="162.5" y1="249" x2="205" y2="235"/><line x1="205" y1="235" x2="235" y2="248"/>
   <line x1="162.5" y1="249" x2="225" y2="235" stroke="#FF6B6B" stroke-width="5" opacity="0.6"/><line x1="225" y1="235" x2="255" y2="248" stroke="#FF6B6B" stroke-width="5" opacity="0.6"/>
 </g>
-<line x1="160" y1="208" x2="215" y2="208" stroke="#FF6B6B" stroke-width="2" stroke-dasharray="4,3"/><polygon points="215,203 225,208 215,213" fill="#FF6B6B"/><text x="187.5" y="133" fill="#FF6B6B" font-size="10" text-anchor="middle" font-family="sans-serif">Reach</text>
+<line x1="160" y1="208" x2="215" y2="208" stroke="#FF6B6B" stroke-width="2" stroke-dasharray="4,3"/><polygon points="215,203 225,208 215,213" fill="#FF6B6B"/><text x="187.5" y="133" fill="#FF6B6B" font-size="10" text-anchor="middle" font-family="sans-serif">Reach forward</text>
 </svg>

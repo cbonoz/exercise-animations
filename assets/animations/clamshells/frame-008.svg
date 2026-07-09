@@ -12,5 +12,5 @@
   <line x1="130" y1="232" x2="142" y2="235"/><line x1="142" y1="235" x2="155" y2="238"/><line x1="155" y1="238" x2="210" y2="245"/><line x1="155" y1="238" x2="180" y2="243"/><line x1="180" y1="243" x2="200" y2="247"/><line x1="210" y1="245" x2="258" y2="237"/><line x1="258" y1="237" x2="238" y2="245"/><line x1="210" y1="245" x2="256.3" y2="226.7"/><line x1="256.3" y1="226.7" x2="235.4" y2="242.5"/>
   <line x1="210" y1="245" x2="256.3" y2="226.7" stroke="#FFD93D" stroke-width="5" opacity="0.6"/><line x1="256.3" y1="226.7" x2="235.4" y2="242.5" stroke="#FFD93D" stroke-width="5" opacity="0.6"/>
 </g>
-<path d="M 231.31687242798353 236.68312757201647 Q 256.3168724279835 198.68312757201647 281.3168724279835 236.68312757201647" stroke="#FFD93D" stroke-width="2" fill="none" stroke-dasharray="4,3"/><text x="256.3168724279835" y="194.68312757201647" fill="#FFD93D" font-size="10" text-anchor="middle" font-family="sans-serif">Open</text>
+<path d="M 231.31687242798353 236.68312757201647 Q 256.3168724279835 198.68312757201647 281.3168724279835 236.68312757201647" stroke="#FFD93D" stroke-width="2" fill="none" stroke-dasharray="4,3"/><text x="256.3168724279835" y="194.68312757201647" fill="#FFD93D" font-size="10" text-anchor="middle" font-family="sans-serif">Open knee</text>
 </svg>

@@ -66,29 +66,10 @@
           "len": 90,
           "dir": 1,
           "color": "#FFD93D",
-          "label": "Slide",
+          "label": "Slide heel",
           "labelY": 228
         }
       ],
-      "equipment": "none",
-      "difficulty": "beginner",
-      "breathing": "Inhale to prepare; exhale slowly as you slide the heel forward and straighten. Inhale as you return the heel.",
-      "formCues": [
-        "Keep lower back gently pressed into the floor throughout",
-        "Move slowly with full control; no momentum",
-        "Straighten knee only to comfortable range (slight stretch behind thigh/knee)",
-        "Opposite foot stays planted; avoid pelvic tilt or rotation"
-      ],
-      "commonErrors": [
-        "Lifting lower back or arching as leg straightens",
-        "Using momentum or jerking the leg",
-        "Rotating pelvis or lifting opposite hip",
-        "Over-straightening into pain or hyperextension"
-      ],
-      "suggestedProtocol": "2-3 sets of 10-15 controlled reps per leg (or 60s total time)"
-    },
-    {
-      "id": "bridges",
       "name": "Bridge",
       "priority": 1,
       "group": "Glute",
@@ -113,28 +94,9 @@
           "dx": 20,
           "dy": -35,
           "color": "#FFD93D",
-          "text": "Lift"
+          "text": "Lift hips"
         }
       ],
-      "equipment": "none",
-      "difficulty": "beginner",
-      "breathing": "Inhale to prepare and set core; exhale as you drive hips up and squeeze glutes. Inhale as you lower with control.",
-      "formCues": [
-        "Drive through heels, not toes",
-        "Squeeze glutes firmly at the top without overarching lower back",
-        "Keep ribs down and core braced (avoid flaring ribcage)",
-        "Knees stay hip-width; do not let them cave in or splay out"
-      ],
-      "commonErrors": [
-        "Over-arching lower back or rib flaring at top",
-        "Pushing through toes instead of heels",
-        "Knees collapsing inward",
-        "Holding breath or rushing the lowering phase"
-      ],
-      "suggestedProtocol": "2-3 sets of 10-15 reps (or 30-45s holds at top for isometric variation)"
-    },
-    {
-      "id": "cat-cow",
       "name": "Cat-Cow",
       "priority": 1,
       "group": "Core",
@@ -268,7 +230,7 @@
           "dy": 0,
           "yOff": 20,
           "color": "#FFD93D",
-          "label": "Open"
+          "label": "Open knee"
         }
       ],
       "equipment": "none",
@@ -316,7 +278,7 @@
           "len": -30,
           "dir": -1,
           "color": "#FF6B6B",
-          "label": "Curl",
+          "label": "Curl heel",
           "labelY": 203
         }
       ],
@@ -364,7 +326,7 @@
           "len": -20,
           "dir": -1,
           "color": "#FF6B6B",
-          "label": "Curl",
+          "label": "Curl heel",
           "labelY": 163
         }
       ],
@@ -456,7 +418,7 @@
           "dx": 25,
           "dy": 20,
           "color": "#FF9500",
-          "text": "Hinge"
+          "text": "Hinge hips"
         }
       ],
       "equipment": "none",
@@ -502,7 +464,7 @@
           "dx": 30,
           "dy": 10,
           "color": "#FF6B6B",
-          "text": "Lower"
+          "text": "Lower torso"
         }
       ],
       "equipment": "partner, strap, or anchor for ankles (or band for assisted)",
@@ -546,7 +508,7 @@
           "dx": 20,
           "dy": 15,
           "color": "#FF6B6B",
-          "text": "Reach"
+          "text": "Reach down"
         }
       ],
       "equipment": "none",
@@ -594,7 +556,7 @@
           "len": 55,
           "dir": 1,
           "color": "#FF6B6B",
-          "label": "Reach",
+          "label": "Reach forward",
           "labelY": 133
         }
       ],
@@ -641,7 +603,7 @@
           "dx": 20,
           "dy": -30,
           "color": "#FF9500",
-          "text": "Lift"
+          "text": "Lift hips"
         }
       ],
       "equipment": "none",
@@ -702,7 +664,7 @@
           "len": 40,
           "dir": 1,
           "color": "#FFD93D",
-          "label": "Step",
+          "label": "Step out",
           "labelY": 193
         }
       ],
@@ -798,7 +760,7 @@
           "len": 30,
           "dir": 1,
           "color": "#FFD93D",
-          "label": "Kick",
+          "label": "Kick back",
           "labelY": 133
         }
       ],
@@ -847,7 +809,7 @@
           "len": -35,
           "dir": -1,
           "color": "#22C55E",
-          "label": "Reach",
+          "label": "Reach fwd",
           "labelY": 123
         },
         {
@@ -858,7 +820,7 @@
           "len": 35,
           "dir": 1,
           "color": "#22C55E",
-          "label": "Extend",
+          "label": "Extend back",
           "labelY": 138
         }
       ],
@@ -1057,7 +1019,7 @@
           "dx": 15,
           "dy": -15,
           "color": "#22C55E",
-          "text": "Tilt"
+          "text": "Tilt pelvis"
         }
       ],
       "equipment": "none",
@@ -1196,7 +1158,7 @@
           "dx": 20,
           "dy": -10,
           "color": "#22C55E",
-          "text": "Curl"
+          "text": "Curl up"
         }
       ],
       "equipment": "none",
@@ -1242,7 +1204,7 @@
           "dx": 15,
           "dy": -10,
           "color": "#FF6B6B",
-          "text": "Tighten"
+          "text": "Tighten quad"
         }
       ],
       "equipment": "none",
@@ -1340,30 +1302,12 @@
           "len": -15,
           "dir": -1,
           "color": "#FF6B6B",
-          "label": "Step",
+          "label": "Step up",
           "labelY": 163
         }
       ],
-      "equipment": "stable step or platform (6-12 inches)",
+      "equipment": "none",
       "difficulty": "beginner",
-      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
-      "formCues": [
-        "Keep torso upright and core engaged",
-        "Knees track over toes (no valgus collapse)",
-        "Drive through heel or full foot",
-        "Control the lowering phase",
-        "Soft knees, weight balanced, core lightly braced"
-      ],
-      "commonErrors": [
-        "Knees caving inward (valgus)",
-        "Leaning torso too far forward/back",
-        "Locking knees at top",
-        "Lifting heel off ground/platform"
-      ],
-      "suggestedProtocol": "2-3 sets of 8-15 reps (controlled tempo, 2-3s eccentric)"
-    },
-    {
-      "id": "wall-sits",
       "name": "Wall Sits",
       "priority": 3,
       "group": "Quad",
@@ -1387,10 +1331,10 @@
           "dx": 25,
           "dy": 10,
           "color": "#FF6B6B",
-          "text": "Slide"
+          "text": "Slide down"
         }
       ],
-      "equipment": "wall",
+      "equipment": "none",
       "difficulty": "beginner",
       "breathing": "Breathe deeply and evenly throughout the hold. Avoid holding your breath.",
       "formCues": [
@@ -2459,15 +2403,12 @@
       },
       "annotations": [
         {
-          "type": "arrow",
+          "type": "text",
           "joint": "left_hand",
-          "dx": 0,
-          "dy": -5,
-          "len": 0,
-          "dir": 1,
+          "dx": -10,
+          "dy": -30,
           "color": "#FF9500",
-          "label": "Slide",
-          "labelY": 68
+          "text": "Slide up"
         }
       ],
       "equipment": "wall",

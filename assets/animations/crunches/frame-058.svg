@@ -12,5 +12,5 @@
   <line x1="160" y1="249.5" x2="172" y2="252.2"/><line x1="172" y1="252.2" x2="185" y2="254.6"/><line x1="185" y1="254.6" x2="230" y2="259"/><line x1="185" y1="254.6" x2="170.4" y2="213.8"/><line x1="170.4" y1="213.8" x2="161.5" y2="193.8"/><line x1="185" y1="254.6" x2="199.6" y2="213.8"/><line x1="199.6" y1="213.8" x2="208.5" y2="193.8"/><line x1="230" y1="259" x2="265" y2="210"/><line x1="265" y1="210" x2="280" y2="258"/><line x1="230" y1="259" x2="250" y2="210"/><line x1="250" y1="210" x2="265" y2="258"/>
   <line x1="172" y1="252.2" x2="185" y2="254.6" stroke="#22C55E" stroke-width="5" opacity="0.6"/><line x1="185" y1="254.6" x2="230" y2="259" stroke="#22C55E" stroke-width="5" opacity="0.6"/>
 </g>
-<text x="180" y="239.5" fill="#22C55E" font-size="10" font-family="sans-serif">Curl</text>
+<text x="180" y="239.5" fill="#22C55E" font-size="10" font-family="sans-serif">Curl up</text>
 </svg>

@@ -5,12 +5,12 @@
 <text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">Stand against wall, arms at 90 degrees, slide up, return.</text>
 <g stroke="#555" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.25">
   <circle cx="200" cy="73" r="10" fill="#444" stroke="none"/>
-  <line x1="200" y1="73" x2="200" y2="81"/><line x1="200" y1="81" x2="200" y2="89"/><line x1="200" y1="89" x2="200" y2="113"/><line x1="200" y1="89" x2="182" y2="99"/><line x1="182" y1="99" x2="174" y2="111"/><line x1="200" y1="89" x2="218" y2="99"/><line x1="218" y1="99" x2="226" y2="111"/><line x1="200" y1="113" x2="195" y2="170"/><line x1="195" y1="170" x2="190" y2="222"/><line x1="200" y1="113" x2="205" y2="170"/><line x1="205" y1="170" x2="210" y2="222"/>
+  <line x1="200" y1="73" x2="200" y2="81"/><line x1="200" y1="81" x2="200" y2="89"/><line x1="200" y1="89" x2="200" y2="113"/><line x1="200" y1="89" x2="177" y2="84"/><line x1="177" y1="84" x2="164" y2="86"/><line x1="200" y1="89" x2="213" y2="84"/><line x1="213" y1="84" x2="216" y2="86"/><line x1="200" y1="113" x2="195" y2="170"/><line x1="195" y1="170" x2="190" y2="222"/><line x1="200" y1="113" x2="205" y2="170"/><line x1="205" y1="170" x2="210" y2="222"/>
 </g>
 <g stroke="#FFF" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="200" cy="73" r="10" fill="#FFF" stroke="none"/>
   <line x1="200" y1="73" x2="200" y2="81"/><line x1="200" y1="81" x2="200" y2="89"/><line x1="200" y1="89" x2="200" y2="113"/><line x1="200" y1="89" x2="177" y2="79.3"/><line x1="177" y1="79.3" x2="164" y2="78.9"/><line x1="200" y1="89" x2="213" y2="79.3"/><line x1="213" y1="79.3" x2="216" y2="78.9"/><line x1="200" y1="113" x2="195" y2="170"/><line x1="195" y1="170" x2="190" y2="222"/><line x1="200" y1="113" x2="205" y2="170"/><line x1="205" y1="170" x2="210" y2="222"/>
   <line x1="200" y1="89" x2="177" y2="79.3" stroke="#FF9500" stroke-width="5" opacity="0.6"/><line x1="177" y1="79.3" x2="164" y2="78.9" stroke="#FF9500" stroke-width="5" opacity="0.6"/>
 </g>
-<line x1="164" y1="73.94238683127573" x2="224" y2="73.94238683127573" stroke="#FF9500" stroke-width="2" stroke-dasharray="4,3"/><polygon points="224,68.94238683127573 234,73.94238683127573 224,78.94238683127573" fill="#FF9500"/><text x="194" y="68" fill="#FF9500" font-size="10" text-anchor="middle" font-family="sans-serif">Slide</text>
+<text x="154" y="48.9" fill="#FF9500" font-size="10" font-family="sans-serif">Slide up</text>
 </svg>

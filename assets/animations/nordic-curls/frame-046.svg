@@ -12,5 +12,5 @@
   <line x1="232" y1="93.1" x2="232" y2="101.1"/><line x1="232" y1="101.1" x2="227.4" y2="107.3"/><line x1="227.4" y1="107.3" x2="213.7" y2="122.1"/><line x1="227.4" y1="107.3" x2="195.7" y2="112.7"/><line x1="195.7" y1="112.7" x2="192.3" y2="129.3"/><line x1="227.4" y1="107.3" x2="231.7" y2="112.7"/><line x1="231.7" y1="112.7" x2="244.3" y2="129.3"/><line x1="213.7" y1="122.1" x2="195" y2="222"/><line x1="195" y1="222" x2="188" y2="222"/><line x1="213.7" y1="122.1" x2="205" y2="222"/><line x1="205" y1="222" x2="212" y2="222"/>
   <line x1="213.7" y1="122.1" x2="195" y2="222" stroke="#FF6B6B" stroke-width="5" opacity="0.6"/><line x1="213.7" y1="122.1" x2="205" y2="222" stroke="#FF6B6B" stroke-width="5" opacity="0.6"/>
 </g>
-<text x="257.4" y="117.3" fill="#FF6B6B" font-size="10" font-family="sans-serif">Lower</text>
+<text x="257.4" y="117.3" fill="#FF6B6B" font-size="10" font-family="sans-serif">Lower torso</text>
 </svg>
