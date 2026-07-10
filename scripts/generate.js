@@ -707,13 +707,34 @@ function makeSvg(frame, exercise, motionData) {
   }
 
   const title = exercise.name;
-  const instruction = exercise.instruction || exercise.label;
+  const rawInstruction = exercise.instruction || exercise.label;
+
+  // Wrap instruction text to fit 380px canvas width at font-size 10 (~6px/char)
+  function wrapText(text, maxChars) {
+    const words = text.split(' ');
+    const lines = [];
+    let line = '';
+    for (const w of words) {
+      if ((line + ' ' + w).length > maxChars) {
+        if (line) lines.push(line);
+        line = w;
+      } else {
+        line = line ? line + ' ' + w : w;
+      }
+    }
+    if (line) lines.push(line);
+    return lines;
+  }
+  const wrappedLines = wrapText(rawInstruction, 55);
+  const instructionSvg = wrappedLines.map((line, i) =>
+    `<tspan x="200" dy="${i === 0 ? 0 : 14}">${line}</tspan>`
+  ).join('');
 
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}">
 <rect width="${W}" height="${H}" fill="${S.bgColor}"/>
 <line x1="20" y1="${floorY}" x2="380" y2="${floorY}" stroke="${S.floorColor}" stroke-width="${S.floorStroke}" stroke-linecap="round"/>
 <text x="200" y="38" fill="#888" font-size="13" font-family="sans-serif" text-anchor="middle">${title}</text>
-<text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">${instruction}</text>
+<text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">${instructionSvg}</text>
 <g stroke="${S.ghostColor}" stroke-width="${S.ghostStroke}" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="${S.ghostOpacity}">
   <circle cx="${ghost.head.x}" cy="${ghost.head.y}" r="${hr}" fill="#444" stroke="none"/>
   ${ghostSvg}

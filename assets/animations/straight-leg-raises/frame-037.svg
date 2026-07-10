@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
 <rect width="400" height="300" fill="#0f0f1a"/>
 <line x1="20" y1="260" x2="380" y2="260" stroke="#444" stroke-width="3" stroke-linecap="round"/>
-<text x="200" y="38" fill="#888" font-size="13" font-family="sans-serif" text-anchor="middle">Wall Sits</text>
-<text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">Lean back against wall, slide down until knees at 90 degrees, hold.</text>
+<text x="200" y="38" fill="#888" font-size="13" font-family="sans-serif" text-anchor="middle">Straight Leg Raises</text>
+<text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle"><tspan x="200" dy="0">Lie on back, one leg straight, lift up to 45 degrees,</tspan><tspan x="200" dy="14">lower.</tspan></text>
 <g stroke="#555" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.25">
   <circle cx="160" cy="253" r="12" fill="#444" stroke="none"/>
   <line x1="160" y1="253" x2="172" y2="255"/><line x1="172" y1="255" x2="185" y2="257"/><line x1="185" y1="257" x2="230" y2="260"/><line x1="185" y1="257" x2="168" y2="215"/><line x1="168" y1="215" x2="158" y2="195"/><line x1="185" y1="257" x2="202" y2="215"/><line x1="202" y1="215" x2="212" y2="195"/><line x1="230" y1="260" x2="265" y2="210"/><line x1="265" y1="210" x2="280" y2="258"/><line x1="230" y1="260" x2="250" y2="210"/><line x1="250" y1="210" x2="265" y2="258"/>
 </g>
 <g stroke="#FFF" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="160" cy="253.2" r="12" fill="#FFF" stroke="none"/>
-  <line x1="160" y1="253.2" x2="172" y2="255.2"/><line x1="172" y1="255.2" x2="185" y2="257.2"/><line x1="185" y1="257.2" x2="230" y2="259.2"/><line x1="185" y1="257.2" x2="168" y2="215.2"/><line x1="168" y1="215.2" x2="158" y2="195.2"/><line x1="185" y1="257.2" x2="202" y2="215.2"/><line x1="202" y1="215.2" x2="212" y2="195.2"/><line x1="230" y1="259.2" x2="260" y2="180.2"/><line x1="260" y1="180.2" x2="270" y2="208.2"/><line x1="230" y1="259.2" x2="250" y2="210.2"/><line x1="250" y1="210.2" x2="265" y2="258.2"/>
-  <line x1="230" y1="259.2" x2="260" y2="180.2" stroke="#FF6B6B" stroke-width="5" opacity="0.6"/><line x1="260" y1="180.2" x2="270" y2="208.2" stroke="#FF6B6B" stroke-width="5" opacity="0.6"/>
+  <circle cx="160" cy="253" r="12" fill="#FFF" stroke="none"/>
+  <line x1="160" y1="253" x2="172" y2="255"/><line x1="172" y1="255" x2="185" y2="257"/><line x1="185" y1="257" x2="230" y2="259"/><line x1="185" y1="257" x2="168" y2="215"/><line x1="168" y1="215" x2="158" y2="195"/><line x1="185" y1="257" x2="202" y2="215"/><line x1="202" y1="215" x2="212" y2="195"/><line x1="230" y1="259" x2="260" y2="180"/><line x1="260" y1="180" x2="270" y2="208"/><line x1="230" y1="259" x2="250" y2="210"/><line x1="250" y1="210" x2="265" y2="258"/>
+  <line x1="230" y1="259" x2="260" y2="180" stroke="#FF6B6B" stroke-width="5" opacity="0.6"/><line x1="260" y1="180" x2="270" y2="208" stroke="#FF6B6B" stroke-width="5" opacity="0.6"/>
 </g>
-<text x="255" y="269.2" fill="#FF6B6B" font-size="10" font-family="sans-serif">Slide down</text>
+<line x1="270.0008573388203" y1="213.0042866941015" x2="270.0008573388203" y2="233.0042866941015" stroke="#FF6B6B" stroke-width="2" stroke-dasharray="4,3"/><polygon points="265.0008573388203,233.0042866941015 270.0008573388203,243.0042866941015 275.0008573388203,233.0042866941015" fill="#FF6B6B"/><text x="284.0008573388203" y="223.0042866941015" fill="#FF6B6B" font-size="10" text-anchor="middle" font-family="sans-serif">Lift leg</text>
 </svg>

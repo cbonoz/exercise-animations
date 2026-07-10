@@ -40,60 +40,52 @@
   "exercises": [
     {
       "id": "hamstring-slide",
-      "name": "Cat-Cow",
+      "name": "Hamstring Slide",
       "priority": 1,
-      "group": "Core",
-      "posture": "all-fours",
-      "axis": "diagonal (spine curves)",
-      "label": "Arch and round spine",
-      "instruction": "On hands and knees, inhale to arch/drop belly (Cow), exhale to round spine (Cat); move with breath.",
-      "highlightColor": "#22C55E",
-      "description": "Start on hands and knees in a neutral tabletop position (wrists under shoulders, knees under hips, spine neutral). Inhale as you drop your belly toward the floor, lift your chest and tailbone (Cow pose - spinal extension). Exhale as you round your spine upward toward the ceiling, tuck your chin and tailbone (Cat pose - spinal flexion). Move smoothly between the two, using your breath to guide the motion. Keep shoulders relaxed and away from ears.",
+      "group": "Hamstring",
+      "posture": "supine",
+      "axis": "horizontal (head left, feet right)",
+      "label": "Slide heel along floor",
+      "instruction": "Lie on back, knees bent; slowly slide one heel forward to straighten knee, then return with control.",
+      "highlightColor": "#FF6B6B",
+      "description": "Lie on your back with both knees bent and feet flat on the floor (or one leg extended if preferred for stability). Slowly slide one heel forward along the floor, straightening the knee as far as comfortable while keeping the lower back pressed gently into the floor. Then slide the heel back to the starting bent position with control. This promotes gentle knee mobility and hamstring lengthening.",
       "touchFloor": [
-        "hands",
-        "knees"
+        "back",
+        "both heels",
+        "left foot"
       ],
-      "ghost": "neutral all-fours position, hands under shoulders, knees under hips",
-      "active": "spine smoothly oscillates between arch and round using sin curve",
-      "motionHint": "Spine smoothly oscillates using sinusoidal curve between extension (Cow: belly drops, tailbone lifts) and flexion (Cat: back rounds, chin tucks); pelvis and head follow the curve naturally; limbs stay stable",
+      "ghost": "starting position with both knees bent, feet on floor",
+      "active": "right leg slides forward and back; left leg stays bent; arrow follows sliding foot",
+      "motionHint": "One knee extends smoothly as heel slides forward along floor; opposite leg stays bent and stable; pelvis and lower back remain neutral and pressed down; no hip lift",
       "annotations": [
         {
-          "type": "arc",
-          "joint": "head",
-          "dx": 140,
-          "dy": 0,
-          "yOff": 15,
+          "type": "arrow",
+          "joint": "left_foot",
+          "dx": 0,
+          "dy": -5,
+          "len": 90,
+          "dir": 1,
           "color": "#FFD93D",
-          "label": "Arch (Cow)",
-          "visibleWhen": "cow"
-        },
-        {
-          "type": "arc",
-          "joint": "head",
-          "dx": 140,
-          "dy": 0,
-          "yOff": -10,
-          "color": "#FFD93D",
-          "label": "Round (Cat)",
-          "visibleWhen": "cat"
+          "label": "Slide heel",
+          "labelY": 228
         }
       ],
       "equipment": "none",
       "difficulty": "beginner",
-      "breathing": "Inhale deeply as you move into Cow (belly drops, chest opens); exhale fully as you move into Cat (spine rounds). Let breath lead the pace.",
+      "breathing": "Inhale to prepare; exhale slowly as you slide the heel forward and straighten. Inhale as you return the heel.",
       "formCues": [
-        "Initiate movement from the pelvis and spine, not just head/neck",
-        "Keep shoulders broad and away from ears",
-        "Move within comfortable range; no forcing",
-        "Sync breath fully with spinal movement"
+        "Keep lower back gently pressed into the floor throughout",
+        "Move slowly with full control; no momentum",
+        "Straighten knee only to comfortable range (slight stretch behind thigh/knee)",
+        "Opposite foot stays planted; avoid pelvic tilt or rotation"
       ],
       "commonErrors": [
-        "Only moving head/neck instead of whole spine",
-        "Collapsing shoulders or sinking into wrists",
-        "Holding breath or moving too quickly",
-        "Over-rounding or over-extending into pain"
+        "Lifting lower back or arching as leg straightens",
+        "Using momentum or jerking the leg",
+        "Rotating pelvis or lifting opposite hip",
+        "Over-straightening into pain or hyperextension"
       ],
-      "suggestedProtocol": "1-2 minutes continuous flow (8-12 slow cycles), or 5-10 reps each direction"
+      "suggestedProtocol": "2-3 sets of 10-15 controlled reps per leg (or 60s total time)"
     },
     {
       "id": "bridges",
@@ -151,14 +143,14 @@
       "label": "Arch and round spine",
       "instruction": "On hands and knees, inhale to arch/drop belly (Cow), exhale to round spine (Cat); move with breath.",
       "highlightColor": "#22C55E",
-      "description": "Start on hands and knees in a neutral tabletop position (wrists under shoulders, knees under hips, spine neutral). Inhale as you drop your belly toward the floor, lift your chest and tailbone (Cow pose - spinal extension). Exhale as you round your spine upward toward the ceiling, tuck your chin and tailbone (Cat pose - spinal flexion). Move smoothly between the two, using your breath to guide the motion.",
+      "description": "Start on hands and knees in a neutral tabletop position (wrists under shoulders, knees under hips, spine neutral). Inhale as you drop your belly toward the floor, lift your chest and tailbone (Cow pose - spinal extension). Exhale as you round your spine upward toward the ceiling, tuck your chin and tailbone (Cat pose - spinal flexion). Move smoothly between the two, using your breath to guide the motion. Keep shoulders relaxed and away from ears.",
       "touchFloor": [
         "hands",
         "knees"
       ],
       "ghost": "neutral all-fours position, hands under shoulders, knees under hips",
       "active": "spine smoothly oscillates between arch and round using sin curve",
-      "motionHint": "Spine oscillates between extension (Cow) and flexion (Cat); pelvis follows the curve naturally",
+      "motionHint": "Spine smoothly oscillates using sinusoidal curve between extension (Cow: belly drops, tailbone lifts) and flexion (Cat: back rounds, chin tucks); pelvis and head follow the curve naturally; limbs stay stable",
       "annotations": [
         {
           "type": "arc",
@@ -183,114 +175,20 @@
       ],
       "equipment": "none",
       "difficulty": "beginner",
-      "breathing": "Inhale deeply as you move into Cow; exhale fully as you move into Cat. Let breath lead the pace.",
+      "breathing": "Inhale deeply as you move into Cow (belly drops, chest opens); exhale fully as you move into Cat (spine rounds). Let breath lead the pace.",
       "formCues": [
-        "Initiate movement from pelvis and spine, not just head/neck",
-        "Keep shoulders broad",
-        "Move within comfortable range",
+        "Initiate movement from the pelvis and spine, not just head/neck",
+        "Keep shoulders broad and away from ears",
+        "Move within comfortable range; no forcing",
         "Sync breath fully with spinal movement"
       ],
       "commonErrors": [
-        "Only moving head/neck",
-        "Collapsing shoulders",
-        "Holding breath",
-        "Over-rounding or over-extending"
+        "Only moving head/neck instead of whole spine",
+        "Collapsing shoulders or sinking into wrists",
+        "Holding breath or moving too quickly",
+        "Over-rounding or over-extending into pain"
       ],
-      "suggestedProtocol": "1-2 minutes continuous flow (8-12 slow cycles)"
-    },
-    {
-      "id": "step-ups",
-      "name": "Step-Ups",
-      "priority": 3,
-      "group": "Quad",
-      "posture": "standing",
-      "axis": "vertical",
-      "label": "Step up onto platform",
-      "instruction": "Step one foot onto platform, drive up, step down, repeat.",
-      "highlightColor": "#FF6B6B",
-      "description": "Stand facing a sturdy platform or step (6-12 inches). Step one foot fully onto the platform, drive through heel to stand tall on platform, then step the trailing foot up. Reverse: step down leading with same foot or alternate.",
-      "touchFloor": [
-        "back foot (on ground)",
-        "front foot (on platform)"
-      ],
-      "ghost": "standing facing platform, both feet on ground",
-      "active": "one foot steps up onto platform, other leg drives up, then step back down",
-      "motionHint": "One foot steps up onto platform; other leg drives up; controlled step down",
-      "annotations": [
-        {
-          "type": "arrow",
-          "joint": "right_foot",
-          "dx": 0,
-          "dy": 5,
-          "len": -15,
-          "dir": -1,
-          "vertical": true,
-          "color": "#FF6B6B",
-          "label": "Step up",
-          "labelY": 163
-        }
-      ],
-      "equipment": "stable step or platform (6-12 inches)",
-      "difficulty": "beginner",
-      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
-      "formCues": [
-        "Keep torso upright and core engaged",
-        "Knees track over toes",
-        "Drive through heel",
-        "Control the lowering phase"
-      ],
-      "commonErrors": [
-        "Knees caving inward",
-        "Leaning torso too far forward",
-        "Locking knees at top",
-        "Lifting heel"
-      ],
-      "suggestedProtocol": "2-3 sets of 8-15 reps (controlled tempo, 2-3s eccentric)"
-    },
-    {
-      "id": "wall-sits",
-      "name": "Wall Sits",
-      "priority": 3,
-      "group": "Quad",
-      "posture": "standing",
-      "axis": "vertical (against wall)",
-      "label": "Slide down wall to 90 degrees",
-      "instruction": "Lean back against wall, slide down until knees at 90 degrees, hold.",
-      "highlightColor": "#FF6B6B",
-      "description": "Stand with back against wall, feet shoulder-width about 2 feet from wall. Slide down wall by bending knees until thighs are parallel to floor (knees ~90 degrees). Hold position, then slide back up.",
-      "touchFloor": [
-        "both feet"
-      ],
-      "ghost": "standing upright against wall",
-      "active": "slide down wall into seated position (knees 90 degrees), hold briefly, return up",
-      "motionHint": "Back against wall; slide down to 90 degree knee bend; hold then slide up",
-      "holdFrames": 24,
-      "annotations": [
-        {
-          "type": "text",
-          "joint": "hip",
-          "dx": 25,
-          "dy": 10,
-          "color": "#FF6B6B",
-          "text": "Slide down"
-        }
-      ],
-      "equipment": "wall",
-      "difficulty": "beginner",
-      "breathing": "Breathe deeply and evenly throughout the hold. Avoid holding your breath.",
-      "formCues": [
-        "Keep torso upright",
-        "Knees track over toes",
-        "Drive through heel",
-        "Control the lowering phase"
-      ],
-      "commonErrors": [
-        "Knees caving inward",
-        "Leaning torso forward",
-        "Locking knees",
-        "Lifting heel"
-      ],
-      "suggestedProtocol": "2-4 sets of 20-60 second holds (or as tolerated pain-free)"
+      "suggestedProtocol": "1-2 minutes continuous flow (8-12 slow cycles), or 5-10 reps each direction"
     },
     {
       "id": "dead-bugs",
@@ -979,7 +877,7 @@
           "len": 35,
           "dir": 1,
           "color": "#22C55E",
-          "label": "Extend back",
+          "label": "Reach fwd",
           "labelY": 138
         }
       ],
@@ -1386,6 +1284,107 @@
     },
     {
       "id": "straight-leg-raises",
+      "name": "Straight Leg Raises",
+      "priority": 3,
+      "group": "Quad",
+      "posture": "supine",
+      "axis": "horizontal",
+      "label": "Lift straight leg up and down",
+      "instruction": "Lie on back, one leg straight, lift up to 45 degrees, lower.",
+      "highlightColor": "#FF6B6B",
+      "description": "Lie on back with one knee bent and foot flat on floor for stability. Other leg straight with foot flexed. Lift straight leg up to about 45 degrees or until thigh is level with bent knee, then lower slowly with control.",
+      "touchFloor": [
+        "back",
+        "bent foot",
+        "straight heel"
+      ],
+      "ghost": "on back with one knee bent/foot on floor, other leg straight on floor",
+      "active": "straight leg lifts up to ~45 degrees, lowers back down under control",
+      "motionHint": "Supine with one leg bent; straight leg lifts to ~45 degrees then lowers",
+      "annotations": [
+        {
+          "type": "arrow",
+          "joint": "left_foot",
+          "dx": 0,
+          "dy": 5,
+          "len": -20,
+          "dir": -1,
+          "color": "#FF6B6B",
+          "label": "Lift leg",
+          "labelY": 148,
+          "vertical": true
+        }
+      ],
+      "equipment": "none",
+      "difficulty": "beginner",
+      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
+      "formCues": [
+        "Keep torso upright and core engaged",
+        "Knees track over toes (no valgus collapse)",
+        "Drive through heel or full foot",
+        "Control the lowering phase",
+        "Press lower back gently into floor where cued (avoid excessive arch)"
+      ],
+      "commonErrors": [
+        "Knees caving inward (valgus)",
+        "Leaning torso too far forward/back",
+        "Locking knees at top",
+        "Lifting heel off ground/platform"
+      ],
+      "suggestedProtocol": "2-3 sets of 8-15 reps (controlled tempo, 2-3s eccentric)"
+    },
+    {
+      "id": "step-ups",
+      "name": "Step-Ups",
+      "priority": 3,
+      "group": "Quad",
+      "posture": "standing",
+      "axis": "vertical",
+      "label": "Step up onto platform",
+      "instruction": "Step one foot onto platform, drive up, step down, repeat.",
+      "highlightColor": "#FF6B6B",
+      "description": "Stand facing a sturdy platform or step (6-12 inches). Step one foot fully onto the platform, drive through heel to stand tall on platform, then step the trailing foot up. Reverse: step down leading with same foot or alternate.",
+      "touchFloor": [
+        "back foot (on ground)",
+        "front foot (on platform)"
+      ],
+      "ghost": "standing facing platform, both feet on ground",
+      "active": "one foot steps up onto platform, other leg drives up, then step back down",
+      "motionHint": "One foot steps up onto platform; other leg drives up; controlled step down",
+      "annotations": [
+        {
+          "type": "arrow",
+          "joint": "right_foot",
+          "dx": 0,
+          "dy": 5,
+          "len": -15,
+          "dir": -1,
+          "color": "#FF6B6B",
+          "label": "Step up",
+          "labelY": 163,
+          "vertical": true
+        }
+      ],
+      "equipment": "stable step or platform (6-12 inches)",
+      "difficulty": "beginner",
+      "breathing": "Breathe steadily throughout. Exhale during the effort or concentric phase; inhale on the return or eccentric phase.",
+      "formCues": [
+        "Keep torso upright and core engaged",
+        "Knees track over toes (no valgus collapse)",
+        "Drive through heel or full foot",
+        "Control the lowering phase",
+        "Soft knees, weight balanced, core lightly braced"
+      ],
+      "commonErrors": [
+        "Knees caving inward (valgus)",
+        "Leaning torso too far forward/back",
+        "Locking knees at top",
+        "Lifting heel off ground/platform"
+      ],
+      "suggestedProtocol": "2-3 sets of 8-15 reps (controlled tempo, 2-3s eccentric)"
+    },
+    {
+      "id": "wall-sits",
       "name": "Wall Sits",
       "priority": 3,
       "group": "Quad",
@@ -1401,6 +1400,7 @@
       "ghost": "standing upright against wall",
       "active": "slide down wall into seated position (knees 90 degrees), hold briefly, return up",
       "motionHint": "Back against wall; slide down to 90 degree knee bend; hold then slide up",
+      "holdFrames": 24,
       "annotations": [
         {
           "type": "text",
@@ -1411,9 +1411,8 @@
           "text": "Slide down"
         }
       ],
-      "equipment": "none",
+      "equipment": "wall",
       "difficulty": "beginner",
-      "holdFrames": 24,
       "breathing": "Breathe deeply and evenly throughout the hold. Avoid holding your breath.",
       "formCues": [
         "Keep torso upright and core engaged",
@@ -1640,7 +1639,9 @@
       "motionHint": "Standing on one leg; opposite leg traces circles at the hip joint",
       "rotation": {
         "joint": "right_foot",
+        "angle": 45,
         "radius": 25,
+        "phase": 0,
         "mode": "continuous"
       },
       "annotations": [

@@ -648,6 +648,39 @@ function checkLabelLength(sceneId) {
   return { pass: issues.length === 0, issues, note: issues.length === 0 ? 'Labels reasonable length' : issues.join('; ') };
 }
 
+function checkInstructionWidth(sceneId) {
+  const ex = plan.exercises.find(e => e.id === sceneId);
+  if (!ex) return { pass: true, note: 'No exercise' };
+  const text = ex.instruction || ex.label || '';
+  const maxChars = 55;
+  // Check if any single line in the word-wrapped text would exceed maxChars
+  let longest = 0;
+  for (const w of text.split(' ')) {
+    longest = Math.max(longest, w.length);
+  }
+  // Split into estimated lines and check each
+  let lineLen = 0;
+  let issues = [];
+  for (const w of text.split(' ')) {
+    if (lineLen + 1 + w.length > maxChars) {
+      if (lineLen > maxChars) issues.push(`Line "${lineLen} chars" exceeds ${maxChars} max`);
+      lineLen = w.length;
+    } else {
+      lineLen += (lineLen > 0 ? 1 : 0) + w.length;
+    }
+  }
+  // Check single words that exceed maxChars
+  if (longest > maxChars) {
+    issues.push(`Word "${text.split(' ').find(w => w.length > maxChars)}" (${longest} chars) exceeds ${maxChars} max`);
+  }
+  // Check if total lines would push below y=58+14n into skeleton zone
+  const estimatedLines = Math.ceil(text.length / maxChars);
+  if (estimatedLines > 3) {
+    issues.push(`Instruction would wrap to ${estimatedLines} lines, may overlap skeleton`);
+  }
+  return { pass: issues.length === 0, issues, note: issues.length === 0 ? 'Instruction text fits canvas' : issues.join('; ') };
+}
+
 function checkSingleWordLabels(sceneId) {
   const ex = plan.exercises.find(e => e.id === sceneId);
   if (!ex || !ex.annotations) return { pass: true, note: 'No annotations' };
@@ -812,10 +845,13 @@ function validateScene(scene) {
   // Check 21: Label length (labels shouldn't overflow canvas)
   results.checks.labelLength = checkLabelLength(scene.dir);
 
-  // Check 22: Single-word labels (all annotations should be 2+ words)
+  // Check 22: Instruction text width (shouldn't overflow canvas at 55 chars)
+  results.checks.instructionWidth = checkInstructionWidth(scene.dir);
+
+  // Check 23: Single-word labels (all annotations should be 2+ words)
   results.checks.singleWordLabels = checkSingleWordLabels(scene.dir);
 
-  // Check 23: touchFloor items recognized
+  // Check 24: touchFloor items recognized
   results.checks.touchFloor = checkTouchFloor(validFrames, scene.dir);
 
   // Check 23: Plan-to-generator consistency (every exercise in plan has a MOTION def)
