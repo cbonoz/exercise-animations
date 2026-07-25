@@ -12,10 +12,10 @@
     "floorColor": "#444",
     "floorStroke": 3,
     "ghostColor": "#555",
-    "ghostStroke": 2,
-    "ghostOpacity": 0.25,
+    "ghostStroke": 3,
+    "ghostOpacity": 0.3,
     "activeColor": "#FFF",
-    "activeStroke": 4,
+    "activeStroke": 5,
     "labelFont": "sans-serif",
     "labelSize": 10
   },

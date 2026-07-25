@@ -165,6 +165,10 @@ const POSTURES = {
 // All joint names for interpolation
 const JOINTS = ['head','neck','shoulder','hip','left_elbow','left_hand','right_elbow','right_hand','left_knee','left_foot','right_knee','right_foot'];
 
+// Facing direction per posture (null = no directionality, e.g. horizontal poses)
+const FACING = { standing: 'right', kneeling: 'right', seated: 'right', 'all-fours': 'left', supine: null, prone: null, 'side-lying': null };
+const BACK_LIMBS = new Set(['left_elbow','left_hand','left_knee','left_foot']);
+
 function lerp(a, b, t) { return a + (b - a) * t; }
 
 // ============== EXERCISE MOTION DEFINITIONS ==============
@@ -621,6 +625,13 @@ function makeSvg(frame, exercise, motionData) {
   const annotations = motionData.annotations || [];
   const catCowPhase = motionData._catCowPhase || null;
 
+  // Build highlighted joints set (for articulation dot colors)
+  const highlightedJoints = new Set();
+  for (const [a, b] of (motionData.highlight || [])) {
+    highlightedJoints.add(a);
+    highlightedJoints.add(b);
+  }
+
   // Build ghost (rest position — applies rest offsets so ghost matches starting pose)
   const ghost = computeRestGhost(POSTURES[pk], motionData, exercise);
   let ghostSvg = '';
@@ -628,19 +639,51 @@ function makeSvg(frame, exercise, motionData) {
     if (!ghost[a] || !ghost[b]) continue;
     ghostSvg += `<line x1="${ghost[a].x}" y1="${ghost[a].y}" x2="${ghost[b].x}" y2="${ghost[b].y}"/>`;
   }
+  for (const j of JOINTS) {
+    if (!ghost[j]) continue;
+    ghostSvg += `<circle cx="${ghost[j].x}" cy="${ghost[j].y}" r="2" fill="none"/>`;
+  }
 
-  // Build active skeleton
+  // Build active skeleton with front/back limb distinction
+  const facing = FACING[pk] || null;
+  const backLimbs = facing === 'left' ? new Set(['right_elbow','right_hand','right_knee','right_foot']) : BACK_LIMBS;
   let activeSvg = '';
   for (const [a, b] of lines) {
     if (!joints[a] || !joints[b]) continue;
-    activeSvg += `<line x1="${+joints[a].x.toFixed(1)}" y1="${+joints[a].y.toFixed(1)}" x2="${+joints[b].x.toFixed(1)}" y2="${+joints[b].y.toFixed(1)}"/>`;
+    const isBack = facing && (backLimbs.has(a) || backLimbs.has(b));
+    activeSvg += `<line x1="${+joints[a].x.toFixed(1)}" y1="${+joints[a].y.toFixed(1)}" x2="${+joints[b].x.toFixed(1)}" y2="${+joints[b].y.toFixed(1)}"${isBack ? ' opacity="0.4"' : ''}/>`;
   }
 
   // Build highlights
   let highlightSvg = '';
   for (const [a, b] of (motionData.highlight || [])) {
     if (!joints[a] || !joints[b]) continue;
-    highlightSvg += `<line x1="${+joints[a].x.toFixed(1)}" y1="${+joints[a].y.toFixed(1)}" x2="${+joints[b].x.toFixed(1)}" y2="${+joints[b].y.toFixed(1)}" stroke="${accent}" stroke-width="5" opacity="0.6"/>`;
+    highlightSvg += `<line x1="${+joints[a].x.toFixed(1)}" y1="${+joints[a].y.toFixed(1)}" x2="${+joints[b].x.toFixed(1)}" y2="${+joints[b].y.toFixed(1)}" stroke="${accent}" stroke-width="6" opacity="0.75"/>`;
+  }
+
+  // Build joint articulation dots
+  let dotSvg = '';
+  for (const j of JOINTS) {
+    if (!joints[j]) continue;
+    const isHL = highlightedJoints.has(j);
+    dotSvg += `<circle cx="${+joints[j].x.toFixed(1)}" cy="${+joints[j].y.toFixed(1)}" r="${isHL ? 3 : 2.5}" fill="${isHL ? accent : '#FFF'}" stroke="none"/>`;
+  }
+
+  // Facing-direction nose indicator on head
+  let noseSvg = '';
+  if (facing && joints.head) {
+    const hx = +joints.head.x.toFixed(1);
+    const hy = +joints.head.y.toFixed(1);
+    const nd = facing === 'left' ? -1 : 1;
+    noseSvg += `<polygon points="${hx + hr * 0.6 * nd},${hy - 2} ${hx + (hr + 4) * nd},${hy} ${hx + hr * 0.6 * nd},${hy + 2}" fill="#FFF" stroke="none"/>`;
+  }
+
+  // Facing direction chevron on floor
+  let floorSvg = '';
+  if (facing) {
+    const nd = facing === 'left' ? -1 : 1;
+    const fx = facing === 'left' ? 50 : 350;
+    floorSvg += `<polygon points="${fx},${floorY + 6} ${fx + 7 * nd},${floorY} ${fx},${floorY - 6}" fill="#444" opacity="0.5"/>`;
   }
 
   // Build annotations
@@ -672,10 +715,10 @@ function makeSvg(frame, exercise, motionData) {
         const clampedAy1 = Math.max(10, Math.min(290, ay));
         annoSvg += `<line x1="${ax}" y1="${clampedAy1}" x2="${ax}" y2="${clampedAy2}" stroke="${a.color}" stroke-width="2" stroke-dasharray="4,3"/>`;
         annoSvg += `<polygon points="${ax-5 * arrowDir},${clampedAy2} ${ax},${clampedAy2+10 * arrowDir} ${ax+5 * arrowDir},${clampedAy2}" fill="${a.color}"/>`;
-        if (a.label) {
-          const labelYpos = Math.max(15, Math.min(285, (clampedAy1 + clampedAy2) / 2));
-          annoSvg += `<text x="${ax + 14}" y="${labelYpos}" fill="${a.color}" font-size="10" text-anchor="middle" font-family="sans-serif">${a.label}</text>`;
-        }
+          if (a.label) {
+            const labelYpos = Math.max(15, Math.min(285, (clampedAy1 + clampedAy2) / 2));
+            annoSvg += `<text x="${ax + 14}" y="${labelYpos}" fill="${a.color}" font-size="10" text-anchor="middle" font-family="sans-serif" paint-order="stroke" stroke="#0f0f1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${a.label}</text>`;
+          }
       } else {
         const ax2 = ax + len * dir;
         const arrowDir = ax2 >= ax ? 1 : -1;
@@ -683,10 +726,10 @@ function makeSvg(frame, exercise, motionData) {
         const clampedAx1 = Math.max(10, Math.min(390, ax));
         annoSvg += `<line x1="${clampedAx1}" y1="${ay}" x2="${clampedAx2}" y2="${ay}" stroke="${a.color}" stroke-width="2" stroke-dasharray="4,3"/>`;
         annoSvg += `<polygon points="${clampedAx2},${ay-5 * arrowDir} ${clampedAx2+10 * arrowDir},${ay} ${clampedAx2},${ay+5 * arrowDir}" fill="${a.color}"/>`;
-        if (a.label) {
-          const labelX = Math.max(20, Math.min(380, (clampedAx1 + clampedAx2) / 2));
-          annoSvg += `<text x="${labelX}" y="${labelY}" fill="${a.color}" font-size="10" text-anchor="middle" font-family="sans-serif">${a.label}</text>`;
-        }
+          if (a.label) {
+            const labelX = Math.max(20, Math.min(380, (clampedAx1 + clampedAx2) / 2));
+            annoSvg += `<text x="${labelX}" y="${labelY}" fill="${a.color}" font-size="10" text-anchor="middle" font-family="sans-serif" paint-order="stroke" stroke="#0f0f1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${a.label}</text>`;
+          }
       }
     } else if (a.type === 'arc') {
       const refJ = joints[a.joint] || ghost[a.joint] || { x: 205, y: 55 };
@@ -694,14 +737,14 @@ function makeSvg(frame, exercise, motionData) {
       const cy = refJ.y + (a.dy || 0);
       const yOff = a.yOff || 20;
       annoSvg += `<path d="M ${cx-25} ${cy+yOff-10} Q ${cx} ${cy-yOff-8} ${cx+25} ${cy+yOff-10}" stroke="${a.color}" stroke-width="2" fill="none" stroke-dasharray="4,3"/>`;
-      if (a.label) annoSvg += `<text x="${cx}" y="${cy-yOff-12}" fill="${a.color}" font-size="10" text-anchor="middle" font-family="sans-serif">${a.label}</text>`;
+      if (a.label) annoSvg += `<text x="${cx}" y="${cy-yOff-12}" fill="${a.color}" font-size="10" text-anchor="middle" font-family="sans-serif" paint-order="stroke" stroke="#0f0f1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${a.label}</text>`;
     } else if (a.type === 'text') {
       const j = a.joint || 'right_hand';
       const jp = joints[j] || ghost[j];
       if (jp) {
         const tx = jp.x + (a.dx || 0);
         const ty = jp.y + (a.dy || 0);
-        annoSvg += `<text x="${+tx.toFixed(1)}" y="${+ty.toFixed(1)}" fill="${a.color}" font-size="10" font-family="sans-serif">${a.text}</text>`;
+        annoSvg += `<text x="${+tx.toFixed(1)}" y="${+ty.toFixed(1)}" fill="${a.color}" font-size="10" font-family="sans-serif" paint-order="stroke" stroke="#0f0f1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${a.text}</text>`;
       }
     }
   }
@@ -731,8 +774,18 @@ function makeSvg(frame, exercise, motionData) {
   ).join('');
 
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}">
+<defs>
+  <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+    <feGaussianBlur stdDeviation="2.5" result="blur"/>
+    <feMerge>
+      <feMergeNode in="blur"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+</defs>
 <rect width="${W}" height="${H}" fill="${S.bgColor}"/>
 <line x1="20" y1="${floorY}" x2="380" y2="${floorY}" stroke="${S.floorColor}" stroke-width="${S.floorStroke}" stroke-linecap="round"/>
+${floorSvg}
 <text x="200" y="38" fill="#888" font-size="13" font-family="sans-serif" text-anchor="middle">${title}</text>
 <text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">${instructionSvg}</text>
 <g stroke="${S.ghostColor}" stroke-width="${S.ghostStroke}" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="${S.ghostOpacity}">
@@ -741,8 +794,10 @@ function makeSvg(frame, exercise, motionData) {
 </g>
 <g stroke="${S.activeColor}" stroke-width="${S.activeStroke}" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="${+joints.head.x.toFixed(1)}" cy="${+joints.head.y.toFixed(1)}" r="${hr}" fill="#FFF" stroke="none"/>
+  ${noseSvg}
   ${activeSvg}
-  ${highlightSvg}
+  <g filter="url(#glow)">${highlightSvg}</g>
+  ${dotSvg}
 </g>
 ${annoSvg}
 </svg>`;

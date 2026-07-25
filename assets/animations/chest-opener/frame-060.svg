@@ -1,16 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+<defs>
+  <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+    <feGaussianBlur stdDeviation="2.5" result="blur"/>
+    <feMerge>
+      <feMergeNode in="blur"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+</defs>
 <rect width="400" height="300" fill="#0f0f1a"/>
 <line x1="20" y1="225" x2="380" y2="225" stroke="#444" stroke-width="3" stroke-linecap="round"/>
+<polygon points="350,231 357,225 350,219" fill="#444" opacity="0.5"/>
 <text x="200" y="38" fill="#888" font-size="13" font-family="sans-serif" text-anchor="middle">Chest Opener</text>
 <text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle"><tspan x="200" dy="0">Stand with hands clasped behind back, straighten arms,</tspan><tspan x="200" dy="14">open chest, hold.</tspan></text>
-<g stroke="#555" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.25">
+<g stroke="#555" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.3">
   <circle cx="200" cy="73" r="10" fill="#444" stroke="none"/>
-  <line x1="200" y1="73" x2="200" y2="81"/><line x1="200" y1="81" x2="200" y2="89"/><line x1="200" y1="89" x2="200" y2="113"/><line x1="200" y1="89" x2="172" y2="114"/><line x1="172" y1="114" x2="159" y2="136"/><line x1="200" y1="89" x2="228" y2="114"/><line x1="228" y1="114" x2="241" y2="136"/><line x1="200" y1="113" x2="195" y2="170"/><line x1="195" y1="170" x2="190" y2="222"/><line x1="200" y1="113" x2="205" y2="170"/><line x1="205" y1="170" x2="210" y2="222"/>
+  <line x1="200" y1="73" x2="200" y2="81"/><line x1="200" y1="81" x2="200" y2="89"/><line x1="200" y1="89" x2="200" y2="113"/><line x1="200" y1="89" x2="172" y2="114"/><line x1="172" y1="114" x2="159" y2="136"/><line x1="200" y1="89" x2="228" y2="114"/><line x1="228" y1="114" x2="241" y2="136"/><line x1="200" y1="113" x2="195" y2="170"/><line x1="195" y1="170" x2="190" y2="222"/><line x1="200" y1="113" x2="205" y2="170"/><line x1="205" y1="170" x2="210" y2="222"/><circle cx="200" cy="73" r="2" fill="none"/><circle cx="200" cy="81" r="2" fill="none"/><circle cx="200" cy="89" r="2" fill="none"/><circle cx="200" cy="113" r="2" fill="none"/><circle cx="172" cy="114" r="2" fill="none"/><circle cx="159" cy="136" r="2" fill="none"/><circle cx="228" cy="114" r="2" fill="none"/><circle cx="241" cy="136" r="2" fill="none"/><circle cx="195" cy="170" r="2" fill="none"/><circle cx="190" cy="222" r="2" fill="none"/><circle cx="205" cy="170" r="2" fill="none"/><circle cx="210" cy="222" r="2" fill="none"/>
 </g>
-<g stroke="#FFF" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<g stroke="#FFF" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="200" cy="72.1" r="10" fill="#FFF" stroke="none"/>
-  <line x1="200" y1="72.1" x2="200" y2="80.1"/><line x1="200" y1="80.1" x2="200" y2="88.1"/><line x1="200" y1="88.1" x2="200" y2="112.1"/><line x1="200" y1="88.1" x2="167.7" y2="104.6"/><line x1="167.7" y1="104.6" x2="152.2" y2="122.4"/><line x1="200" y1="88.1" x2="232.3" y2="104.6"/><line x1="232.3" y1="104.6" x2="247.8" y2="122.4"/><line x1="200" y1="112.1" x2="195" y2="169.1"/><line x1="195" y1="169.1" x2="190" y2="221.1"/><line x1="200" y1="112.1" x2="205" y2="169.1"/><line x1="205" y1="169.1" x2="210" y2="221.1"/>
-  <line x1="200" y1="80.1" x2="200" y2="88.1" stroke="#FF9500" stroke-width="5" opacity="0.6"/><line x1="200" y1="88.1" x2="200" y2="112.1" stroke="#FF9500" stroke-width="5" opacity="0.6"/>
+  <polygon points="206,70.1 214,72.1 206,74.1" fill="#FFF" stroke="none"/>
+  <line x1="200" y1="72.1" x2="200" y2="80.1"/><line x1="200" y1="80.1" x2="200" y2="88.1"/><line x1="200" y1="88.1" x2="200" y2="112.1"/><line x1="200" y1="88.1" x2="167.7" y2="104.6" opacity="0.4"/><line x1="167.7" y1="104.6" x2="152.2" y2="122.4" opacity="0.4"/><line x1="200" y1="88.1" x2="232.3" y2="104.6"/><line x1="232.3" y1="104.6" x2="247.8" y2="122.4"/><line x1="200" y1="112.1" x2="195" y2="169.1" opacity="0.4"/><line x1="195" y1="169.1" x2="190" y2="221.1" opacity="0.4"/><line x1="200" y1="112.1" x2="205" y2="169.1"/><line x1="205" y1="169.1" x2="210" y2="221.1"/>
+  <g filter="url(#glow)"><line x1="200" y1="80.1" x2="200" y2="88.1" stroke="#FF9500" stroke-width="6" opacity="0.75"/><line x1="200" y1="88.1" x2="200" y2="112.1" stroke="#FF9500" stroke-width="6" opacity="0.75"/></g>
+  <circle cx="200" cy="72.1" r="2.5" fill="#FFF" stroke="none"/><circle cx="200" cy="80.1" r="3" fill="#FF9500" stroke="none"/><circle cx="200" cy="88.1" r="3" fill="#FF9500" stroke="none"/><circle cx="200" cy="112.1" r="3" fill="#FF9500" stroke="none"/><circle cx="167.7" cy="104.6" r="2.5" fill="#FFF" stroke="none"/><circle cx="152.2" cy="122.4" r="2.5" fill="#FFF" stroke="none"/><circle cx="232.3" cy="104.6" r="2.5" fill="#FFF" stroke="none"/><circle cx="247.8" cy="122.4" r="2.5" fill="#FFF" stroke="none"/><circle cx="195" cy="169.1" r="2.5" fill="#FFF" stroke="none"/><circle cx="190" cy="221.1" r="2.5" fill="#FFF" stroke="none"/><circle cx="205" cy="169.1" r="2.5" fill="#FFF" stroke="none"/><circle cx="210" cy="221.1" r="2.5" fill="#FFF" stroke="none"/>
 </g>
-<text x="230" y="78.1" fill="#FF9500" font-size="10" font-family="sans-serif">Open chest</text>
+<text x="230" y="78.1" fill="#FF9500" font-size="10" font-family="sans-serif" paint-order="stroke" stroke="#0f0f1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Open chest</text>
 </svg>
