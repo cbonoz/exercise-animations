@@ -1739,41 +1739,6 @@
       "ghost": "seated with front leg bent at ~90 degrees, back leg extended behind",
       "active": "torso folds forward over front leg, deepening hip stretch, hold",
       "motionHint": "Seated; one leg bent forward at 90 degrees; torso folds forward over shin",
-      "rest": {
-        "right_knee": {
-          "x": 30,
-          "y": 0
-        },
-        "right_foot": {
-          "x": 10,
-          "y": 20
-        },
-        "left_knee": {
-          "x": -20,
-          "y": 5
-        },
-        "left_foot": {
-          "x": -40,
-          "y": 20
-        },
-        "left_elbow": {
-          "x": 10,
-          "y": 5
-        },
-        "left_hand": {
-          "x": 15,
-          "y": 10
-        },
-        "right_elbow": {
-          "x": -10,
-          "y": 5
-        },
-        "right_hand": {
-          "x": -15,
-          "y": 10
-        }
-      },
-      "holdFrames": 36,
       "annotations": [
         {
           "type": "text",
@@ -1913,9 +1878,9 @@
       "annotations": [
         {
           "type": "text",
-          "joint": "right_hand",
+          "joint": "left_hand",
           "dx": 15,
-          "dy": -20,
+          "dy": -15,
           "color": "#22C55E",
           "text": "Rotate up"
         }

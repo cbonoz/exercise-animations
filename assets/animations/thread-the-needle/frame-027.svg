@@ -18,11 +18,11 @@
   <line x1="175" y1="73" x2="186" y2="76"/><line x1="186" y1="76" x2="200" y2="87"/><line x1="200" y1="87" x2="240" y2="110"/><line x1="200" y1="87" x2="170" y2="189"/><line x1="240" y1="110" x2="245" y2="145"/><line x1="245" y1="145" x2="255" y2="189"/><circle cx="175" cy="73" r="2" fill="none"/><circle cx="186" cy="76" r="2" fill="none"/><circle cx="200" cy="87" r="2" fill="none"/><circle cx="240" cy="110" r="2" fill="none"/><circle cx="170" cy="189" r="2" fill="none"/><circle cx="245" cy="145" r="2" fill="none"/><circle cx="255" cy="189" r="2" fill="none"/>
 </g>
 <g stroke="#FFF" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="165.6" cy="82.4" r="10" fill="#FFF" stroke="none"/>
-  <polygon points="159.6,80.4 151.6,82.4 159.6,84.4" fill="#FFF" stroke="none"/>
-  <line x1="165.6" y1="82.4" x2="178.5" y2="85.4"/><line x1="178.5" y1="85.4" x2="204.7" y2="101.1"/><line x1="204.7" y1="101.1" x2="232.5" y2="114.7"/><line x1="204.7" y1="101.1" x2="202.8" y2="189"/><line x1="232.5" y1="114.7" x2="249.7" y2="140.3"/><line x1="249.7" y1="140.3" x2="264.4" y2="184.3"/>
-  <g filter="url(#glow)"><line x1="204.7" y1="101.1" x2="202.8" y2="189" stroke="#22C55E" stroke-width="6" opacity="0.75"/></g>
-  <circle cx="165.6" cy="82.4" r="2.5" fill="#FFF" stroke="none"/><circle cx="178.5" cy="85.4" r="2.5" fill="#FFF" stroke="none"/><circle cx="204.7" cy="101.1" r="3" fill="#22C55E" stroke="none"/><circle cx="232.5" cy="114.7" r="2.5" fill="#FFF" stroke="none"/><circle cx="202.8" cy="189" r="3" fill="#22C55E" stroke="none"/><circle cx="249.7" cy="140.3" r="2.5" fill="#FFF" stroke="none"/><circle cx="264.4" cy="184.3" r="2.5" fill="#FFF" stroke="none"/>
+  <circle cx="186.3" cy="87.1" r="10" fill="#FFF" stroke="none"/>
+  <polygon points="180.3,85.1 172.3,87.1 180.3,89.1" fill="#FFF" stroke="none"/>
+  <line x1="186.3" y1="87.1" x2="200.1" y2="92.9"/><line x1="200.1" y1="92.9" x2="218.8" y2="105.8"/><line x1="218.8" y1="105.8" x2="225.9" y2="114.7"/><line x1="218.8" y1="105.8" x2="245" y2="189"/><line x1="225.9" y1="114.7" x2="235.6" y2="149.7"/><line x1="235.6" y1="149.7" x2="245.6" y2="189"/>
+  <g filter="url(#glow)"><line x1="218.8" y1="105.8" x2="245" y2="189" stroke="#22C55E" stroke-width="6" opacity="0.75"/></g>
+  <circle cx="186.3" cy="87.1" r="2.5" fill="#FFF" stroke="none"/><circle cx="200.1" cy="92.9" r="2.5" fill="#FFF" stroke="none"/><circle cx="218.8" cy="105.8" r="3" fill="#22C55E" stroke="none"/><circle cx="225.9" cy="114.7" r="2.5" fill="#FFF" stroke="none"/><circle cx="245" cy="189" r="3" fill="#22C55E" stroke="none"/><circle cx="235.6" cy="149.7" r="2.5" fill="#FFF" stroke="none"/><circle cx="245.6" cy="189" r="2.5" fill="#FFF" stroke="none"/>
 </g>
-<text x="217.8" y="204" fill="#22C55E" font-size="10" font-family="sans-serif" paint-order="stroke" stroke="#0f0f1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Thread arm</text>
+<text x="260" y="204" fill="#22C55E" font-size="10" font-family="sans-serif" paint-order="stroke" stroke="#0f0f1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Thread arm</text>
 </svg>
