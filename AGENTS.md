@@ -1,0 +1,1 @@
+When given a complex multi-item task, use `todowrite` to capture every item upfront. Work through them systematically until every single item is complete. If blocked, report exactly what's left. Before signing off, re-read the todo list and confirm everything is done.
