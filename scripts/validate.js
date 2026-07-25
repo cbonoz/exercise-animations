@@ -22,7 +22,8 @@ const FLOOR_GAP_TOLERANCE = { supine: 15, prone: 15, 'all-fours': 5, 'side-lying
 
 // Read generate.js to extract MOTIONS keys for consistency check
 const GENERATOR_JS = fs.readFileSync(path.join(ROOT, 'scripts', 'generate.js'), 'utf-8');
-const MOTIONS_KEYS = [...GENERATOR_JS.matchAll(/'([\w-]+)':\s*\{/g)].map(m => m[1]);
+const MOTIONS_SECTION = GENERATOR_JS.match(/const MOTIONS\s*=\s*\{([\s\S]*?)\};/);
+const MOTIONS_KEYS = MOTIONS_SECTION ? [...MOTIONS_SECTION[1].matchAll(/'([\w-]+)':\s*\{/g)].map(m => m[1]) : [];
 
 // Key frames to sample for critical analysis (start, quarter, mid, three-quarter, end)
 const KEY_FRAMES = [0, 7, 14, 21, 28, 35, 42, 49, 56, 63, 71];
@@ -150,7 +151,9 @@ function checkLottie(sceneDir) {
     if (l.assets.length !== 72) issues.push(`${l.assets.length} assets (expected 72)`);
     const missing = l.assets.filter(a => !fs.existsSync(path.join(sceneDir, a.p)));
     if (missing.length > 0) issues.push(`${missing.length} SVG frames missing in lottie.json`);
-    if (l.layers.length !== 1) issues.push(`${l.layers.length} layers (expected 1)`);
+    if (l.layers.length !== 72) issues.push(`${l.layers.length} layers (expected 72)`);
+    const invalidLayers = l.layers.filter(ly => ly.ty !== 2 || !ly.refId);
+    if (invalidLayers.length > 0) issues.push(`${invalidLayers.length} layers missing refId or wrong type`);
     return { pass: issues.length === 0, issues, note: issues.length === 0 ? 'Valid Lottie JSON' : issues.join('; ') };
   } catch (e) {
     return { pass: false, note: `Invalid JSON: ${e.message}` };
@@ -712,18 +715,22 @@ function checkTouchFloor(validFrames, sceneId) {
   return { pass: true, note: issues.length === 0 ? 'All touchFloor items recognized' : issues.join('; ') };
 }
 
-function checkPlanConsistency(sceneId) {
+let _globalConsistencyResult = null;
+
+function checkGlobalConsistency() {
+  if (_globalConsistencyResult) return _globalConsistencyResult;
   const planIds = plan.exercises.map(e => e.id);
   const missingInPlan = MOTIONS_KEYS.filter(k => !planIds.includes(k));
-  const missingInMotions = planIds.filter(id => !MOTIONS_KEYS.includes(id) && id === sceneId);
+  const missingInMotions = planIds.filter(id => !MOTIONS_KEYS.includes(id));
   const issues = [];
-  if (missingInPlan.length > 0 && missingInPlan.some(k => plan.exercises.some(e => e.id === sceneId && k === sceneId))) {
-    issues.push(`In MOTIONS but not in plan: ${missingInPlan.join(', ')}`);
-  }
-  if (missingInMotions.length > 0) {
-    issues.push(`In plan but not in MOTIONS: ${missingInMotions.join(', ')}`);
-  }
-  return { pass: issues.length === 0, issues, note: issues.length === 0 ? 'Plan and MOTIONS consistent' : issues.join('; ') };
+  if (missingInPlan.length > 0) issues.push(`In MOTIONS but not in plan: ${missingInPlan.join(', ')}`);
+  if (missingInMotions.length > 0) issues.push(`In plan but not in MOTIONS: ${missingInMotions.join(', ')}`);
+  _globalConsistencyResult = { pass: issues.length === 0, issues, note: issues.length === 0 ? 'Plan and MOTIONS consistent' : issues.join('; ') };
+  return _globalConsistencyResult;
+}
+
+function checkPlanConsistency(sceneId) {
+  return checkGlobalConsistency();
 }
 
 // ============ MAIN ============
@@ -776,7 +783,7 @@ function validateScene(scene) {
 
   // Get exercise metadata for hold/alternating awareness
   const exerciseMeta = plan.exercises.find(e => e.id === scene.dir) || {};
-  const hasHoldFrames = exerciseMeta.holdFrames > 0;
+  const hasHoldFrames = (exerciseMeta.holdFrames || 0) > 0;
   const isAlternating = exerciseMeta.alternating;
 
   // Check 7: Cycle closure (for alternating: compare rest positions across full cycle)

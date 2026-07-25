@@ -14,7 +14,7 @@
 <text x="200" y="38" fill="#888" font-size="13" font-family="sans-serif" text-anchor="middle">Hip Flexor Stretch</text>
 <text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle"><tspan x="200" dy="0">Lunge forward, shift hips forward, feel hip stretch,</tspan><tspan x="200" dy="14">hold.</tspan></text>
 <g stroke="#555" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.3">
-  <circle cx="180" cy="78" r="10" fill="#444" stroke="none"/>
+  <circle cx="180" cy="78" r="10" fill="#555" stroke="none"/>
   <line x1="180" y1="78" x2="180" y2="86"/><line x1="180" y1="86" x2="180" y2="95"/><line x1="180" y1="95" x2="175" y2="118"/><line x1="180" y1="95" x2="177" y2="107"/><line x1="177" y1="107" x2="169" y2="119"/><line x1="180" y1="95" x2="223" y2="107"/><line x1="223" y1="107" x2="231" y2="119"/><line x1="175" y1="118" x2="150" y2="223"/><line x1="150" y1="223" x2="140" y2="222"/><line x1="175" y1="118" x2="240" y2="165"/><line x1="240" y1="165" x2="240" y2="222"/><circle cx="180" cy="78" r="2" fill="none"/><circle cx="180" cy="86" r="2" fill="none"/><circle cx="180" cy="95" r="2" fill="none"/><circle cx="175" cy="118" r="2" fill="none"/><circle cx="177" cy="107" r="2" fill="none"/><circle cx="169" cy="119" r="2" fill="none"/><circle cx="223" cy="107" r="2" fill="none"/><circle cx="231" cy="119" r="2" fill="none"/><circle cx="150" cy="223" r="2" fill="none"/><circle cx="140" cy="222" r="2" fill="none"/><circle cx="240" cy="165" r="2" fill="none"/><circle cx="240" cy="222" r="2" fill="none"/>
 </g>
 <g stroke="#FFF" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">

@@ -14,7 +14,7 @@
 <text x="200" y="38" fill="#888" font-size="13" font-family="sans-serif" text-anchor="middle">Single-Leg Stance</text>
 <text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle"><tspan x="200" dy="0">Stand on one foot, hold balance, switch sides.</tspan></text>
 <g stroke="#555" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.3">
-  <circle cx="200" cy="73" r="10" fill="#444" stroke="none"/>
+  <circle cx="200" cy="73" r="10" fill="#555" stroke="none"/>
   <line x1="200" y1="73" x2="200" y2="81"/><line x1="200" y1="81" x2="200" y2="89"/><line x1="200" y1="89" x2="200" y2="113"/><line x1="200" y1="89" x2="182" y2="99"/><line x1="182" y1="99" x2="174" y2="111"/><line x1="200" y1="89" x2="218" y2="99"/><line x1="218" y1="99" x2="226" y2="111"/><line x1="200" y1="113" x2="195" y2="170"/><line x1="195" y1="170" x2="190" y2="222"/><line x1="200" y1="113" x2="205" y2="170"/><line x1="205" y1="170" x2="210" y2="222"/><circle cx="200" cy="73" r="2" fill="none"/><circle cx="200" cy="81" r="2" fill="none"/><circle cx="200" cy="89" r="2" fill="none"/><circle cx="200" cy="113" r="2" fill="none"/><circle cx="182" cy="99" r="2" fill="none"/><circle cx="174" cy="111" r="2" fill="none"/><circle cx="218" cy="99" r="2" fill="none"/><circle cx="226" cy="111" r="2" fill="none"/><circle cx="195" cy="170" r="2" fill="none"/><circle cx="190" cy="222" r="2" fill="none"/><circle cx="205" cy="170" r="2" fill="none"/><circle cx="210" cy="222" r="2" fill="none"/>
 </g>
 <g stroke="#FFF" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">

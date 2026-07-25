@@ -14,7 +14,7 @@
 <text x="200" y="38" fill="#888" font-size="13" font-family="sans-serif" text-anchor="middle">Pigeon Pose</text>
 <text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle"><tspan x="200" dy="0">Seated with one leg bent in front, other extended back,</tspan><tspan x="200" dy="14">fold forward.</tspan></text>
 <g stroke="#555" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.3">
-  <circle cx="155" cy="138" r="10" fill="#444" stroke="none"/>
+  <circle cx="155" cy="138" r="10" fill="#555" stroke="none"/>
   <line x1="155" y1="138" x2="155" y2="158"/><line x1="155" y1="158" x2="155" y2="173"/><line x1="155" y1="173" x2="155" y2="248"/><line x1="155" y1="173" x2="145" y2="188"/><line x1="145" y1="188" x2="140" y2="208"/><line x1="155" y1="173" x2="165" y2="188"/><line x1="165" y1="188" x2="170" y2="208"/><line x1="155" y1="248" x2="205" y2="240"/><line x1="205" y1="240" x2="215" y2="268"/><line x1="155" y1="248" x2="235" y2="235"/><line x1="235" y1="235" x2="245" y2="268"/><circle cx="155" cy="138" r="2" fill="none"/><circle cx="155" cy="158" r="2" fill="none"/><circle cx="155" cy="173" r="2" fill="none"/><circle cx="155" cy="248" r="2" fill="none"/><circle cx="145" cy="188" r="2" fill="none"/><circle cx="140" cy="208" r="2" fill="none"/><circle cx="165" cy="188" r="2" fill="none"/><circle cx="170" cy="208" r="2" fill="none"/><circle cx="205" cy="240" r="2" fill="none"/><circle cx="215" cy="268" r="2" fill="none"/><circle cx="235" cy="235" r="2" fill="none"/><circle cx="245" cy="268" r="2" fill="none"/>
 </g>
 <g stroke="#FFF" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">

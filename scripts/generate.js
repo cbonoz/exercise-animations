@@ -208,6 +208,7 @@ const MOTIONS = {
   },
   'cat-cow': {
     posture: 'all-fours',
+    motionType: 'sinusoidal',
     cow: { head: { x: -3, y: 20 }, neck: { x: -3, y: 15 }, shoulder: { x: 0, y: -6 }, hip: { x: 0, y: 7 } },
     cat: { head: { x: 3, y: -8 }, neck: { x: 3, y: -5 }, shoulder: { x: 0, y: 6 }, hip: { x: 0, y: -7 } },
     highlight: [['neck','shoulder'],['shoulder','hip']],
@@ -304,8 +305,8 @@ const MOTIONS = {
   },
   'bird-dogs': {
     posture: 'all-fours',
-    move: { left_hand: { x: -30, y: -20 }, left_foot: { x: 20, y: -15 },
-            left_knee: { x: 5, y: -5 }, shoulder: { x: -5, y: -5 }, hip: { x: 5, y: -5 } },
+    move: { left_hand: { x: -40, y: -25 }, left_knee: { x: 5, y: -5 }, left_foot: { x: 25, y: -15 },
+            shoulder: { x: -3, y: -3 }, hip: { x: 3, y: -3 } },
     highlight: [['shoulder','left_hand'],['hip','left_knee'],['left_knee','left_foot']],
     highlightColor: '#22C55E',
   },
@@ -401,7 +402,8 @@ const MOTIONS = {
   },
   'hip-circles': {
     posture: 'standing',
-    move: { right_knee: { x: 15, y: -5 }, right_foot: { x: 20, y: -5 } },
+    move: { right_knee: { x: 15, y: -5 } },
+    rotation: { joint: 'right_foot', angle: 45, radius: 25, phase: 0, mode: 'continuous' },
     highlight: [['hip','right_knee'],['right_knee','right_foot']],
     highlightColor: '#FF9500',
   },
@@ -435,11 +437,10 @@ const MOTIONS = {
     highlightColor: '#22C55E',
   },
   'worlds-greatest-stretch': {
-    posture: 'standing',
-    move: { right_knee: { x: 20, y: 10 }, right_foot: { x: 30, y: 15 },
-            hip: { x: 5, y: 5 }, shoulder: { x: 5, y: 10 }, neck: { x: 3, y: 8 },
+    posture: 'lunge',
+    move: { hip: { x: 5, y: 8 }, shoulder: { x: 5, y: 15 }, neck: { x: 3, y: 12 },
             right_elbow: { x: 10, y: -30 }, right_hand: { x: 15, y: -45 } },
-    highlight: [['hip','right_knee'],['right_knee','right_foot']],
+    highlight: [['neck','shoulder'],['shoulder','hip']],
     highlightColor: '#22C55E',
   },
   'thread-the-needle': {
@@ -501,6 +502,7 @@ const MOTIONS = {
   'pendulum-swings': {
     posture: 'standing',
     move: {},
+    rotation: { joint: 'right_hand', angle: 60, radius: 35, phase: 0 },
     highlight: [['shoulder','right_elbow'],['right_elbow','right_hand']],
     highlightColor: '#FF9500',
   },
@@ -809,7 +811,7 @@ ${floorSvg}
 <text x="200" y="38" fill="#888" font-size="13" font-family="sans-serif" text-anchor="middle">${title}</text>
 <text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle">${instructionSvg}</text>
 <g stroke="${S.ghostColor}" stroke-width="${S.ghostStroke}" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="${S.ghostOpacity}">
-  <circle cx="${ghost.head.x}" cy="${ghost.head.y}" r="${hr}" fill="#444" stroke="none"/>
+  <circle cx="${ghost.head.x}" cy="${ghost.head.y}" r="${hr}" fill="#555" stroke="none"/>
   ${ghostSvg}
 </g>
 <g stroke="${S.activeColor}" stroke-width="${S.activeStroke}" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -845,7 +847,8 @@ for (const exercise of plan.exercises) {
   fs.mkdirSync(sceneDir, { recursive: true });
 
   const floorY = motion.floorY || ghost.floorY;
-  const isCatCow = exercise.id === 'cat-cow';
+  const motionType = motion.motionType || '';
+  const isCatCow = motionType === 'sinusoidal';
 
   const holdFrames = motion.holdFrames || exercise.holdFrames || 0;
   const easing = motion.easing || exercise.easing || 'easeInOut';
@@ -925,23 +928,27 @@ load(0);
   fs.writeFileSync(path.join(sceneDir, 'index.html'), html);
 
   // Generate Lottie JSON (image sequence format, portable for lottie-react-native)
+  const zeroPad = (n) => String(n).padStart(3, '0');
   const assets = Array.from({ length: TOTAL_FRAMES }, (_, i) => ({
     id: `f${i}`, w: W, h: H,
-    p: `frame-${String(i).padStart(3, '0')}.svg`, e: 1,
+    u: '',
+    p: `frame-${zeroPad(i)}.svg`, e: 1,
+  }));
+  const layers = Array.from({ length: TOTAL_FRAMES }, (_, i) => ({
+    ty: 2, refId: `f${i}`,
+    ip: i, op: i + 1, st: 0, sr: 1,
+    ks: {
+      o: { a: 0, k: 100 },
+      r: { a: 0, k: 0 },
+      p: { a: 0, k: [W / 2, H / 2, 0] },
+      a: { a: 0, k: [W / 2, H / 2, 0] },
+      s: { a: 0, k: [100, 100, 100] },
+    },
   }));
   const lottie = {
     v: '5.7.0', fr: FR, ip: 0, op: TOTAL_FRAMES, w: W, h: H,
     assets,
-    layers: [{
-      ty: 0, ip: 0, op: TOTAL_FRAMES, st: 0, sr: 1,
-      ks: {
-        o: { a: 0, k: 100 },
-        r: { a: 0, k: 0 },
-        p: { a: 0, k: [W / 2, H / 2, 0] },
-        a: { a: 0, k: [0, 0, 0] },
-        s: { a: 0, k: [100, 100, 100] },
-      },
-    }],
+    layers,
   };
   fs.writeFileSync(path.join(sceneDir, 'lottie.json'), JSON.stringify(lottie));
 

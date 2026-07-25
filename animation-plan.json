@@ -95,7 +95,7 @@
       "posture": "supine",
       "axis": "horizontal",
       "label": "Lift hips toward ceiling",
-      "instruction": "Lie on back, knees bent feet flat; lift hips by driving through heels, squeeze glutes at top, lower with control.",
+      "instruction": "Lie on back, knees bent; drive heels down to lift hips, squeeze glutes at top, lower with control.",
       "highlightColor": "#FF9500",
       "description": "Lie on your back with knees bent and feet flat on the floor, hip-width apart. Arms can rest at sides or across chest. Drive through the heels to lift the hips toward the ceiling, squeezing the glutes at the top while keeping the core engaged and ribs down. Form a straight line from shoulders to knees at the top. Hold briefly, then lower with control, articulating through the spine if desired.",
       "touchFloor": [
@@ -198,7 +198,7 @@
       "posture": "supine",
       "axis": "horizontal",
       "label": "Extend opposite arm and leg",
-      "instruction": "Lie on back, arms up, legs in tabletop; slowly extend opposite arm and leg toward floor while keeping lower back pressed down, return and alternate.",
+      "instruction": "Lie on back, arms up, legs in tabletop; extend opposite arm and leg, keep back flat, return and alternate.",
       "highlightColor": "#8B5CF6",
       "description": "Lie on your back with arms extended toward the ceiling and knees bent at 90 degrees (tabletop position), shins parallel to floor. Press your lower back firmly into the floor. Slowly extend one arm overhead toward the floor behind you while simultaneously extending the opposite leg forward toward the floor, keeping the lower back pressed down. Return to start with control, then alternate sides. Move slowly to challenge core stability.",
       "touchFloor": [
@@ -252,7 +252,7 @@
       "posture": "side-lying",
       "axis": "horizontal",
       "label": "Open top knee like a clamshell",
-      "instruction": "Lie on side, knees bent stacked; keep feet together and pelvis stable, lift top knee up (external hip rotation), lower with control.",
+      "instruction": "Lie on side, knees bent stacked; keep feet together and pelvis stable, lift top knee, lower with control.",
       "highlightColor": "#FFD93D",
       "description": "Lie on your side with legs stacked and knees bent at approximately 45-60 degrees. Rest your head on your bottom arm or a pillow. Keep your feet together and pelvis stable (do not let top hip roll backward). Slowly lift the top knee upward like opening a clamshell, rotating at the hip while keeping feet touching. Squeeze the glute at the top, then lower with control. Do not twist the spine or pelvis.",
       "touchFloor": [
@@ -504,7 +504,7 @@
       "posture": "kneeling",
       "axis": "diagonal",
       "label": "Slowly lower torso",
-      "instruction": "Kneeling with ankles anchored, body straight; slowly lower torso forward with control using hamstrings, then return (use hands to assist if needed).",
+      "instruction": "Kneeling, ankles held, body straight; lower torso forward using hamstrings, use hands to assist.",
       "highlightColor": "#FF6B6B",
       "description": "Kneel on a padded surface with ankles secured (partner holding, strap, or band anchored low). Body straight from knees to head, core braced, hands at sides or crossed on chest. Slowly lower your torso forward toward the floor by extending at the knees (eccentric hamstring control), keeping body rigid like a plank. Use hamstrings to control the descent as long as possible. At bottom, push back up or use hands to assist return to upright kneeling. Advanced move - start with assisted variations.",
       "touchFloor": [
@@ -847,7 +847,7 @@
       "posture": "all-fours",
       "axis": "diagonal",
       "label": "Extend opposite arm and leg",
-      "instruction": "On all fours, simultaneously extend opposite arm forward and leg back, keep hips level and core braced, return and alternate.",
+      "instruction": "On all fours, extend opposite arm forward and leg back, keep hips level and core braced, return and alternate.",
       "highlightColor": "#22C55E",
       "description": "Start on hands and knees, neutral spine, wrists under shoulders, knees under hips. Simultaneously extend one arm straight forward (thumb up) and the opposite leg straight back (toes pointed or flexed), reaching long. Keep hips level and square, core braced so lower back stays neutral (no sagging or twisting). Hold briefly at full extension, then return with control and alternate sides. Imagine balancing a glass of water on your low back.",
       "touchFloor": [
@@ -877,7 +877,7 @@
           "len": 35,
           "dir": 1,
           "color": "#22C55E",
-          "label": "Reach fwd",
+          "label": "Reach back",
           "labelY": 138
         }
       ],
@@ -1899,7 +1899,7 @@
       "posture": "lunge",
       "axis": "diagonal",
       "label": "Lunge with thoracic rotation",
-      "instruction": "Step into deep lunge, place hand inside front foot, rotate torso toward front leg and reach opposite arm up, hold stretch, return.",
+      "instruction": "Step into deep lunge, hand inside front foot; rotate torso toward front leg, reach opposite arm up, return.",
       "highlightColor": "#22C55E",
       "description": "From standing or after a lunge step, step one foot forward into a deep lunge (back knee may lightly touch floor). Place the hand on the same side as the front leg inside the front foot. Rotate your torso toward the front leg, reaching the opposite arm up toward the ceiling and following with your gaze (thoracic rotation + hip flexor stretch). Feel the stretch in the front hip and across the mid/upper back. Return hand to floor, step back or repeat. Dynamic mobility drill.",
       "touchFloor": [
