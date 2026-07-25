@@ -165,8 +165,8 @@ const POSTURES = {
 // All joint names for interpolation
 const JOINTS = ['head','neck','shoulder','hip','left_elbow','left_hand','right_elbow','right_hand','left_knee','left_foot','right_knee','right_foot'];
 
-// Facing direction per posture (null = no directionality, e.g. horizontal poses)
-const FACING = { standing: 'right', kneeling: 'right', seated: 'right', 'all-fours': 'left', supine: null, prone: null, 'side-lying': null };
+// Facing direction per posture
+const FACING = { standing: 'right', kneeling: 'right', seated: 'right', 'all-fours': 'left', supine: 'up', prone: 'down', 'side-lying': 'right' };
 const BACK_LIMBS = new Set(['left_elbow','left_hand','left_knee','left_foot']);
 
 function lerp(a, b, t) { return a + (b - a) * t; }
@@ -674,13 +674,17 @@ function makeSvg(frame, exercise, motionData) {
   if (facing && joints.head) {
     const hx = +joints.head.x.toFixed(1);
     const hy = +joints.head.y.toFixed(1);
-    const nd = facing === 'left' ? -1 : 1;
-    noseSvg += `<polygon points="${hx + hr * 0.6 * nd},${hy - 2} ${hx + (hr + 4) * nd},${hy} ${hx + hr * 0.6 * nd},${hy + 2}" fill="#FFF" stroke="none"/>`;
+    let pts;
+    if (facing === 'right') pts = `${hx + hr * 0.6},${hy - 2} ${hx + hr + 4},${hy} ${hx + hr * 0.6},${hy + 2}`;
+    else if (facing === 'left') pts = `${hx - hr * 0.6},${hy - 2} ${hx - hr - 4},${hy} ${hx - hr * 0.6},${hy + 2}`;
+    else if (facing === 'up') pts = `${hx - 2},${hy - hr * 0.6} ${hx},${hy - hr - 4} ${hx + 2},${hy - hr * 0.6}`;
+    else if (facing === 'down') pts = `${hx - 2},${hy + hr * 0.6} ${hx},${hy + hr + 4} ${hx + 2},${hy + hr * 0.6}`;
+    if (pts) noseSvg += `<polygon points="${pts}" fill="#FFF" stroke="none"/>`;
   }
 
-  // Facing direction chevron on floor
+  // Facing direction chevron on floor (horizontal facing only)
   let floorSvg = '';
-  if (facing) {
+  if (facing === 'left' || facing === 'right') {
     const nd = facing === 'left' ? -1 : 1;
     const fx = facing === 'left' ? 50 : 350;
     floorSvg += `<polygon points="${fx},${floorY + 6} ${fx + 7 * nd},${floorY} ${fx},${floorY - 6}" fill="#444" opacity="0.5"/>`;

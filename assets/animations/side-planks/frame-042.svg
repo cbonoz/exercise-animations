@@ -10,7 +10,7 @@
 </defs>
 <rect width="400" height="300" fill="#0f0f1a"/>
 <line x1="20" y1="250" x2="380" y2="250" stroke="#444" stroke-width="3" stroke-linecap="round"/>
-
+<polygon points="350,256 357,250 350,244" fill="#444" opacity="0.5"/>
 <text x="200" y="38" fill="#888" font-size="13" font-family="sans-serif" text-anchor="middle">Side Planks</text>
 <text x="200" y="58" fill="#666" font-size="10" font-family="sans-serif" text-anchor="middle"><tspan x="200" dy="0">Side body hold on forearm, hold.</tspan></text>
 <g stroke="#555" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.3">
@@ -19,8 +19,8 @@
 </g>
 <g stroke="#FFF" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="130" cy="222.9" r="12" fill="#FFF" stroke="none"/>
-  
-  <line x1="130" y1="222.9" x2="142" y2="220.9"/><line x1="142" y1="220.9" x2="155" y2="218.9"/><line x1="155" y1="218.9" x2="210" y2="230.9"/><line x1="155" y1="218.9" x2="165" y2="249.9"/><line x1="165" y1="249.9" x2="180" y2="249.9"/><line x1="210" y1="230.9" x2="258" y2="237.9"/><line x1="258" y1="237.9" x2="238" y2="245.9"/><line x1="210" y1="230.9" x2="255" y2="228.9"/><line x1="255" y1="228.9" x2="235" y2="243.9"/>
+  <polygon points="137.2,220.9 146,222.9 137.2,224.9" fill="#FFF" stroke="none"/>
+  <line x1="130" y1="222.9" x2="142" y2="220.9"/><line x1="142" y1="220.9" x2="155" y2="218.9"/><line x1="155" y1="218.9" x2="210" y2="230.9"/><line x1="155" y1="218.9" x2="165" y2="249.9" opacity="0.4"/><line x1="165" y1="249.9" x2="180" y2="249.9" opacity="0.4"/><line x1="210" y1="230.9" x2="258" y2="237.9" opacity="0.4"/><line x1="258" y1="237.9" x2="238" y2="245.9" opacity="0.4"/><line x1="210" y1="230.9" x2="255" y2="228.9"/><line x1="255" y1="228.9" x2="235" y2="243.9"/>
   <g filter="url(#glow)"><line x1="142" y1="220.9" x2="155" y2="218.9" stroke="#22C55E" stroke-width="6" opacity="0.75"/><line x1="155" y1="218.9" x2="210" y2="230.9" stroke="#22C55E" stroke-width="6" opacity="0.75"/></g>
   <circle cx="130" cy="222.9" r="2.5" fill="#FFF" stroke="none"/><circle cx="142" cy="220.9" r="3" fill="#22C55E" stroke="none"/><circle cx="155" cy="218.9" r="3" fill="#22C55E" stroke="none"/><circle cx="210" cy="230.9" r="3" fill="#22C55E" stroke="none"/><circle cx="165" cy="249.9" r="2.5" fill="#FFF" stroke="none"/><circle cx="180" cy="249.9" r="2.5" fill="#FFF" stroke="none"/><circle cx="258" cy="237.9" r="2.5" fill="#FFF" stroke="none"/><circle cx="238" cy="245.9" r="2.5" fill="#FFF" stroke="none"/><circle cx="255" cy="228.9" r="2.5" fill="#FFF" stroke="none"/><circle cx="235" cy="243.9" r="2.5" fill="#FFF" stroke="none"/>
 </g>
