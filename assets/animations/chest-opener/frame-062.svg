@@ -24,5 +24,5 @@
   <g filter="url(#glow)"><line x1="200" y1="80" x2="200" y2="88" stroke="#FF9500" stroke-width="6" opacity="0.75"/><line x1="200" y1="88" x2="200" y2="112" stroke="#FF9500" stroke-width="6" opacity="0.75"/></g>
   <circle cx="200" cy="72" r="2.5" fill="#FFF" stroke="none"/><circle cx="200" cy="80" r="3" fill="#FF9500" stroke="none"/><circle cx="200" cy="88" r="3" fill="#FF9500" stroke="none"/><circle cx="200" cy="112" r="3" fill="#FF9500" stroke="none"/><circle cx="168.8" cy="106.5" r="2.5" fill="#FFF" stroke="none"/><circle cx="153.8" cy="125.3" r="2.5" fill="#FFF" stroke="none"/><circle cx="231.2" cy="106.5" r="2.5" fill="#FFF" stroke="none"/><circle cx="246.2" cy="125.3" r="2.5" fill="#FFF" stroke="none"/><circle cx="195" cy="169" r="2.5" fill="#FFF" stroke="none"/><circle cx="190" cy="221" r="2.5" fill="#FFF" stroke="none"/><circle cx="205" cy="169" r="2.5" fill="#FFF" stroke="none"/><circle cx="210" cy="221" r="2.5" fill="#FFF" stroke="none"/>
 </g>
-<text x="230" y="78" fill="#FF9500" font-size="10" font-family="sans-serif" paint-order="stroke" stroke="#0f0f1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Open chest</text>
+<text x="230" y="91" fill="#FF9500" font-size="10" font-family="sans-serif" paint-order="stroke" stroke="#0f0f1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Open chest</text>
 </svg>

@@ -24,5 +24,5 @@
   <g filter="url(#glow)"><line x1="195" y1="109" x2="213" y2="109" stroke="#FF9500" stroke-width="6" opacity="0.75"/><line x1="213" y1="109" x2="208" y2="103.8" stroke="#FF9500" stroke-width="6" opacity="0.75"/></g>
   <circle cx="195" cy="88" r="2.5" fill="#FFF" stroke="none"/><circle cx="195" cy="101" r="2.5" fill="#FFF" stroke="none"/><circle cx="195" cy="109" r="3" fill="#FF9500" stroke="none"/><circle cx="195" cy="123" r="2.5" fill="#FFF" stroke="none"/><circle cx="177" cy="109" r="2.5" fill="#FFF" stroke="none"/><circle cx="164" cy="126" r="2.5" fill="#FFF" stroke="none"/><circle cx="213" cy="109" r="3" fill="#FF9500" stroke="none"/><circle cx="208" cy="103.8" r="3" fill="#FF9500" stroke="none"/><circle cx="195" cy="170" r="2.5" fill="#FFF" stroke="none"/><circle cx="190" cy="222" r="2.5" fill="#FFF" stroke="none"/><circle cx="205" cy="170" r="2.5" fill="#FFF" stroke="none"/><circle cx="210" cy="222" r="2.5" fill="#FFF" stroke="none"/>
 </g>
-<text x="218" y="88.8" fill="#FF9500" font-size="10" font-family="sans-serif" paint-order="stroke" stroke="#0f0f1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Swing arm</text>
+<text x="218" y="91" fill="#FF9500" font-size="10" font-family="sans-serif" paint-order="stroke" stroke="#0f0f1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Swing arm</text>
 </svg>

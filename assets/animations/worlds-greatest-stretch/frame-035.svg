@@ -24,5 +24,5 @@
   <g filter="url(#glow)"><line x1="205" y1="118" x2="225" y2="180" stroke="#22C55E" stroke-width="6" opacity="0.75"/><line x1="225" y1="180" x2="240" y2="224" stroke="#22C55E" stroke-width="6" opacity="0.75"/></g>
   <circle cx="200" cy="73" r="2.5" fill="#FFF" stroke="none"/><circle cx="203" cy="89" r="2.5" fill="#FFF" stroke="none"/><circle cx="205" cy="99" r="2.5" fill="#FFF" stroke="none"/><circle cx="205" cy="118" r="3" fill="#22C55E" stroke="none"/><circle cx="182" cy="99" r="2.5" fill="#FFF" stroke="none"/><circle cx="174" cy="111" r="2.5" fill="#FFF" stroke="none"/><circle cx="228" cy="69" r="2.5" fill="#FFF" stroke="none"/><circle cx="241" cy="66" r="2.5" fill="#FFF" stroke="none"/><circle cx="195" cy="170" r="2.5" fill="#FFF" stroke="none"/><circle cx="190" cy="222" r="2.5" fill="#FFF" stroke="none"/><circle cx="225" cy="180" r="3" fill="#22C55E" stroke="none"/><circle cx="240" cy="224" r="3" fill="#22C55E" stroke="none"/>
 </g>
-<text x="256" y="46" fill="#22C55E" font-size="10" font-family="sans-serif" paint-order="stroke" stroke="#0f0f1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Rotate up</text>
+<text x="256" y="105" fill="#22C55E" font-size="10" font-family="sans-serif" paint-order="stroke" stroke="#0f0f1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Rotate up</text>
 </svg>

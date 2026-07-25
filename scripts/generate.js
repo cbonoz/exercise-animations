@@ -96,6 +96,22 @@ const POSTURES = {
       ['hip','left_knee'],['left_knee','left_foot'],
     ], head_r: 10,
   },
+  // Lunge, side view — front leg forward with bent knee, back knee near floor
+  lunge: {
+    floorY: 225,
+    head: { x: 185, y: 73 }, neck: { x: 185, y: 81 }, shoulder: { x: 185, y: 89 }, hip: { x: 170, y: 118 },
+    left_elbow: { x: 165, y: 99 }, left_hand: { x: 150, y: 112 },
+    right_elbow: { x: 205, y: 99 }, right_hand: { x: 220, y: 112 },
+    left_knee: { x: 140, y: 215 }, left_foot: { x: 125, y: 222 },
+    right_knee: { x: 230, y: 185 }, right_foot: { x: 260, y: 222 },
+    lines: [
+      ['head','neck'],['neck','shoulder'],['shoulder','hip'],
+      ['shoulder','left_elbow'],['left_elbow','left_hand'],
+      ['shoulder','right_elbow'],['right_elbow','right_hand'],
+      ['hip','left_knee'],['left_knee','left_foot'],
+      ['hip','right_knee'],['right_knee','right_foot'],
+    ], head_r: 10,
+  },
   // Lying on side, head left, feet right
   'side-lying': {
     floorY: 250,
@@ -166,7 +182,7 @@ const POSTURES = {
 const JOINTS = ['head','neck','shoulder','hip','left_elbow','left_hand','right_elbow','right_hand','left_knee','left_foot','right_knee','right_foot'];
 
 // Facing direction per posture
-const FACING = { standing: 'right', kneeling: 'right', seated: 'right', 'all-fours': 'left', supine: 'up', prone: 'down', 'side-lying': 'right' };
+const FACING = { standing: 'right', kneeling: 'right', seated: 'right', 'all-fours': 'left', supine: 'up', prone: 'down', 'side-lying': 'right', lunge: 'right' };
 const BACK_LIMBS = new Set(['left_elbow','left_hand','left_knee','left_foot']);
 
 function lerp(a, b, t) { return a + (b - a) * t; }
@@ -690,6 +706,30 @@ function makeSvg(frame, exercise, motionData) {
     floorSvg += `<polygon points="${fx},${floorY + 6} ${fx + 7 * nd},${floorY} ${fx},${floorY - 6}" fill="#444" opacity="0.5"/>`;
   }
 
+  // Compute instruction text dimensions (needed before annotations for y-clamping)
+  const title = exercise.name;
+  const rawInstruction = exercise.instruction || exercise.label;
+  function wrapText(text, maxChars) {
+    const words = text.split(' ');
+    const lines = [];
+    let line = '';
+    for (const w of words) {
+      if ((line + ' ' + w).length > maxChars) {
+        if (line) lines.push(line);
+        line = w;
+      } else {
+        line = line ? line + ' ' + w : w;
+      }
+    }
+    if (line) lines.push(line);
+    return lines;
+  }
+  const wrappedLines = wrapText(rawInstruction, 55);
+  const instructionSvg = wrappedLines.map((line, i) =>
+    `<tspan x="200" dy="${i === 0 ? 0 : 14}">${line}</tspan>`
+  ).join('');
+  const minAnnoY = 58 + wrappedLines.length * 14 + 5;
+
   // Build annotations
   let annoSvg = '';
   for (const a of annotations) {
@@ -704,11 +744,11 @@ function makeSvg(frame, exercise, motionData) {
         if (!refJ) continue;
         ax = refJ.x + (a.dx || 0);
         ay = refJ.y + (a.dy || 0);
-        labelY = a.labelY || ay - 7;
+        labelY = Math.max(minAnnoY, a.labelY || ay - 7);
       } else {
         ax = a.x1;
         ay = a.y;
-        labelY = a.labelY || ay - 7;
+        labelY = Math.max(minAnnoY, a.labelY || ay - 7);
       }
       const len = a.len || 60;
       const dir = a.dir || 1;
@@ -720,7 +760,7 @@ function makeSvg(frame, exercise, motionData) {
         annoSvg += `<line x1="${ax}" y1="${clampedAy1}" x2="${ax}" y2="${clampedAy2}" stroke="${a.color}" stroke-width="2" stroke-dasharray="4,3"/>`;
         annoSvg += `<polygon points="${ax-5 * arrowDir},${clampedAy2} ${ax},${clampedAy2+10 * arrowDir} ${ax+5 * arrowDir},${clampedAy2}" fill="${a.color}"/>`;
           if (a.label) {
-            const labelYpos = Math.max(15, Math.min(285, (clampedAy1 + clampedAy2) / 2));
+            const labelYpos = Math.max(minAnnoY, Math.min(285, (clampedAy1 + clampedAy2) / 2));
             annoSvg += `<text x="${ax + 14}" y="${labelYpos}" fill="${a.color}" font-size="10" text-anchor="middle" font-family="sans-serif" paint-order="stroke" stroke="#0f0f1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${a.label}</text>`;
           }
       } else {
@@ -741,41 +781,17 @@ function makeSvg(frame, exercise, motionData) {
       const cy = refJ.y + (a.dy || 0);
       const yOff = a.yOff || 20;
       annoSvg += `<path d="M ${cx-25} ${cy+yOff-10} Q ${cx} ${cy-yOff-8} ${cx+25} ${cy+yOff-10}" stroke="${a.color}" stroke-width="2" fill="none" stroke-dasharray="4,3"/>`;
-      if (a.label) annoSvg += `<text x="${cx}" y="${cy-yOff-12}" fill="${a.color}" font-size="10" text-anchor="middle" font-family="sans-serif" paint-order="stroke" stroke="#0f0f1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${a.label}</text>`;
+      if (a.label) annoSvg += `<text x="${cx}" y="${Math.max(minAnnoY, cy-yOff-12)}" fill="${a.color}" font-size="10" text-anchor="middle" font-family="sans-serif" paint-order="stroke" stroke="#0f0f1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${a.label}</text>`;
     } else if (a.type === 'text') {
       const j = a.joint || 'right_hand';
       const jp = joints[j] || ghost[j];
       if (jp) {
         const tx = jp.x + (a.dx || 0);
-        const ty = jp.y + (a.dy || 0);
+        const ty = Math.max(minAnnoY, jp.y + (a.dy || 0));
         annoSvg += `<text x="${+tx.toFixed(1)}" y="${+ty.toFixed(1)}" fill="${a.color}" font-size="10" font-family="sans-serif" paint-order="stroke" stroke="#0f0f1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${a.text}</text>`;
       }
     }
   }
-
-  const title = exercise.name;
-  const rawInstruction = exercise.instruction || exercise.label;
-
-  // Wrap instruction text to fit 380px canvas width at font-size 10 (~6px/char)
-  function wrapText(text, maxChars) {
-    const words = text.split(' ');
-    const lines = [];
-    let line = '';
-    for (const w of words) {
-      if ((line + ' ' + w).length > maxChars) {
-        if (line) lines.push(line);
-        line = w;
-      } else {
-        line = line ? line + ' ' + w : w;
-      }
-    }
-    if (line) lines.push(line);
-    return lines;
-  }
-  const wrappedLines = wrapText(rawInstruction, 55);
-  const instructionSvg = wrappedLines.map((line, i) =>
-    `<tspan x="200" dy="${i === 0 ? 0 : 14}">${line}</tspan>`
-  ).join('');
 
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}">
 <defs>

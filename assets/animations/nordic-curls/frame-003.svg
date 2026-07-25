@@ -24,5 +24,5 @@
   <g filter="url(#glow)"><line x1="200" y1="113" x2="195" y2="222" stroke="#FF6B6B" stroke-width="6" opacity="0.75"/><line x1="200" y1="113" x2="205" y2="222" stroke="#FF6B6B" stroke-width="6" opacity="0.75"/></g>
   <circle cx="200.1" cy="73.1" r="2.5" fill="#FFF" stroke="none"/><circle cx="200.1" cy="81.1" r="2.5" fill="#FFF" stroke="none"/><circle cx="200.1" cy="89" r="2.5" fill="#FFF" stroke="none"/><circle cx="200" cy="113" r="3" fill="#FF6B6B" stroke="none"/><circle cx="182" cy="99" r="2.5" fill="#FFF" stroke="none"/><circle cx="174" cy="111" r="2.5" fill="#FFF" stroke="none"/><circle cx="218" cy="99" r="2.5" fill="#FFF" stroke="none"/><circle cx="226" cy="111" r="2.5" fill="#FFF" stroke="none"/><circle cx="195" cy="222" r="3" fill="#FF6B6B" stroke="none"/><circle cx="188" cy="222" r="2.5" fill="#FFF" stroke="none"/><circle cx="205" cy="222" r="3" fill="#FF6B6B" stroke="none"/><circle cx="212" cy="222" r="2.5" fill="#FFF" stroke="none"/>
 </g>
-<text x="230.1" y="99" fill="#FF6B6B" font-size="10" font-family="sans-serif" paint-order="stroke" stroke="#0f0f1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Lower torso</text>
+<text x="230.1" y="105" fill="#FF6B6B" font-size="10" font-family="sans-serif" paint-order="stroke" stroke="#0f0f1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">Lower torso</text>
 </svg>
